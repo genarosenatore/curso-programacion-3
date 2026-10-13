@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_04.md) · [Clase siguiente](../14_Spring/CLASE_06.md)
 
-## Qué vas a aprender
+## Separar el entorno de la regla del negocio
 
-Vamos a trabajar **configuración, starters y perfiles**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una propiedad configura un recurso: puerto, URL de base o nivel de log. No debería cambiar la lógica de cómo validar una cantidad. application.properties utiliza `clave=valor`; una línea por propiedad y # para comentario. Es texto de configuración, no declaraciones de variables Java.
 
-## Antes de empezar
+El ejemplo configura H2 **en memoria**, una base dentro del proceso. jdbc es el mecanismo Java de comunicación con bases mediante un driver; jdbc:h2:mem:curso identifica ese motor y ubicación. create-drop genera el esquema del modelo al iniciar y lo elimina al cerrar según el ciclo del entorno. No conserva pedidos tras reiniciar y no es una estrategia de producción.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Condiciones y perfiles
 
-## Explicación desde cero
+Los starters reúnen dependencias y la autoconfiguración prepara beans cuando se cumplen condiciones de bibliotecas, propiedades y componentes existentes. No «adivina todo el proyecto». El starter data-jpa no incluye automáticamente cualquier driver de tu base: el ejemplo declara H2 aparte. La validación también tiene su starter explícito.
 
-La configuración permite variar puertos, conexiones y otras propiedades sin reescribir lógica. Un perfil selecciona ajustes para un entorno. application.properties usa claves y valores; variables de entorno pueden aportar configuración externa. Un starter habilita capacidades y la autoconfiguración usa condiciones para preparar beans.
+Un **perfil** selecciona configuración adicional, por ejemplo application-practica.properties cuando practica está activo. `spring.profiles.active=practica` o argumentos de arranque pueden activarlo. No copies secretos reales al repositorio; una configuración externa debe ubicarlos en el entorno apropiado. Mantener varios archivos no garantiza que el perfil deseado esté activo: mirá el log.
 
-Para practicar, H2 en memoria se reconstruye al arrancar. create-drop genera y elimina el esquema dentro de ese entorno de prueba. No lo usamos para una base con datos que necesitemos conservar. Los secretos reales no van en repositorios de ejemplos.
+open-in-view=false evita depender de un contexto persistente mantenido durante toda la respuesta web; por eso el servicio prepara DTO dentro de transacción. No cambia las anotaciones de carga ni convierte EAGER en una sola consulta. La configuración enseña a delimitar responsabilidades.
 
-## Ejemplo
+Probá cambiar solo server.port en tu copia y usá esa URL nueva. Si el frontend utiliza una ruta relativa desde el mismo servidor, la sigue; si tiene puerto fijo, deberás actualizarlo. Configuración coherente entre cliente y servidor forma parte de la prueba.
+
+## Ejemplo de la clase
 
 ```properties
 spring.datasource.url=jdbc:h2:mem:curso
@@ -29,36 +31,20 @@ server.port=8080
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.properties) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La base vive en el proceso y los datos se reinician al apagar. open-in-view=false delimita acceso persistente fuera del servicio y motiva construir DTO dentro de la transacción. Si el puerto está ocupado, podés usar otro y cambiar la URL del frontend de manera coherente.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiar mem a una URL de archivo cambia durabilidad y necesita revisar esquema y datos iniciales, no solo un nombre. create-drop puede borrar lo que querías conservar. Cambiar puerto sin destino del cliente produce petición a otro servicio o falla de conexión.
 
-Explicá por qué create-drop no sirve para conservar pedidos reales.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Cambiar el puerto del servidor y no cambiar el destino de las peticiones del frontend.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-La configuración permite variar puertos, conexiones y otras propiedades sin reescribir lógica. Un perfil selecciona ajustes para un entorno.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_04.md) · [Clase siguiente](../14_Spring/CLASE_06.md)

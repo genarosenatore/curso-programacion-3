@@ -1,23 +1,29 @@
 # Práctica 07.04 · HashMap: claves y valores
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Contá apariciones de A, B y A en un mapa.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Consultá el conteo previo con alternativa 0.
+2. Sumá 1 antes de put.
+3. Seguí A,B,A y comprobá A2,B1.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Contá A,B,A,C,B en un Map<String,Integer>. Anticipá cada conteo final.
 
-Analizá esta confusión: «Reemplazar siempre por 1 y perder el conteo acumulado.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Construí un índice código→nombre y actualizá P01. Explicá qué sucede con size y cómo detectarías un código no registrado sin confundirlo con un valor vacío.
 
-Para cada código, consultá el conteo actual con cero por defecto y sumá uno.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Leé el valor previo antes de sumar.
+2. put sobre la misma clave reemplaza.
+3. containsKey consulta existencia de la clave.

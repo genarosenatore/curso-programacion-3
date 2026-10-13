@@ -1,21 +1,15 @@
 # Soluciones 15.02 · Alinear interfaces TypeScript y DTO Java
 
-[Clase](CLASE_02.md) · [Ejercicios](EJERCICIOS_02.md)
+[Clase](CLASE_02.md) · [Práctica](EJERCICIOS_02.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 function adaptar(dto:{id:number;denominacion:string}){return {id:dto.id,nombre:dto.denominacion};}. Validá primero el JSON y luego adaptá. No uses as para fingir que ya se renombró el campo.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+El adaptador produce {id:1,nombre:"Cuaderno"} mediante lectura y nueva propiedad. Id grande puede ser string decimal validada; fecha de calendario puede ser string YYYY-MM-DD con validación; precioCentavos entero seguro no negativo. No convierte el id a Number si pierde precisión ni interpreta calendario como instante sin zona acordada. Al mostrar dinero divide centavos por100, manteniendo cálculo interno coherente.
 
-El modelo educativo usa ids pequeños y precios con dos decimales. El carrito local guarda centavos enteros y convierte al mostrar. La consigna contable usa otros DTO: compará sus nombres y tipos antes de reutilizar. Una propiedad descripcion no equivale automáticamente a nombre.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Afirmar que Java y TypeScript tienen tipos idénticos para cualquier tamaño o formato.
-
-El contrato entre frontend y backend debe coincidir en campos, tipos y significado. Un Long Java suele serializarse como número JSON, pero valores mayores que el entero seguro de JavaScript necesitan una política, como usar strings.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

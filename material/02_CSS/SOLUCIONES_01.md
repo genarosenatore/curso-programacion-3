@@ -1,21 +1,15 @@
 # Soluciones 02.01 · Conectar CSS y usar selectores
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 .aviso { background-color: #fef08a; color: #1f2937; }. En ambos párrafos usá class="aviso". Confirmá que un tercer párrafo sin esa clase no reciba el fondo.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+En estilos.css: `.nota { color: #075985; background-color: #e0f2fe; }` y `.tarjeta p { color: #334155; }`. El párrafo sin nota no recibe ese fondo. Los article comparten class="tarjeta", por lo que se pueden repetir sin quebrar la unicidad de id. Agregá `a:focus-visible { outline: 3px solid #075985; }` y recorré con Tab. El estado de foco permite ubicar el enlace antes de activarlo.
 
-La regla p selecciona párrafos. .destacado selecciona la clase destacado. El link busca estilos.css junto al HTML. Al recargar, Oferta aparece con color azul y texto en negrita. Si no cambia, revisá primero la ruta del archivo y después el selector con las herramientas del navegador.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Escribir class=".aviso": el punto solo va en el selector CSS.
-
-Una regla CSS tiene un selector y declaraciones. El selector elige elementos; cada declaración asigna un valor a una propiedad.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

@@ -1,21 +1,29 @@
 # Soluciones 03.07 · Objetos y nociones de clases
 
-[Clase](CLASE_07.md) · [Ejercicios](EJERCICIOS_07.md)
+[Clase](CLASE_07.md) · [Práctica](EJERCICIOS_07.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 const productos=[{nombre:"Cuaderno",precio:2000},{nombre:"Lapicera",precio:800}]; const elegido=productos.find(p=>p.nombre==="Lapicera");. elegido.precio es 800 si hubo coincidencia; si no, elegido es undefined y hay que comprobarlo antes de acceder.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+La primera variable ve el nuevo número porque ambas referencian el mismo libro. El combinado, completo para consola:
 
-Muestra 3/5 y Lapicera. La copia cambia una propiedad simple sin cambiar producto. this apunta al objeto creado en el constructor. const impide reasignar producto, pero permite producto.stock=2. Para datos anidados necesitaríamos estudiar una copia más profunda si queremos independencia.
+```javascript
+function buscarDisponible(libros, titulo) {
+  const encontrado = libros.find(libro => libro.titulo === titulo);
+  if (encontrado === undefined || encontrado.ejemplares <= 0) return null;
+  return encontrado;
+}
+const libros = [{titulo:"A",ejemplares:2},{titulo:"B",ejemplares:0}];
+console.log(buscarDisponible(libros,"A"));
+console.log(buscarDisponible(libros,"B")); // null
+console.log(buscarDisponible(libros,"C")); // null
+```
 
-## 3. Qué conviene corregir
+El cortocircuito de || evita leer ejemplares de undefined. Devolver null expresa la ausencia intencional definida por el contrato. Dos literales nuevos contienen objetos distintos, aunque sus propiedades sean iguales: === comprueba identidad de referencia, no una comparación de campos.
 
-La confusión a evitar es: Confundir una variable que referencia al mismo objeto con una copia independiente.
+## Cómo comparar tu respuesta
 
-Un objeto reúne propiedades con nombre. Podemos representar un producto con nombre, precio y stock.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

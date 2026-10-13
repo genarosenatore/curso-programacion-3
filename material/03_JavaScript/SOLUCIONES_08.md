@@ -1,21 +1,31 @@
 # Soluciones 03.08 · DOM: seleccionar, crear y modificar elementos
 
-[Clase](CLASE_08.md) · [Ejercicios](EJERCICIOS_08.md)
+[Clase](CLASE_08.md) · [Práctica](EJERCICIOS_08.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Para cada nombre, createElement("li"), textContent=nombre y lista.append(item). Antes de volver a renderizar podés usar lista.replaceChildren() para evitar duplicados. Confirmá que el número de elementos sea tres después de repetir el render.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Dentro del script, después de declarar lista:
 
-La selección busca el id productos. El if evita actuar sobre null. li se crea, recibe texto y se añade a ul. Poné el script al final del body o usá un script externo con defer. En los ejemplos de la unidad se entrega el HTML necesario para ejecutar estas operaciones.
+```javascript
+function mostrarNombres(nombres) {
+  lista.replaceChildren();
+  for (const nombre of nombres) {
+    const item = document.createElement("li");
+    item.textContent = nombre;
+    lista.append(item);
+  }
+}
+mostrarNombres(["A","B","C"]);
+mostrarNombres(["A","B","C"]);
+mostrarNombres([]);
+```
 
-## 3. Qué conviene corregir
+Tras las dos primeras llamadas hay tres, no seis, porque cada render empieza vacío. Tras [] hay cero: no se añaden hijos. Un nombre con < sigue siendo texto literal. Si lista puede faltar, incorporá una comprobación al principio y comunicá el error de estructura; omitir silenciosamente todo puede dificultar depurar.
 
-La confusión a evitar es: Reemplazar datos de usuario con innerHTML como si fuera una simple asignación de texto.
+## Cómo comparar tu respuesta
 
-El DOM es la representación de la página como un árbol de objetos. JavaScript puede seleccionar nodos, leer su contenido y modificarlos.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

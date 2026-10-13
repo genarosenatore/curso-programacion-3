@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_02.md) · [Clase siguiente](../13_JPQL/CLASE_04.md)
 
-## Qué vas a aprender
+## Traducir límites y patrones sin perder su significado
 
-Vamos a trabajar **fechas, texto, in, distinct y ordenamiento**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+BETWEEN incluye extremos; >= inicio y < fin expresa un intervalo **semiabierto**, útil para un día o mes con horas. Para octubre, el fin exclusivo es el inicio de noviembre: no inventás una última fracción de segundo. Los valores deben corresponder al tipo temporal de la entidad y a una política de zona horaria.
 
-## Antes de empezar
+LIKE usa % para cualquier secuencia y _ para un carácter. lower normaliza letras según reglas disponibles en el motor; no garantiza eliminar tildes. IN compara con valores de una colección parametrizada compatible. Para colección vacía, define el resultado sin depender de sintaxis IN vacía no portable: puede retornarse lista vacía antes de ejecutar.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Filtrar, distinguir y ordenar
 
-## Explicación desde cero
+IS NULL expresa ausencia, heredando la lógica de SQL. `fechaAnulacion is null` selecciona no anuladas en este modelo. `distinct` elimina repetidos de lo seleccionado: estados distintos no es lo mismo que entidades distintas. ORDER BY define orden y un id de desempate puede hacerlo estable si fechas coinciden.
 
-WHERE puede combinar condiciones y comparar fechas, texto o pertenencia. BETWEEN incluye extremos. LIKE usa % para cualquier secuencia y _ para un carácter. LOWER permite normalizar comparaciones. IN compara con una colección de valores compatibles.
+En [el laboratorio](../Ejemplos/persistencia/README.md), la consulta de fechas recibe Date compatibles y datos conocidos. No pegarás sus consultas en SQLite: se ejecutan mediante EntityManager. Para denominación del cliente, el parámetro patron puede ser "%ana%"; setParameter recibe el texto completo del patrón por separado.
 
-DISTINCT elimina duplicados de lo seleccionado y ORDER BY define orden. IS NULL comprueba ausencia. Un intervalo por fechas con horas necesita pensar si el final incluye el día completo; un rango semiabierto puede expresar mejor inicio incluido y fin excluido.
+Si la búsqueda del usuario incluye % o _, decidí si son comodines admitidos o texto literal. En caso literal necesita escape según la sintaxis definida; parametrizar evita inyección, pero no cambia el significado de LIKE. La práctica puede usar un texto fijo para aprender primero el mecanismo.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 select f from FacturaVenta f
@@ -27,36 +27,20 @@ order by f.fechaEmision, f.id
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las consultas se ejecutan mediante JPA sobre entidades mapeadas. No son SQL directo. El nombre y tipo de cada atributo deben coincidir con tu modelo.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La consulta incluye desde y excluye hastaExclusiva. Si querés todo octubre, el extremo superior puede ser el inicio de noviembre con una política de zona horaria apropiada. Los parámetros deben ser compatibles con Date o el tipo temporal elegido en la entidad.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Un fin con fecha del último día a medianoche puede excluir horas posteriores de ese mismo día. El fin exclusivo del siguiente día evita ese error. Distinct de estados agrupa coincidencias de esa cadena; no promete una factura por cliente.
 
-Buscá clientes cuya denominación contenga ana sin importar mayúsculas.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Concatenar texto del usuario dentro de la consulta para construir el filtro.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-WHERE puede combinar condiciones y comparar fechas, texto o pertenencia. BETWEEN incluye extremos.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **13.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_02.md) · [Clase siguiente](../13_JPQL/CLASE_04.md)

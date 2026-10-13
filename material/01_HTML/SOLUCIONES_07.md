@@ -1,21 +1,17 @@
 # Soluciones 01.07 · Práctica: página personal, registro y blog
 
-[Clase](CLASE_07.md) · [Ejercicios](EJERCICIOS_07.md)
+[Clase](CLASE_07.md) · [Práctica](EJERCICIOS_07.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Una solución mínima contiene index.html con presentación, registro.html con formulario y blog.html con dos artículos y una tabla. En cada una, nav enlaza a las tres rutas. Usá un solo h1 por página, labels en el registro y caption en la tabla. El resultado se comprueba abriendo todos los enlaces y validando campos vacíos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+La portada usa h1, párrafo y ul, más `<a href="registro.html">Registro de demostración</a>`. El registro usa los campos de 01.06 y `<a href="index.html">Volver</a>`. Si ambos están en la misma carpeta no hace falta ../.
 
-Este fragmento se coloca dentro del body del documento base. registro.html debe existir al lado de index.html. Hacé una tabla de requisitos: elemento esperado, archivo donde está y cómo comprobarlo. Una página que se ve bien puede tener un enlace roto o un campo sin etiqueta; la revisión debe incluir comportamiento y estructura.
+La tabla puede tener columnas Día y Horario con encabezados asociados. Verificá: enlace de ida, enlace de vuelta, asociación label/campo y rechazo del correo inválido. La apariencia no prueba ninguno de esos comportamientos. Un registro real necesita un backend que valide, decida reglas y guarde datos; HTML por sí solo no garantiza ese resultado.
 
-## 3. Qué conviene corregir
+## Cómo comparar tu respuesta
 
-La confusión a evitar es: Copiar una solución entera sin poder explicar dónde se define cada requisito.
-
-Una práctica integradora une varios temas. Empezamos por los requisitos y los traducimos a una lista comprobable.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

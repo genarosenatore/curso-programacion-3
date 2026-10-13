@@ -1,21 +1,15 @@
 # Soluciones 06.05 · Práctica: objetos repetidos y claves estables
 
-[Clase](CLASE_05.md) · [Ejercicios](EJERCICIOS_05.md)
+[Clase](CLASE_05.md) · [Práctica](EJERCICIOS_05.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 catalogo.contains(new Producto("P01")) true y con P03 false. La tabla de contratos debe pasar y los dos P01 tener el mismo hash. El ejemplo de la unidad permite ejecutar estas comprobaciones.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Tamaño 2; contains P01 true y P03 false. Entre dos new P01, == false, equals true y hash igual. Para P02, equals false; su hash puede ser distinto o colisionar sin cambiar esa diferencia. HashSet no promete orden, así que la tabla de pertenencia y tamaño expresa el requisito. toString es una ayuda de lectura, no la definición de equivalencia.
 
-El conjunto debe tener tamaño 2 con la clase de igualdad anterior. No garantiza un orden de impresión. Para comprobarlo, buscá por igualdad con otro new Producto("P01"). La relación entre Set y sus reglas se desarrolla en la siguiente unidad.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Modificar la clave después de insertar y atribuir a la colección la búsqueda fallida.
-
-Vamos a comprobar representación, igualdad y hash como un conjunto. Un catálogo puede recibir el mismo producto varias veces y necesita decidir si es duplicado.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

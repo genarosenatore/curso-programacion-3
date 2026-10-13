@@ -1,23 +1,29 @@
 # Práctica 07.06 · Comparable y Comparator
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Ordená nombres por longitud descendente y explicá el desempate.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Definí longitud como criterio principal descendente.
+2. Agregá desempate alfabético ascendente.
+3. Probá Ana,Eva,Luis y explicá reversed.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Ordená nombres por longitud ascendente con desempate alfabético.
 
-Analizá esta confusión: «Asumir que orden natural significa siempre orden de inserción.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá una copia y ordenala por longitud descendente, pero alfabética ascendente en empates. Verificá que la fuente conserve orden. ¿Por qué a-b puede fallar para enteros grandes?
 
-reversed invierte el comparador; decidí si querés invertir toda la cadena o solo su primer criterio.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Orden principal y desempate son criterios separados.
+2. reversed debe aplicarse solo al principal.
+3. Una resta puede superar el rango int.

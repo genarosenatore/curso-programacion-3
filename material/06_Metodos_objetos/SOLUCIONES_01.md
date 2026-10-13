@@ -1,21 +1,15 @@
 # Soluciones 06.01 · Identidad de referencias y significado de igualdad
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Si el código estable identifica el producto, ambos representan la misma identidad del dominio aunque el precio cambie. Esa es una decisión del modelo; hay que documentarla y aplicarla de forma coherente con hashCode.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Dos new: == false y equals true. Con alias: ambos true. Libro de catálogo puede igualarse por código de edición; un ejemplar físico debe distinguirse por inventario aunque ambos correspondan a esa edición. El nombre por sí solo no decide quién o qué es el objeto. Definir el significado evita implementar una comparación que deduplique datos distintos.
 
-Muestra false y true: los dos new crean objetos diferentes con contenido igual. No generalices el equals de String a cualquier clase propia. Una clase de producto que todavía no lo implemente seguirá usando identidad.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Usar == para comparar el contenido de objetos o strings.
-
-Identidad pregunta si dos referencias apuntan al mismo objeto; == responde eso para referencias. Igualdad pregunta si dos objetos representan el mismo valor según una regla definida por su clase.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

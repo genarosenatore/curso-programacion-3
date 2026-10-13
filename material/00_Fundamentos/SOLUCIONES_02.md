@@ -1,21 +1,15 @@
 # Soluciones 00.02 · Archivos, carpetas, extensiones y editor de código
 
-[Clase](CLASE_02.md) · [Ejercicios](EJERCICIOS_02.md)
+[Clase](CLASE_02.md) · [Práctica](EJERCICIOS_02.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Desde index.html: paginas/contacto.html. Desde contacto.html: ../index.html. Abrí cada archivo desde el editor y comprobá su ubicación antes de trabajar.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Desde index.html: imagenes/logo.svg. Desde css/estilos.css: ../imagenes/logo.svg. Son recorridos diferentes al mismo archivo. La ruta de Ana depende de un disco ajeno; guardar logo.svg en imagenes y enlazarlo relativamente permite compartir. Cambiar la extensión no repara el contenido porque el nombre y los datos son cosas distintas.
 
-index.html está en la raíz de mi-tienda. Para referirse a la imagen desde ese archivo, la ruta relativa es imagenes/producto.png. Desde css/estilos.css, la misma imagen está un nivel arriba: ../imagenes/producto.png. Los dos puntos indican subir una carpeta. Para practicar, creá una carpeta nueva para tus ejercicios y archivos vacíos con esos nombres; todavía no hace falta completar su contenido.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Guardar index.html.txt por tener ocultas las extensiones: el navegador puede tratarlo como texto. Verificá el nombre completo.
-
-Un archivo guarda contenido y tiene un nombre. La extensión es la terminación del nombre: .html, .css o .js.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

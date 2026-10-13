@@ -1,21 +1,15 @@
 # Soluciones 15.04 · Recorrido del proyecto de facturación descomprimido
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Anotá numeroFactura, clienteDenominacion, condicionIva, fechaDesde y fechaHasta según los archivos. Luego verificá tipos y formato esperado, especialmente fechas y números. Podés seguir los enlaces del inventario original para ubicar los proyectos descomprimidos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Los filtros son numeroFactura,clienteDenominacion,condicionIva,fechaDesde,fechaHasta; URLSearchParams los codifica si tienen contenido. PUT lleva número en ruta y DTO en cuerpo; controller delega al servicio que busca por ese número y transforma. numero es la propiedad real de entidad e id otra identidad técnica. El manejador tipado no comprueba campos ni tipos externos: necesita validar/adaptar antes de usar como modelo confiable.
 
-El archivo de API revisado utiliza localhost:8080/api/facturas. El controller expone operaciones sobre esa ruta. Que coincidan rutas no garantiza que todos los DTO sean idénticos a la consigna nueva: compará también los campos y si el identificador representa id o numeroFactura.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Confundir número de factura de negocio con id técnico al actualizar o borrar.
-
-El ZIP de frontend del campus contiene AppNodeJS con public, src y dependencias. public aporta HTML y src código TypeScript.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

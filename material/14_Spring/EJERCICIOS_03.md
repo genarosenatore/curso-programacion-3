@@ -1,23 +1,29 @@
 # Práctica 14.03 · Spring, Spring Boot y primer proyecto
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Identificá la clase de inicio, archivo de dependencias y configuración del proyecto de apoyo.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Ubica clase de inicio,pom y properties.
+2. Compara sus funciones durante arranque.
+3. Ejecuta y espera servidor listo antes de probar GET.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Identificá Aplicacion, pom.xml y application.properties y explicá sus responsabilidades.
 
-Analizá esta confusión: «Copiar una clase Spring a un proyecto Java vacío y esperar que sus imports existan.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Arrancá la API, consultá lista, detené y describí qué ocurre al repetir la petición. ¿Un arranque exitoso demuestra que cada endpoint y regla funciona?
 
-Buscá Aplicacion.java, pom.xml y application.properties.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Configuración y lógica están en archivos distintos.
+2. La petición depende de un proceso escuchando.
+3. Hay que comprobar comportamiento después del arranque.

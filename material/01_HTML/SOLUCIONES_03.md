@@ -1,21 +1,17 @@
 # Soluciones 01.03 · Enlaces, rutas e imágenes con texto alternativo
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 <a href="../index.html">Volver al inicio</a>. ../ sube de paginas a la raíz. Un alt útil sería Mochila roja con dos bolsillos, si esa es la información de la foto. Probá el enlace desde el navegador.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Regreso: `<a href="../index.html">Volver a la portada</a>`. En portada: `<a href="#lecturas">Ver lecturas</a>` y `<h2 id="lecturas">Lecturas</h2>`. El identificador debe coincidir y aparecer una sola vez.
 
-El primer enlace busca la subcarpeta paginas; el segundo busca el elemento con id catalogo en esta página. target="_blank" solicita otro contexto, normalmente una pestaña. Para que la imagen funcione debe existir ese archivo: en los ejemplos ejecutables del curso se incluye una imagen local. El id debe ser único en la página.
+Una cubierta que permite identificar el libro puede usar `alt="Cubierta de Don Quijote, edición de la biblioteca"`; el adorno puede usar alt vacío. Ajustá esa descripción al contenido real. Para diagnosticar la ruta, compará ubicación del documento, recorrido y nombre completo del archivo; abrí la dirección resuelta por el navegador y comprobá si existe. El texto alternativo no sustituye reparar una ruta equivocada.
 
-## 3. Qué conviene corregir
+## Cómo comparar tu respuesta
 
-La confusión a evitar es: Escribir una ruta que solo funciona en tu computadora, como C:/Users/... en un sitio compartido.
-
-Un enlace a utiliza href para indicar su destino. Puede apuntar a otra página, una dirección externa o una parte del mismo documento.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

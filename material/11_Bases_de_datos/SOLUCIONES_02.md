@@ -1,21 +1,15 @@
 # Soluciones 11.02 · Claves primarias, foráneas y restricciones
 
-[Clase](CLASE_02.md) · [Ejercicios](EJERCICIOS_02.md)
+[Clase](CLASE_02.md) · [Práctica](EJERCICIOS_02.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 El INSERT falla por integridad referencial. Primero se crea la categoría o se usa un id existente. No se resuelve escribiendo un nombre en el campo numérico. Al borrar una categoría, habrá que decidir una política para productos relacionados.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Los dos productos con categoría 1 se admiten: la clave foránea no es única. El de 99 se rechaza. Con NOT NULL, la ausencia también falla. El borrado normal de categoría referenciada se rechaza en este esquema. Para catálogo, puede elegirse reasignar productos antes o impedir borrar la categoría en uso; cascade delete eliminaría productos y debe responder a una regla real, no a comodidad.
 
-producto.categoria_id debe apuntar a una categoría existente cuando no es null. Si permitimos null, un producto puede no tener categoría. La base comprueba la integridad de la referencia, no que el nombre tenga sentido para nuestro negocio. Para hacer obligatoria la relación añadí NOT NULL.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Desactivar restricciones para que una carga inválida "funcione".
-
-Una clave primaria identifica una fila y no admite duplicados. Una clave foránea relaciona valores con otra tabla.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

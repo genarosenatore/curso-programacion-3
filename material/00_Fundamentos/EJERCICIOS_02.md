@@ -1,23 +1,29 @@
 # Práctica 00.02 · Archivos, carpetas, extensiones y editor de código
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Dibujá una carpeta biblioteca con index.html y una subcarpeta paginas que contenga contacto.html. Indicá la ruta desde index.html a contacto.html y la ruta de vuelta.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Dibujá biblioteca/index.html y paginas/contacto.html.
+2. Recorré las carpetas desde la portada hacia contacto.
+3. Invertí el recorrido y escribí cuántas veces debés subir.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Dibujá un proyecto con index.html, css/estilos.css e imagenes/logo.svg. Indicá la ruta a logo.svg desde index.html y desde estilos.css.
 
-Analizá esta confusión: «Guardar index.html.txt por tener ocultas las extensiones: el navegador puede tratarlo como texto. Verificá el nombre completo.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Una compañera recibe tu carpeta y la imagen no aparece. El enlace contiene C:/Usuarios/Ana/logo.svg. Explicá el error y una estructura que funcione en ambos equipos. ¿Cambiar solo la extensión arreglaría una imagen dañada?
 
-Para entrar en una carpeta se escribe su nombre; para subir un nivel se usa ../.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Ubicá desde qué archivo empieza cada recorrido.
+2. Si estás dentro de css, salí antes de entrar en imagenes.
+3. Compartí el archivo dentro del proyecto y usá una ruta relativa.

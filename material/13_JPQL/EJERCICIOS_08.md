@@ -1,23 +1,29 @@
 # Práctica 13.08 · Práctica escalonada: los cinco niveles del TP grupal
 
-[Clase](CLASE_08.md) · [Soluciones](SOLUCIONES_08.md)
+[Clase](CLASE_08.md) · [Soluciones separadas](SOLUCIONES_08.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Resolvé una consulta de cada nivel y escribí un resultado esperado con tres o cuatro filas de prueba.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Elige una consulta de cada nivel del TP.
+2. Escribe origen,relación,parametro y salida.
+3. Prepara datos que revelen duplicación,nulos o límite.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Completá una ficha para facturas emitidas de un cliente usando parámetro y otra para total por condición de IVA.
 
-Analizá esta confusión: «Evaluar una consulta sin datos que distingan sus casos correctos de los incorrectos.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Resolvé una selección, proyección, join único por marca, agrupación y NOT EXISTS, con resultados esperados pequeños. Explicá qué mecanismo introduce cada paso y qué atributo inspeccionaste para escribirlo.
 
-Avanzá desde entidades completas hasta un resumen; no empieces por toda la consulta avanzada.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La salida determina el origen y su cardinalidad.
+2. Una suma de cabecera no necesita expandir detalles.
+3. Correlacioná la ausencia con el artículo exterior.

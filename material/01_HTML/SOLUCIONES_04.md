@@ -1,21 +1,30 @@
 # Soluciones 01.04 · Estructura semántica: header, nav, main, section y footer
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Usá header para el nombre del blog, nav para los enlaces, main con dos article que tengan h2 y párrafos, y footer para contacto. Si agrupás artículos por tema, agregá section con su encabezado.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+La estructura del body es:
 
-main delimita la parte central. La sección tiene un título que explica su tema. El producto se presenta como una pieza autónoma mediante article. Los encabezados respetan la jerarquía. Si mañana cambiamos el diseño, estas responsabilidades siguen siendo las mismas.
+```html
+<header><h1>Biblioteca</h1></header>
+<nav><a href="#noticias">Noticias</a></nav>
+<main>
+  <section id="noticias">
+    <h2>Noticias de la biblioteca</h2>
+    <article><h3>Nuevos libros</h3><p>Llegaron nuevas lecturas.</p></article>
+    <article><h3>Horario</h3><p>Abrimos por la mañana.</p></article>
+  </section>
+</main>
+<footer><p>Contacto: biblioteca@example.com</p></footer>
+```
 
-## 3. Qué conviene corregir
+Al agregar el título de sección, los artículos pasan a h3 porque pertenecen a ese tema. En el ejercicio simple, sin section titulada, podían usar h2. id enlaza la referencia de navegación con la región; la etiqueta semántica por sí sola no crea ese enlace.
 
-La confusión a evitar es: Elegir section solo para aplicar un fondo sin que exista una agrupación temática.
+## Cómo comparar tu respuesta
 
-Los elementos semánticos describen la función de una región. header presenta contenido introductorio; nav agrupa navegación; main contiene el contenido principal; footer información de cierre.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

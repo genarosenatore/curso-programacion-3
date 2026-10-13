@@ -1,23 +1,29 @@
 # Práctica 14.01 · HTTP: URL, petición, respuesta, JSON y códigos de estado
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Describí petición y respuesta para consultar producto 1 y para consultar 999 inexistente.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Describe GET de producto 1 con URL completa.
+2. Compara 200 con 404 de 999.
+3. Distingue respuesta HTTP de conexión fallida.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Describí las partes de GET de producto1 y su respuesta si existe, y de999 si falta.
 
-Analizá esta confusión: «Confundir que la conexión respondió con que la operación del negocio salió bien.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Compará404,400,500 y conexión rechazada. Explicá qué revisás en cada caso y por qué Content-Type no demuestra que la operación de negocio fue aceptada.
 
-Ambas son GET; cambia el resultado según existencia.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Distinguí respuesta recibida de error de red.
+2. El estado orienta la causa.
+3. La cabecera describe formato, no éxito.

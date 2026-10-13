@@ -1,21 +1,15 @@
 # Soluciones 05.10 · Paquetes, dependencias y estructura de proyecto
 
-[Clase](CLASE_10.md) · [Ejercicios](EJERCICIOS_10.md)
+[Clase](CLASE_10.md) · [Práctica](EJERCICIOS_10.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Colocá los modelos en src/tienda/modelo y escribí package tienda.modelo. Inicio en src/tienda con package tienda importa esos modelos. En la raíz, compilá indicando el destino de clases y ejecutá el nombre cualificado tienda.Inicio si usás consola.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+-d out define destino y -cp out lo usa como raíz al ejecutar. Con Inicio en tienda el comando es `java -cp out tienda.Inicio`. Modelos declaran package tienda.modelo e Inicio importa tienda.modelo.Producto y Cliente. Compilá todos los fuentes apropiados con javac -d out. import no instala; la biblioteca debe estar disponible mediante classpath o la herramienta de construcción.
 
-La clase pública coincide con Producto.java. Si otra clase está en otro paquete, debe poder acceder al tipo y métodos necesarios. En proyectos Maven, la raíz de código suele ser src/main/java; dentro se ubica tienda/Producto.java. El prefijo de carpeta no forma parte del nombre del paquete.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Editar .class en lugar de .java o confundir una carpeta de compilados con código fuente.
-
-Un paquete organiza clases y evita conflictos de nombres. La declaración package corresponde a su ubicación de código dentro del proyecto.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

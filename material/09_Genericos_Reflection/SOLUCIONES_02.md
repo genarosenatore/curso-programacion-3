@@ -1,21 +1,15 @@
 # Soluciones 09.02 · Límites de tipos y wildcards
 
-[Clase](CLASE_02.md) · [Ejercicios](EJERCICIOS_02.md)
+[Clase](CLASE_02.md) · [Práctica](EJERCICIOS_02.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 El compilador desconoce el subtipo concreto capturado. Insertar un Double rompería una lista de Integer. Si una operación consume Integer, List<? super Integer> permite añadirlo y leer como Object.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Si se permitiera la asignación, agregar 2.5 a través de List<Number> introduciría Double en una lista que promete Integer. sumar da 3.0, 4.0 y 0.0. `static void agregarUno(List<? super Integer> destino){destino.add(1);}` puede recibir List<Integer>, List<Number> o List<Object>. Leer esa vista devuelve algo que solo se sabe Object; no asumas que todos sus elementos sean Integer.
 
-Los dos arrays de lista se aceptan como productores de Number. Dentro no sabemos si la lista concreta admite Integer o Double, por eso no añadimos cualquiera de esos tipos. doubleValue expresa una conversión numérica para este cálculo didáctico, no una política de precisión monetaria.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Interpretar extends como permiso para agregar cualquier subclase del límite.
-
-Un límite como T extends Number restringe tipos permitidos y habilita operaciones del contrato Number. Una wildcard ? expresa un tipo desconocido.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

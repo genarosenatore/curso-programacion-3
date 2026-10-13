@@ -1,23 +1,29 @@
 # Práctica 14.07 · Endpoints GET y parámetros
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Definí respuesta para listado vacío, id ausente e id con texto no numérico.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Prueba filtro sin resultados,id 999 e idabc.
+2. Anota 200[],404 y 400.
+3. Localiza conversión frente a búsqueda de existencia.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Probá listado sin coincidencias, id inexistente e id no numérico y anotá estados y cuerpos.
 
-Analizá esta confusión: «Devolver el mismo 200 con un mensaje de error para todos los fallos.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Explicá el recorrido de /abc frente a /999 y agregá un filtro de nombre con espacio correctamente codificado. ¿Se ejecuta la misma validación en ambos fallos?
 
-No son tres variantes del mismo caso.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La conversión ocurre antes del método cuando falla la entrada.
+2. La existencia se decide después de convertir.
+3. URLSearchParams codifica el valor de consulta.

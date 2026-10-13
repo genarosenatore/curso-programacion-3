@@ -1,21 +1,15 @@
 # Soluciones 04.02 · Tipos básicos, inferencia, arrays y funciones
 
-[Clase](CLASE_02.md) · [Ejercicios](EJERCICIOS_02.md)
+[Clase](CLASE_02.md) · [Práctica](EJERCICIOS_02.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 function saludar(nombre:string):string { return `Hola, ${nombre}`; }. saludar("Ana") devuelve Hola, Ana. Una función que solo imprime podría tener retorno void en vez de string.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+cuadrado devuelve 0 y 16. mostrarCuadrado puede tener retorno void y llamar console.log(cuadrado(numero)); no entrega 16 para otro cálculo. sumar usa let total=0, for...of y return total, como en JavaScript, con los tipos del contrato. [] devuelve 0 y [-1,2] también es un number[] válido; para cantidades permitidas se agrega validación.
 
-La función recibe dos números y devuelve otro. precios solo admite números. En configuraciones que comprueban acceso por índice, podría requerirse comprobar que precios[0] existe. Un array vacío demuestra por qué una suposición sobre sus elementos puede fallar aunque sus elementos sean numéricos.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Agregar tipos a todo mecánicamente y no comprender lo que se está garantizando.
-
-TypeScript puede inferir tipos a partir de un valor. No siempre hace falta anotarlo.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

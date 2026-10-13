@@ -1,21 +1,15 @@
 # Soluciones 14.04 · Beans, ApplicationContext e inyección de dependencias
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 El controlador declara lo que necesita y Spring lo proporciona. Así se respeta configuración y gestión. En una prueba se puede entregar un colaborador de prueba por el constructor sin depender de una búsqueda global.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+El contenedor entrega servicio al controller y repositorio al servicio. pedidoActual compartido puede ser sobrescrito por otra llamada y mezclar usuarios. Pasá pedido como parámetro y usa variables locales dentro del método, conservando persistencia con identidad apropiada. Inyección permite entregar una implementación de prueba que cumpla el contrato sin que la clase consumidora busque globalmente ni construya dependencias rígidas.
 
-Spring crea el servicio y le entrega el repositorio gestionado. Con un único constructor no es necesario añadir @Autowired en este caso. final fija la referencia del colaborador. Crear el servicio con new por tu cuenta evita la gestión y puede omitir inyección y proxies.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Usar variables de instancia para datos de cada pedido en un singleton compartido.
-
-Un bean es un objeto gestionado por el contenedor de Spring. ApplicationContext registra y proporciona componentes.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

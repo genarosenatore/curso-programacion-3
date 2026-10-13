@@ -1,23 +1,29 @@
 # Práctica 10.05 · filter, map y sorted
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Obtené nombres en mayúsculas de productos disponibles cuyo precio sea menor a 1500.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Filtrá stock y precio antes de transformar.
+2. Mapeá nombres a mayúsculas.
+3. Probá vacío original y un disponible barato añadido.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Obtené nombres de productos disponibles de precio menor a 1500 con los datos del ejemplo.
 
-Analizá esta confusión: «Llamar precio() después de transformar cada producto a String.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá Regla disponible de 1000 y otra disponible de 800. Ordená por precio y transformá los nombres a mayúsculas. Mostrá el tipo de cada etapa y explicá el resultado.
 
-Aplicá las condiciones mientras todavía tenés Producto y transformá después.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Filtrá mientras los elementos son Producto.
+2. Ordená antes de perder el precio.
+3. map convierte Producto a String.

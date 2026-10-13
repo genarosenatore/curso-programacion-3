@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_03.md) · [Clase siguiente](../06_Metodos_objetos/CLASE_05.md)
 
-## Qué vas a aprender
+## Usar un resumen para ubicar búsquedas
 
-Vamos a trabajar **hashcode y relación con equals**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un hash es un número calculado a partir de datos para ayudar a distribuirlos en grupos de búsqueda. hashCode devuelve int; no es una clave universal única. Si dos objetos son iguales por equals, deben devolver el mismo hash. La inversa no es obligatoria: dos objetos distintos pueden compartirlo, una **colisión**.
 
-## Antes de empezar
+Pensá un archivador donde el hash elige un cajón. Dos fichas de la misma persona deben ir al mismo cajón para que se comparen. En el mismo cajón puede haber fichas distintas y hay que verificar igualdad para distinguirlas. Ese modelo explica por qué el hash ayuda sin reemplazar equals.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Mantener juntos los dos contratos
 
-## Explicación desde cero
+Si equals usa codigo y hashCode usa precio, dos P01 con precios distintos pueden ser iguales y quedar distribuidos de manera incompatible. Usar codigo.hashCode para ambos P01 conserva la regla. Para varios campos, Objects.hash puede combinarlos, siempre que sean los mismos datos relevantes definidos por equals.
 
-hashCode devuelve un entero usado para distribuir búsquedas en colecciones basadas en hash. Si equals considera iguales dos objetos, deben tener el mismo hashCode. Dos objetos distintos pueden tener el mismo hash: se llama colisión y no implica igualdad.
+El fragmento inferior usa Producto de [06.03](CLASE_03.md), colocado fuera de main. Cada println comprueba una cosa: equivalencia y consecuencia del hash. No anticipes un valor hash como identificador de negocio: lo que importa es la relación de resultados, no su número particular.
 
-La regla debe usar los mismos datos relevantes que equals. Cambiar esos datos después de insertar como clave o elemento puede impedir encontrarlo donde la colección lo ubicó. Por eso usamos un código inmutable. El hash no sirve como identificador único universal.
+Si modificás la clave después de insertar en una colección hash, la búsqueda puede calcular otra ubicación y dejar de encontrar el elemento. No es que haya desaparecido físicamente: cambió el criterio usado para localizarlo. Usá claves estables, o retiralo y volvé a insertarlo siguiendo la política de la colección cuando el modelo permita cambios.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 // Usando Producto final de la clase anterior:
@@ -28,36 +28,20 @@ System.out.println(a.hashCode() == b.hashCode());
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Usá las clases definidas en esta lección o en la anterior. El programa completo de igualdad permite verificar los contratos.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Ambas líneas muestran true. La segunda es una consecuencia de la regla correcta, pero el mismo hash por sí solo no demuestra que sean iguales. La colección decide igualdad usando equals, además de su organización por hash.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Una implementación que siempre retorne 1 respeta igual→igual hash, pero concentra todo y puede volver ineficientes búsquedas. Una que dé distinto hash a objetos iguales incumple el contrato. Son limitaciones distintas: rendimiento y corrección.
 
-Explicá qué ocurre si equals usa código y hashCode usa precio.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Creer que hashes distintos son el único caso importante y que no pueden existir colisiones.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-hashCode devuelve un entero usado para distribuir búsquedas en colecciones basadas en hash. Si equals considera iguales dos objetos, deben tener el mismo hashCode.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **06.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_03.md) · [Clase siguiente](../06_Metodos_objetos/CLASE_05.md)

@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_13.md) · [Clase siguiente](../04_TypeScript/CLASE_02.md)
 
-## Qué vas a aprender
+## Comprobar un programa antes de ejecutarlo
 
-Vamos a trabajar **javascript y typescript: compilación y tipos**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+JavaScript permite asignar texto a una variable que antes contenía un número. Esa flexibilidad puede esconder errores hasta que ejecutamos cierta operación. TypeScript agrega un sistema de tipos para detectar usos incompatibles al escribir o compilar. Necesitás comprender [valores](../03_JavaScript/CLASE_01.md), [funciones](../03_JavaScript/CLASE_05.md) y [objetos](../03_JavaScript/CLASE_07.md): TypeScript no reemplaza esas ideas.
 
-## Antes de empezar
+**Compilar** transforma código fuente en otra representación. Aquí `tsc` comprueba TypeScript y genera JavaScript. Una **anotación** como `:number` indica qué valores admite un nombre; se elimina de la salida. El navegador ejecuta el JavaScript resultante, no utiliza esa anotación para comprobar una respuesta de red.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir la transformación
 
-## Explicación desde cero
+Con `let precio:number = 800`, el compilador conserva `let precio = 800` al generar. Si luego escribís precio = "gratis", informa incompatibilidad. Cambiarlo a Number("800") es una conversión real que genera una operación; escribir `as number` es una afirmación al compilador que no convierte nada. Esa diferencia determina qué comprobación sigue faltando en ejecución.
 
-TypeScript extiende JavaScript con información de tipos que se comprueba antes de ejecutar. El compilador produce JavaScript; las anotaciones de tipo no validan por sí solas los datos recibidos en tiempo de ejecución. Es una ayuda para escribir y mantener código, no una sustitución de las comprobaciones de entrada.
+Para practicar, usá [el proyecto TypeScript local](../EJEMPLOS.md): contiene src/main.ts, package.json y tsconfig.json. Si todavía no tenés herramientas instaladas, leé primero el procedimiento de [04.06](CLASE_06.md); esa clase explica Node y npm sin depender de nuevos tipos. El archivo viene compilado para observar la página, pero modificar un .ts exige volver a generar su salida.
 
-Un archivo .ts no se usa como script clásico directo en el navegador. Podemos compilar con tsc o usar una herramienta de desarrollo como Vite. Empezamos con un ejemplo que se entiende con las variables ya aprendidas.
+Con la herramienta preparada, guardá el fragmento en un archivo de práctica y ejecutá `npx tsc ejemplo.ts --strict --noEmitOnError --target ES2022` desde su carpeta; después `node ejemplo.js` para un ejemplo sin DOM. strict habilita comprobaciones más exigentes y noEmitOnError evita generar ante errores. Un programa puede compilar y tener un error lógico, como sumar precio y cantidad: los tipos no demuestran la regla del negocio.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```typescript
 const precio: number = 800;
@@ -27,36 +27,20 @@ console.log(nombre, precio * 2);
 
 [Abrir el fragmento como archivo](fragmentos/clase_01.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Las anotaciones :number y :string indican tipos. El JavaScript generado conserva los valores y el console.log, pero elimina las anotaciones. Un error del compilador describe una incompatibilidad; corregirlo debería mejorar el modelo y no silenciarlo con cualquier conversión.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Usá let precio:number para probar una asignación textual: así aislás el error de tipo sin mezclarlo con la prohibición de reasignar const del ejemplo inferior. Si recibís JSON con precio:"gratis", ninguna anotación modifica ese dato remoto. Validarlo requiere código ejecutable.
 
-Explicá por qué una API puede devolver un precio inválido aunque el programa compile.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_01.md). Las [soluciones explicadas](SOLUCIONES_01.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar una anotación o as para afirmar que los datos externos ya fueron comprobados.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-TypeScript extiende JavaScript con información de tipos que se comprueba antes de ejecutar. El compilador produce JavaScript; las anotaciones de tipo no validan por sí solas los datos recibidos en tiempo de ejecución.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.01** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_01.md). Las [soluciones razonadas](SOLUCIONES_01.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_13.md) · [Clase siguiente](../04_TypeScript/CLASE_02.md)

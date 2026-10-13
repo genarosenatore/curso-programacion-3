@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../07_Colecciones/CLASE_04.md) · [Clase siguiente](../07_Colecciones/CLASE_06.md)
 
-## Qué vas a aprender
+## Recorrer y modificar con una política compatible
 
-Vamos a trabajar **iteradores, búsqueda y eliminación**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un iterador mantiene una posición de recorrido. `hasNext()` informa si queda un elemento y `next()` avanza y lo devuelve. El for mejorado utiliza un mecanismo de iteración; modificar directamente la colección durante ese recorrido puede invalidarlo. ConcurrentModificationException no exige dos hilos: puede ocurrir por esa modificación en el mismo flujo.
 
-## Antes de empezar
+Para quitar según una condición, removeIf comunica la intención. La expresión `valor -> valor == 0` es una **lambda**: antes de -> está el parámetro y después una expresión booleana. La colección invoca ese criterio con cada elemento y elimina los true. Su contrato es Predicate, que desarrollaremos en [10.02](../10_Funcional/CLASE_02.md); esta sintaxis mínima alcanza para seguir el ejemplo.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Dos formas seguras
 
-## Explicación desde cero
+El fragmento inferior modifica una ArrayList editable y deja [3,5]. Integer se desempaqueta para comparar con cero; si admitís null, comprobalo antes. Una variante manual es `Iterator<Integer> it = numeros.iterator(); while(it.hasNext()){ int n=it.next(); if(n<0) it.remove(); }`. remove del iterador corresponde al último next y solo se invoca una vez por ese avance.
 
-Modificar una colección mientras un for mejorado la recorre puede invalidar su iterador. Para eliminar según una regla, removeIf expresa la intención. Si necesitás control manual, Iterator permite avanzar y usar su propio remove después de next.
+No llames lista.remove desde el for mejorado esperando que el recorrido se adapte. Tampoco modifiques List.of, que no admite esa operación. Si querés conservar el original, creá una copia y quitá de ella, o más adelante usá filter de un stream para obtener una selección sin modificar la fuente.
 
-Un resultado ausente necesita una política: booleano, null u Optional según la operación. No conviertas toda ausencia en un error. Una búsqueda sin coincidencia puede ser un resultado normal en un filtro.
+Una búsqueda sin coincidencias puede ser normal. Decidí si la operación devuelve boolean, null o un Optional según su contrato; no conviertas toda ausencia en una excepción. Eliminar todos los elementos puede ser un resultado válido y debe poder representarse.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 java.util.List<Integer> stock = new java.util.ArrayList<>(java.util.List.of(0, 3, 0, 5));
@@ -26,36 +26,20 @@ System.out.println(stock);
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los fragmentos de operaciones van dentro de main. Usá imports java.util o los nombres completos que se muestran.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Queda [3,5]. La lambda recibe cada valor y decide qué eliminar. En el ejemplo usa Integer con autounboxing para compararlo numéricamente. Si se admitieran null, habría que manejarlos antes. removeIf modifica la lista, distinto de filter de un stream que produce otro resultado.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Si todos los valores son cero, removeIf deja una lista vacía; no es un fallo. En una lista sin ceros, no cambia. Una lista no modificable puede lanzar al intentar eliminar: comprobá cómo fue construida.
 
-Eliminá números negativos de una lista sin tocarla directamente dentro de un for mejorado.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar lista.remove dentro del for mejorado y provocar ConcurrentModificationException.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Modificar una colección mientras un for mejorado la recorre puede invalidar su iterador. Para eliminar según una regla, removeIf expresa la intención.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **07.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../07_Colecciones/CLASE_04.md) · [Clase siguiente](../07_Colecciones/CLASE_06.md)

@@ -1,21 +1,15 @@
 # Soluciones 14.11 · Spring Data JPA, H2 y transacciones
 
-[Clase](CLASE_11.md) · [Ejercicios](EJERCICIOS_11.md)
+[Clase](CLASE_11.md) · [Práctica](EJERCICIOS_11.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 List<Producto> findByStockGreaterThan(int stock);. Con cero recupera productos disponibles según esa regla. El servicio puede mapearlos a DTO dentro de una transacción de lectura. No cambies el tipo del id del repositorio si la entidad utiliza Long.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+JpaRepository usa Producto y Long; la consulta con categoría prepara lo requerido para DTO. actualizar busca dentro de @Transactional y aplica cambios al objeto gestionado, que se sincroniza al confirmar. Validación rechaza nombre inválido antes de ese resultado. readOnly no decide qué usuario puede consultar ni modificar; autorización necesita política separada. DTO no es entidad gestionada, por lo que modificarlo no guarda.
 
-El nombre del método describe un filtro que Spring Data interpreta sobre el atributo nombre. Si el atributo cambia, el método debe cambiar. Las consultas derivadas son convenientes para casos simples; para consultas avanzadas podemos usar @Query con JPQL y parámetros.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Confiar en que el nombre de un método encontrará cualquier columna aunque no exista el atributo.
-
-Spring Data JPA puede generar un repositorio desde una interface. JpaRepository<Producto,Long> aporta operaciones sobre esa entidad y tipo de id.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

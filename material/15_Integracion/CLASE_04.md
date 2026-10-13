@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_03.md) · [Clase siguiente](../15_Integracion/CLASE_05.md)
 
-## Qué vas a aprender
+## Leer un proyecto por un flujo concreto
 
-Vamos a trabajar **recorrido del proyecto de facturación descomprimido**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+El frontend original tiene public para HTML y src para TypeScript. facturaVentaApi.ts concentra solicitudes; facturaVentaDTO.ts describe contrato; facturas.ts y factura-form.ts conectan pantallas. package.json describe tareas y dependencias. No necesitas leer node_modules para entender una petición, igual que vimos en [04.06](../04_TypeScript/CLASE_06.md).
 
-## Antes de empezar
+El archivo API revisado fija http://localhost:8080/api/facturas. construirQueryString usa URLSearchParams, excluye valores ausentes o blancos y agrega los restantes. obtenerFacturas hace GET; crear envía POST con JSON; actualizar PUT por numeroFactura de ruta y eliminar DELETE. El manejador contempla204 antes de json, pero sus afirmaciones genéricas no validan realmente la forma recibida.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Comparar el contrato en backend
 
-## Explicación desde cero
+FacturaVentaController ofrece filtros numeroFactura, clienteDenominacion, condicionIva, fechaDesde y fechaHasta. DateTimeFormat pide yyyy-MM-dd para esas fechas de entrada. Buscar, actualizar y eliminar usan número de factura como identificador de negocio en sus métodos. La entidad, sin embargo, declara numero; id técnico se hereda de EntityId. DTO, ruta y entidad pueden usar nombres distintos con mapeo explícito.
 
-El ZIP de frontend del campus contiene AppNodeJS con public, src y dependencias. public aporta HTML y src código TypeScript. facturaVentaApi.ts centraliza fetch; facturaVentaDTO.ts define tipos; factura-form.ts y facturas.ts conectan pantallas. El backend contable tiene controllers, servicios y entidades.
+Las clases contables inspeccionadas no traen mapeo JPA completo en varios casos. El proyecto de ejemplo no demuestra persistencia relacional integral de FacturaArca por tener Controller y Service. Para practicar JPA se añadió [laboratorio independiente](../Ejemplos/persistencia/README.md); para HTTP, [API de productos](../Ejemplos/spring/README.md). Ambos tienen sus propios modelos conocidos.
 
-No hace falta leer miles de archivos de node_modules para comprender la aplicación. Seguí un flujo concreto y la configuración declarada. No ejecutes a ciegas el proyecto contra una base desconocida: primero revisá conexiones y usá copias locales para practicar.
+El material original no se incluye en esta copia de Pages. Usa tu carpeta local recopilada o campus para seguir nombres exactos; esta clase te entrega el mapa del flujo y los datos inspeccionados, sin inventar que un sistema completo ya funciona. El diagrama inferior es ilustrativo y no se ejecuta.
 
-## Ejemplo
+Para investigar una actualización, sigue número de ruta → búsqueda por número → mapeo DTO→entidad → resultado. No sustituyas número por id solo porque ambos son Long: su significado difiere.
+
+## Ejemplo de la clase
 
 ```text
 public/index.html
@@ -32,36 +34,20 @@ FacturaVentaService.java
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos muestran piezas de integración. La guía de ejecución enlaza la tienda local y la API de productos de apoyo; las clases distinguen esos proyectos del sistema completo del campus.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El archivo de API revisado utiliza localhost:8080/api/facturas. El controller expone operaciones sobre esa ruta. Que coincidan rutas no garantiza que todos los DTO sean idénticos a la consigna nueva: compará también los campos y si el identificador representa id o numeroFactura.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Enviar id técnico donde la ruta espera número de factura puede consultar otra cosa o no encontrar. Renombrar numeroFactura en un DTO no renombra FacturaVenta.numero ni reescribe JPQL. Un mismo JSON de éxito no demuestra los mapeos faltantes del modelo.
 
-Buscá obtenerFacturas y getFacturasVenta en las copias originales y anotá filtros recibidos y usados.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Confundir número de factura de negocio con id técnico al actualizar o borrar.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-El ZIP de frontend del campus contiene AppNodeJS con public, src y dependencias. public aporta HTML y src código TypeScript.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **15.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_03.md) · [Clase siguiente](../15_Integracion/CLASE_05.md)

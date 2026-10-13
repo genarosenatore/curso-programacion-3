@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_03.md) · [Clase siguiente](../14_Spring/CLASE_05.md)
 
-## Qué vas a aprender
+## Entregar colaboradores a un objeto
 
-Vamos a trabajar **beans, applicationcontext e inyección de dependencias**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un **bean** es un objeto que Spring crea o registra y administra en un ApplicationContext, su contenedor. La **inyección de dependencias** entrega a ese objeto los colaboradores que necesita. ProductoService declara un repositorio en su constructor en vez de construirlo por dentro con new: así sus requisitos son visibles y la configuración puede elegir la implementación.
 
-## Antes de empezar
+@Service identifica una responsabilidad de servicio y participa en detección como componente. @Component es la marca general; @Repository y @Controller son especializaciones con funciones propias. @Bean en un método de configuración permite registrar el objeto devuelto cuando no conviene detectarlo por su clase. Una anotación necesita estar dentro del alcance configurado de búsqueda.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir la construcción
 
-## Explicación desde cero
+Al arrancar, Spring encuentra el servicio, resuelve qué bean satisface ProductoRepository y llama al constructor con él. La referencia final conserva el colaborador; no crea la implementación. Con un único constructor no se necesita @Autowired para ese caso. Si falta un bean o hay varios candidatos sin elección, el contexto puede fallar y el mensaje indica la dependencia que no pudo resolver.
 
-Un bean es un objeto gestionado por el contenedor de Spring. ApplicationContext registra y proporciona componentes. La inyección de dependencias entrega colaboradores a un objeto, en vez de que este construya todo por su cuenta. El constructor hace explícitos los requisitos.
+El fragmento inferior es parte del [proyecto](../Ejemplos/spring/README.md). No defines otra clase ProductoService con el mismo nombre allí; inspeccioná la existente y el constructor del controller. Para una prueba pequeña, el patrón permite construir manualmente una clase ordinaria con un colaborador de prueba, pero un servicio que usa proxies transaccionales requiere considerar esa gestión.
 
-En servicios web, los beans suelen compartirse como singleton dentro del contexto. Por eso no guardamos la lista de la compra de cada usuario en un campo mutable de un servicio compartido. El estado de una petición debe mantenerse local o en almacenamiento adecuado.
+El alcance usual singleton conserva una instancia por definición de bean en ese contexto. No significa una instancia en todo el universo ni que sea segura ante estado mutable compartido. No guardes cantidad de la compra de cada usuario en un campo de un servicio singleton: dos peticiones podrían interferir. Mantén esos datos en parámetros y variables locales o almacenamiento diseñado para el caso.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 @org.springframework.stereotype.Service
@@ -30,36 +30,20 @@ class ProductoService {
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Spring crea el servicio y le entrega el repositorio gestionado. Con un único constructor no es necesario añadir @Autowired en este caso. final fija la referencia del colaborador. Crear el servicio con new por tu cuenta evita la gestión y puede omitir inyección y proxies.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Hacer new ProductoService(repositorio) manualmente construye Java, pero no garantiza proxies ni la gestión de Spring. final impide reemplazar el campo, pero no vuelve inmutable el repositorio ni sus datos.
 
-Explicá por qué un Controller puede recibir ProductoService por constructor en lugar de crearlo con new.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar variables de instancia para datos de cada pedido en un singleton compartido.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un bean es un objeto gestionado por el contenedor de Spring. ApplicationContext registra y proporciona componentes.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_03.md) · [Clase siguiente](../14_Spring/CLASE_05.md)

@@ -1,21 +1,15 @@
 # Soluciones 07.01 · List, Set y Map: qué problema resuelve cada uno
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Receta: List por secuencia. Correos únicos: Set, con una política explícita de normalización. Precios por código: Map. Si los correos deben conservar orden de ingreso, LinkedHashSet puede ser adecuado.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Capítulos: List por posición y orden; códigos únicos: Set; ejemplares por código: Map. Para inscripción única y ordenada, LinkedHashSet satisface ambas necesidades. HashSet puede dar un orden que parece estable en un ejemplo pero no lo promete. No prepares una prueba que dependa de esa casualidad.
 
-Muestra 2 / 1. La lista conserva ambos; el conjunto usa igualdad de String para deduplicar. El mapa conserva el precio bajo la clave A. Una nueva llamada put con A reemplaza su valor anterior en lugar de crear otra clave.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Suponer que toda colección tiene posiciones numéricas como una lista.
-
-List representa una secuencia que permite duplicados; Set un grupo sin duplicados según su regla; Map relaciona claves con valores y no es un subtipo de Collection. Usamos interfaces en variables e implementaciones concretas al construir: List<String> nombres = new ArrayList<>.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

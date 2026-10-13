@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_07.md) · [Clase siguiente](../05_Java/CLASE_09.md)
 
-## Qué vas a aprender
+## Usar una capacidad sin conocer su clase concreta
 
-Vamos a trabajar **interfaces y polimorfismo**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una interface Java declara un contrato de operaciones. La clase que usa implements promete implementarlas. `Envio envio` puede referenciar Retiro o Domicilio: el llamador utiliza costoCentavos y la implementación decide su resultado. Esa elección de comportamiento por el objeto concreto es **polimorfismo**.
 
-## Antes de empezar
+Los métodos abstractos ordinarios de interfaz son públicos; la implementación no puede reducir su acceso. Una interfaz también puede incluir métodos default con cuerpo y métodos static, pero no necesitamos esas variantes para este contrato inicial. A diferencia de una interfaz TypeScript, aquí forma parte de los tipos Java en ejecución y las clases declaran explícitamente implements.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir una llamada
 
-## Explicación desde cero
+Colocá Envio, Retiro y Domicilio fuera de main en el archivo de consola. Dentro creá Envio envio=new Domicilio() y llamá costoCentavos. El compilador comprueba que Envio declare ese método; al ejecutar se utiliza el cuerpo de Domicilio y vuelve 50000. Si cambiás solo new Domicilio por new Retiro, vuelve cero sin cambiar la llamada.
 
-Una interface define un contrato de operaciones. Una clase puede implementarlo; una variable del tipo de la interface puede referenciar distintas implementaciones. Polimorfismo significa utilizar ese contrato mientras la implementación concreta define el comportamiento.
+Podés declarar `Envio[] opciones = {new Retiro(),new Domicilio()};` y recorrer las opciones con for(Envio opcion:opciones). Ambos objetos cumplen la misma operación aunque sean clases distintas. No se crea una instancia directa de Envio con new Envio() en esta definición.
 
-Un contrato incluye el significado, no solo la firma. Si una operación promete calcular envío, todas las implementaciones deben respetar las unidades y reglas acordadas. Separar el contrato de su implementación facilita reemplazar un cálculo de prueba por otro sin cambiar quien lo usa.
+El contrato debe aclarar unidades, entradas admitidas y resultado, como costo no negativo en centavos. Una implementación que devuelva pesos en el mismo int compilaría pero violaría el significado. Una interfaz conviene cuando queremos variar una capacidad y mantener al consumidor independiente; no hace falta crear una para cada clase sin motivo.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 interface Envio { int costoCentavos(); }
@@ -31,36 +31,20 @@ class Domicilio implements Envio {
 
 [Abrir el fragmento como archivo](fragmentos/clase_08.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las declaraciones de clases y métodos van dentro o fuera de main según indica la explicación. Los fragmentos no son todos archivos autónomos; el ejemplo completo de la unidad muestra la estructura ejecutable.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La variable envio se usa mediante el contrato y devuelve 50000. Si se construye Retiro, devuelve cero sin cambiar la llamada. Los métodos de implementación deben ser public porque los de la interface lo son en este caso. No se puede hacer new Envio() directamente con esta definición.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Agregá Express por 100000 centavos: el recorrido existente puede invocarlo sin un if por su nombre. Si su método no es public, la implementación no cumple la visibilidad del contrato. Si retorna -1 como costo normal, puede compilar pero incumple la regla acordada.
 
-Agregá una implementación de envío express que devuelva 100000 centavos.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_08.md). Las [soluciones explicadas](SOLUCIONES_08.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Escribir muchos if por nombre de clase cuando el contrato puede resolver la variación.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una interface define un contrato de operaciones. Una clase puede implementarlo; una variable del tipo de la interface puede referenciar distintas implementaciones.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **05.08** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_08.md). Las [soluciones razonadas](SOLUCIONES_08.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_07.md) · [Clase siguiente](../05_Java/CLASE_09.md)

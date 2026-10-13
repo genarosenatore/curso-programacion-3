@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_03.md) · [Clase siguiente](../05_Java/CLASE_05.md)
 
-## Qué vas a aprender
+## Un modelo y sus instancias
 
-Vamos a trabajar **clases, objetos, atributos y constructores**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una clase reúne estructura y comportamiento. Un **atributo** conserva estado de una instancia y un método opera sobre él. Producto declara qué datos tiene cada producto; `new Producto(...)` crea uno concreto. Dos new crean estados independientes aunque pertenezcan al mismo tipo.
 
-## Antes de empezar
+El **constructor** recibe datos iniciales al crear. Lleva el nombre de la clase y no un tipo de retorno. `void Producto(...)` sería un método ordinario, no ese constructor. Si declarás un constructor con parámetros, Java no agrega automáticamente uno sin argumentos; tendrás que definirlo si hace falta.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Asignar al objeto que se está creando
 
-## Explicación desde cero
+En `this.nombre = nombre`, this identifica la instancia actual. El lado derecho es el parámetro; el izquierdo su atributo. Sin this, `nombre = nombre` asignaría el parámetro a sí mismo y dejaría el atributo sin ese valor. Esa distinción no depende de la sangría.
 
-Una clase define atributos y comportamiento; un objeto es una instancia concreta. El constructor inicializa una instancia y tiene el mismo nombre de la clase sin tipo de retorno. new crea el objeto. this permite distinguir el atributo del parámetro cuando comparten nombre.
+Para ejecutar, poné la clase Producto del fragmento inferior como clase no pública después de la clase Hola de [05.01](CLASE_01.md), en el mismo Hola.java. Dentro de main creá `Producto a = new Producto("Cuaderno",200000);` y mostrá a.nombre. La variable a contiene una referencia, una forma de acceder al objeto creado, no la definición de su clase.
 
-Cada objeto tiene su estado. Dos productos pueden compartir la clase pero tener precios distintos. Un atributo de instancia pertenece a cada objeto; veremos static por separado porque pertenece a la clase. El constructor es una oportunidad para establecer reglas iniciales válidas.
+El ejemplo usa acceso de paquete para concentrarse en construcción. En la próxima clase haremos private para controlar cambios. El estado inicial debe tener reglas: nombre presente y precio permitido. Aunque Java acepte int negativo, el modelo de una venta puede rechazarlo. Creación correcta significa cumplir la forma y también el significado.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 class Producto {
@@ -32,36 +32,20 @@ class Producto {
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las declaraciones de clases y métodos van dentro o fuera de main según indica la explicación. Los fragmentos no son todos archivos autónomos; el ejemplo completo de la unidad muestra la estructura ejecutable.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 p referencia una instancia de Producto. this.nombre recibe el parámetro nombre. Otro new construye otro objeto con su propio estado. Usamos centavos para que el importe del ejemplo sea entero; 200000 centavos representan 2000 unidades monetarias.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Creá otro producto con nombre Lapicera y modificá su precio: a conserva su propio estado. Cambiá this.nombre=nombre por nombre=nombre: el atributo queda null porque las referencias de instancia sin asignación explícita tienen ese valor inicial. No es un objeto String vacío.
 
-Creá dos productos y explicá qué comparten y qué puede ser diferente.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Agregar void al constructor y convertirlo accidentalmente en un método.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una clase define atributos y comportamiento; un objeto es una instancia concreta. El constructor inicializa una instancia y tiene el mismo nombre de la clase sin tipo de retorno.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **05.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_03.md) · [Clase siguiente](../05_Java/CLASE_05.md)

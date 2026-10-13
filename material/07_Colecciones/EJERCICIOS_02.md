@@ -1,23 +1,29 @@
 # Práctica 07.02 · ArrayList y recorrido de listas
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Quitá Luis y agregá Omar. Predecí tamaño y orden.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Quitá Luis por valor de la lista editable.
+2. Agregá Omar al final.
+3. Comprobá tamaño 3 y orden Anita,Eva,Omar.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Desde Ana, Luis y Eva, reemplazá Ana por Anita, quitá Luis y agregá Omar. Anticipá lista y size.
 
-Analizá esta confusión: «Intentar agregar a List.of y no comprender UnsupportedOperationException.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá una lista Integer con 1,2,1. Compará remove(1) con remove(Integer.valueOf(1)) en copias distintas. ¿Por qué la misma cifra provoca operaciones diferentes?
 
-remove("Luis") elimina una coincidencia por valor.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. set conserva tamaño.
+2. remove con int selecciona posición.
+3. Integer selecciona el objeto a buscar por valor.

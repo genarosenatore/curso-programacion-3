@@ -1,21 +1,15 @@
 # Soluciones 14.06 · Capas: Controller, Service y Repository
 
-[Clase](CLASE_06.md) · [Ejercicios](EJERCICIOS_06.md)
+[Clase](CLASE_06.md) · [Práctica](EJERCICIOS_06.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Leer URL: Controller. Regla de stock: Service o dominio coordinado por él. Consulta: Repository. La validación estructural del request puede estar en Controller mediante Bean Validation y las reglas de negocio permanecen en el servicio.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+URL en controller, consulta en repository y regla en service/dominio. Un campo JSON se revisa en DTO y su mapeo; una regla de cantidad se revisa antes de modificar estado en la operación. El servicio llama la consulta, mapea cada entidad y devuelve lista. Mantener ese recorrido permite localizar una falla por evidencia en vez de agregar cambios a todas las capas.
 
-RestController escribe el retorno en la respuesta mediante conversión configurada. El controlador delega en el servicio y no arma SQL aquí. ProductoDTO y listar deben existir en el proyecto; el ejemplo completo incluye ambos y un repositorio.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Suponer que crear archivos con sufijos Controller y Service basta si todos duplican la misma lógica.
-
-Controller interpreta HTTP y traduce datos de entrada y salida. Service aplica reglas y coordina la operación.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

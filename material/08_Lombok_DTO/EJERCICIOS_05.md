@@ -1,23 +1,29 @@
 # Práctica 08.05 · Records y datos de transporte
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Diseñá un record ListaDTO(List<String> nombres) que no conserve una lista mutable ajena.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá lista mutable de nombres.
+2. Copiala en constructor compacto con List.copyOf.
+3. Modificá original y comprobá contenido del DTO.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá dos ProductoDTO iguales y comparalos; intentá uno con nombre vacío manejando el rechazo.
 
-Analizá esta confusión: «Suponer que final o un record inmoviliza recursivamente cualquier objeto referenciado.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Implementá ListaDTO con copia de List<String> en el constructor compacto. Modificá la lista original después. ¿Por qué no es una copia profunda universal?
 
-En el constructor compacto podés reemplazar el parámetro por una copia no modificable.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. equals se genera con componentes.
+2. Asigná nombres=List.copyOf(nombres) en el constructor.
+3. La estructura nueva puede compartir elementos.

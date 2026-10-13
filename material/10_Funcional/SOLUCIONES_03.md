@@ -1,21 +1,15 @@
 # Soluciones 10.03 · Referencias a métodos
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Function<String,Integer> longitud=String::length;. Recibe un string y devuelve su longitud mediante boxing de int a Integer. No está contando elementos de una lista.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+longitud.apply("Ana") da 3 y con "" da 0. `s -> s.toUpperCase(java.util.Locale.ROOT)` explicita una política independiente del idioma predeterminado del equipo. La referencia se guarda como comportamiento y se ejecuta al invocar el contrato, no al declarar. Elegí la forma que deje visible la regla necesaria.
 
-Muestra ANA. Function recibe un String y devuelve String, encajando con el método de instancia toUpperCase. Para resultados reproducibles de mayúsculas según idioma, podés usar una lambda s->s.toUpperCase(Locale.ROOT) cuando la regla lo requiera.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Usar referencias solo para acortar aunque vuelva menos evidente la intención.
-
-Una referencia a método es una forma abreviada de una lambda que delega directamente en un método compatible. String::toUpperCase puede representar s -> s.toUpperCase(); System.out::println una acción de impresión.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

@@ -1,21 +1,15 @@
 # Soluciones 11.03 · Relaciones uno a uno, uno a muchos y muchos a muchos
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 autor, libro y autor_libro(autor_id,libro_id) con clave primaria compuesta y ambas claves foráneas. Un par no debería repetirse. En JPA esa relación puede modelarse de forma distinta según si la asociación tiene datos propios.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+autor_libro contiene autor_id y libro_id, ambas referencias, con par único. factura lleva cliente_id; detalle lleva factura_id y producto_id. Cada renglón agrega cantidad y precio de venta. Guardar ese precio permite que cambiar producto.precio actual no altere una factura anterior. La relación referencia al producto y el valor histórico conserva otro hecho: cuánto se cobró entonces.
 
-Cada detalle referencia una factura y un producto. Varias filas pueden compartir factura_id, representando varios renglones de una factura. Las tablas factura y producto deben existir; este fragmento complementa el esquema de la unidad. No hay una columna lista_de_detalles en factura.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Poner una clave foránea de libro en autor y perder la posibilidad de varios libros.
-
-Una relación uno a muchos permite que una fila tenga varias relacionadas: categoría y productos. Se representa normalmente con la clave foránea en el lado muchos.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

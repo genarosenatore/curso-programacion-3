@@ -1,1 +1,674 @@
-[[["¿Qué describe un algoritmo?", ["Pasos precisos para resolver un problema", "El aspecto visual de una página", "Un archivo ejecutable exclusivamente"], "Un algoritmo expresa una solución mediante pasos; puede escribirse en pseudocódigo."], ["Precio 200 y cantidad 3: ¿qué operación calcula el subtotal?", ["200 × 3", "200 + 3", "200 / 3"], "El subtotal multiplica el precio unitario por la cantidad: 600."], ["Desde paginas/contacto.html, ¿cómo se llega a index.html en la carpeta superior?", ["../index.html", "paginas/index.html", "./index.html"], "../ sube una carpeta; ./ conserva la carpeta actual."], ["El programa funciona pero suma precio y cantidad en vez de multiplicar. ¿Qué error tiene?", ["De lógica", "De sintaxis necesariamente", "No tiene error"], "Puede ejecutarse sin fallar y aun así resolver mal el problema."]], [["¿Para qué sirve HTML?", ["Describir estructura y contenido", "Consultar una base de datos directamente", "Definir únicamente colores"], "HTML representa el contenido mediante elementos y atributos."], ["¿Qué elemento crea un enlace?", ["a", "p", "div"], "El elemento a con href enlaza a una dirección."], ["¿Cómo asociás una etiqueta con un campo?", ["for de label igual al id del campo", "El mismo color en ambos", "Poner ambos en carpetas iguales"], "La asociación permite identificar y activar el campo desde su etiqueta."], ["¿Qué expresa el atributo alt de una imagen?", ["Una alternativa textual útil", "El tamaño en píxeles", "La ruta de la hoja CSS"], "Describe la información o función de la imagen; una decorativa puede tener alt vacío."]], [["¿Qué selecciona .tarjeta?", ["Elementos con clase tarjeta", "Solo el id tarjeta", "Todos los elementos HTML"], "El punto indica una clase; # identifica un id."], ["¿Qué parte del modelo de caja separa el contenido del borde?", ["padding", "margin", "display"], "Padding es el espacio interior; margin queda fuera del borde."], ["¿Qué activa Flexbox en un contenedor?", ["display: flex", "position: flex", "flex: display"], "Display flex hace que sus hijos participen en un diseño flexible."], ["¿Para qué sirve una media query?", ["Aplicar estilos según condiciones como el ancho", "Consultar SQL", "Ejecutar una función Java"], "Permite adaptar el diseño a distintos tamaños o características del dispositivo."]], [["¿Qué devuelve 2 + 3 * 4?", ["14", "20", "24"], "La multiplicación tiene precedencia: primero 3 × 4 y después se suma 2."], ["¿Qué operación conserva solo los elementos que cumplen una condición?", ["filter", "map", "push"], "Filter selecciona elementos; map transforma cada elemento."], ["¿Qué representa await dentro de una función async?", ["Esperar la resolución de una promesa", "Convertir todo a texto", "Repetir una operación eternamente"], "Await permite continuar con el valor resuelto y gestionar errores con try/catch."], ["Una API devuelve HTTP 404. ¿Qué comprobación permite detectarlo con fetch?", ["respuesta.ok o respuesta.status", "Solo que fetch resolvió su promesa", "El nombre del archivo HTML"], "Fetch puede resolver aunque la respuesta HTTP indique un error."]], [["¿Qué aporta TypeScript?", ["Comprobación estática de tipos", "Una base de datos automática", "Validación garantizada de cualquier JSON remoto"], "Los tipos ayudan antes de ejecutar; los datos externos todavía requieren validación."], ["¿Qué exige unknown antes de usar un valor como string?", ["Comprobar o acotar su tipo", "Ignorar el tipo sin revisión", "Convertir todo el proyecto a Java"], "Un guard como typeof valor === \"string\" permite usar operaciones de string."], ["¿Qué hace una interfaz TypeScript?", ["Describe un contrato de estructura", "Crea una tabla SQL", "Descarga una dependencia"], "Una interfaz describe propiedades y tipos del código."], ["¿Qué función cumple Node.js en este recorrido?", ["Ejecutar herramientas JavaScript fuera del navegador", "Sustituir el HTML por SQL", "Compilar Java directamente"], "Node permite ejecutar herramientas como el compilador TypeScript y Vite."]], [["¿Qué es una instancia?", ["Un objeto concreto de una clase", "El nombre de un paquete", "Una anotación de Spring"], "Una clase define; una instancia representa un objeto con su propio estado."], ["¿Para qué sirve un constructor?", ["Inicializar una nueva instancia", "Eliminar todos los objetos", "Comparar únicamente strings"], "El constructor establece el estado inicial y puede comprobar sus reglas."], ["¿Qué significa encapsular el stock?", ["Controlar cambios para conservar sus reglas", "Hacer públicos todos los campos", "Guardar el número como HTML"], "Métodos controlados permiten rechazar cantidades inválidas sin corromper el estado."], ["¿Qué valor produce 7 / 2 si ambos operandos son int en Java?", ["3", "3.5", "4"], "La división de enteros descarta la parte fraccionaria."]], [["¿Qué compara == entre referencias Java?", ["Identidad de referencia", "Siempre todos los campos", "Siempre el texto visible"], "Dos objetos distintos pueden ser iguales según equals y no compartir referencia."], ["Si a.equals(b) es true, ¿qué debe ocurrir?", ["Sus hashCode deben coincidir", "Sus referencias deben ser idénticas", "Deben ser el mismo objeto físico"], "El contrato exige igual hash para objetos iguales, no igualdad de referencia."], ["¿Para qué sirve toString?", ["Producir una representación textual", "Guardar automáticamente en la base", "Garantizar igualdad"], "Es útil para leer y depurar; no reemplaza equals ni persistencia."], ["¿Qué puede pasar al cambiar una clave después de agregarla a un HashSet?", ["Las búsquedas pueden dejar de encontrarla", "El set se convierte en lista", "Se ordena automáticamente"], "Si cambian los campos usados en equals/hashCode, cambia su ubicación lógica."]], [["¿Qué colección mantiene orden y admite repetidos?", ["List", "Set por contrato", "Map sin claves"], "List conserva una secuencia; Set modela unicidad."], ["¿Qué estructura asocia claves con valores?", ["Map", "List", "Stream"], "Map permite acceder a un valor mediante su clave."], ["¿Qué pasa al put de una clave ya existente en un Map?", ["Se reemplaza su valor asociado", "Siempre agrega una segunda clave igual", "Se elimina el mapa entero"], "Cada clave tiene un valor asociado; put puede actualizarlo."], ["¿Qué expresa Comparator?", ["Un criterio de comparación y orden", "Una conexión HTTP", "Una clave foránea"], "Permite ordenar objetos según sus atributos sin depender del orden de inserción."]], [["¿Qué propósito tiene un DTO?", ["Transferir los datos necesarios de una operación", "Ejecutar SQL por sí mismo", "Convertir todas las entidades en tablas nuevas"], "Permite definir una salida específica y evitar exponer campos internos innecesarios."], ["¿Qué hace Lombok?", ["Genera código repetitivo durante la compilación", "Reemplaza la JVM", "Ejecuta migraciones SQL"], "Sus anotaciones requieren dependencia y procesamiento configurados."], ["¿Qué caracteriza a los componentes de un record?", ["Referencias finales accesibles por métodos de componente", "Mutabilidad profunda garantizada", "Ser tablas de base de datos"], "Un record simplifica portadores de datos; un componente puede referenciar un objeto mutable."], ["¿Conviene devolver la entidad completa cuando el cliente solo necesita nombre y disponibilidad?", ["Preparar un DTO de esos datos", "Exponer todos los campos siempre", "Borrar la entidad"], "El contrato de respuesta puede limitarse a lo que necesita el cliente."]], [["¿Qué permite un genérico como Caja<T>?", ["Reutilizar código conservando información del tipo", "Eliminar todos los tipos del programa", "Ejecutar código nativo"], "El parámetro de tipo permite trabajar con distintas clases sin perder comprobaciones."], ["¿List<Integer> es automáticamente List<Number>?", ["No; los genéricos son invariantes", "Sí, siempre", "Solo si la lista está vacía"], "La relación entre Integer y Number no convierte sus listas en subtipos equivalentes."], ["¿Qué permite Reflection?", ["Inspeccionar clases y miembros en ejecución", "Cambiar automáticamente todo objeto", "Evitar cualquier excepción"], "Permite consultar metadatos; el acceso y uso de miembros tiene restricciones."], ["¿Qué representa Class<?>?", ["Metadatos de una clase de tipo no especificado", "Una instancia obligatoria de String", "Un archivo CSS"], "Es un objeto que representa información sobre un tipo en ejecución."]], [["¿Cuántos métodos abstractos define una interfaz funcional?", ["Uno", "Ninguno obligatoriamente", "Exactamente tres"], "Puede tener otros métodos default o static; el contrato abstracto es único."], ["¿Qué hace map en un stream?", ["Transforma elementos", "Filtra por sí solo los falsos", "Guarda en una base"], "Filter selecciona; map cambia la representación de cada elemento."], ["¿Qué operación suele ser terminal?", ["collect", "filter", "map"], "Collect consume el recorrido; map y filter son operaciones intermedias."], ["¿Qué devuelve una suma con identidad 0 sobre una secuencia vacía?", ["0", "Una excepción obligatoria", "1"], "La identidad permite un resultado definido incluso cuando no hay elementos."]], [["¿Qué identifica una fila de forma única?", ["Clave primaria", "Cualquier nombre repetido", "Un comentario SQL"], "La clave primaria expresa identidad y no admite duplicados ni nulos."], ["¿Qué expresa una clave foránea?", ["Una referencia a una clave de otra fila", "Una columna siempre de texto", "Un índice visual de pantalla"], "Sirve para mantener relaciones y verificar integridad referencial."], ["¿Qué JOIN conserva filas de la izquierda sin coincidencia?", ["LEFT JOIN", "INNER JOIN", "Ninguno"], "Left join puede producir columnas derechas NULL cuando no existe coincidencia."], ["¿Qué hace ROLLBACK?", ["Revierte una transacción no confirmada", "Confirma todos los cambios", "Elimina siempre la base"], "Permite descartar modificaciones de la transacción."]], [["¿Qué marca una clase persistente en JPA?", ["@Entity", "@RestController", "@Override"], "Entity declara un tipo persistente; su identidad se define con Id."], ["¿Dónde va la clave foránea de muchos productos a una categoría?", ["En la tabla de productos normalmente", "En cada archivo HTML", "En ambos nombres sin referencia"], "El lado ManyToOne suele poseer la clave foránea y la relación."], ["¿Qué describe mappedBy?", ["El atributo propietario de la relación del otro lado", "El nombre obligatorio de una tabla", "Una URL del controlador"], "Indica que este lado es inverso y no mantiene la clave de la relación."], ["¿Qué problema puede aparecer al recorrer una relación LAZY fuera del contexto?", ["La carga pendiente puede fallar", "Se convierte siempre en un string", "Se crea una copia de la base"], "Conviene obtener y mapear los datos necesarios dentro del contexto adecuado."]], [["¿JPQL consulta principalmente nombres de qué?", ["Entidades y atributos Java", "Archivos HTML", "Solo tablas y columnas SQL"], "JPQL opera sobre el modelo persistente y luego se traduce a operaciones de la base."], ["¿Cómo se pasa un valor externo a JPQL?", ["Mediante un parámetro", "Concatenando siempre el texto del usuario", "Modificando el nombre de la entidad"], "Los parámetros evitan construir la consulta concatenando datos externos."], ["¿Qué cláusula filtra grupos agregados?", ["HAVING", "ORDER BY", "SELECT únicamente"], "WHERE filtra filas antes de agrupar; HAVING filtra los grupos."], ["¿Qué puede provocar un JOIN de una factura con varios detalles?", ["Varias filas relacionadas con la misma factura", "Una sola fila garantizada siempre", "Eliminar los detalles"], "Hay que revisar duplicados y cómo contar o agregar según el resultado requerido."]], [["¿Qué capa interpreta solicitudes HTTP?", ["Controller", "Repository", "La tabla SQL"], "El controlador traduce entrada y salida HTTP y delega las reglas al servicio."], ["¿Qué código es adecuado al crear un recurso?", ["201", "404", "500"], "201 Created puede acompañarse de Location con la dirección del recurso."], ["¿Qué expresa @Transactional?", ["Un límite de transacción para la operación", "Un estilo CSS", "Una respuesta JSON obligatoria"], "Coordina confirmación y rollback de operaciones dentro de las condiciones configuradas."], ["¿DELETE con respuesta 204 necesita JSON en su cuerpo?", ["No; la respuesta no tiene contenido", "Sí, siempre", "Debe devolver HTML completo"], "El cliente debe evitar parsear JSON de un cuerpo vacío."]], [["¿Dónde debe comprobarse la autorización real?", ["En el servidor", "Solo en localStorage", "Solo ocultando botones"], "El cliente puede modificarse; el servidor debe decidir los permisos."], ["¿Qué determina si el proyecto cumple la consigna?", ["Una matriz de requisitos y pruebas", "Que una captura se vea bien", "La cantidad de archivos"], "Cada requisito debe vincularse a su implementación y a una comprobación concreta."], ["¿Qué dato es útil al consultar un error?", ["Resultado esperado, obtenido y ejemplo mínimo", "Solo decir que no funciona", "Únicamente el color del editor"], "Estos datos permiten ubicar y reproducir el problema."], ["¿Cómo probar un carrito?", ["Agregar repetidos, superar stock, quitar y recalcular", "Solo abrir la página", "Cambiar el título"], "Los casos normales y los límites comprueban reglas y estado coherente."]]]
+[
+  [
+    [
+      "¿Qué describe un algoritmo?",
+      [
+        "Pasos precisos para resolver un problema",
+        "El aspecto visual de una página",
+        "Un archivo ejecutable exclusivamente"
+      ],
+      "«Pasos precisos para resolver un problema» es correcta. Un algoritmo expresa una solución mediante pasos; puede escribirse en pseudocódigo. «El aspecto visual de una página» no corresponde: Un color describe presentación, no pasos para obtener un resultado. «Un archivo ejecutable exclusivamente» no corresponde: Una extensión identifica el tipo esperado de archivo; no describe una solución.",
+      "00.01"
+    ],
+    [
+      "Guardaste index.html en el editor. ¿Qué quedó registrado por esa acción?",
+      [
+        "El estado actual del archivo",
+        "Un commit Git automáticamente",
+        "Una publicación en GitHub automáticamente"
+      ],
+      "«El estado actual del archivo» es correcta. Guardar conserva el archivo actual. Git requiere preparar y confirmar una versión; publicar es otra operación. «Un commit Git automáticamente» no corresponde: Un commit exige git add y git commit; guardar en el editor no registra historia. «Una publicación en GitHub automáticamente» no corresponde: GitHub recibe cambios mediante una operación remota; guardar localmente no publica.",
+      "00.05"
+    ],
+    [
+      "Desde paginas/contacto.html, ¿cómo se llega a index.html en la carpeta superior?",
+      [
+        "../index.html",
+        "paginas/index.html",
+        "./index.html"
+      ],
+      "«../index.html» es correcta. ../ sube una carpeta; ./ conserva la carpeta actual. «paginas/index.html» no corresponde: paginas/index.html entra en una subcarpeta; no sube. «./index.html» no corresponde: ./ conserva la carpeta actual y buscaría index.html dentro de ella.",
+      "00.02"
+    ],
+    [
+      "El programa funciona pero suma precio y cantidad en vez de multiplicar. ¿Qué error tiene?",
+      [
+        "De lógica",
+        "De sintaxis necesariamente",
+        "No tiene error"
+      ],
+      "«De lógica» es correcta. Puede ejecutarse sin fallar y aun así resolver mal el problema. «De sintaxis necesariamente» no corresponde: La sintaxis puede ser válida: el fallo es que la operación elegida no representa la compra. «No tiene error» no corresponde: Sí hay un error, porque 200+3 no cumple el total esperado de tres unidades de200.",
+      "00.04"
+    ]
+  ],
+  [
+    [
+      "¿Para qué sirve HTML?",
+      [
+        "Describir estructura y contenido",
+        "Consultar una base de datos directamente",
+        "Definir únicamente colores"
+      ],
+      "«Describir estructura y contenido» es correcta. HTML representa el contenido mediante elementos y atributos. «Consultar una base de datos directamente» no corresponde: La base se consulta mediante código y herramientas de acceso, normalmente desde backend; HTML no lo hace directamente. «Definir únicamente colores» no corresponde: Colores corresponden principalmente a CSS; HTML describe contenido y estructura.",
+      "01.01"
+    ],
+    [
+      "¿Qué elemento crea un enlace?",
+      [
+        "a",
+        "p",
+        "div"
+      ],
+      "«a» es correcta. El elemento a con href enlaza a una dirección. «p» no corresponde: p describe un párrafo y no define por sí solo un destino href. «div» no corresponde: div es un contenedor genérico y no crea un enlace navegable por sí solo.",
+      "01.03"
+    ],
+    [
+      "¿Cómo asociás una etiqueta con un campo?",
+      [
+        "for de label igual al id del campo",
+        "El mismo color en ambos",
+        "Poner ambos en carpetas iguales"
+      ],
+      "«for de label igual al id del campo» es correcta. La asociación permite identificar y activar el campo desde su etiqueta. «El mismo color en ambos» no corresponde: Compartir color no crea una asociación de etiqueta para accesibilidad ni foco. «Poner ambos en carpetas iguales» no corresponde: La carpeta de archivos no determina la relación entre label y campo en el documento.",
+      "01.06"
+    ],
+    [
+      "¿Qué expresa el atributo alt de una imagen?",
+      [
+        "Una alternativa textual útil",
+        "El tamaño en píxeles",
+        "La ruta de la hoja CSS"
+      ],
+      "«Una alternativa textual útil» es correcta. Describe la información o función de la imagen; una decorativa puede tener alt vacío. «El tamaño en píxeles» no corresponde: El tamaño se define con dimensiones o CSS, no con alt. «La ruta de la hoja CSS» no corresponde: La hoja se enlaza con link y href; alt comunica información o función de imagen.",
+      "01.03"
+    ]
+  ],
+  [
+    [
+      "¿Qué selecciona .tarjeta?",
+      [
+        "Elementos con clase tarjeta",
+        "Solo el id tarjeta",
+        "Todos los elementos HTML"
+      ],
+      "«Elementos con clase tarjeta» es correcta. El punto indica una clase; # identifica un id. «Solo el id tarjeta» no corresponde: Un id se selecciona con #tarjeta; el punto representa clase. «Todos los elementos HTML» no corresponde: El selector universal es *; .tarjeta limita a quienes tienen esa clase.",
+      "02.01"
+    ],
+    [
+      "¿Qué parte del modelo de caja separa el contenido del borde?",
+      [
+        "padding",
+        "margin",
+        "display"
+      ],
+      "«padding» es correcta. Padding es el espacio interior; margin queda fuera del borde. «margin» no corresponde: margin queda fuera del borde y separa cajas. «display» no corresponde: display cambia participación/tipo de caja; no nombra la zona interior de separación.",
+      "02.04"
+    ],
+    [
+      "¿Qué activa Flexbox en un contenedor?",
+      [
+        "display: flex",
+        "position: flex",
+        "flex: display"
+      ],
+      "«display: flex» es correcta. Display flex hace que sus hijos participen en un diseño flexible. «position: flex» no corresponde: position admite estrategias de posición; flex no es un valor de esa propiedad. «flex: display» no corresponde: flex es propiedad de un ítem para reparto; display:flex activa el contenedor.",
+      "02.06"
+    ],
+    [
+      "¿Para qué sirve una media query?",
+      [
+        "Aplicar estilos según condiciones como el ancho",
+        "Consultar SQL",
+        "Ejecutar una función Java"
+      ],
+      "«Aplicar estilos según condiciones como el ancho» es correcta. Permite adaptar el diseño a distintos tamaños o características del dispositivo. «Consultar SQL» no corresponde: Una consulta SQL opera sobre datos de base, no estilos del viewport. «Ejecutar una función Java» no corresponde: Una media query habilita reglas CSS; no ejecuta métodos Java.",
+      "02.08"
+    ]
+  ],
+  [
+    [
+      "¿Qué devuelve 2 + 3 * 4?",
+      [
+        "14",
+        "20",
+        "24"
+      ],
+      "«14» es correcta. La multiplicación tiene precedencia: primero 3 × 4 y después se suma 2. «20» no corresponde: 20 resulta de agrupar (2+3)*4; sin esos paréntesis la multiplicación precede. «24» no corresponde: 24 no corresponde a sumar2 con el producto12; confunde las operaciones.",
+      "03.02"
+    ],
+    [
+      "¿Qué operación conserva solo los elementos que cumplen una condición?",
+      [
+        "filter",
+        "map",
+        "push"
+      ],
+      "«filter» es correcta. Filter selecciona elementos; map transforma cada elemento. «map» no corresponde: map transforma cada elemento y no selecciona por sí solo los que cumplen. «push» no corresponde: push agrega un elemento al final y modifica el array; no filtra.",
+      "03.06"
+    ],
+    [
+      "¿Qué representa await dentro de una función async?",
+      [
+        "Esperar la resolución de una promesa",
+        "Convertir todo a texto",
+        "Repetir una operación eternamente"
+      ],
+      "«Esperar la resolución de una promesa» es correcta. Await permite continuar con el valor resuelto y gestionar errores con try/catch. «Convertir todo a texto» no corresponde: await obtiene la resolución de una promesa; convertir a texto es otra operación. «Repetir una operación eternamente» no corresponde: Una repetición necesita un bucle o mecanismo de eventos; await no significa repetir eternamente.",
+      "03.12"
+    ],
+    [
+      "Una API devuelve HTTP 404. ¿Qué comprobación permite detectarlo con fetch?",
+      [
+        "respuesta.ok o respuesta.status",
+        "Solo que fetch resolvió su promesa",
+        "El nombre del archivo HTML"
+      ],
+      "«respuesta.ok o respuesta.status» es correcta. Fetch puede resolver aunque la respuesta HTTP indique un error. «Solo que fetch resolvió su promesa» no corresponde: Una respuesta404 puede resolver fetch porque sí se recibió HTTP; hay que comprobar el estado. «El nombre del archivo HTML» no corresponde: El nombre HTML no indica si el servidor aceptó la petición; lo informa Response.",
+      "03.12"
+    ]
+  ],
+  [
+    [
+      "¿Qué aporta TypeScript?",
+      [
+        "Comprobación estática de tipos",
+        "Una base de datos automática",
+        "Validación garantizada de cualquier JSON remoto"
+      ],
+      "«Comprobación estática de tipos» es correcta. Los tipos ayudan antes de ejecutar; los datos externos todavía requieren validación. «Una base de datos automática» no corresponde: TypeScript no crea almacenamiento ni un esquema de base. «Validación garantizada de cualquier JSON remoto» no corresponde: Las anotaciones desaparecen y no validan JSON en ejecución; se necesitan condiciones reales.",
+      "04.01"
+    ],
+    [
+      "¿Qué exige unknown antes de usar un valor como string?",
+      [
+        "Comprobar o acotar su tipo",
+        "Ignorar el tipo sin revisión",
+        "Convertir todo el proyecto a Java"
+      ],
+      "«Comprobar o acotar su tipo» es correcta. Un guard como typeof valor === \"string\" permite usar operaciones de string. «Ignorar el tipo sin revisión» no corresponde: Ignorar el tipo con una afirmación o any quita una garantía y puede fallar al ejecutar. «Convertir todo el proyecto a Java» no corresponde: Java es otro lenguaje; convertir el proyecto no es un paso necesario para reducir unknown.",
+      "04.05"
+    ],
+    [
+      "¿Qué hace una interfaz TypeScript?",
+      [
+        "Describe un contrato de estructura",
+        "Crea una tabla SQL",
+        "Descarga una dependencia"
+      ],
+      "«Describe un contrato de estructura» es correcta. Una interfaz describe propiedades y tipos del código. «Crea una tabla SQL» no corresponde: Una tabla SQL se declara mediante esquema de base; la interfaz TS desaparece en salida JS. «Descarga una dependencia» no corresponde: Descargar paquetes corresponde a la herramienta de dependencias, no a interface.",
+      "04.03"
+    ],
+    [
+      "¿Qué función cumple Node.js en este recorrido?",
+      [
+        "Ejecutar herramientas JavaScript fuera del navegador",
+        "Sustituir el HTML por SQL",
+        "Compilar Java directamente"
+      ],
+      "«Ejecutar herramientas JavaScript fuera del navegador» es correcta. Node permite ejecutar herramientas como el compilador TypeScript y Vite. «Sustituir el HTML por SQL» no corresponde: HTML describe una página; Node no reemplaza ese documento por SQL. «Compilar Java directamente» no corresponde: Compilar Java corresponde al JDK/javac o su herramienta de construcción, no a Node por sí solo.",
+      "04.06"
+    ]
+  ],
+  [
+    [
+      "¿Qué es una instancia?",
+      [
+        "Un objeto concreto de una clase",
+        "El nombre de un paquete",
+        "Una anotación de Spring"
+      ],
+      "«Un objeto concreto de una clase» es correcta. Una clase define; una instancia representa un objeto con su propio estado. «El nombre de un paquete» no corresponde: Un paquete organiza nombres; no es un objeto creado de una clase. «Una anotación de Spring» no corresponde: Una anotación aporta metadatos o activa herramientas; no equivale a una instancia del dominio.",
+      "05.04"
+    ],
+    [
+      "¿Para qué sirve un constructor?",
+      [
+        "Inicializar una nueva instancia",
+        "Eliminar todos los objetos",
+        "Comparar únicamente strings"
+      ],
+      "«Inicializar una nueva instancia» es correcta. El constructor establece el estado inicial y puede comprobar sus reglas. «Eliminar todos los objetos» no corresponde: El constructor crea estado inicial; no elimina objetos existentes. «Comparar únicamente strings» no corresponde: Comparar texto es una operación de igualdad, no el propósito del constructor.",
+      "05.04"
+    ],
+    [
+      "¿Qué significa encapsular el stock?",
+      [
+        "Controlar cambios para conservar sus reglas",
+        "Hacer públicos todos los campos",
+        "Guardar el número como HTML"
+      ],
+      "«Controlar cambios para conservar sus reglas» es correcta. Métodos controlados permiten rechazar cantidades inválidas sin corromper el estado. «Hacer públicos todos los campos» no corresponde: Campos públicos permiten cambios sin controles y pueden violar la invariante. «Guardar el número como HTML» no corresponde: El tipo o formato HTML no conserva por sí solo reglas como stock no negativo.",
+      "05.05"
+    ],
+    [
+      "¿Qué valor produce 7 / 2 si ambos operandos son int en Java?",
+      [
+        "3",
+        "3.5",
+        "4"
+      ],
+      "«3» es correcta. La división de enteros descarta la parte fraccionaria. «3.5» no corresponde: 3.5 requeriría una división decimal antes del cálculo, por ejemplo7/2.0. «4» no corresponde: No redondea automáticamente al entero más próximo: descarta la parte fraccionaria hacia cero.",
+      "05.02"
+    ]
+  ],
+  [
+    [
+      "¿Qué compara == entre referencias Java?",
+      [
+        "Identidad de referencia",
+        "Siempre todos los campos",
+        "Siempre el texto visible"
+      ],
+      "«Identidad de referencia» es correcta. Dos objetos distintos pueden ser iguales según equals y no compartir referencia. «Siempre todos los campos» no corresponde: Java no compara todos los campos automáticamente con ==; ese operador pregunta misma referencia. «Siempre el texto visible» no corresponde: El texto se compara con String.equals o una regla definida; == no significa contenido visible.",
+      "06.01"
+    ],
+    [
+      "Si a.equals(b) es true, ¿qué debe ocurrir?",
+      [
+        "Sus hashCode deben coincidir",
+        "Sus referencias deben ser idénticas",
+        "Deben ser el mismo objeto físico"
+      ],
+      "«Sus hashCode deben coincidir» es correcta. El contrato exige igual hash para objetos iguales, no igualdad de referencia. «Sus referencias deben ser idénticas» no corresponde: Objetos distintos pueden ser equivalentes según código y compartir hash sin ser la misma referencia. «Deben ser el mismo objeto físico» no corresponde: La igualdad definida por campos estables no exige ser una única instancia física.",
+      "06.04"
+    ],
+    [
+      "¿Para qué sirve toString?",
+      [
+        "Producir una representación textual",
+        "Guardar automáticamente en la base",
+        "Garantizar igualdad"
+      ],
+      "«Producir una representación textual» es correcta. Es útil para leer y depurar; no reemplaza equals ni persistencia. «Guardar automáticamente en la base» no corresponde: Conservar datos requiere un mecanismo de persistencia; toString solo retorna texto. «Garantizar igualdad» no corresponde: Igualdad la define equals, no la semejanza de la representación textual.",
+      "06.02"
+    ],
+    [
+      "¿Qué puede pasar al cambiar una clave después de agregarla a un HashSet?",
+      [
+        "Las búsquedas pueden dejar de encontrarla",
+        "El set se convierte en lista",
+        "Se ordena automáticamente"
+      ],
+      "«Las búsquedas pueden dejar de encontrarla» es correcta. Si cambian los campos usados en equals/hashCode, cambia su ubicación lógica. «El set se convierte en lista» no corresponde: Modificar un campo no cambia el tipo Set a List. «Se ordena automáticamente» no corresponde: HashSet no se ordena por una mutación; el riesgo es que la clave se ubique lógicamente en otro grupo de búsqueda.",
+      "06.04"
+    ]
+  ],
+  [
+    [
+      "¿Qué colección mantiene orden y admite repetidos?",
+      [
+        "List",
+        "Set por contrato",
+        "Map sin claves"
+      ],
+      "«List» es correcta. List conserva una secuencia; Set modela unicidad. «Set por contrato» no corresponde: Set no admite duplicados por su regla y su interfaz no promete una secuencia por índices. «Map sin claves» no corresponde: Map asocia claves con valores; una clave es parte esencial de cada asociación.",
+      "07.01"
+    ],
+    [
+      "¿Qué estructura asocia claves con valores?",
+      [
+        "Map",
+        "List",
+        "Stream"
+      ],
+      "«Map» es correcta. Map permite acceder a un valor mediante su clave. «List» no corresponde: List usa posiciones y elementos, no una asociación general por clave. «Stream» no corresponde: Stream describe un recorrido de procesamiento; no conserva un índice clave/valor por sí solo.",
+      "07.04"
+    ],
+    [
+      "¿Qué pasa al put de una clave ya existente en un Map?",
+      [
+        "Se reemplaza su valor asociado",
+        "Siempre agrega una segunda clave igual",
+        "Se elimina el mapa entero"
+      ],
+      "«Se reemplaza su valor asociado» es correcta. Cada clave tiene un valor asociado; put puede actualizarlo. «Siempre agrega una segunda clave igual» no corresponde: Una clave igual representa la misma asociación; put reemplaza su valor. «Se elimina el mapa entero» no corresponde: put afecta esa asociación; no elimina todas las demás entradas del mapa.",
+      "07.04"
+    ],
+    [
+      "¿Qué expresa Comparator?",
+      [
+        "Un criterio de comparación y orden",
+        "Una conexión HTTP",
+        "Una clave foránea"
+      ],
+      "«Un criterio de comparación y orden» es correcta. Permite ordenar objetos según sus atributos sin depender del orden de inserción. «Una conexión HTTP» no corresponde: HTTP requiere peticiones/respuestas y configuración web; un Comparator define orden. «Una clave foránea» no corresponde: Una clave foránea mantiene relación persistente entre filas, no criterio de ordenar objetos.",
+      "07.06"
+    ]
+  ],
+  [
+    [
+      "¿Qué propósito tiene un DTO?",
+      [
+        "Transferir los datos necesarios de una operación",
+        "Ejecutar SQL por sí mismo",
+        "Convertir todas las entidades en tablas nuevas"
+      ],
+      "«Transferir los datos necesarios de una operación» es correcta. Permite definir una salida específica y evitar exponer campos internos innecesarios. «Ejecutar SQL por sí mismo» no corresponde: Un DTO no ejecuta consultas por ser un contenedor de datos. «Convertir todas las entidades en tablas nuevas» no corresponde: Crear una tabla para cada DTO mezcla contrato de salida con almacenamiento y no es su finalidad.",
+      "08.03"
+    ],
+    [
+      "¿Qué hace Lombok?",
+      [
+        "Genera código repetitivo durante la compilación",
+        "Reemplaza la JVM",
+        "Ejecuta migraciones SQL"
+      ],
+      "«Genera código repetitivo durante la compilación» es correcta. Sus anotaciones requieren dependencia y procesamiento configurados. «Reemplaza la JVM» no corresponde: La JVM sigue ejecutando bytecode; Lombok participa en generación durante compilación. «Ejecuta migraciones SQL» no corresponde: Migraciones cambian esquema de base; Lombok no realiza ese trabajo por generar accesores.",
+      "08.02"
+    ],
+    [
+      "¿Qué caracteriza a los componentes de un record?",
+      [
+        "Referencias finales accesibles por métodos de componente",
+        "Mutabilidad profunda garantizada",
+        "Ser tablas de base de datos"
+      ],
+      "«Referencias finales accesibles por métodos de componente» es correcta. Un record simplifica portadores de datos; un componente puede referenciar un objeto mutable. «Mutabilidad profunda garantizada» no corresponde: Una lista mutable referenciada puede cambiar aunque el componente sea final; la inmutabilidad es superficial. «Ser tablas de base de datos» no corresponde: Un record es una clase de datos Java y no crea automáticamente una tabla persistente.",
+      "08.05"
+    ],
+    [
+      "¿Conviene devolver la entidad completa cuando el cliente solo necesita nombre y disponibilidad?",
+      [
+        "Preparar un DTO de esos datos",
+        "Exponer todos los campos siempre",
+        "Borrar la entidad"
+      ],
+      "«Preparar un DTO de esos datos» es correcta. El contrato de respuesta puede limitarse a lo que necesita el cliente. «Exponer todos los campos siempre» no corresponde: Exponer todos los campos no responde al contrato mínimo y puede revelar información interna. «Borrar la entidad» no corresponde: Borrar la entidad destruye datos; no prepara una representación de respuesta.",
+      "08.06"
+    ]
+  ],
+  [
+    [
+      "¿Qué permite un genérico como Caja<T>?",
+      [
+        "Reutilizar código conservando información del tipo",
+        "Eliminar todos los tipos del programa",
+        "Ejecutar código nativo"
+      ],
+      "«Reutilizar código conservando información del tipo» es correcta. El parámetro de tipo permite trabajar con distintas clases sin perder comprobaciones. «Eliminar todos los tipos del programa» no corresponde: T restringe y relaciona tipos; no elimina el sistema de tipos. «Ejecutar código nativo» no corresponde: El parámetro genérico no significa ejecutar una biblioteca nativa ni cambiar de entorno.",
+      "09.01"
+    ],
+    [
+      "¿List<Integer> es automáticamente List<Number>?",
+      [
+        "No; los genéricos son invariantes",
+        "Sí, siempre",
+        "Solo si la lista está vacía"
+      ],
+      "«No; los genéricos son invariantes» es correcta. La relación entre Integer y Number no convierte sus listas en subtipos equivalentes. «Sí, siempre» no corresponde: Si fuera List<Number>, se podría insertar Double en la lista Integer y romper su garantía. «Solo si la lista está vacía» no corresponde: El estado vacío no cambia la invariancia del tipo ni qué inserciones serían legales después.",
+      "09.02"
+    ],
+    [
+      "¿Qué permite Reflection?",
+      [
+        "Inspeccionar clases y miembros en ejecución",
+        "Cambiar automáticamente todo objeto",
+        "Evitar cualquier excepción"
+      ],
+      "«Inspeccionar clases y miembros en ejecución» es correcta. Permite consultar metadatos; el acceso y uso de miembros tiene restricciones. «Cambiar automáticamente todo objeto» no corresponde: Inspeccionar no implica modificar automáticamente todos los objetos. «Evitar cualquier excepción» no corresponde: Las búsquedas y llamadas reflectivas pueden fallar por firma, acceso o causa del método.",
+      "09.04"
+    ],
+    [
+      "¿Qué representa Class<?>?",
+      [
+        "Metadatos de una clase de tipo no especificado",
+        "Una instancia obligatoria de String",
+        "Un archivo CSS"
+      ],
+      "«Metadatos de una clase de tipo no especificado» es correcta. Es un objeto que representa información sobre un tipo en ejecución. «Una instancia obligatoria de String» no corresponde: Class<?> es descriptor y no una instancia obligatoria de String. «Un archivo CSS» no corresponde: CSS es texto de estilo de otra tecnología; Class representa metadatos Java.",
+      "09.04"
+    ]
+  ],
+  [
+    [
+      "¿Cuántos métodos abstractos define una interfaz funcional?",
+      [
+        "Uno",
+        "Ninguno obligatoriamente",
+        "Exactamente tres"
+      ],
+      "«Uno» es correcta. Puede tener otros métodos default o static; el contrato abstracto es único. «Ninguno obligatoriamente» no corresponde: Sin un contrato abstracto único, una lambda no tiene esa operación objetivo requerida. «Exactamente tres» no corresponde: Tres métodos abstractos distintos no cumplen la definición de interfaz funcional.",
+      "10.01"
+    ],
+    [
+      "¿Qué hace map en un stream?",
+      [
+        "Transforma elementos",
+        "Filtra por sí solo los falsos",
+        "Guarda en una base"
+      ],
+      "«Transforma elementos» es correcta. Filter selecciona; map cambia la representación de cada elemento. «Filtra por sí solo los falsos» no corresponde: Seleccionar por una condición es filter; map transforma lo que recibe. «Guarda en una base» no corresponde: Persistir requiere un mecanismo de almacenamiento, no una transformación por sí sola.",
+      "10.05"
+    ],
+    [
+      "¿Qué operación suele ser terminal?",
+      [
+        "collect",
+        "filter",
+        "map"
+      ],
+      "«collect» es correcta. Collect consume el recorrido; map y filter son operaciones intermedias. «filter» no corresponde: filter agrega una operación intermedia y no consume por sí solo todo el recorrido. «map» no corresponde: map también es intermedia; necesita una terminal para solicitar resultado.",
+      "10.04"
+    ],
+    [
+      "¿Qué devuelve una suma con identidad 0 sobre una secuencia vacía?",
+      [
+        "0",
+        "Una excepción obligatoria",
+        "1"
+      ],
+      "«0» es correcta. La identidad permite un resultado definido incluso cuando no hay elementos. «Una excepción obligatoria» no corresponde: Con identidad0 hay un resultado definido sin elementos; no se exige excepción por vacío. «1» no corresponde: 1 es identidad de multiplicación, no de suma; cambiarla altera el resultado.",
+      "10.06"
+    ]
+  ],
+  [
+    [
+      "¿Qué identifica una fila de forma única?",
+      [
+        "Clave primaria",
+        "Cualquier nombre repetido",
+        "Un comentario SQL"
+      ],
+      "«Clave primaria» es correcta. La clave primaria expresa identidad y no admite duplicados ni nulos. «Cualquier nombre repetido» no corresponde: Un nombre repetido no distingue filas de forma única y puede cambiar. «Un comentario SQL» no corresponde: Un comentario no conserva restricciones ni identifica registros.",
+      "11.02"
+    ],
+    [
+      "¿Qué expresa una clave foránea?",
+      [
+        "Una referencia a una clave de otra fila",
+        "Una columna siempre de texto",
+        "Un índice visual de pantalla"
+      ],
+      "«Una referencia a una clave de otra fila» es correcta. Sirve para mantener relaciones y verificar integridad referencial. «Una columna siempre de texto» no corresponde: Una clave foránea puede ser numérica o de otro tipo compatible; su función es referencia, no ser texto. «Un índice visual de pantalla» no corresponde: El índice de la pantalla no garantiza integridad entre filas de tablas relacionadas.",
+      "11.02"
+    ],
+    [
+      "¿Qué JOIN conserva filas de la izquierda sin coincidencia?",
+      [
+        "LEFT JOIN",
+        "INNER JOIN",
+        "Ninguno"
+      ],
+      "«LEFT JOIN» es correcta. Left join puede producir columnas derechas NULL cuando no existe coincidencia. «INNER JOIN» no corresponde: INNER conserva solo coincidencias y elimina las izquierdas sin derecha. «Ninguno» no corresponde: LEFT existe justamente para conservar ese origen aun sin coincidencia.",
+      "11.06"
+    ],
+    [
+      "¿Qué hace ROLLBACK?",
+      [
+        "Revierte una transacción no confirmada",
+        "Confirma todos los cambios",
+        "Elimina siempre la base"
+      ],
+      "«Revierte una transacción no confirmada» es correcta. Permite descartar modificaciones de la transacción. «Confirma todos los cambios» no corresponde: Confirmar corresponde a COMMIT; rollback descarta cambios no confirmados. «Elimina siempre la base» no corresponde: Rollback no elimina siempre toda la base: revierte el grupo transaccional pendiente.",
+      "11.07"
+    ]
+  ],
+  [
+    [
+      "¿Qué marca una clase persistente en JPA?",
+      [
+        "@Entity",
+        "@RestController",
+        "@Override"
+      ],
+      "«@Entity» es correcta. Entity declara un tipo persistente; su identidad se define con Id. «@RestController» no corresponde: RestController define respuesta HTTP de una capa web, no un tipo persistente JPA. «@Override» no corresponde: Override comprueba sobrescritura de método; no registra una entidad.",
+      "12.01"
+    ],
+    [
+      "¿Dónde va la clave foránea de muchos productos a una categoría?",
+      [
+        "En la tabla de productos normalmente",
+        "En cada archivo HTML",
+        "En ambos nombres sin referencia"
+      ],
+      "«En la tabla de productos normalmente» es correcta. El lado ManyToOne suele poseer la clave foránea y la relación. «En cada archivo HTML» no corresponde: HTML no almacena claves de tablas relacionales en este modelo. «En ambos nombres sin referencia» no corresponde: Compartir nombres no crea integridad ni reemplaza la referencia por clave en el lado muchos.",
+      "12.03"
+    ],
+    [
+      "¿Qué describe mappedBy?",
+      [
+        "El atributo propietario de la relación del otro lado",
+        "El nombre obligatorio de una tabla",
+        "Una URL del controlador"
+      ],
+      "«El atributo propietario de la relación del otro lado» es correcta. Indica que este lado es inverso y no mantiene la clave de la relación. «El nombre obligatorio de una tabla» no corresponde: mappedBy usa nombre de atributo Java del otro lado; JoinColumn nombra la columna. «Una URL del controlador» no corresponde: Una URL corresponde al contrato HTTP, no al propietario de una asociación JPA.",
+      "12.03"
+    ],
+    [
+      "¿Qué problema puede aparecer al recorrer una relación LAZY fuera del contexto?",
+      [
+        "La carga pendiente puede fallar",
+        "Se convierte siempre en un string",
+        "Se crea una copia de la base"
+      ],
+      "«La carga pendiente puede fallar» es correcta. Conviene obtener y mapear los datos necesarios dentro del contexto adecuado. «Se convierte siempre en un string» no corresponde: La relación no se convierte por sí sola a string al cerrar el contexto. «Se crea una copia de la base» no corresponde: JPA no crea automáticamente una copia de la base para cargar fuera; la relación pendiente necesita contexto adecuado.",
+      "12.07"
+    ]
+  ],
+  [
+    [
+      "¿JPQL consulta principalmente nombres de qué?",
+      [
+        "Entidades y atributos Java",
+        "Archivos HTML",
+        "Solo tablas y columnas SQL"
+      ],
+      "«Entidades y atributos Java» es correcta. JPQL opera sobre el modelo persistente y luego se traduce a operaciones de la base. «Archivos HTML» no corresponde: Archivos HTML no forman el modelo de entidades sobre el que trabaja JPQL. «Solo tablas y columnas SQL» no corresponde: Nombres físicos de tablas y columnas pertenecen a SQL; JPQL utiliza los mapeos Java.",
+      "13.01"
+    ],
+    [
+      "¿Cómo se pasa un valor externo a JPQL?",
+      [
+        "Mediante un parámetro",
+        "Concatenando siempre el texto del usuario",
+        "Modificando el nombre de la entidad"
+      ],
+      "«Mediante un parámetro» es correcta. Los parámetros evitan construir la consulta concatenando datos externos. «Concatenando siempre el texto del usuario» no corresponde: Concatenar datos externos puede romper o alterar la consulta; el parámetro los trata como valores. «Modificando el nombre de la entidad» no corresponde: Cambiar una entidad modifica el modelo o sintaxis, no pasa un valor de filtro.",
+      "13.01"
+    ],
+    [
+      "¿Qué cláusula filtra grupos agregados?",
+      [
+        "HAVING",
+        "ORDER BY",
+        "SELECT únicamente"
+      ],
+      "«HAVING» es correcta. WHERE filtra filas antes de agrupar; HAVING filtra los grupos. «ORDER BY» no corresponde: ORDER BY organiza salida; no selecciona grupos por un agregado. «SELECT únicamente» no corresponde: SELECT elige datos a proyectar; HAVING expresa la condición posterior al agrupamiento.",
+      "13.05"
+    ],
+    [
+      "¿Qué puede provocar un JOIN de una factura con varios detalles?",
+      [
+        "Varias filas relacionadas con la misma factura",
+        "Una sola fila garantizada siempre",
+        "Eliminar los detalles"
+      ],
+      "«Varias filas relacionadas con la misma factura» es correcta. Hay que revisar duplicados y cómo contar o agregar según el resultado requerido. «Una sola fila garantizada siempre» no corresponde: Una relación uno a muchos puede generar una fila por detalle; no hay una sola garantizada. «Eliminar los detalles» no corresponde: Un JOIN consulta relaciones; no elimina los detalles guardados.",
+      "13.04"
+    ]
+  ],
+  [
+    [
+      "¿Qué capa interpreta solicitudes HTTP?",
+      [
+        "Controller",
+        "Repository",
+        "La tabla SQL"
+      ],
+      "«Controller» es correcta. El controlador traduce entrada y salida HTTP y delega las reglas al servicio. «Repository» no corresponde: Repository trabaja con datos persistentes, no interpreta por sí mismo la petición web. «La tabla SQL» no corresponde: La tabla guarda registros; no traduce URLs ni códigos HTTP.",
+      "14.06"
+    ],
+    [
+      "¿Qué código es adecuado al crear un recurso?",
+      [
+        "201",
+        "404",
+        "500"
+      ],
+      "«201» es correcta. 201 Created puede acompañarse de Location con la dirección del recurso. «404» no corresponde: 404 indica recurso no encontrado y no una creación aceptada. «500» no corresponde: 500 indica fallo inesperado de servidor; no anuncia que se creó correctamente.",
+      "14.09"
+    ],
+    [
+      "¿Qué expresa @Transactional?",
+      [
+        "Un límite de transacción para la operación",
+        "Un estilo CSS",
+        "Una respuesta JSON obligatoria"
+      ],
+      "«Un límite de transacción para la operación» es correcta. Coordina confirmación y rollback de operaciones dentro de las condiciones configuradas. «Un estilo CSS» no corresponde: Transactional no define presentación CSS. «Una respuesta JSON obligatoria» no corresponde: La transacción coordina operaciones; no obliga a un formato de respuesta JSON.",
+      "14.11"
+    ],
+    [
+      "¿DELETE con respuesta 204 necesita JSON en su cuerpo?",
+      [
+        "No; la respuesta no tiene contenido",
+        "Sí, siempre",
+        "Debe devolver HTML completo"
+      ],
+      "«No; la respuesta no tiene contenido» es correcta. El cliente debe evitar parsear JSON de un cuerpo vacío. «Sí, siempre» no corresponde: 204 significa que no hay contenido: exigir JSON contradice el código. «Debe devolver HTML completo» no corresponde: No debe devolver HTML completo con204, por la misma ausencia de cuerpo.",
+      "14.09"
+    ]
+  ],
+  [
+    [
+      "¿Dónde debe comprobarse la autorización real?",
+      [
+        "En el servidor",
+        "Solo en localStorage",
+        "Solo ocultando botones"
+      ],
+      "«En el servidor» es correcta. El cliente puede modificarse; el servidor debe decidir los permisos. «Solo en localStorage» no corresponde: localStorage es editable y no acredita identidad ni permisos del servidor. «Solo ocultando botones» no corresponde: Ocultar botones solo modifica interfaz; una petición manual puede intentar la operación.",
+      "15.08"
+    ],
+    [
+      "¿Qué determina si el proyecto cumple la consigna?",
+      [
+        "Una matriz de requisitos y pruebas",
+        "Que una captura se vea bien",
+        "La cantidad de archivos"
+      ],
+      "«Una matriz de requisitos y pruebas» es correcta. Cada requisito debe vincularse a su implementación y a una comprobación concreta. «Que una captura se vea bien» no corresponde: Una captura verifica apariencia de un caso, pero no reglas, errores ni persistencia. «La cantidad de archivos» no corresponde: Cantidad de archivos no prueba comportamiento ni satisfacción de la consigna.",
+      "15.09"
+    ],
+    [
+      "¿Qué dato es útil al consultar un error?",
+      [
+        "Resultado esperado, obtenido y ejemplo mínimo",
+        "Solo decir que no funciona",
+        "Únicamente el color del editor"
+      ],
+      "«Resultado esperado, obtenido y ejemplo mínimo» es correcta. Estos datos permiten ubicar y reproducir el problema. «Solo decir que no funciona» no corresponde: No funciona no precisa entradas ni salida y no permite reproducir. «Únicamente el color del editor» no corresponde: El color del editor no describe la operación fallida ni el resultado esperado.",
+      "00.04"
+    ],
+    [
+      "¿Cómo probar un carrito?",
+      [
+        "Agregar repetidos, superar stock, quitar y recalcular",
+        "Solo abrir la página",
+        "Cambiar el título"
+      ],
+      "«Agregar repetidos, superar stock, quitar y recalcular» es correcta. Los casos normales y los límites comprueban reglas y estado coherente. «Solo abrir la página» no corresponde: Abrir la página no verifica cantidades ni transición del carrito. «Cambiar el título» no corresponde: Cambiar un título no comprueba stock, suma, eliminación ni recuperación de datos.",
+      "15.06"
+    ]
+  ]
+]

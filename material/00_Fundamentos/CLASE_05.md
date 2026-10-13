@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_04.md) · [Clase siguiente](../01_HTML/CLASE_01.md)
 
-## Qué vas a aprender
+## Guardar historia, además de archivos
 
-Vamos a trabajar **git y github: guardar versiones y comprender un repositorio**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+En [00.02](CLASE_02.md) guardamos archivos; eso conserva su estado actual. Git permite conservar versiones anteriores con una explicación. Un **repositorio** contiene archivos y la historia que Git mantiene en `.git`. Un **commit** es una versión registrada; tiene un identificador y un mensaje. GitHub aloja repositorios remotos: un commit local no los publica.
 
-## Antes de empezar
+Git distingue tres lugares: la carpeta de trabajo, donde editás; el área de preparación, donde elegís los cambios; y la historia confirmada. `git add index.html` copia el estado actual de ese archivo al área de preparación. Si después lo editás otra vez, el commit puede incluir la versión preparada anterior. `git status` permite ver esa diferencia antes de registrar.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Preparar la primera versión
 
-## Explicación desde cero
+Necesitás Git instalado. Abrí una terminal en una carpeta nueva de ejercicios, creá y guardá index.html y comprobá con `git --version` que el comando existe. La terminal ejecuta comandos desde una carpeta actual; no los pegues en la consola JavaScript del navegador. Ejecutá cada línea del ejemplo por separado y leé su salida.
 
-Git guarda versiones del proyecto en un repositorio local. GitHub es un servicio para alojar repositorios y colaborar; usar Git no obliga a publicar nada. Un commit registra un conjunto de cambios con un mensaje. El área de preparación permite elegir qué cambios formarán parte del próximo commit.
+`init` crea el repositorio local; `status` informa cambios; `add` elige el archivo; `commit -m` registra lo preparado y `-m` recibe un mensaje entre comillas; `log --oneline` muestra una línea por versión. Si Git pide identidad, usá en este repositorio `git config user.name "Tu nombre"` y `git config user.email "tu-correo"`, reemplazando los valores. Son datos de autoría, no una contraseña ni una sesión en GitHub.
 
-Una rama conserva una línea de trabajo. Al integrar ramas puede existir un conflicto si se modificaron partes incompatibles: hay que leer ambas versiones y decidir el contenido final. En esta práctica trabajamos en una carpeta nueva; no aplicamos comandos sobre los proyectos originales del campus.
+Una **rama** es un nombre que sigue una línea de versiones. Tras el primer commit, `git switch -c practica` crea y cambia a una rama de trabajo. Permite experimentar conservando otra línea. Integrar puede producir un conflicto: Git indica partes que requieren decidir el contenido final. No lo resuelvas aceptando todo sin leer.
 
-## Ejemplo
+Los archivos generados y las contraseñas no deben formar parte del material de estudio. `.gitignore` puede omitir archivos todavía no registrados, como `node_modules/`; no borra secretos de la historia. En estas prácticas trabajá localmente en tu carpeta nueva.
+
+## Ejemplo de la clase
 
 ```bash
 git init
@@ -28,36 +30,20 @@ git log --oneline
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Este ejemplo describe pasos o uso de herramientas. Seguí las instrucciones de la explicación; los bloques de pseudocódigo no se ejecutan como programas.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Desde la terminal situada en tu carpeta de práctica, init crea el repositorio; status muestra su estado; add prepara index.html; commit registra la versión; log permite verla. Creá y guardá index.html antes de add. El primer commit puede pedir tu nombre y correo de autor: configurarlos identifica los commits, no inicia sesión en GitHub. Publicar requiere otro paso que no hacemos aquí.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Editá index.html después del commit y ejecutá status: cambia la carpeta de trabajo, no la historia. Prepará y registrá un segundo commit. Si editás después de add, repetí add para incluir ese último estado. Inspeccionar con git diff y git diff --staged distingue cambios pendientes y preparados.
 
-Explicá qué pasa si editás un archivo después del commit. ¿Cómo guardás esa nueva versión? ¿Qué ventaja tiene registrar cambios pequeños?
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Pensar que guardar un archivo en el editor crea un commit o publica el proyecto.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Git guarda versiones del proyecto en un repositorio local. GitHub es un servicio para alojar repositorios y colaborar; usar Git no obliga a publicar nada.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **00.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_04.md) · [Clase siguiente](../01_HTML/CLASE_01.md)

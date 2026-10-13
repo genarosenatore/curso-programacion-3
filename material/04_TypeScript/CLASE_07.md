@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_06.md) · [Clase siguiente](../04_TypeScript/CLASE_08.md)
 
-## Qué vas a aprender
+## Servir y construir un frontend
 
-Vamos a trabajar **vite, módulos y estructura de proyecto**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un servidor estático entrega archivos; Vite agrega procesamiento para desarrollar con módulos y TypeScript, recarga de cambios y una **construcción** de distribución. npm run dev mantiene un proceso local; npm run build produce archivos que se pueden servir después. El servidor de desarrollo no es la entrega construida.
 
-## Antes de empezar
+Usá [Node y npm](CLASE_06.md) antes de los comandos. `npm create vite@latest mi-tienda -- --template vanilla-ts` descarga un creador: mi-tienda es el directorio y el argumento después de -- elige la plantilla TypeScript sin un framework de interfaz. cd cambia la carpeta actual. install prepara sus dependencias. dev muestra la URL y mantiene la terminal ocupada hasta Ctrl+C.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Entender la estructura generada
 
-## Explicación desde cero
+index.html identifica la página y carga un módulo de src. src contiene el código que editás. package.json define tareas. tsconfig describe comprobación: strict agrega rigor, target indica nivel de sintaxis de salida y lib declara APIs conocidas por el compilador. Incluir DOM en lib permite conocer document, pero no lo crea en Node.
 
-Vite ofrece un servidor de desarrollo y una construcción para el navegador. Un proyecto tiene un punto de entrada HTML y módulos TypeScript que la herramienta procesa. npm run dev inicia el servidor; npm run build genera archivos para distribución; no son la misma operación.
+Vite transforma TS para mostrar la página; no asumas que eso equivale a una comprobación completa de tipos. Ejecutá tsc --noEmit por separado o como parte de build. Mirá scripts: algunas plantillas ya combinan tsc con vite build, otras requieren ajustarlo. Nunca dupliques comandos sin leer el archivo real.
 
-tsconfig describe cómo comprobar TypeScript: strict aumenta comprobaciones, target se relaciona con la salida y lib con APIs conocidas por el compilador. Vite transforma TypeScript pero no garantiza por sí solo comprobar todos los tipos: agregamos tsc --noEmit al proceso de verificación.
+dist es salida generada; editarla directamente pierde cambios al reconstruir. Guardá el código fuente y regenerá. Para publicar bajo una subruta hay que revisar la base de recursos del proyecto; esa decisión depende del destino y no se resuelve pegando rutas absolutas de tu disco.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```bash
 npm create vite@latest mi-tienda -- --template vanilla-ts
@@ -29,36 +29,20 @@ npx tsc --noEmit
 
 [Abrir el fragmento como archivo](fragmentos/clase_07.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El creador prepara una estructura vanilla-ts sin framework de interfaz. Entrá en la carpeta antes de instalar o ejecutar. Abrí la dirección local indicada por la terminal; el puerto puede variar si está ocupado. Conservá la consola del servidor mientras trabajás y detenelo con Ctrl+C cuando termines.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Introducí una asignación de tipo incorrecto: la página de desarrollo puede mostrar algo mientras check informa el problema. Editar dist en vez de src parece funcionar temporalmente y se pierde al volver a build. Son fallos distintos de un import cuya ruta no existe.
 
-Identificá index.html, src y package.json. Explicá dónde se escribe el código y dónde se define dev.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_07.md). Las [soluciones explicadas](SOLUCIONES_07.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Tratar la carpeta dist como el lugar principal para editar código.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Vite ofrece un servidor de desarrollo y una construcción para el navegador. Un proyecto tiene un punto de entrada HTML y módulos TypeScript que la herramienta procesa.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.07** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_07.md). Las [soluciones razonadas](SOLUCIONES_07.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_06.md) · [Clase siguiente](../04_TypeScript/CLASE_08.md)

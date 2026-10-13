@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_05.md) · [Clase siguiente](../14_Spring/CLASE_07.md)
 
-## Qué vas a aprender
+## Seguir una responsabilidad por capa
 
-Vamos a trabajar **capas: controller, service y repository**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Controller convierte HTTP en una llamada de aplicación y el resultado en respuesta. Service coordina reglas y operaciones. Repository obtiene o modifica persistencia. El dominio puede conservar invariantes, como stock no negativo. Son límites para entender cambios: una regla de cálculo no necesita saber qué botón la inició.
 
-## Antes de empezar
+@RestController indica que los retornos de sus métodos se escriben al cuerpo mediante conversores configurados, como JSON con Jackson para DTO. @RequestMapping da ruta base; @GetMapping selecciona método/ruta de consulta. El fragmento llama servicio.listar(null): null aquí significa sin filtro de nombre, una política del servicio, no producto inexistente.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Recorrer una respuesta
 
-## Explicación desde cero
+El servidor recibe GET /api/productos, encuentra el mapping, llama controller, este delega en service, el repository recupera entidades y service prepara DTO. Al retornar lista, el conversor escribe JSON y HTTP entrega200. Una lista vacía se escribe como [], manteniendo un resultado válido.
 
-Controller interpreta HTTP y traduce datos de entrada y salida. Service aplica reglas y coordina la operación. Repository accede a persistencia. Esa separación evita poner todos los cálculos, consultas y códigos HTTP en una sola clase.
+En [el proyecto](../Ejemplos/spring/README.md) leé ProductoController, ProductoService y ProductoRepository en ese orden para una consulta concreta. La interfaz de repositorio tiene implementación proporcionada por Spring Data; no es un archivo oculto que debas escribir por ensayo. 14.11 desarrolla cómo se conecta a JPA.
 
-Un controller puede devolver DTO; un servicio recuperar entidades y mapearlas antes de salir de la transacción. No todo proyecto necesita capas idénticas para cada clase, pero sí responsabilidades legibles. El repositorio no conoce cómo mostrar botones ni mensajes de la pantalla.
+La **validación estructural** de un request puede activarse en controller con @Valid; las reglas de existencia y venta pertenecen al servicio o dominio coordinado por él. No dupliques la misma condición en varias capas sin saber qué garantía da cada una. Crear archivos con sufijos adecuados no basta si todas hacen lo mismo.
 
-## Ejemplo
+Las capas agregan colaboración y archivos. Para una tarea diminuta se puede usar menos estructura, pero el proyecto de aprendizaje conserva esos límites porque después cambian almacenamiento, reglas y presentación por separado. No inventamos capas vacías para sumar complejidad.
+
+## Ejemplo de la clase
 
 ```java
 @org.springframework.web.bind.annotation.RestController
@@ -31,36 +33,20 @@ class ProductoController {
 
 [Abrir el fragmento como archivo](fragmentos/clase_06.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 RestController escribe el retorno en la respuesta mediante conversión configurada. El controlador delega en el servicio y no arma SQL aquí. ProductoDTO y listar deben existir en el proyecto; el ejemplo completo incluye ambos y un repositorio.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Si service devuelve entidad con relaciones lazy y controller intenta serializarla fuera de contexto, se puede fallar o cargar lo no previsto. Preparar DTO dentro de service hace explícita la salida. Cambiar el color de un botón no requiere tocar repository.
 
-Ubicá tres tareas: leer id de la URL, validar stock para una compra y consultar producto por id.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_06.md). Las [soluciones explicadas](SOLUCIONES_06.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Suponer que crear archivos con sufijos Controller y Service basta si todos duplican la misma lógica.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Controller interpreta HTTP y traduce datos de entrada y salida. Service aplica reglas y coordina la operación.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.06** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_06.md). Las [soluciones razonadas](SOLUCIONES_06.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_05.md) · [Clase siguiente](../14_Spring/CLASE_07.md)

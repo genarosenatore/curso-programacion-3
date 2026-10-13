@@ -1,23 +1,29 @@
 # Práctica 05.02 · Variables, tipos, operadores y consola
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Calculá un promedio de tres enteros manteniendo decimales.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Sumá los tres enteros antes de dividir.
+2. Usá 3.0 como divisor para conservar fracción.
+3. Mostrá y explicá por qué double receptor no arregla división entera previa.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Calculá el promedio de 5 y 8 conservando decimales y mostralo dentro de main.
 
-Analizá esta confusión: «Asumir que 5/2 produce 2.5 porque la variable receptora es double.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Con precioCentavos=80000 y cantidad=3, calculá subtotal entero y el equivalente en unidades monetarias. Explicá por qué dividir por 100.0 cambia la operación. ¿Qué impide final y qué límite tiene int?
 
-Dividí por 3.0, no por 3, si la suma es un int.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La división decimal requiere un operando decimal antes del cálculo.
+2. Cien centavos son una unidad.
+3. final evita reasignar, no amplía precisión.

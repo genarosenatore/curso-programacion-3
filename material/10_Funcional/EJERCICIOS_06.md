@@ -1,23 +1,29 @@
 # Práctica 10.06 · reduce y collect
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Calculá el producto de [2,3,4] con reduce y explicá la identidad.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Elegí identidad 1 para multiplicación.
+2. Seguí acumulados en [2,3,4].
+3. Probá vacío y justifica 1 como identidad.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Reducí [2,3,4] con multiplicación e identidad correcta; probá vacío.
 
-Analizá esta confusión: «Usar cero como inicio de una reducción de multiplicación.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Obtené una lista editable de positivos con collect y comprobá que el original conserve sus valores. Explicá la diferencia entre reducir a un número y reunir en una colección.
 
-Multiplicar por uno conserva el primer valor; multiplicar por cero perdería todo.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La identidad no debe alterar un solo valor.
+2. filter selecciona antes de la terminal.
+3. toCollection especifica la estructura construida.

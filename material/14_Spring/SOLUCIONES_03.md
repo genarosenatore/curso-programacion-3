@@ -1,21 +1,15 @@
 # Soluciones 14.03 · Spring, Spring Boot y primer proyecto
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Aplicacion inicia; pom.xml fija versiones y starters; application.properties configura base local y puerto. La clase de inicio no contiene toda la lógica: se reparte en componentes.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Aplicacion inicia y prepara datos; pom declara dependencias y versiones; properties define entorno. Antes de detener, el listado responde; después puede fallar conexión. Arrancar demuestra preparación básica del contexto, pero no que cada POST valide ni que cada actualización preserve reglas. Las pruebas HTTP de las clases siguientes verifican esas operaciones.
 
-La clase se ubica en el paquete raíz curso para detectar componentes debajo. SpringApplication inicia el contexto y la aplicación web si las dependencias lo indican. En el proyecto de apoyo, pom.xml declara web, validation, data-jpa y H2. Su README explica Maven y arranque.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Copiar una clase Spring a un proyecto Java vacío y esperar que sus imports existan.
-
-Spring organiza componentes y dependencias. Spring Boot añade configuración automática, starters y un arranque práctico.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

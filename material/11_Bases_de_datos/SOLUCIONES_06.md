@@ -1,21 +1,15 @@
 # Soluciones 11.06 · JOIN, agregaciones y agrupamiento
 
-[Clase](CLASE_06.md) · [Ejercicios](EJERCICIOS_06.md)
+[Clase](CLASE_06.md) · [Práctica](EJERCICIOS_06.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 SELECT p.nombre,c.nombre AS categoria FROM producto p LEFT JOIN categoria c ON c.id=p.categoria_id ORDER BY p.id;. Una categoría ausente se observa como null; no se descarta el producto.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+`SELECT p.nombre,c.nombre FROM producto p LEFT JOIN categoria c ON c.id=p.categoria_id ORDER BY p.id;` incluye el cuarto con categoría NULL. Para conteo: `LEFT JOIN producto p ON p.categoria_id=c.id AND p.precio_centavos>100000`, GROUP BY c.id,c.nombre y COUNT(p.id). Da Útiles1,Libros1,Sin productos0. WHERE descartaría las filas sin coincidencia, contrario a conservar todas las categorías.
 
-La consulta incluye categorías sin productos. COUNT(p.id) ignora null y da cero en esos casos. COUNT(*) contaría la fila conservada por el LEFT JOIN y podría dar uno; no expresa la misma pregunta. Agrupamos por id y nombre para identificar claramente la categoría.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Cambiar LEFT JOIN por INNER JOIN sin reconocer qué filas se pierden.
-
-JOIN combina filas relacionadas. INNER JOIN conserva coincidencias; LEFT JOIN conserva las filas del lado izquierdo aunque no haya relación y devuelve null para columnas del lado derecho.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

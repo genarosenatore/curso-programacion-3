@@ -2,21 +2,33 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_10.md) · [Clase siguiente](../03_JavaScript/CLASE_12.md)
 
-## Qué vas a aprender
+## Continuar mientras una operación espera
 
-Vamos a trabajar **timers, callbacks y promesas**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una tarea **síncrona** completa sus pasos antes de seguir con el siguiente. Una operación **asíncrona** puede producir el resultado después, mientras el programa continúa. Un temporizador no pausa el navegador. Un callback, ya visto en arrays y eventos, describe qué hacer cuando esa operación esté lista.
 
-## Antes de empezar
+`setTimeout(funcion,milisegundos)` programa una ejecución, devuelve un identificador y espera al menos aproximadamente ese plazo; 1000 milisegundos equivalen a un segundo. Si el programa está ocupado, puede demorarse más. `clearTimeout(id)` cancela una ejecución pendiente. setInterval programa repeticiones y clearInterval las cancela. Ninguno prueba que una descarga terminó.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Una promesa representa el resultado pendiente
 
-## Explicación desde cero
+Una **promesa** empieza pendiente y puede quedar cumplida con un valor o rechazada con un motivo. Una vez resuelta, no vuelve a pendiente. `then` recibe una función para procesar el éxito y devuelve otra promesa; `catch` recibe una función para tratar rechazos. Crear la promesa y recibir el resultado son momentos distintos.
 
-Un callback es una función que pasamos para que otra operación la invoque. setTimeout programa un callback tras un tiempo mínimo aproximado; no detiene el resto del programa. setInterval programa repeticiones y devuelve un identificador que puede cancelarse.
+```javascript
+const promesa = new Promise((resolver, rechazar) => {
+  setTimeout(() => resolver("Listo"), 1000);
+});
+console.log("Sigo trabajando");
+promesa.then(mensaje => console.log(mensaje)).catch(error => console.error(error));
+```
 
-Una promesa representa un resultado que puede llegar después: pendiente, cumplida o rechazada. then procesa el éxito y catch el rechazo. El orden del código escrito no garantiza el orden de resultados asíncronos. No necesitamos memorizar todos los mecanismos internos para empezar, pero sí distinguir programar una acción de ejecutarla inmediatamente.
+Programa completo para consola o Node. Promise recibe una función que se ejecuta al construirla; recibe las funciones resolver y rechazar. Dentro se programa un callback que llamará resolver después del plazo. Primero se muestra Sigo trabajando; después Listo. Resolver no detiene ni retorna toda la ejecución exterior.
 
-## Ejemplo
+## Seguir el orden sin asumir pausas
+
+En el ejemplo inferior A y B salen en el tramo síncrono. El callback de Promise.resolve se coloca para procesarse como una **microtarea** al terminar ese tramo; por eso muestra 10 antes del callback del temporizador, que se procesa como otra tarea. No es necesario estudiar todo el mecanismo interno para usarlo, pero sí entender que plazo cero no es ejecución inmediata.
+
+En una cadena, el valor retornado por un then llega al siguiente. Si el callback lanza un error o devuelve una promesa rechazada, el rechazo continúa hacia catch. Si catch trata el error y retorna un valor normal, la cadena puede continuar cumplida con ese valor. Una promesa sirve para un resultado futuro, no para un flujo permanente de muchos eventos; para cada click ya tenemos listeners.
+
+## Ejemplo de la clase
 
 ```javascript
 console.log("A");
@@ -27,36 +39,20 @@ Promise.resolve(5).then(valor => console.log(valor * 2));
 
 [Abrir el fragmento como archivo](fragmentos/clase_11.js) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos de lógica pueden probarse en la consola. Los que usan document necesitan el HTML indicado y ejecutarse en el navegador, no en Node.js.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El bloque síncrono muestra A y B; la promesa muestra 10 antes del callback del temporizador que muestra C. Un plazo cero no significa ejecutar dentro de la línea actual. Si usás interval para un contador, conservá su id y llamá clearInterval cuando termine o deje de ser necesario.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+En la promesa completa, cambiá resolver("Listo") por rechazar(new Error("Falló")): se procesa catch y no el callback de éxito. Cambiar el plazo a cero sigue sin ejecutar el callback del temporizador dentro de su línea. Guardar el resultado en una variable externa y leerla inmediatamente suele dar su estado anterior.
 
-Creá una promesa que se cumpla con "Listo" y mostrala con then. Explicá por qué then recibe una función.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_11.md). Las [soluciones explicadas](SOLUCIONES_11.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Pensar que setTimeout pausa el programa o usar una espera fija para suponer que una descarga terminó.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un callback es una función que pasamos para que otra operación la invoque. setTimeout programa un callback tras un tiempo mínimo aproximado; no detiene el resto del programa.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **03.11** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_11.md). Las [soluciones razonadas](SOLUCIONES_11.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_10.md) · [Clase siguiente](../03_JavaScript/CLASE_12.md)

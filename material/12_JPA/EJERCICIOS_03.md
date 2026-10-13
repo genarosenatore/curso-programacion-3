@@ -1,23 +1,29 @@
 # Práctica 12.03 · Relaciones, JoinColumn y lado propietario
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Definí un método agregarProducto que actualice ambos lados.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Identifica Producto.categoria como propietario.
+2. Añade producto a colección y asigna su categoría.
+3. Recupera en otro contexto para comprobar la referencia.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Escribí un helper de alta que actualice lista y referencia de propietario. Explicá qué guarda cada lado.
 
-Analizá esta confusión: «Escribir mappedBy="categoria_id" cuando el atributo de Producto se llama categoria.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseñá una operación de traslado entre categorías y enumerá sus cambios de memoria y base. ¿Por qué agregar al lado inverso no basta?
 
-Debe agregar a la colección y asignar la categoría al producto.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Identificá el atributo con la clave foránea.
+2. Retirá de la colección anterior si se permite mover.
+3. La asignación del propietario determina la escritura.

@@ -1,21 +1,15 @@
 # Soluciones 08.04 · Mapeo entre entidad y DTO
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 aDTO calcula disponible=producto.stock()>0 al construir el DTO. Probá stock 0 y 3. Es una decisión del contrato; no significa que ese valor no pueda cambiar antes de concretar una compra.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Con stock cero, disponible false; con tres, true. LibroVista puede ser record(String titulo,boolean disponible) y construirse desde libro.titulo() y libro.ejemplares()>0. Costo interno queda fuera porque el contrato no lo necesita. Una lista compartida puede cambiar por otra referencia; si la salida debe conservarla, usá una copia apropiada. El método solo crea objetos en memoria: no inicia almacenamiento.
 
-El método toma un objeto y construye otro. En este ejemplo ambos son records para concentrarnos en el mapeo. Si la entidad tuviera datos internos, simplemente no se incluirían en la salida. Los valores del dominio no cambian porque se prepare una representación.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Confundir mapear con validar o guardar automáticamente.
-
-Mapear consiste en transformar datos entre representaciones. Un mapeo manual explícito es fácil de entender y permite elegir qué campo corresponde a cuál.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

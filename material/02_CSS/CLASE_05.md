@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_04.md) · [Clase siguiente](../02_CSS/CLASE_06.md)
 
-## Qué vas a aprender
+## Flujo y visibilidad
 
-Vamos a trabajar **display, visibilidad y posicionamiento**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+El **flujo normal** es cómo se distribuye el documento antes de posicionarlo especialmente. Un bloque suele empezar en una línea nueva y usar el ancho disponible. Un elemento en línea participa con el texto. `display` cambia el tipo de caja: un enlace suele ser inline; `inline-block` le permite dimensiones y mantiene el flujo en línea; `block` lo convierte en caja de bloque.
 
-## Antes de empezar
+`display:none` elimina su caja del diseño. `visibility:hidden` la conserva sin mostrarla. `opacity:0` la vuelve transparente, pero puede seguir recibiendo foco y acciones: no es equivalente a retirar un control. Cuando ocultás información, comprobá también cómo se navega con teclado; un botón invisible y activo resulta confuso.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Elegir una referencia de posición
 
-## Explicación desde cero
+`position:relative` mantiene el espacio del elemento y permite desplazar visualmente su caja con top, left y otros lados. `absolute` retira la caja del flujo y la sitúa respecto de su bloque de referencia, frecuentemente un ancestro con position distinto de static. En el ejemplo, la tarjeta relative proporciona esa referencia a la etiqueta absoluta.
 
-display controla el tipo de caja y su participación en el diseño. block suele ocupar el ancho disponible; inline fluye con el texto y no admite dimensiones como un bloque; inline-block combina flujo en línea y dimensiones. display:none elimina la caja del diseño; visibility:hidden conserva su espacio.
+`top:.5rem` y `right:.5rem` separan la etiqueta de esos bordes. El punto decimal equivale a 0.5. Como la etiqueta no reserva espacio, el texto normal puede quedar debajo: reservá padding suficiente o usá otra disposición. `fixed` suele referirse al viewport, el área visible del navegador; `sticky` permanece en el flujo y se adhiere al alcanzar un umbral como top:0, dentro de límites de su contenedor y desplazamiento.
 
-position:relative mantiene el espacio original y permite desplazamiento visual; absolute sale del flujo y se posiciona respecto del ancestro que establece su referencia; fixed suele fijarse al viewport; sticky combina flujo y adherencia con un umbral. Usaremos cada uno cuando el comportamiento lo requiera.
+Prepará un article.tarjeta con un span.etiqueta y un párrafo en el [documento base](../01_HTML/CLASE_01.md). span agrupa una parte de texto sin crear una región semántica. Aplicá la hoja y observá la esquina. Para distribuir una página completa, las coordenadas rígidas suelen producir superposiciones; usá flujo, Flexbox o Grid.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```css
 .tarjeta { position: relative; padding: 1rem; }
@@ -26,36 +26,20 @@ position:relative mantiene el espacio original y permite desplazamiento visual; 
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.css) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las reglas CSS se aplican a los elementos y clases HTML indicados. Tenés un ejemplo completo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La tarjeta crea la referencia para ubicar etiqueta en su esquina. Al ser absoluta, la etiqueta no reserva espacio como un hijo normal; el contenido podría quedar debajo si no se prevé. La clase oculto hace desaparecer un elemento del diseño. Un menú completo no debería posicionarse con coordenadas rígidas para cada pantalla.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Quitá position:relative de tarjeta: la etiqueta puede buscar otra referencia y moverse lejos. Reemplazá display:none por visibility:hidden en una de dos tarjetas: aparece un hueco. El espacio conservado puede ser deseado, pero no lo confundas con reordenar una lista.
 
-Explicá qué diferencia visual hay entre ocultar una tarjeta con display:none y con visibility:hidden.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar position:absolute para todo y perder el flujo adaptable de la página.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-display controla el tipo de caja y su participación en el diseño. block suele ocupar el ancho disponible; inline fluye con el texto y no admite dimensiones como un bloque; inline-block combina flujo en línea y dimensiones.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **02.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_04.md) · [Clase siguiente](../02_CSS/CLASE_06.md)

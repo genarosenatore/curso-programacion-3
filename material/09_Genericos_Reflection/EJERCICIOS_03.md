@@ -1,23 +1,29 @@
 # Práctica 09.03 · Prácticas de genéricos del campus
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Usá un Contenedor<String> y explicá qué error impide guardar un Integer.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Consultá contenedor antes de guardar.
+2. Guardá un String y recuperalo.
+3. Intentá Integer para observar la incompatibilidad estática.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Usá un Contenedor<String> y registrá antes y después de guardar Ana y Luis.
 
-Analizá esta confusión: «Dar por existente el contenido antes de guardarlo y provocar null.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Modificá guardar para rechazar null y conservar el anterior. Explicá qué garantiza T y qué regla agregó la validación. ¿Qué cambiarías para guardar muchos nombres?
 
-El contrato se concreta al elegir String como T.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Antes de guardar, una referencia empieza null.
+2. Validá antes de asignar.
+3. Muchos valores requieren una colección, no un campo único.

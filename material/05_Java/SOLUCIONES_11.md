@@ -1,21 +1,15 @@
 # Soluciones 05.11 · Práctica: productos y clientes
 
-[Clase](CLASE_11.md) · [Ejercicios](EJERCICIOS_11.md)
+[Clase](CLASE_11.md) · [Práctica](EJERCICIOS_11.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 La compra de 2 sobre stock 5 reduce a 3. Una compra de 6 se rechaza y conserva 5. Cantidad cero se rechaza. subtotalCentavos devuelve precio*cantidad con validación y puede usar Math.multiplyExact para detectar un desborde de int. El ejemplo completo de Java incluye estos casos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+En U05Java el stock pasa 5 → 3, subtotal 400000, rechazo y stock 3. El libro pasa 3 → 0 y conserva 0 tras el intento extra. El getter y subtotal consultan; prestar o descontar cambia estado. Con instancia nueva, cambia el estado inicial y por lo tanto el esperado después de rechazar. Vincular cliente con una operación no exige que comparta herencia con producto; son responsabilidades distintas.
 
-El resultado esperado es stock 3 y subtotal 400000 centavos. La clase de ejemplo completa incluye constructor y métodos. Cada regla se aplica antes de modificar. Una clase pequeña puede evolucionar después a DTO y entidad, pero no hacemos esa mezcla en la primera práctica.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Confundir un objeto de dominio con una fila de base de datos antes de estudiar persistencia.
-
-Una práctica orientada a objetos empieza por las responsabilidades. Producto conoce su precio y stock; Cliente su identificación; un cálculo puede recibir productos y cantidades sin modificar indebidamente ambos objetos.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

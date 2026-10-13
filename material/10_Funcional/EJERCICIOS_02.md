@@ -1,23 +1,29 @@
 # Práctica 10.02 · Predicate, Function, Consumer y Supplier
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá un Predicate<Integer> que acepte entre 1 y 5 inclusive.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Define dos comparaciones de límite en Predicate.
+2. Invocá test para 0,1,5,6.
+3. Explicá la diferencia con Function.apply.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá un Predicate<Integer> para rango 1 a 5 inclusive y probá 0,1,5,6.
 
-Analizá esta confusión: «Invocar apply sobre un Predicate o esperar retorno de Consumer.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Componé Function<Integer,Integer> sumarUno y duplicar con andThen. Compará el orden inverso. ¿Qué cambia entre un Consumer que imprime y una Function que devuelve el texto?
 
-Podés usar una lambda con && o componer dos predicados.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Dos límites unidos con &&.
+2. andThen aplica la receptora primero.
+3. La impresión no entrega un resultado útil.

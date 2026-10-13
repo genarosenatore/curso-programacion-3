@@ -1,23 +1,29 @@
 # Práctica 03.02 · Operadores, conversiones y comparaciones
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Convertí "1200" y "2" y calculá el total. Compará qué ocurriría si usaras + directamente.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Mostrá el resultado de sumar los dos textos.
+2. Convertí ambos a número y multiplicá.
+3. Explicá la diferencia de tipo y de operación.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Predecí y comprobá "10" + 5, Number("10") + 5, 10 / 4 y 10 % 4. Explicá qué operación realizó cada símbolo.
 
-Analizá esta confusión: «Usar == sin comprender sus conversiones o asumir que Number de cualquier texto será válido.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Con una cantidad de 0, 3 y 6, comprobá el rango entre 1 y 5 inclusive. Agregá las entradas "", "2" y "dos" y explicá cuáles podrían convertirse y cuáles deberían rechazarse para una compra.
 
-Convertí cada dato antes de una operación que deba ser aritmética.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Para + preguntá si hay un operando de texto.
+2. El rango tiene dos comparaciones unidas con &&.
+3. Vacío se detecta en el texto y NaN después de convertir.

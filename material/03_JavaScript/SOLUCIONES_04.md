@@ -1,21 +1,27 @@
 # Soluciones 03.04 · Bucles y seguimiento paso a paso
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Los parciales son 1, 3, 6, 10 y 15. Dos bucles anidados del 1 al 2 recorrerían cuatro pares: (1,1), (1,2), (2,1), (2,2). No confundas cantidad de iteraciones con valor final del contador.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+El ejercicio simple termina en 15: acumulados 1, 3, 6, 10 y 15. El combinado es un programa completo:
 
-Muestra las parejas 1/1, 2/3 y 3/6. numero++ suma uno al contador al terminar cada iteración. total += numero equivale a total = total + numero. La cuarta comprobación pregunta si 4 <= 3; como es falsa, termina. El acumulador se declara fuera del bloque para conservar las sumas.
+```javascript
+let suma = 0;
+for (let numero = 1; numero <= 6; numero = numero + 1) {
+  if (numero % 2 === 0) {
+    suma = suma + numero;
+  }
+}
+console.log(suma); // 12
+```
 
-## 3. Qué conviene corregir
+Se añaden 2, 4 y 6. Con límite 0 no hay vueltas y el resultado 0 sigue definido. Reiniciar suma dentro borraría los aportes anteriores; el último valor no sería el total buscado. La tabla permite detectar el primer reinicio incorrecto.
 
-La confusión a evitar es: Reiniciar total en cero dentro de cada iteración.
+## Cómo comparar tu respuesta
 
-Un bucle repite instrucciones. for reúne inicio, condición y actualización.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

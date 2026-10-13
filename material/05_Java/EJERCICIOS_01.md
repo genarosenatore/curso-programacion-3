@@ -1,23 +1,29 @@
 # Práctica 05.01 · JDK, JVM, código fuente y ejecución
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Modificá el mensaje y volvé a compilar y ejecutar. Explicá qué pasa si ejecutás sin recompilar el .class.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Guardá Hola.java y compilá con javac.
+2. Cambiá el mensaje y ejecutá sin regenerar bytecode.
+3. Recompilá y compará las salidas.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá Hola.java con dos println que presenten tu nombre y el propósito de tu práctica. Compilá y ejecutá.
 
-Analizá esta confusión: «Ejecutar java Hola.class: se usa el nombre de la clase sin esa extensión.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Introducí una comilla sin cerrar, observá el error y corregila. Después cambiá solo el mensaje y compará ejecutar antes y después de compilar. ¿Qué herramienta detecta sintaxis y cuál realiza las instrucciones?
 
-El archivo .class conserva el código de la última compilación.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La clase pública y el archivo comparten nombre.
+2. Compilar y ejecutar son pasos distintos.
+3. .class es salida, no texto para editar.

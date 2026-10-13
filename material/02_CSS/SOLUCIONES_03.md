@@ -1,21 +1,15 @@
 # Soluciones 02.03 · Colores, texto, unidades y medidas
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Una solución usa h1 de 2rem, texto de 1rem, line-height 1.5 y contenedor width:90%; max-width:60rem. Revisá que no haya texto cortado ni que debas desplazar horizontalmente para leer párrafos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+1,5 × 16 = 24px; 0,8 × 600 = 480px. Una solución de lectura es `.lectura { width:90%; max-width:45rem; font-size:1rem; line-height:1.6; }`. El máximo evita renglones demasiado largos sin forzar ese ancho en móviles. La altura automática deja crecer el párrafo con el tamaño de fuente. El criterio es poder leer todo sin texto recortado, no conservar exactamente las dimensiones originales.
 
-El título tiene el doble del tamaño raíz. contenido ocupa 90 % del espacio de referencia, pero no supera 60rem. max-width permite poner un límite sin fijar siempre el ancho. El navegador suele partir de 16px, aunque la persona puede cambiarlo; por eso conviene pensar en proporciones.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Suponer que 100 % equivale siempre al ancho de toda la pantalla.
-
-CSS admite distintas formas de expresar colores y tamaños. px es una unidad de referencia CSS; rem depende del tamaño de fuente raíz; em puede depender del tamaño de fuente del elemento o su contexto según la propiedad; % depende de la dimensión de referencia de cada propiedad.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

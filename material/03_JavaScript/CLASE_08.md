@@ -2,21 +2,42 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_07.md) · [Clase siguiente](../03_JavaScript/CLASE_09.md)
 
-## Qué vas a aprender
+## De una página a objetos que podemos modificar
 
-Vamos a trabajar **dom: seleccionar, crear y modificar elementos**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+El navegador lee HTML y construye un árbol de nodos llamado **DOM**, modelo de objetos del documento. El árbol conserva relaciones: ul contiene li, y li contiene texto. JavaScript utiliza objetos para representar esos nodos y métodos para modificarlos. HTML es la descripción inicial; el DOM puede cambiar después sin editar el archivo original.
 
-## Antes de empezar
+Necesitás [HTML](../01_HTML/CLASE_01.md), [funciones](CLASE_05.md) y [objetos](CLASE_07.md). `document` representa el documento abierto en el navegador; no existe en un programa Node normal. `querySelector` utiliza la sintaxis de selectores CSS: `#productos` busca un id y `.producto` una clase. Entrega la primera coincidencia o null. `querySelectorAll` entrega una colección de coincidencias, incluso si está vacía.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Un documento ejecutable completo
 
-## Explicación desde cero
+Guardá esto como index.html y abrilo en el navegador. El script está después de la lista para que exista cuando se selecciona:
 
-El DOM es la representación de la página como un árbol de objetos. JavaScript puede seleccionar nodos, leer su contenido y modificarlos. querySelector devuelve la primera coincidencia o null. createElement crea un elemento todavía no insertado; append lo incorpora al documento.
+```html
+<!doctype html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Lista</title></head>
+<body>
+  <h1>Productos</h1>
+  <ul id="productos"></ul>
+  <script>
+    const lista = document.querySelector("#productos");
+    const item = document.createElement("li");
+    item.textContent = "Cuaderno";
+    lista.append(item);
+  </script>
+</body>
+</html>
+```
 
-textContent asigna texto. innerHTML interpreta marcado y exige cuidado cuando el contenido proviene de usuarios o servicios: para mostrar nombres y mensajes usaremos textContent. Ejecutar el script antes de que exista el elemento puede hacer que la selección devuelva null.
+Primero existe ul; después se obtiene su objeto. createElement crea un li separado que todavía no aparece. textContent coloca texto y append lo incorpora como hijo de ul. Solo entonces se muestra en la lista. En este documento sabemos que existe el id; en un fragmento reutilizable debemos comprobar null antes de usarlo, como hace el ejemplo inferior.
 
-## Ejemplo
+## Renderizar una colección
+
+**Renderizar** aquí significa convertir datos en elementos visibles. Con un array de nombres, recorré sus valores, creá un li para cada uno, asigná textContent y agregalo. Antes de representar otra vez la misma lista, `lista.replaceChildren()` retira sus hijos; si solo agregás, duplicás elementos. No borra el array de datos: cambia el árbol visible.
+
+textContent coloca texto literal. innerHTML interpreta marcado: un nombre como `<strong>Ana</strong>` se convertiría en elementos y, con datos externos, puede introducir contenido peligroso. Para nombres y mensajes usá texto. Los atributos pueden cambiar con setAttribute(nombre,valor) y las clases con classList.add o remove; estas operaciones afectan presentación o referencias, no reemplazan la validación de datos.
+
+## Ejemplo de la clase
 
 ```javascript
 // HTML: <ul id="productos"></ul>
@@ -30,36 +51,20 @@ if (lista) {
 
 [Abrir el fragmento como archivo](fragmentos/clase_08.js) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos de lógica pueden probarse en la consola. Los que usan document necesitan el HTML indicado y ejecutarse en el navegador, no en Node.js.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La selección busca el id productos. El if evita actuar sobre null. li se crea, recibe texto y se añade a ul. Poné el script al final del body o usá un script externo con defer. En los ejemplos de la unidad se entrega el HTML necesario para ejecutar estas operaciones.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiá el id HTML a catalogo sin cambiar el selector: lista será null y append no tendrá receptor válido. Cambiá solo el texto del elemento: aparece otro nombre sin alterar la estructura. Volvé a ejecutar un render sin limpiar: se acumulan hijos; limpiar una vez antes del recorrido conserva exactamente la representación de los datos.
 
-Mostrá los nombres de tres productos creando un li por cada uno.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_08.md). Las [soluciones explicadas](SOLUCIONES_08.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Reemplazar datos de usuario con innerHTML como si fuera una simple asignación de texto.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-El DOM es la representación de la página como un árbol de objetos. JavaScript puede seleccionar nodos, leer su contenido y modificarlos.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **03.08** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_08.md). Las [soluciones razonadas](SOLUCIONES_08.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_07.md) · [Clase siguiente](../03_JavaScript/CLASE_09.md)

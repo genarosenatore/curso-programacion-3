@@ -1,23 +1,29 @@
 # Práctica 15.07 · Pedidos y administración
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Probá pending→processing, processing→completed y completed→pending bajo esta política.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Consulta destinos permitidos de cada estado.
+2. Prueba las tres transiciones propuestas.
+3. Mantén estado anterior al rechazar completed→pending.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Comprueba pending→processing, processing→completed y completed→pending.
 
-Analizá esta confusión: «Confundir quitar un botón en la interfaz con impedir la operación en el backend.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Escribe puedeCambiar(actual,nuevo) tipada y diseña una entrada JSON inválida. ¿Dónde se verifican estado vigente y permisos, y por qué no basta ocultar un botón?
 
-Consultá la lista permitidos[estadoActual].
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Consulta el array de la clave actual.
+2. Valida estados antes de indexar datos externos.
+3. La operación de servidor puede recibirse sin la pantalla.

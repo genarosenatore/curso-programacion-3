@@ -1,21 +1,15 @@
 # Soluciones 09.03 · Prácticas de genéricos del campus
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Contenedor<String> c=new ContenedorSimple<>(); c.guardar("Ana"); String nombre=c.obtener();. c.guardar(3) no compila. Podés cambiar obtener a Optional<T> con Optional.ofNullable(valor) si querés ausencia explícita.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+La secuencia es null → Ana → Luis. `if(valor==null) throw new IllegalArgumentException("Contenido requerido"); this.valor=valor;` conserva Luis si se intenta null después. T exige compatibilidad de tipo para guardar y obtener; la condición exige existencia. Para varios nombres, una List<T> o un contrato de colección expresaría agregar y recorrer, en vez de reemplazar un único contenido.
 
-Los métodos son públicos por el contrato de interface. Antes de guardar, obtener devuelve null porque valor es una referencia sin asignación inicial. Esa ausencia debe documentarse o modelarse con Optional. Después de guardar, recuperar mantiene el mismo tipo.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Dar por existente el contenido antes de guardarlo y provocar null.
-
-Una práctica genérica debe tener una razón para relacionar tipos. Un almacén que guarda y recupera un mismo tipo es un buen caso.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

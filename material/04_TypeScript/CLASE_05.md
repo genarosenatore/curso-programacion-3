@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_04.md) · [Clase siguiente](../04_TypeScript/CLASE_06.md)
 
-## Qué vas a aprender
+## Reutilizar una relación entre tipos
 
-Vamos a trabajar **genéricos básicos y diferencias entre any y unknown**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una función primero podría servir para nombres y precios. Usar any para ambos borra qué tipo vuelve. Un **genérico** introduce un parámetro de tipo T para relacionar entrada y salida. `<T>` lo declara, `T[]` es un array de ese tipo y `T | undefined` dice que su primer valor puede faltar.
 
-## Antes de empezar
+Al llamar primero(["Ana","Luis"]), T se infiere como string. Al llamar primero([10,20]), se infiere como number. No se crea una validación distinta por cada tipo: la información se usa durante comprobación y se elimina de la salida JavaScript. Por eso el cuerpo no puede llamar un método string sobre cualquier T.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Reconocer lo desconocido
 
-## Explicación desde cero
+`any` permite operar sin comprobaciones, incluso llamar algo que no existe. `unknown` admite recibir un dato de cualquier forma, pero exige reducirlo antes de utilizar operaciones específicas. Para JSON externo, unknown representa honestamente lo que todavía no sabemos.
 
-Un genérico relaciona tipos entre la entrada y la salida. En una función que devuelve el primer elemento, T permite conservar su tipo concreto. any elimina comprobaciones; unknown exige comprobar antes de operar. Para datos externos, unknown obliga a reconocer que todavía no sabemos su forma.
+`function esTexto(valor:unknown): valor is string` declara un **predicado de tipo**. El cuerpo comprueba typeof; si da true, el compilador permite tratar ese valor como string. El predicado es una promesa hecha por quien escribe la función: si siempre devuelve true, el compilador puede confiar en una mentira. El chequeo real debe justificarla.
 
-Un genérico no hace que una función sepa validar cualquier objeto. Expresa una relación que el compilador comprueba. Un retorno que puede faltar debe incluir undefined en lugar de prometer un valor inexistente.
+Ejecutá el ejemplo con el compilador de [04.01](CLASE_01.md). Al obtener un nombre posiblemente undefined, comprobá que exista antes de acceder a length. Un genérico sirve para conservar relaciones; no convierte automáticamente datos ni prueba que una colección tenga elementos.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```typescript
 function primero<T>(valores: T[]): T | undefined {
@@ -30,36 +30,20 @@ function esTexto(valor: unknown): valor is string {
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 En primero de strings, T se infiere como string. Un array vacío devuelve undefined. esTexto comprueba durante la ejecución y comunica al compilador la reducción a string en el camino verdadero. La comprobación real debe ser correcta: el tipo de retorno declarado no la inventa.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Hacé primero<number>([]): devuelve undefined. Cambiar el retorno declarado a T y afirmar el acceso no crea un elemento. Reemplazar unknown por any evita el error estático pero permite que falle un dato numérico al intentar toLowerCase.
 
-Creá ultimo<T> que devuelva el último elemento o undefined.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Cambiar todos los tipos problemáticos a any y perder las comprobaciones que queríamos obtener.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un genérico relaciona tipos entre la entrada y la salida. En una función que devuelve el primer elemento, T permite conservar su tipo concreto.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_04.md) · [Clase siguiente](../04_TypeScript/CLASE_06.md)

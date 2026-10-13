@@ -1,23 +1,29 @@
 # Práctica 09.06 · Práctica de Reflection y relación con frameworks
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Guardá un Cliente en Caja<Cliente> e inspeccioná su clase. Explicá qué comprueba cada mecanismo.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Guardá Cliente en Caja<Cliente>.
+2. Consulta su tipo y componentes de record.
+3. Explica qué verifica la caja y qué observa Reflection.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Guardá un Cliente en Caja<Cliente> y mostrá su nombre mediante el accesor.
 
-Analizá esta confusión: «Pretender usar Reflection para reemplazar toda comprobación de tipos en código ordinario.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Inspeccioná sus componentes y compará con los valores de la instancia. Explicá qué ocurriría con una clase ordinaria y qué mecanismo protege el retorno de Caja.
 
-La caja usa T para el contenido; Class inspecciona la clase real de ese contenido.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. nombre() devuelve dato; getName del componente describe estructura.
+2. isRecord confirma si corresponde esa API.
+3. El genérico controla el tipo durante comprobación.

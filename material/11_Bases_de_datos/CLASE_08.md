@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_07.md) · [Clase siguiente](../12_JPA/CLASE_01.md)
 
-## Qué vas a aprender
+## Conservar hechos históricos
 
-Vamos a trabajar **práctica: productos, clientes, facturas y detalles**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Producto tiene un precio actual; detalle conserva el precio al realizar una venta. Son dos hechos diferentes. Una factura antigua debe seguir sumando lo que se cobró entonces aunque el catálogo cambie. Por eso detalle referencia el producto, pero además guarda cantidad y precioCentavos de la operación.
 
-## Antes de empezar
+En [tienda.sql](../Ejemplos/sql/tienda.sql), factura1 tiene dos renglones: Cuaderno200000×2 y Lapicera80000×1. La suma esperada es480000 centavos. La consulta inferior une factura con detalles y agrupa por factura: cada producto del renglón aporta su subtotal guardado.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Comprobar desde los datos, no solo desde la consulta
 
-## Explicación desde cero
+Ejecutá el fragmento con --tienda y compará con el cálculo manual. Luego, en el mismo archivo de práctica, actualizá producto.precio_centavos y repetí la consulta: el total histórico debe conservarse. Si unís producto y sumás su precio actual en cambio, modificás el significado del reporte.
 
-El modelo de facturación reúne clientes, productos, facturas y detalles. Un cliente puede tener varias facturas; una factura varios renglones. Cada renglón conserva la cantidad y el precio de esa operación, porque el precio actual del producto podría cambiar.
+INNER JOIN excluye factura sin detalles. Para incluirla, usá LEFT JOIN y COALESCE(SUM(...),0) si el contrato considera total cero; otra política es impedir crear factura vacía. No inventes una obligación general: la consigna real decide cuál es válida.
 
-Construiremos consultas sencillas antes de mapear entidades. La práctica puede guardar importes en centavos y calcular subtotales. Las reglas de IVA, bonificación y anulación de la consigna se incorporarán por etapas; el esquema pequeño no pretende sustituir todo FacturaArca.
+Este modelo de apoyo no incluye todos los impuestos, bonificaciones, monedas y reglas de FacturaArca. Sirve para enseñar relaciones, cantidades e histórico antes de trasladar el esquema a entidades. Al incorporar otras unidades monetarias, documentá cómo se convierten y redondean; sumar números con distinta moneda sin esa regla no produce un total válido.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 SELECT f.id AS factura, SUM(d.cantidad*d.precio_centavos) AS total_centavos
@@ -28,36 +28,20 @@ ORDER BY f.id;
 
 [Abrir el fragmento como archivo](fragmentos/clase_08.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El archivo tienda.sql contiene un esquema con datos de prueba. Las sentencias CREATE ilustrativas se prueban en bases separadas para no redefinir tablas ya existentes.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La suma calcula sobre el precio guardado en cada detalle, no sobre el precio actual de producto. El esquema ejecutable de tienda.sql define esa columna y datos de prueba. Una factura sin renglones no aparece con INNER JOIN; decidí si debe rechazarse al crearla o representarse con otro resultado.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiar precio del producto no cambia detalle.precio_centavos. Agregar un tercer detalle sí cambia la factura. Si el JOIN añade otra colección con varias filas por detalle, puede multiplicar aportes y alterar la suma: revisá qué representa cada fila intermedia.
 
-Explicá qué relación y qué dato permiten conservar el total histórico al cambiar precios.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_08.md). Las [soluciones explicadas](SOLUCIONES_08.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Calcular una factura antigua con los precios actuales del catálogo.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-El modelo de facturación reúne clientes, productos, facturas y detalles. Un cliente puede tener varias facturas; una factura varios renglones.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **11.08** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_08.md). Las [soluciones razonadas](SOLUCIONES_08.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_07.md) · [Clase siguiente](../12_JPA/CLASE_01.md)

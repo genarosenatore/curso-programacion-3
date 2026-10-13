@@ -1,21 +1,15 @@
 # Soluciones 14.07 · Endpoints GET y parámetros
 
-[Clase](CLASE_07.md) · [Ejercicios](EJERCICIOS_07.md)
+[Clase](CLASE_07.md) · [Práctica](EJERCICIOS_07.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Listado sin coincidencias: 200 y []. Producto por id no encontrado: 404. Id mal formado: 400 en el manejo configurado. Agregá mensajes que ayuden a corregir la petición y probá cada ruta local.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Listado vacío200 []; /999404; /abc400 en el proyecto. abc falla al convertir Long y no llega a buscar;999 llega al servicio y falla por ausencia. En cliente: `const params=new URLSearchParams({nombre:"Cuaderno grande"}); fetch("/api/productos?"+params.toString());`. No cambies la forma JSON del DTO para arreglar una ruta o entrada numérica incorrecta.
 
-El método pertenece al controller con ruta base /api/productos. Spring convierte el segmento a Long y puede rechazar una forma inválida. El servicio busca y devuelve DTO o lanza el error de inexistencia manejado por la aplicación.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Devolver el mismo 200 con un mensaje de error para todos los fallos.
-
-@GetMapping expone recuperación. @PathVariable lee parte de ruta y @RequestParam un parámetro de consulta.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

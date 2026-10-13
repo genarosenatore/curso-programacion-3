@@ -1,21 +1,15 @@
 # Soluciones 12.05 · EntityManager y ciclo de vida
 
-[Clase](CLASE_05.md) · [Ejercicios](EJERCICIOS_05.md)
+[Clase](CLASE_05.md) · [Práctica](EJERCICIOS_05.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 La entidad está separada y la modificación no se guarda por sí sola. Para una actualización, conviene recuperar una entidad gestionada dentro de una transacción y aplicar los datos aceptados, en vez de asumir que cualquier objeto con id está conectado.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+new crea nueva; persist la gestiona; commit confirma pero un contexto abierto puede seguir gestionándola; cerrar la separa. Tras flush y rollback el contexto nuevo ve el dato anterior confirmado. Una referencia separada no participa del seguimiento activo aunque tenga id; para guardar se recupera gestionada o se utiliza merge con su contrato, que estudiaremos enseguida.
 
-find obtiene una entidad gestionada. Cambiarla se detecta en el contexto y flush puede emitir SQL. Si la transacción se revierte, ese SQL no queda confirmado. El setter debe existir en la clase del proyecto; el fragmento no es un programa de consola independiente.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Confundir id presente con entidad actualmente gestionada.
-
-EntityManager gestiona un contexto de persistencia. Una entidad puede ser nueva, gestionada, separada o eliminada.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

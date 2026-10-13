@@ -1,23 +1,29 @@
 # Práctica 13.07 · CASE y consultas avanzadas
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Clasificá 9999, 10000, 50000 y 50001.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Evalúa primer WHEN con cada límite.
+2. Si falla,evalúa el segundo.
+3. Clasifica 9999,10000,50000,50001 sin actualizar entidad.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Clasificá9999,10000,50000 y50001 y explicá el primer WHEN que corresponde.
 
-Analizá esta confusión: «Creer que una columna calculada de consulta queda guardada como propiedad persistente.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá orden secundario por numero y proyectá una etiqueta para un precio Producto que puede faltar en un modelo alternativo. ¿Cómo distinguirías ausencia de bajo valor sin inventar precio cero?
 
-Las condiciones se evalúan en orden hasta la primera verdadera.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Las condiciones se prueban en orden.
+2. El límite exacto revela > frente a >=.
+3. IS NULL permite clasificar ausencia antes de rangos.

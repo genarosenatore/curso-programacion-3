@@ -1,21 +1,15 @@
 # Soluciones 05.04 · Clases, objetos, atributos y constructores
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Producto a=new Producto("Cuaderno",200000); Producto b=new Producto("Lapicera",80000);. Comparten atributos definidos por la clase y tienen valores distintos. a.nombre y b.nombre leen estados diferentes.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Comparten el tipo y sus operaciones; cada new tiene valores propios. Libro puede tener `String titulo; int ejemplares; Libro(String titulo,int ejemplares){this.titulo=titulo;this.ejemplares=ejemplares;}` como clase de paquete. Cambiar a.ejemplares no cambia b si fueron dos new. Con void se declara un método y la llamada new con esos argumentos ya no encuentra ese constructor.
 
-p referencia una instancia de Producto. this.nombre recibe el parámetro nombre. Otro new construye otro objeto con su propio estado. Usamos centavos para que el importe del ejemplo sea entero; 200000 centavos representan 2000 unidades monetarias.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Agregar void al constructor y convertirlo accidentalmente en un método.
-
-Una clase define atributos y comportamiento; un objeto es una instancia concreta. El constructor inicializa una instancia y tiene el mismo nombre de la clase sin tipo de retorno.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

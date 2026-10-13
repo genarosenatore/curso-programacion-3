@@ -1,23 +1,29 @@
 # Práctica 01.04 · Estructura semántica: header, nav, main, section y footer
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Organizá una página de blog con presentación, navegación, dos artículos y pie de página.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Separá introducción, navegación, artículos y cierre.
+2. Creá cada article con su encabezado y párrafo.
+3. Envolvé el contenido central en main y recorré sus enlaces.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Armá un blog con header, nav, main, dos article con h2 y footer. Cada artículo debe tener un párrafo.
 
-Analizá esta confusión: «Elegir section solo para aplicar un fondo sin que exista una agrupación temática.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá dentro de main una section «Noticias de la biblioteca» que agrupe esos artículos. Enlazá a esa sección desde nav. ¿Por qué section y article pueden coexistir y qué dato permite al enlace ubicar la sección?
 
-Cada artículo puede tener un título propio dentro de main.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El blog entero tiene un tema principal y cada entrada su propio título.
+2. La sección agrupa las entradas por tema.
+3. Usá id en la sección y #id en href.

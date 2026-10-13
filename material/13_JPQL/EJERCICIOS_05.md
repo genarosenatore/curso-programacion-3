@@ -1,23 +1,29 @@
 # Práctica 13.05 · COUNT, SUM, AVG, GROUP BY y HAVING
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Agrupá por estado y devolvé conteo y promedio de importe.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Agrupa por estado.
+2. Proyecta count y avg con tipos correctos.
+3. Probá más de una factura en un estado para comprobar resumen.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Agrupá facturas por estado y obtené cantidad y promedio.
 
-Analizá esta confusión: «Usar WHERE count(f)>5 en lugar de HAVING para filtrar un agregado.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Con dos puntos de venta, uno con dos facturas y otro con una, seleccioná solo grupos con más de una. Explicá qué pasa si tienen igual descripción y si sumás después de unir detalles.
 
-El estado va en select y group by; las otras expresiones son agregaciones.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. HAVING evalúa el grupo.
+2. id evita fusionar identidades distintas.
+3. Revisá qué representa cada fila previa a sumar.

@@ -2,21 +2,34 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_08.md) · [Clase siguiente](../03_JavaScript/CLASE_10.md)
 
-## Qué vas a aprender
+## Ejecutar código cuando ocurre una acción
 
-Vamos a trabajar **eventos y formularios**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un **evento** comunica algo que ocurrió en la interfaz: un click, una edición input o un envío submit. Un **listener** es una función registrada para recibir esa comunicación. `elemento.addEventListener("click", manejar)` pasa la función manejar como valor; `manejar()` la ejecuta ahora y pasa su resultado, una diferencia enseñada en [03.05](CLASE_05.md).
 
-## Antes de empezar
+Un formulario puede enviarse con botón o Enter, por eso escuchamos submit sobre form. El callback recibe un objeto event que describe el evento. `event.preventDefault()` evita su acción predeterminada, como enviar y navegar, pero no cancela por sí solo la ejecución de nuestro callback.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Preparar el HTML antes del script
 
-## Explicación desde cero
+En el body del documento de [03.08](CLASE_08.md), antes de script, colocá:
 
-Un evento indica que ocurrió una acción, como click, input o submit. addEventListener asocia una función que se ejecutará cuando ocurra. Pasamos la función, no el resultado de llamarla. En un formulario, escuchar submit cubre tanto el botón como otras formas de envío, como Enter.
+```html
+<form id="compra">
+  <label for="cantidad">Cantidad</label>
+  <input id="cantidad" name="cantidad" type="number" min="1" step="1" required>
+  <button type="submit">Calcular</button>
+</form>
+<p id="resultado" aria-live="polite"></p>
+```
 
-event.preventDefault evita la acción predeterminada, por ejemplo una navegación de envío. Leer un control devuelve texto; validamos y convertimos antes de calcular. El mensaje de resultado debe existir en el HTML y ser comprensible cuando faltan datos.
+aria-live anuncia cambios de mensaje a tecnologías de asistencia sin interrumpir bruscamente. El formulario incluye etiquetas y restricciones vistas en HTML. Luego el script inferior selecciona form y resultado y registra el callback. En una página completa comprobá que ambos existan; el fragmento inferior supone esa estructura exacta.
 
-## Ejemplo
+Al enviar normalmente, el navegador aplica validación nativa antes de producir submit. Dentro del callback leemos campo.value, que es texto, lo convertimos y comprobamos entero positivo. La **validación propia** no debe descansar exclusivamente en el HTML: una llamada o entrada programática puede tener otras condiciones. En este ejemplo el cálculo es local; no crea una compra real.
+
+El texto con backticks es una **cadena de plantilla**: `${expresion}` incorpora un resultado. `Total: ${cantidad * 800}` incluye el cálculo sin concatenar manualmente. `formulario?.addEventListener` usa el encadenamiento opcional de 03.07; evita el acceso si falta el formulario, pero no confirma que resultado exista.
+
+Registrá listeners una vez cuando preparás la interfaz. Si los agregás dentro de cada render con una función nueva, una acción puede provocar varios cálculos. Repetir la representación y registrar eventos son responsabilidades distintas.
+
+## Ejemplo de la clase
 
 ```javascript
 // HTML: <form id="compra"><input name="cantidad" type="number" min="1" required><button>Calcular</button></form><p id="resultado"></p>
@@ -32,36 +45,20 @@ formulario?.addEventListener("submit", event => {
 
 [Abrir el fragmento como archivo](fragmentos/clase_09.js) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos de lógica pueden probarse en la consola. Los que usan document necesitan el HTML indicado y ejecutarse en el navegador, no en Node.js.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El ejemplo asume que el HTML indicado contiene campo y resultado. El navegador realiza su validación nativa antes de submit normal. Aun así, añadiremos validación propia para cantidades enteras y finitas. El signo ?. evita agregar un listener si no existe formulario. Los textos entre backticks permiten insertar valores con ${...}.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Sustituí addEventListener("submit",...) por una llamada inmediata al callback: perderías la relación con la acción. Quitá preventDefault: después de calcular puede navegar y desaparecer el mensaje. Cambiá cantidad a 1.5 mediante un envío programático: la validación propia debe rechazarla aunque no dependamos de la nativa.
 
-Añadí una comprobación para rechazar cantidades no enteras o menores que 1.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_09.md). Las [soluciones explicadas](SOLUCIONES_09.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Agregar un listener dentro de otro render y duplicar la respuesta al mismo evento.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un evento indica que ocurrió una acción, como click, input o submit. addEventListener asocia una función que se ejecutará cuando ocurra.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **03.09** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_09.md). Las [soluciones razonadas](SOLUCIONES_09.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_08.md) · [Clase siguiente](../03_JavaScript/CLASE_10.md)

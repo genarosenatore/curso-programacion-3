@@ -2,21 +2,30 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_07.md) · [Clase siguiente](../04_TypeScript/CLASE_09.md)
 
-## Qué vas a aprender
+## El elemento esperado puede faltar o ser otro
 
-Vamos a trabajar **dom tipado y consumo de apis**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+En JavaScript comprobamos null antes de modificar el [DOM](../03_JavaScript/CLASE_08.md). TypeScript además distingue clases de elementos: Element es genérico; HTMLInputElement tiene value. Escribir querySelector<HTMLInputElement> comunica una expectativa al compilador, pero no verifica que el HTML real tenga ese elemento.
 
-## Antes de empezar
+`instanceof HTMLInputElement` comprueba la clase en ejecución. Descarta null y otras clases; dentro del if se puede leer value. El callback captura ese campo ya comprobado. Si el id no existe, el bloque se omite: para una pantalla que requiere buscador, comunicá ese problema de montaje y corregí el documento.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Validar un dato de red
 
-## Explicación desde cero
+Recibí JSON como unknown, comprobá que sea objeto no nulo y que tenga los campos esperados. El operador `in` pregunta si existe una propiedad. `typeof v === "object"` solo no alcanza porque null también tiene ese typeof. Array.isArray detecta una colección y every comprueba que todos sus elementos cumplan un predicado; en un array vacío every devuelve true porque no hay contraejemplos.
 
-En TypeScript, un nodo genérico no tiene necesariamente value. HTMLInputElement sí lo tiene. querySelector puede devolver null aunque indiquemos un tipo genérico. Podemos comprobar existencia y clase real con instanceof para usar sus propiedades de forma segura.
+```typescript
+function esProducto(v: unknown): v is {id:number; nombre:string} {
+  return typeof v === "object" && v !== null &&
+    "id" in v && "nombre" in v &&
+    typeof v.id === "number" && Number.isInteger(v.id) &&
+    typeof v.nombre === "string";
+}
+```
 
-Una API devuelve datos que conviene recibir como unknown y validar. Declarar Promise<Producto[]> o hacer as Producto[] no realiza esa validación. La función debería comprobar que existe un array y que cada objeto tiene los campos necesarios antes de renderizar.
+Este fragmento puede compilarse sin DOM; su función devuelve un booleano y justifica el predicado. Para entrada externa de id, completá las reglas requeridas, como positivo. Un `as Producto[]` no realiza estos pasos. El código de DOM inferior requiere un input id="busqueda" en una página que cargue el JavaScript compilado por [04.07](CLASE_07.md) o el proyecto local.
 
-## Ejemplo
+Separá fallas de HTTP, lectura JSON, forma de datos y representación: permiten explicar por qué no puede usarse una respuesta. Tipar Promise<Producto[]> solo describe el contrato prometido por tu función; debes implementarlo realmente.
+
+## Ejemplo de la clase
 
 ```typescript
 const campo = document.querySelector("#busqueda");
@@ -29,36 +38,20 @@ if (campo instanceof HTMLInputElement) {
 
 [Abrir el fragmento como archivo](fragmentos/clase_08.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La comprobación descarta null y elementos de otra clase. En el callback, campo conserva el tipo de input y value es válido. Si la página usa otro id, el código no agrega el listener; esa ausencia debe detectarse al comprobar el montaje de la pantalla.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Poné un div con id busqueda: querySelector lo encuentra, pero instanceof descarta usar value. Probá esProducto(null), un objeto sin nombre y uno con id:"1": deben rechazarse. Un objeto con id:1 y nombre:"Ana" cumple la forma enseñada.
 
-Definí una comprobación que acepte solo objetos con id:number y nombre:string.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_08.md). Las [soluciones explicadas](SOLUCIONES_08.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar una afirmación de tipo como solución universal para errores del DOM.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-En TypeScript, un nodo genérico no tiene necesariamente value. HTMLInputElement sí lo tiene.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.08** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_08.md). Las [soluciones razonadas](SOLUCIONES_08.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_07.md) · [Clase siguiente](../04_TypeScript/CLASE_09.md)

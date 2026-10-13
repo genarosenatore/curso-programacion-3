@@ -1,23 +1,29 @@
 # Práctica 13.03 · Fechas, texto, IN, DISTINCT y ordenamiento
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Buscá clientes cuya denominación contenga ana sin importar mayúsculas.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Aplica lower a denominación.
+2. Vincula patron con %ana%.
+3. Distingue comodines de caracteres literales del usuario.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Buscá clientes con denominación que contenga ana sin importar mayúsculas usando un parámetro.
 
-Analizá esta confusión: «Concatenar texto del usuario dentro de la consulta para construir el filtro.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Escribí una consulta de facturas no anuladas en un intervalo con inicio incluido y fin excluido. Probá mentalmente un dato justo en cada extremo. ¿Qué significa una búsqueda que contenga %?
 
-Aplicá lower al atributo y enviá un patrón con %.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. lower se aplica al dato consultado.
+2. El parámetro ya contiene el patrón.
+3. El extremo superior usa < para quedar fuera.

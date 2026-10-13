@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_07.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_01.md)
 
-## Qué vas a aprender
+## Separar seleccionar elementos de seleccionar grupos
 
-Vamos a trabajar **práctica: consultas sobre productos y facturas**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+La pregunta «categorías con ventas totales mayores a 40000» necesita dos etapas. Primero agrupar ventas por categoría y sumar; después filtrar esos totales. Filtrar cada venta individual por >40000 descartaría aportes pequeños que, juntos, superan el umbral.
 
-## Antes de empezar
+El ejemplo usa Venta como record con categoría e importe en centavos. groupingBy obtiene la clave y summingInt el importe de cada elemento. Para Útiles hay 10000+20000=30000 y para Libros 50000. El mapa devuelve resumen por categoría, no los detalles originales.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir el resultado entre estructuras
 
-## Explicación desde cero
+Para filtrar el mapa, entrySet ofrece sus pares; stream recorre entradas; e.getValue()>40000 selecciona totales y map de getKey obtiene nombres de categorías. El tipo cambia de Venta a mapa resumido, luego a entradas y finalmente a String. Dibujá ese recorrido antes de escribir la cadena.
 
-Las consultas sobre colecciones combinan filtros, proyecciones y agrupaciones. Para practicar, necesitamos datos que hagan visible cada caso: productos disponibles y agotados, categorías repetidas y una lista vacía. Comprobá la salida a mano antes de mirar el resultado.
+Ejecutá [U10Funcional.java](../Ejemplos/java/U10Funcional.java), que reúne ejemplos con main e imports. Para extender el fragmento, poné Venta fuera de main y datos/cadena dentro. Probá una categoría repetida, una venta que no cambie el resultado y lista vacía. En vacío el mapa queda vacío, no contiene automáticamente categorías sin ventas.
 
-La práctica funcional prepara formas de pensar que retomaremos en consultas SQL y JPQL, aunque allí se ejecutan en otro sistema y tienen otras reglas. Un stream sobre objetos cargados no evita traer datos desde la base si la consulta inicial ya los cargó todos.
+Un stream trabaja sobre objetos ya cargados en la JVM. No evita cargar toda una base si antes obtuviste todos sus datos. SQL y JPQL enseñarán cómo trasladar selección y agregación al sistema de almacenamiento. Esa similitud de intención no hace idénticas sus reglas de nulos, joins o ejecución.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 record Venta(String categoria, int importeCentavos) {}
@@ -27,36 +27,20 @@ var totales = ventas.stream().collect(java.util.stream.Collectors.groupingBy(
 
 [Abrir el fragmento como archivo](fragmentos/clase_08.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las interfaces y records se declaran a nivel de clase; las operaciones del stream se ejecutan dentro de main. Se entrega un programa completo de práctica.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Útiles acumula 30000 y Libros 50000. groupingBy define grupos y summingInt reduce importes dentro de cada uno. Para muchas ventas usarías summingLong u otra representación para evitar desborde. El resultado es un resumen, no la lista completa de cada categoría.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Añadí Útiles por 20000: total 50000 y ahora esa categoría supera el umbral aunque ninguna de sus ventas individuales lo haga. Usar >= incluiría también exactamente 40000; > lo excluye. Elegí según la pregunta real.
 
-Agregá una venta y obtené solo categorías con total superior a 40000.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_08.md). Las [soluciones explicadas](SOLUCIONES_08.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Filtrar ventas individuales por importe cuando la pregunta pide filtrar el total por categoría.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Las consultas sobre colecciones combinan filtros, proyecciones y agrupaciones. Para practicar, necesitamos datos que hagan visible cada caso: productos disponibles y agotados, categorías repetidas y una lista vacía.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **10.08** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_08.md). Las [soluciones razonadas](SOLUCIONES_08.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_07.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_01.md)

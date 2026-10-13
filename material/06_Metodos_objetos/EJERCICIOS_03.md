@@ -1,23 +1,29 @@
 # Práctica 06.03 · equals y su contrato
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Probá reflexividad, simetría y diferencia con tres productos de códigos P01, P01 y P02.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá P01,P01 yP02 como objetos distintos.
+2. Probá ambos sentidos de igualdad y null.
+3. Agregá otro P01 para verificar transitividad.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Probá reflexividad, simetría y null con los productos P01 y P01.
 
-Analizá esta confusión: «Sobrecargar equals(Producto) en lugar de sobrescribir equals(Object).». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá un tercer P01 y un P02 y escribí una tabla para transitividad y diferencia. Explicá por qué igualdad por precio aproximado no sirve como equivalencia.
 
-Compará a consigo mismo, a con b, b con a y a con c.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Probá ambos sentidos entre objetos equivalentes.
+2. La transitividad necesita tres objetos.
+3. Una regla de proximidad no necesariamente es equivalencia.

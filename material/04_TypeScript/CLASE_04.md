@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_03.md) · [Clase siguiente](../04_TypeScript/CLASE_05.md)
 
-## Qué vas a aprender
+## Representar alternativas y ausencia
 
-Vamos a trabajar **uniones, opcionales, null y narrowing**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un dato no siempre existe y no siempre tiene una única forma. Una **unión** combina posibilidades con `|`: string | null admite texto o ausencia intencional. `type Estado = "pendiente" | "entregado"` usa tipos literales: solo esas cadenas. No equivale a cualquier string.
 
-## Antes de empezar
+Una propiedad `nota?:string` puede faltar; leerla puede dar undefined. Con strictNullChecks, incluido en strict, no se accede a length de un valor que puede ser null o undefined sin comprobar antes. **Narrowing** es reducir esas posibilidades mediante una condición que el compilador puede seguir.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir cada camino
 
-## Explicación desde cero
+En longitud del ejemplo, primero se pregunta valor === null. Si es null se retorna 0. En el otro camino solo queda string y se puede leer length. La comprobación tiene efecto real durante ejecución y también informa al sistema de tipos. `typeof valor === "string"` sirve para distinguir una unión de texto y números.
 
-Una unión admite varias alternativas. Una propiedad opcional puede no existir y al leerla puede aparecer undefined. null suele expresar ausencia intencional. Con comprobación estricta hay que reducir esas posibilidades antes de usar el valor; ese proceso se llama narrowing.
+El operador `??` entrega una alternativa si el dato es null o undefined. Conserva cero y texto vacío. `||` los considera falsos y puede reemplazarlos, lo que perdería un precio de cero válido. El `!` pospuesto, como campo!, afirma existencia al compilador sin comprobarla en ejecución; no lo confundas con la negación booleana antepuesta.
 
-Podemos reducir por typeof, por una condición de null o por un discriminador. ?? elige una alternativa solo para null o undefined, no para cualquier valor falso. Distinguir cero y ausencia evita perder datos válidos.
+Para alternativas con datos diferentes, podés usar un **discriminador**: una propiedad común con valores literales, por ejemplo `{estado:"ok", valor:number}` frente a `{estado:"error", mensaje:string}`. Al comprobar estado, el código conoce qué propiedades acompañan ese camino. Esto evita objetos con combinaciones ambiguas de campos opcionales.
 
-## Ejemplo
+Ejecutá funciones de texto sin DOM como en [04.01](CLASE_01.md). Probá explícitamente null, cero y cadena vacía: son casos que revelan si la ausencia está bien representada, más allá de que compile.
+
+## Ejemplo de la clase
 
 ```typescript
 type Estado = "pendiente" | "entregado";
@@ -31,36 +33,20 @@ function longitud(valor: string | null): number {
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Estado solo admite las dos cadenas definidas. nota puede faltar. La función usa un mensaje alternativo cuando falta, pero conserva una cadena vacía si existe. La comprobación de null permite acceder a length de un string en el otro camino.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+En mostrarPrecio, reemplazá precio===null por !precio: cero se convertiría erróneamente en «Sin precio». En una nota opcional, ?? conserva "" mientras || coloca el valor alternativo. Decidí si vacío debe tratarse como ausencia según la consigna.
 
-Recibí precio:number|null y devolvé "Sin precio" si falta o el precio como texto si existe.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar ! para afirmar que un valor existe sin explicar por qué.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una unión admite varias alternativas. Una propiedad opcional puede no existir y al leerla puede aparecer undefined.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_03.md) · [Clase siguiente](../04_TypeScript/CLASE_05.md)

@@ -1,23 +1,29 @@
 # Práctica 02.03 · Colores, texto, unidades y medidas
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Elegí un tamaño para título, texto y ancho de lectura que sigan funcionando con zoom al 200 %.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Definí fuente 1rem y título 2rem.
+2. Limitá ancho con width 90% y max-width.
+3. Aumentá zoom y verificá texto completo sin altura fija.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Calculá 1.5rem con raíz 16px y 80% dentro de un padre de 600px.
 
-Analizá esta confusión: «Suponer que 100 % equivale siempre al ancho de toda la pantalla.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseñá un párrafo de lectura con fuente 1rem, interlineado 1.6 y ancho limitado. Probá zoom al 200 %. ¿Por qué max-width ayuda y una altura fija puede perjudicar?
 
-Evitá un ancho fijo mayor que la pantalla; probá max-width.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Multiplicá tamaño de referencia por proporción.
+2. 80 % equivale a 0,8.
+3. Limitá el ancho, no la altura que requiere el texto.

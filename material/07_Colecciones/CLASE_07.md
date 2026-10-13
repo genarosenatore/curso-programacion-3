@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../07_Colecciones/CLASE_06.md) · [Clase siguiente](../08_Lombok_DTO/CLASE_01.md)
 
-## Qué vas a aprender
+## Una estructura para cada consulta
 
-Vamos a trabajar **práctica: catálogo e índice de productos**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un catálogo puede necesitar mostrar una secuencia y buscar por código. List<Producto> expresa el orden visible y Map<String,Producto> permite acceso por clave. Set<String> puede controlar que no repitas códigos al ingresar. No todas deben almacenar copias independientes del mismo objeto: si list y map referencian la misma instancia, una mutación se ve desde ambos.
 
-## Antes de empezar
+Primero decidí qué estructura es la fuente de verdad y cuáles son vistas o índices derivados. Si quitás solo de la lista pero dejás la asociación en el mapa, una búsqueda puede seguir devolviendo un producto ausente del catálogo visible. La sincronización se vuelve parte de la regla, no un detalle estético.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Construir y comprobar un índice
 
-## Explicación desde cero
+Para empezar, usá una lista con dos productos de códigos distintos. Recorrela y hacé put(codigo,producto). Si el código ya estaba, decidí rechazo o reemplazo: el ejercicio puede elegir rechazar mediante containsKey antes de put. Ordenar la lista por nombre no cambia las claves del mapa, pero cambiar un código sí exige actualizar su índice.
 
-Un catálogo puede usar List para mostrar una secuencia, Map para buscar por código y Set para comprobar códigos repetidos. Mantener estructuras redundantes requiere sincronizarlas; para un ejercicio pequeño, elegí una fuente principal y derivá lo necesario.
+Ejecutá [U07Colecciones.java](../Ejemplos/java/U07Colecciones.java) para observar lista, conjunto, conteos y eliminación. Sus operaciones están reunidas con main e imports. Los fragmentos de catálogo pueden depender de getters concretos de Producto: no agregues esa dependencia sin definir getCodigo y getNombre en tu propio modelo.
 
-La práctica debe justificar la estructura: qué consulta es frecuente, si se permiten duplicados y qué orden necesita la pantalla. No agregamos una colección porque su nombre parezca más avanzado. Cuando cambian requisitos, revisamos la elección.
+La práctica no necesita persistencia. Una consulta vacía, un código inexistente y un intento duplicado deben tener resultados claros. Para un catálogo muy grande o compartido entre usuarios, una colección local no reemplaza restricciones y consultas de base de datos; enseñaremos esa frontera en SQL.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 java.util.Map<String, Integer> precios = new java.util.LinkedHashMap<>();
@@ -28,36 +28,20 @@ if (precio != null) System.out.println(precio);
 
 [Abrir el fragmento como archivo](fragmentos/clase_07.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los fragmentos de operaciones van dentro de main. Usá imports java.util o los nombres completos que se muestran.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 LinkedHashMap permite buscar por clave y conserva inserción para este caso. Integer puede ser null si falta la clave; no lo convertimos automáticamente a int antes de comprobar. Un precio cero sigue siendo un precio presente.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Insertar dos productos con P01 en un mapa conserva una clave y el último valor si no rechazás antes. Ordenar una lista no ordena automáticamente HashMap. Cambiar el objeto que ambas estructuras referencian actualiza el dato, pero no recalcula una clave textual ya guardada.
 
-Diseñá un catálogo que rechace alta de un código repetido y permita consultar un código inexistente sin fallar.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_07.md). Las [soluciones explicadas](SOLUCIONES_07.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar getOrDefault con cero y después confundir producto inexistente con producto gratuito.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un catálogo puede usar List para mostrar una secuencia, Map para buscar por código y Set para comprobar códigos repetidos. Mantener estructuras redundantes requiere sincronizarlas; para un ejercicio pequeño, elegí una fuente principal y derivá lo necesario.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **07.07** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_07.md). Las [soluciones razonadas](SOLUCIONES_07.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../07_Colecciones/CLASE_06.md) · [Clase siguiente](../08_Lombok_DTO/CLASE_01.md)

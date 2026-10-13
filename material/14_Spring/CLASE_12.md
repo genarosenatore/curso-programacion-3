@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_11.md) · [Clase siguiente](../15_Integracion/CLASE_01.md)
 
-## Qué vas a aprender
+## Verificar un CRUD por recorrido y estado
 
-Vamos a trabajar **práctica: crud de cursos y facturación**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un CRUD completo no es solo cinco métodos con anotaciones. Debe definir entrada, reglas, existencia, persistencia, salida y errores. Empezá con el proyecto pequeño de productos; después trasladá la misma estructura a cursos o facturación sin asumir que sus reglas son idénticas.
 
-## Antes de empezar
+La ficha de POST incluye JSON recibido, validación, construcción, transacción, identidad creada y respuesta201. La de PUT incluye id existente, todos los campos editables y consulta posterior. La de DELETE incluye política de relaciones y204 sin cuerpo. Los casos inválidos son parte del contrato, no tareas opcionales para el final.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Ejecutar una prueba progresiva
 
-## Explicación desde cero
+Seguí [el README](../Ejemplos/spring/README.md) y [peticiones.http](../Ejemplos/spring/peticiones.http). Primero lista los datos iniciales. Crea un recurso, conserva id y Location y vuelve a obtenerlo. Cambia precio o stock y consulta otra vez. Elimina y confirma ausencia. Luego prueba nombre vacío, precio negativo y ruta con id no numérico.
 
-La práctica completa permite crear, listar, actualizar y borrar un producto, con validación, base en memoria y errores coherentes. Es una aplicación educativa que une capas y conceptos, no una solución completa de facturación o Food Store.
+Registra acción, HTTP, cuerpo y estado posterior. Si una petición inválida no cambia la lista, verifica la coherencia que la validación prometía. Una captura de pantalla de «Guardado» no comprueba ni código ni cambio posterior.
 
-Para verificar, registrá petición, código, cuerpo y efecto en un GET posterior. Primero usá un dato válido; luego nombre vacío, precio negativo e id inexistente. Una API no está lista solo porque arranque: tiene que respetar sus reglas y devolver resultados comprensibles.
+Para cursos, define sus campos reales sin reutilizar stock por comodidad. Para factura, resolver cliente y artículos, calcular detalles y total en backend y guardar bajo una transacción. El DTO del navegador no determina importe final. Una política fiscal o anulación debe proceder de la consigna, no de una extrapolación del CRUD de productos.
 
-## Ejemplo
+El bloque inferior es un guion de prueba, no programa autónomo. Los proyectos originales del campus pueden requerir ajustes y sus dependencias propias; el ejemplo de apoyo define un entorno limitado y conocido para estudiar cada mecanismo primero.
+
+## Ejemplo de la clase
 
 ```text
 Caso 1: POST válido → 201 y producto con id
@@ -29,36 +31,20 @@ Caso 6: POST con nombre vacío → 400
 
 [Abrir el fragmento como archivo](fragmentos/clase_12.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Ejecutá el proyecto de apoyo siguiendo su README. Los comandos de prueba HTTP están en un archivo .http y también se describen en la guía. Cuando cierres y reinicies el proyecto, los datos de H2 se reconstruyen. Después trasladá estas ideas al CRUD de cursos y a la consigna de facturas.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Reiniciar H2 vuelve a datos iniciales por configuración. Consultar después de crear en el mismo arranque verifica persistencia del proceso; conservar datos entre arranques requiere otro entorno. Esa diferencia debe aparecer en tu registro.
 
-Explicá en qué capa ocurre cada paso del caso POST y dónde se calcula un importe de factura.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_12.md). Las [soluciones explicadas](SOLUCIONES_12.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Tomar la confirmación visual de una pantalla como prueba suficiente de que el backend guardó los datos.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-La práctica completa permite crear, listar, actualizar y borrar un producto, con validación, base en memoria y errores coherentes. Es una aplicación educativa que une capas y conceptos, no una solución completa de facturación o Food Store.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.12** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_12.md). Las [soluciones razonadas](SOLUCIONES_12.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_11.md) · [Clase siguiente](../15_Integracion/CLASE_01.md)

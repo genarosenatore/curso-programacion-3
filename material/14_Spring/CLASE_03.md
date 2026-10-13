@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_02.md) · [Clase siguiente](../14_Spring/CLASE_04.md)
 
-## Qué vas a aprender
+## Arrancar infraestructura sin construirla a mano
 
-Vamos a trabajar **spring, spring boot y primer proyecto**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Spring administra componentes y colaboraciones. Spring Boot utiliza esa base para ofrecer arranque, dependencias agrupadas y configuración automática condicionada. No escribe tus reglas de stock ni convierte cualquier método en una API. Un **starter** agrupa dependencias para una capacidad, como web; el servidor embebido evita desplegar primero en un servidor externo.
 
-## Antes de empezar
+El proyecto entregado fija Java21 y Spring Boot3.5.16; usá esa configuración para reproducirlo. No hace falta elegir «la última» a mitad del estudio. Necesitás Maven y las descargas iniciales que declara pom.xml. El README permite comprobar versiones, compilar y arrancar, y detalla los datos que se reinician.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir la clase de entrada
 
-## Explicación desde cero
+`@SpringBootApplication` reúne configuración, autoconfiguración y búsqueda de componentes. Aplicacion está en paquete curso, raíz del código del ejemplo, para encontrar componentes debajo. `SpringApplication.run(Aplicacion.class,args)` crea el contexto y arranca capacidades presentes, como servidor web cuando corresponde. Aplicacion.class es descriptor de tipo, como vimos en [Reflection](../09_Genericos_Reflection/CLASE_04.md).
 
-Spring organiza componentes y dependencias. Spring Boot añade configuración automática, starters y un arranque práctico. Un starter reúne dependencias coherentes para una capacidad. El servidor web embebido permite iniciar una aplicación sin desplegar manualmente en un servidor externo.
+Desde [la carpeta del proyecto](../Ejemplos/spring/README.md), ejecutá `mvn compile` para comprobar y `mvn spring-boot:run` para iniciar. Esperá que termine el arranque antes de abrir http://127.0.0.1:8080. Ctrl+C detiene el proceso. Un log de «puerto ocupado» no se resuelve modificando un DTO; cambiá puerto o cerrá el servicio que lo usa según tu entorno.
 
-El proyecto de apoyo fija Java 21 y Spring Boot 3.5.16 para mantener coherencia con Jakarta y los ejemplos. Su documentación requiere al menos Java 17. Una versión nueva no obliga a cambiar el curso a mitad del estudio. La configuración declarada es el contrato reproducible del ejemplo.
+La clase inferior es un arranque mínimo ilustrativo. La Aplicacion real también prepara datos de ejemplo y necesita las clases del proyecto; no la reemplaces ciegamente por este bloque. Copiarla a un proyecto Java vacío no trae dependencias Spring: los imports solo hacen accesibles nombres disponibles.
 
-## Ejemplo
+Primero probá listado y una creación sin alterar configuración. Después cada clase de esta unidad identificará las piezas detrás de esa respuesta, para que no dependas de memorizar anotaciones.
+
+## Ejemplo de la clase
 
 ```java
 package curso;
@@ -33,36 +35,20 @@ public class Aplicacion {
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La clase se ubica en el paquete raíz curso para detectar componentes debajo. SpringApplication inicia el contexto y la aplicación web si las dependencias lo indican. En el proyecto de apoyo, pom.xml declara web, validation, data-jpa y H2. Su README explica Maven y arranque.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Mover Aplicacion a un paquete que no contiene los controllers puede dejar fuera su detección. El servidor podría arrancar y devolver404 para rutas esperadas. Quitar el starter web cambia las capacidades: la anotación sola no garantiza HTTP.
 
-Identificá la clase de inicio, archivo de dependencias y configuración del proyecto de apoyo.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Copiar una clase Spring a un proyecto Java vacío y esperar que sus imports existan.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Spring organiza componentes y dependencias. Spring Boot añade configuración automática, starters y un arranque práctico.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_02.md) · [Clase siguiente](../14_Spring/CLASE_04.md)

@@ -2,60 +2,46 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_01.md) · [Clase siguiente](../13_JPQL/CLASE_03.md)
 
-## Qué vas a aprender
+## Elegir la forma del resultado
 
-Vamos a trabajar **selección, proyecciones y filtros**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una **proyección** selecciona solo datos necesarios. `select f.numero` devuelve valores Long; `select f.numero,f.fechaEmision,f.importeTotal` devuelve una fila con tres posiciones, habitualmente Object[]. No son entidades completas gestionadas de FacturaVenta. El tipo de createQuery debe coincidir con esa selección.
 
-## Antes de empezar
+Una **expresión de constructor** `select new curso.FacturaResumen(f.numero,f.importeTotal)` crea un DTO por fila. Necesita nombre cualificado y constructor con tipos y orden compatibles. No marca el DTO como entidad ni guarda esa representación en una tabla.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir una fila
 
-## Explicación desde cero
+En [el laboratorio](../Ejemplos/persistencia/README.md), FacturaVenta.numero es Long e importeTotal double, igual que esos campos del modelo inspeccionado. FacturaResumen(Long numero,double total) corresponde. Una proyección de fecha usa java.util.Date en este modelo; no cambies arbitrariamente el DTO a otro temporal sin adaptar.
 
-Una proyección selecciona datos concretos en lugar de toda la entidad. Varias expresiones pueden producir Object[]; una expresión de constructor permite crear un DTO si existe un constructor compatible. Ese DTO no tiene que ser una entidad.
+La primera posición de Object[] sería número, segunda fecha y tercera total. Un índice invertido puede producir cast incorrecto o mostrar valores con el significado equivocado. Un DTO con nombre de componentes reduce esa dependencia y permite que el compilador compruebe sus usos posteriores, aunque la compatibilidad del constructor JPQL se valida al preparar/ejecutar la consulta.
 
-La clase del constructor usa su nombre cualificado. Orden y tipos de argumentos deben coincidir. Proyectar solo lo necesario reduce datos transferidos, pero no soluciona automáticamente todas las consultas de relaciones o permisos.
+Ejecutá las proyecciones del laboratorio antes de agregar condiciones. Después usa WHERE para limitar filas y ORDER BY para presentar. Un nombre de entidad no es el paquete de su clase por defecto, mientras el constructor DTO sí usa nombre cualificado. Leer campos elegidos reduce datos de salida, pero no aplica autorización por sí solo.
 
-## Ejemplo
+El double se conserva aquí para practicar sobre un modelo parecido al campus; no es la recomendación de precisión para contabilidad real. Producto del laboratorio utiliza BigDecimal para enseñar la diferencia y un DTO sobre ese precio debe recibir BigDecimal, no double por imitación.
+
+## Ejemplo de la clase
 
 ```sql
-select f.numeroFactura, f.fechaEmision, f.importeTotal
+select f.numero, f.fechaEmision, f.importeTotal
 from FacturaVenta f
-order by f.numeroFactura
+order by f.numero
 ```
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las consultas se ejecutan mediante JPA sobre entidades mapeadas. No son SQL directo. El nombre y tipo de cada atributo deben coincidir con tu modelo.
+## Qué ocurre al seguirlo
 
-## Leamos el ejemplo paso a paso
+Cada fila contiene tres valores en ese orden, no una FacturaVenta completa. Para Object[], documentá índices o preferí un DTO. Una variante sería select new curso.FacturaResumen(f.numero,f.importeTotal), con ese tipo definido y constructor compatible.
 
-Cada fila contiene tres valores en ese orden, no una FacturaVenta completa. Para Object[], documentá índices o preferí un DTO. Una variante sería select new curso.FacturaResumen(f.numeroFactura,f.importeTotal), con ese tipo definido y constructor compatible.
+## Cambiar una decisión y explorar un límite
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+Usar FacturaVenta.class con tres valores seleccionados incumple la forma del resultado. Cambiar numero por numeroFactura no encuentra la propiedad. Una expresión de constructor con tipos invertidos puede fallar aunque ambos campos existan.
 
-## Práctica
-
-Diseñá un DTO de número y total y escribí su expresión de constructor.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar FacturaVenta.class como resultado cuando se seleccionan tres valores escalares.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una proyección selecciona datos concretos en lugar de toda la entidad. Varias expresiones pueden producir Object[]; una expresión de constructor permite crear un DTO si existe un constructor compatible.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **13.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_01.md) · [Clase siguiente](../13_JPQL/CLASE_03.md)

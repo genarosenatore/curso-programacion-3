@@ -1,21 +1,15 @@
 # Soluciones 00.04 · Leer errores y comprobar una solución
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Entrada 100 y 200; observado 100; esperado 150. Corregir el divisor a 2. Con 40 y 60 debe dar 50. Esto verifica que la corrección no depende de unos precios particulares.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+En 99 no se aplica; en 100 debe aplicarse y es el caso que falla; en 101 ambos coinciden. Corregir la comparación incluye el límite. Para el promedio, la suma es 60, el observado 30 y el esperado 20. Dividir por tres corrige la regla; con 3, 6 y 9 se obtiene 6 en vez de 9. El informe precisa entradas y salidas para reproducir el problema sin suponer lo que hiciste.
 
-Los datos se recibieron correctamente y la suma es correcta, pero elegimos la operación equivocada. Corregir la lógica significa multiplicar. Luego probamos otra compra y una cantidad cero para comprobar la regla, no solo el ejemplo que falló.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Aceptar cualquier resultado solo porque el programa no mostró un error.
-
-Podemos cometer errores al escribir la forma de una instrucción, al ejecutar una operación o al elegir una solución. Un error de sintaxis incumple las reglas del lenguaje.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

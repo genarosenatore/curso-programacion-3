@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_03.md) · [Clase siguiente](../01_HTML/CLASE_05.md)
 
-## Qué vas a aprender
+## Organizar regiones que tienen una función
 
-Vamos a trabajar **estructura semántica: header, nav, main, section y footer**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Las [etiquetas y encabezados](CLASE_02.md) permiten describir partes pequeñas. Una página completa también necesita regiones reconocibles. La **semántica** es el significado que asignamos a cada elemento: permite entender la organización sin depender del diseño visual. `main` identifica el contenido principal; `nav` un conjunto de navegación; `header` una introducción y `footer` un cierre.
 
-## Antes de empezar
+`section` agrupa contenido de un tema, normalmente introducido por un encabezado. `article` representa una pieza que podría entenderse por separado, como una noticia o entrada de blog. `div` agrupa sin significado específico, útil cuando solo necesitamos un contenedor. No todo grupo debe ser section ni todo bloque de texto article.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Construir el árbol de la página
 
-## Explicación desde cero
+Empezá con el documento de 01.01. Dentro de body, poné presentación y navegación; luego un main; al final el pie. Dentro de main, identificá los temas y las piezas autónomas. En el ejemplo, Productos disponibles es un tema y Cuaderno es una pieza. header puede ser introductorio de una página o de un artículo: no obliga a situarse arriba de la pantalla.
 
-Los elementos semánticos describen la función de una región. header presenta contenido introductorio; nav agrupa navegación; main contiene el contenido principal; footer información de cierre. section agrupa un tema y suele tener un encabezado; article representa contenido autónomo. div es un contenedor genérico cuando no corresponde uno más específico.
+El navegador presenta las regiones en el orden del documento si no agregamos estilos. Las tecnologías de asistencia pueden usar regiones y encabezados para saltar entre partes. Por eso elegir etiquetas por su significado facilita acceder al contenido. El diseño en columnas llegará con CSS y no necesita cambiar esa organización.
 
-La semántica ayuda a leer el documento y a navegarlo con tecnologías de asistencia. Un elemento semántico no define por sí mismo columnas, colores ni posiciones: eso será CSS.
+Mantené un main principal visible y una jerarquía de encabezados comprensible. Si dos regiones nav tienen funciones distintas, se pueden identificar con `aria-label`, un atributo que asigna un nombre accesible; por ejemplo aria-label="Navegación principal". No reemplaza texto visible cuando el usuario necesita leerlo.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```html
 <header><h1>Mi tienda</h1></header>
@@ -32,36 +32,20 @@ La semántica ayuda a leer el documento y a navegarlo con tecnologías de asiste
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.html) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los fragmentos HTML van dentro del documento base de la primera clase, salvo que se muestre un documento completo. Tenés una página local de ejemplo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 main delimita la parte central. La sección tiene un título que explica su tema. El producto se presenta como una pieza autónoma mediante article. Los encabezados respetan la jerarquía. Si mañana cambiamos el diseño, estas responsabilidades siguen siendo las mismas.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiar todos los contenedores por div puede dejar una apariencia similar, pero se pierde información sobre las regiones. Si una agrupación existe únicamente para poner un fondo, un div con clase puede ser adecuado. Si quitás CSS, el orden y los encabezados deben seguir explicando el contenido.
 
-Organizá una página de blog con presentación, navegación, dos artículos y pie de página.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Elegir section solo para aplicar un fondo sin que exista una agrupación temática.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Los elementos semánticos describen la función de una región. header presenta contenido introductorio; nav agrupa navegación; main contiene el contenido principal; footer información de cierre.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **01.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_03.md) · [Clase siguiente](../01_HTML/CLASE_05.md)

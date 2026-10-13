@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_04.md) · [Clase siguiente](../10_Funcional/CLASE_06.md)
 
-## Qué vas a aprender
+## Saber qué valor pasa a la siguiente etapa
 
-Vamos a trabajar **filter, map y sorted**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+filter deja pasar elementos que cumplen un predicado y mantiene su tipo. map transforma cada uno y puede cambiar el tipo. sorted reorganiza según un comparador. Dibujar el tipo entre etapas ayuda a saber qué propiedades siguen disponibles.
 
-## Antes de empezar
+El ejemplo define Producto como record, enseñado en [08.05](../08_Lombok_DTO/CLASE_05.md). stock(), precio() y nombre() son accesores generados. Poné el record fuera de main y las operaciones dentro, con nombres completos de List y Comparator o imports.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Leer la cadena según el problema
 
-## Explicación desde cero
+Primero llegan Producto. filter verifica stock>0 y excluye Lapicera agotada. sorted ordena productos por precio. map transforma cada producto en su String nombre. toList termina y produce [Cuaderno]. Después de map, una operación precio() ya no tiene receptor Producto: el tipo cambió.
 
-filter selecciona manteniendo el tipo de elementos; map transforma y puede cambiarlo; sorted ordena mediante un criterio. El orden de operaciones define lo que llega a cada paso. Después de map a nombres, ya no tenemos productos para consultar su stock.
+Si el problema pide nombres de disponibles menores a 1500, ambos filtros de producto deben preceder a map de nombre. Ordenar por precio antes de transformar conserva la información que se necesita. Ordenar los nombres después responde otra pregunta, alfabética, no por precio.
 
-Antes de escribir la cadena, dibujá el tipo a la salida de cada operación. Esto vuelve claros muchos errores de compilación. Filtrar temprano puede reducir trabajo, pero solo si conserva el significado de la consulta.
+Las cadenas convienen cuando describen con claridad una consulta. Un bucle puede ser más directo si hay decisiones con estados complejos; no se evalúa profundidad por cantidad de métodos encadenados. Una función de callback que muta productos compartidos puede cambiar la fuente aunque map cree una salida distinta: el método no convierte automáticamente el comportamiento en puro.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 record Producto(String nombre, int precio, int stock) {}
@@ -30,36 +30,20 @@ var nombres = productos.stream()
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las interfaces y records se declaran a nivel de clase; las operaciones del stream se ejecutan dentro de main. Se entrega un programa completo de práctica.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Hasta sorted, los elementos son Producto. Después de map son String. El resultado es [Cuaderno], porque Lapicera estaba agotada. La ordenación usa int del ejemplo didáctico; el criterio debe reflejar la unidad del precio.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Agregá un disponible barato: aparece en la selección. Cambiá map antes del filtro de stock: ya tendrías Strings y no podrías llamar stock(). Si la selección queda vacía, la terminal devuelve [], un resultado válido.
 
-Obtené nombres en mayúsculas de productos disponibles cuyo precio sea menor a 1500.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Llamar precio() después de transformar cada producto a String.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-filter selecciona manteniendo el tipo de elementos; map transforma y puede cambiarlo; sorted ordena mediante un criterio. El orden de operaciones define lo que llega a cada paso.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **10.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_04.md) · [Clase siguiente](../10_Funcional/CLASE_06.md)

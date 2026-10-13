@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_09.md) · [Clase siguiente](../05_Java/CLASE_01.md)
 
-## Qué vas a aprender
+## Diseñar datos y reglas antes de las pantallas
 
-Vamos a trabajar **preparación del frontend de food store**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Food Store combina catálogo, cantidades, carrito y pedidos. Primero definí los datos: un producto tiene identidad, nombre, precio y stock; un ítem relaciona un producto con una cantidad. El subtotal se calcula con precio por cantidad; almacenar un total editable independiente permitiría que deje de coincidir.
 
-## Antes de empezar
+Las interfaces del ejemplo inferior expresan forma, no reglas. cantidad:number puede ser negativa o fraccionaria. Antes de insertar un ítem, comprobá entero positivo y cantidad total no mayor al stock. Al agregar el mismo producto dos veces, decidir si aumentar la misma cantidad o crear otra fila afecta la comprobación: este ejercicio elige una fila por id.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## De un recorrido a reduce
 
-## Explicación desde cero
+Ya sabemos sumar con for...of. `reduce(callback,inicial)` conserva un acumulador entre elementos. En el ejemplo, suma empieza en 0 y cada callback devuelve suma más el subtotal actual. Ese retorno será suma en la siguiente vuelta. Para carrito vacío, vuelve el inicial 0. Si omitís el inicial, un array vacío no puede aportar el primer valor y falla.
 
-Food Store pide más que mostrar productos: incluye categorías, carrito, pedidos y administración. Vamos a descomponerla en modelos y funciones antes de construir pantallas completas. Un ítem del carrito relaciona un producto con una cantidad; su subtotal se calcula, no se introduce como un valor arbitrario.
+Probá antes una versión con bucle para comprender la equivalencia; luego reduce es una escritura alternativa, no otra regla de total. Para centavos, nombrá precioCentavos y subtotalCentavos de manera consistente; no mezcles precios en pesos con cantidades expresadas en otra unidad.
 
-La preparación de esta unidad construye tipos y lógica local. El backend se integrará después de aprender Java y Spring. Esto permite avanzar con datos de prueba sin simular que ya existe una API terminada.
+La preparación TS es local. El backend se enseña después con Java y Spring y debe confirmar precio y disponibilidad al crear un pedido: los datos del navegador se pueden alterar y quedar antiguos. Por ahora construí funciones que reciban valores y entreguen resultados, sin inventar un servicio ya implementado ni pagos reales.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```typescript
 interface Producto { id: number; nombre: string; precio: number; stock: number; }
@@ -28,36 +28,20 @@ function total(items: ItemCarrito[]): number {
 
 [Abrir el fragmento como archivo](fragmentos/clase_10.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 reduce comienza en cero y acumula cada subtotal. Un carrito vacío da cero porque hay un valor inicial. Las cantidades y los precios de este ejemplo deben validarse antes de entrar a la función. Para dinero real usaremos centavos enteros en los ejemplos integrados y BigDecimal en Java para evitar errores de precisión.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Agregá dos ítems de 800 × 2 y 2000 × 1: el acumulador pasa 0 → 1600 → 3600. Con [] queda 0. Cambiá el retorno del callback por solo el subtotal: perderías la suma previa. El tipo correcto no detecta necesariamente ese error lógico.
 
-Agregá dos ítems al carrito y calculá el total. Explicá dónde validarías stock.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_10.md). Las [soluciones explicadas](SOLUCIONES_10.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Confiar en precios y stock enviados por el frontend como si no pudieran cambiar.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Food Store pide más que mostrar productos: incluye categorías, carrito, pedidos y administración. Vamos a descomponerla en modelos y funciones antes de construir pantallas completas.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.10** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_10.md). Las [soluciones razonadas](SOLUCIONES_10.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_09.md) · [Clase siguiente](../05_Java/CLASE_01.md)

@@ -1,23 +1,29 @@
 # Práctica 12.02 · Entity, Table, Id, GeneratedValue y Column
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Añadí precio como BigDecimal no nulo con precisión y escala razonables.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Declara BigDecimal con precisión 12 y escala 2.
+2. Construye desde texto y valida no negativo.
+3. Compara restricción de columna con regla de entrada.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Localizá id, nombre y precio en Producto del laboratorio y explicá cada anotación.
 
-Analizá esta confusión: «Usar el id generado no asignado como única regla de equals para todas las entidades nuevas.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá precio no nulo, de escala2 y no negativo a tu copia. Probá2000.00 y -1.00. ¿Qué regla comprueba la aplicación y cuál debe sostener la base?
 
-Column permite precision y scale para números decimales.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. BigDecimal desde texto evita una conversión flotante previa.
+2. compareTo permite comprobar negativo.
+3. Restricción de presencia y regla de signo son distintas.

@@ -2,6 +2,8 @@
 
 [Inicio](INICIO.md)
 
+Si todavía no tenés herramientas o no sabés desde dónde escribir un comando, comenzá por [preparar el entorno](ENTORNO.md). Solo necesitás las herramientas del ejemplo que estés estudiando.
+
 Los archivos fragmentos de cada clase son piezas explicadas en contexto. No todos son programas autónomos. Estos ejemplos completos reúnen estructura y datos necesarios para practicar. Trabajá en una copia si querés conservar la versión original.
 
 ## HTML y CSS
@@ -68,11 +70,24 @@ python practicar.py
 
 El comando se ejecuta desde Ejemplos/sql y crea una base en memoria; no modifica bases existentes. El archivo Python es solo un lanzador: el contenido a estudiar es SQL. Muestra categorías con conteo cero, factura total de 480000 centavos y una transacción revertida. Probá consultas SELECT del curso sobre ese esquema.
 
+Para ejecutar un archivo SQL propio se agrega [ejecutar.py](Ejemplos/sql/ejecutar.py). Desde Ejemplos/sql:
+
+```text
+python ejecutar.py ../../11_Bases_de_datos/fragmentos/clase_01.sql
+python ejecutar.py ../../11_Bases_de_datos/fragmentos/clase_04.sql --tienda
+```
+
+El primer caso crea su tabla en una base nueva. `--tienda` carga y confirma el esquema de tienda antes de tus sentencias, para consultas y cambios sobre esos datos. No uses esa opción al repetir un CREATE de una tabla ya definida. La clase 03 es un fragmento de detalle y requiere preparar factura y producto antes. Los resultados de SELECT se imprimen; errores de restricciones conservan su causa para investigarla.
+
+## JPA y JPQL sin Spring
+
+El [laboratorio de persistencia](Ejemplos/persistencia/README.md) incluye entidades, configuración, datos y un main de consola. Permite guardar y recuperar, seguir contextos, ejecutar rollback y consultar parámetros, proyecciones, joins, grupos, subconsultas y CASE. Requiere Java 21, Maven y sus dependencias; no necesita iniciar un servidor HTTP ni disponer del proyecto contable completo. Su README indica comandos, resultados previstos y qué parte del modelo del campus queda fuera.
+
 ## Spring, JPA y cliente HTTP
 
 El [proyecto API de productos](Ejemplos/spring/README.md) incluye configuración, entidad, repositorio, servicio, DTO, errores y controlador, además de una pantalla local para usar la API. Su README contiene requisitos y peticiones de prueba.
 
-Necesita Java 21, Maven y descargar dependencias en el primer arranque. Los fragmentos que usan FacturaVenta se apoyan en el modelo y las consignas del campus, no en la entidad Producto de este proyecto pequeño. No son contratos intercambiables.
+Necesita Java 21, Maven y descargar dependencias en el primer arranque. Los fragmentos que usan FacturaVenta se apoyan en el modelo descrito y las consignas del campus o en el laboratorio independiente cuando así se indica. No se ejecutan sobre la entidad Producto de este CRUD. Los dos proyectos tienen clases propias y no son contratos intercambiables; la copia original contable requiere completar sus mapeos JPA antes de ejecutar consultas persistentes.
 
 ## Si un ejemplo no funciona
 

@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_05.md) · [Clase siguiente](../07_Colecciones/CLASE_02.md)
 
-## Qué vas a aprender
+## Elegir según lo que necesitás conservar
 
-Vamos a trabajar **list, set y map: qué problema resuelve cada uno**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un array Java tiene tamaño fijo. Una **colección** ofrece operaciones para organizar datos y, según su implementación, crecer o eliminar. List conserva una secuencia con posiciones y repetidos. Set expresa pertenencia sin duplicados. Map asocia una clave con un valor: es otra familia, no un subtipo de Collection.
 
-## Antes de empezar
+Elegí por preguntas concretas: «¿cuál es el tercer paso?» requiere secuencia; «¿ya está inscripto?» requiere pertenencia; «¿qué precio tiene P01?» requiere clave y valor. Una misma aplicación puede utilizar las tres para responsabilidades diferentes.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Contrato e implementación
 
-## Explicación desde cero
+`List<String>` es el contrato con elementos String. Los signos < > indican argumentos de tipo; explican qué admite la colección y qué devuelve al consultar. ArrayList es una implementación concreta para crear. `List<String> nombres = new ArrayList<>();` separa la capacidad usada de su realización, como las [interfaces](../05_Java/CLASE_08.md). El diamante <> permite inferir el argumento del constructor.
 
-List representa una secuencia que permite duplicados; Set un grupo sin duplicados según su regla; Map relaciona claves con valores y no es un subtipo de Collection. Usamos interfaces en variables e implementaciones concretas al construir: List<String> nombres = new ArrayList<>.
+Los genéricos admiten referencias, no primitivos: usá Integer en lugar de int para una lista de números. Java convierte automáticamente int a su objeto envoltorio Integer, **boxing**, y puede convertirlo de vuelta, **unboxing**. Un Integer null no puede convertirse a int sin error.
 
-No todas las implementaciones tienen el mismo orden o costo. HashSet no garantiza orden; LinkedHashSet conserva inserción; TreeSet ordena según comparación. Queue y Deque son útiles para procesamiento por turnos o extremos. Elegí primero qué operaciones necesita el problema.
+El fragmento inferior va dentro de main, con nombres completos java.util o imports al comienzo del archivo. List agrega dos A; Set creado desde ella conserva una; Map almacena A→800. No toda implementación conserva el mismo orden: HashSet y HashMap no lo garantizan; LinkedHashSet y LinkedHashMap conservan inserción; TreeSet utiliza orden por comparación. Queue expresa turnos y Deque acceso por ambos extremos; los mencionamos para ubicar su función, sin pedirlos en esta práctica.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 java.util.List<String> lista = new java.util.ArrayList<>();
@@ -29,36 +29,20 @@ System.out.println(lista.size() + " / " + conjunto.size());
 
 [Abrir el fragmento como archivo](fragmentos/clase_01.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los fragmentos de operaciones van dentro de main. Usá imports java.util o los nombres completos que se muestran.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Muestra 2 / 1. La lista conserva ambos; el conjunto usa igualdad de String para deduplicar. El mapa conserva el precio bajo la clave A. Una nueva llamada put con A reemplaza su valor anterior en lugar de crear otra clave.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiar una lista por Set elimina repetidos y también deja de ofrecer get(indice). Cambiar un Map por List exigiría buscar manualmente la clave. Una estructura conveniente preserva las operaciones que necesita el problema, no solo sus datos iniciales.
 
-Elegí colección para pasos de una receta, correos únicos y precios por código.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_01.md). Las [soluciones explicadas](SOLUCIONES_01.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Suponer que toda colección tiene posiciones numéricas como una lista.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-List representa una secuencia que permite duplicados; Set un grupo sin duplicados según su regla; Map relaciona claves con valores y no es un subtipo de Collection. Usamos interfaces en variables e implementaciones concretas al construir: List<String> nombres = new ArrayList<>.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **07.01** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_01.md). Las [soluciones razonadas](SOLUCIONES_01.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_05.md) · [Clase siguiente](../07_Colecciones/CLASE_02.md)

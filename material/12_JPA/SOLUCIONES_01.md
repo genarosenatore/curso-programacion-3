@@ -1,21 +1,15 @@
 # Soluciones 12.01 · ORM, JPA y proveedor de persistencia
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 JPA define reglas y APIs de persistencia; Hibernate las implementa; Spring Data facilita repositorios y consultas en una aplicación Spring. Una entidad anotada sigue necesitando un entorno que gestione su persistencia.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+JPA define, Hibernate implementa y H2 almacena durante el proceso. new crea un objeto en memoria; EntityManager.persist lo incorpora al seguimiento, la transacción y sincronización producen INSERT y commit lo confirma. Copiar @Entity no incluye proveedor, driver, configuración ni gestión de operaciones. SQL sigue explicando restricciones, joins y costos de lo que el ORM realiza.
 
-Entity marca una clase persistente y Id identifica su clave. El constructor sin argumentos es requerido para entidades ordinarias y puede ser protected. Una anotación no crea por sí sola la conexión: hacen falta proveedor y configuración, incluidos en el proyecto de práctica.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Tratar JPA, Hibernate y Spring Data como tres nombres idénticos para la misma capa.
-
-ORM relaciona un modelo de objetos con almacenamiento relacional. JPA, hoy Jakarta Persistence, es una especificación; Hibernate es un proveedor que la implementa.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

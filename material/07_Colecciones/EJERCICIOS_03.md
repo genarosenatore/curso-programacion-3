@@ -1,23 +1,29 @@
 # Práctica 07.03 · HashSet y duplicados
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Registrá inscripciones sin duplicados y avisá cuando un código ya existía.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Usá el booleano de add para detectar repetido.
+2. Probá dos códigos iguales.
+3. Si normalizás, hacelo antes de insertar y consultar.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Registrá A, B y A y avisá cuando add devuelva false. Anticipá size.
 
-Analizá esta confusión: «Ordenar visualmente según el recorrido accidental de HashSet.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Elegí una política para códigos con espacios exteriores y normalizalos antes de insertar. Probá "P01" y " P01 ". ¿Qué pasaría si normalizaras solo al consultar?
 
-Usá el booleano que devuelve add en vez de buscar y luego agregar por separado.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El resultado de add permite avisar duplicado.
+2. trim elimina espacios exteriores.
+3. Guardado y consulta deben usar la misma política.

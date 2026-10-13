@@ -1,23 +1,29 @@
 # Práctica 14.06 · Capas: Controller, Service y Repository
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Ubicá tres tareas: leer id de la URL, validar stock para una compra y consultar producto por id.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Ubica URL en Controller y consulta en Repository.
+2. Ubica regla de stock en Service/dominio.
+3. Explica dónde se prepara DTO y por qué.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Ubicá leer id de URL, validar stock vigente y buscar producto en sus capas correspondientes.
 
-Analizá esta confusión: «Suponer que crear archivos con sufijos Controller y Service basta si todos duplican la misma lógica.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Seguí listar(null) hasta el repositorio y el mapeo a DTO. Explicá dónde corregirías un nombre de campo JSON y dónde una regla de cantidad, sin cambiar todo el proyecto.
 
-Relacioná protocolo, negocio y almacenamiento.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Mapping atiende HTTP.
+2. La regla utiliza datos del dominio.
+3. El DTO define representación de salida.

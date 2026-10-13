@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_02.md) · [Clase siguiente](../10_Funcional/CLASE_04.md)
 
-## Qué vas a aprender
+## Una abreviatura con un contrato conocido
 
-Vamos a trabajar **referencias a métodos**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una referencia a método representa una lambda que delega directamente a un método compatible. `String::length` equivale, en Function<String,Integer>, a s->s.length(). El primer argumento de la función identifica la instancia sobre la que llamar. `System.out::println` usa un receptor ya existente y equivale a texto->System.out.println(texto).
 
-## Antes de empezar
+`Tipo::metodoStatic` referencia una operación estática; `Tipo::new` un constructor. Los dos puntos no ejecutan inmediatamente la operación: dan un comportamiento que el contrato invocará más adelante. La firma debe encajar en cantidad y tipos de argumentos y retorno.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir una transformación y una acción
 
-## Explicación desde cero
+En el ejemplo, mayusculas.apply("ana") invoca toUpperCase sobre ese String y obtiene ANA. Luego mostrar.accept imprime. Las declaraciones y llamadas van dentro de main, usando Function y Consumer de [10.02](CLASE_02.md). No hace falta definir otra clase de operación.
 
-Una referencia a método es una forma abreviada de una lambda que delega directamente en un método compatible. String::toUpperCase puede representar s -> s.toUpperCase(); System.out::println una acción de impresión. Tipo::new puede referenciar un constructor.
+Cuando necesitás agregar un argumento, una lambda puede ser mejor: s->s.toUpperCase(java.util.Locale.ROOT) fija una política de idioma que la referencia simple no expresa. Tampoco varias instrucciones con validación se simplifican necesariamente a una referencia legible.
 
-La compatibilidad depende del contrato esperado. No todas las lambdas se simplifican a una referencia: si hacemos varias operaciones o agregamos argumentos calculados, una lambda puede ser más clara.
+El tipo Integer de Function<String,Integer> admite el retorno int de length mediante boxing, como aprendimos en colecciones. length mide unidades UTF-16, no necesariamente caracteres percibidos para todos los símbolos; para nuestros nombres simples sirve, pero no generalices esa medida a cualquier texto internacional sin otra política.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 java.util.function.Function<String, String> mayusculas = String::toUpperCase;
@@ -26,36 +26,20 @@ mostrar.accept(mayusculas.apply("ana"));
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las interfaces y records se declaran a nivel de clase; las operaciones del stream se ejecutan dentro de main. Se entrega un programa completo de práctica.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Muestra ANA. Function recibe un String y devuelve String, encajando con el método de instancia toUpperCase. Para resultados reproducibles de mayúsculas según idioma, podés usar una lambda s->s.toUpperCase(Locale.ROOT) cuando la regla lo requiera.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Reemplazá la referencia por su lambda equivalente: el resultado debería conservarse. Para un método que requiere un argumento extra, usar una referencia sin un contrato compatible deja de compilar. Más corto no significa más claro si oculta la operación.
 
-Reescribí s -> s.length() como referencia y explicá qué recibe.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar referencias solo para acortar aunque vuelva menos evidente la intención.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una referencia a método es una forma abreviada de una lambda que delega directamente en un método compatible. String::toUpperCase puede representar s -> s.toUpperCase(); System.out::println una acción de impresión.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **10.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_02.md) · [Clase siguiente](../10_Funcional/CLASE_04.md)

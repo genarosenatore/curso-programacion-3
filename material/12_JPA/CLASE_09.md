@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_08.md) · [Clase siguiente](../13_JPQL/CLASE_01.md)
 
-## Qué vas a aprender
+## Pasar de diagrama a entidades verificables
 
-Vamos a trabajar **prácticas de jpa y modelo facturaarca**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+FacturaArca agrega cliente, punto de venta, condición de IVA, moneda, artículos, listas de precio y detalles. Empezá por la función de cada objeto y su cardinalidad, no por copiar anotaciones. El detalle conecta factura con un artículo de lista de precio y conserva los valores de venta; no necesariamente tiene un atributo directo articulo.
 
-## Antes de empezar
+El proyecto contable inspeccionado declara FacturaVenta.numero, cliente, detalles y valores de cabecera, y FacturaVentaDetalle.factura y listaPrecioArticulo. Varias clases originales no traen @Entity y asociaciones JPA completas: forman parte del trabajo de mapeo. No alcanza ejecutar JPQL sobre esos POJO, objetos Java ordinarios, sin completar el modelo persistente.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Un laboratorio más pequeño para aprender el mecanismo
 
-## Explicación desde cero
+El [laboratorio JPA](../Ejemplos/persistencia/README.md) entrega un modelo propio reducido, con clientes, marcas, artículos, listaPrecioArticulo, factura y detalle, además de Producto/Categoria. Su README describe campos, datos y límites. Conserva nombres reales útiles como numero y el camino del detalle, pero no reproduce toda consigna fiscal ni su arquitectura.
 
-FacturaArca amplía el modelo con cliente, condición de IVA, punto de venta, moneda, artículos y detalles. Vamos a trasladar el diagrama y las reglas a entidades antes de realizar consultas avanzadas. El objetivo es justificar cada relación, no agregar anotaciones hasta que desaparezcan errores.
+Para cada relación anotá origen, destino, cardinalidad, propietario, columna y política de borrado. Primero guardá un caso mínimo, confirma, cierra contexto y recupera desde otro. Solo entonces agregá más relaciones. Ver una lista con hijos antes de guardar no demuestra que se conservaron.
 
-La práctica requiere datos de prueba pequeños y una comprobación después de recuperar desde otro contexto. Ver el objeto en memoria no demuestra que se haya persistido correctamente. Usá una base local reconstruible y revisá el SQL generado.
+La auditoría necesita mecanismo de asignación, la moneda una política de cálculo y la anulación puede requerir conservar histórico. No inventes tasas ni requisitos del curso. Usa el documento del campus para las reglas completas y este laboratorio para entender la herramienta paso a paso.
 
-## Ejemplo
+El bloque inferior es una estrategia en pseudocódigo: no se ejecuta. El proyecto independiente sí tiene programa completo. Distinguirlos te permite saber qué practicar sin tener que adivinar todas las piezas del sistema original.
+
+## Ejemplo de la clase
 
 ```text
 // Recorrido de creación:
@@ -29,36 +31,20 @@ La práctica requiere datos de prueba pequeños y una comprobación después de 
 
 [Abrir el fragmento como archivo](fragmentos/clase_09.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Estos fragmentos requieren un proyecto JPA configurado y las entidades mencionadas. El proyecto de apoyo está enlazado en la guía de ejecución; para FacturaVenta usá el modelo del campus mapeado según su consigna.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El fragmento expresa una estrategia y no un modelo completo. Las entidades del campus están en el proyecto contable descomprimido. Consultá sus atributos para adaptar nombres. Primero practicá con Producto/Categoria del proyecto ejecutable de apoyo y después ampliá a la consigna.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Si el propietario detalle.factura queda null, una lista en factura no compensa esa ausencia. Si recuperás sin cerrar o limpiar, el contexto puede devolver objetos ya conocidos y ocultar un problema de recuperación. Verificá una lectura nueva.
 
-Armá una tabla de relaciones de FacturaArca con cardinalidad, propietario, columna y regla de borrado.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_09.md). Las [soluciones explicadas](SOLUCIONES_09.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Dar por terminado el mapeo sin guardar, recuperar y comparar las relaciones.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-FacturaArca amplía el modelo con cliente, condición de IVA, punto de venta, moneda, artículos y detalles. Vamos a trasladar el diagrama y las reglas a entidades antes de realizar consultas avanzadas.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **12.09** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_09.md). Las [soluciones razonadas](SOLUCIONES_09.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_08.md) · [Clase siguiente](../13_JPQL/CLASE_01.md)

@@ -1,21 +1,15 @@
 # Soluciones 13.08 · Práctica escalonada: los cinco niveles del TP grupal
 
-[Clase](CLASE_08.md) · [Ejercicios](EJERCICIOS_08.md)
+[Clase](CLASE_08.md) · [Práctica](EJERCICIOS_08.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Nivel 1: todas las facturas. Nivel 2: filtro estado e importe. Nivel 3: facturas por marca con distinct. Nivel 4: total por condición. Nivel 5: artículos nunca vendidos con NOT EXISTS. Las siete clases anteriores tienen las piezas y soluciones explicadas para cada mecanismo; contrastá cada ejercicio concreto con el modelo del campus.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Cliente emitido: origen FacturaVenta, WHERE cliente.id=:clienteId AND estado=:estado, selección f. IVA: selección denominación y SUM, GROUP BY id y denominación, sin join de detalles. Las otras formas están desarrolladas en las clases previas: select f; select numero,total; select distinct f join detalles filtrando marca; grupos por condición; artículos con NOT EXISTS correlacionado. Escribí datos donde una factura tenga dos detalles y otra el mismo total, para no aceptar deduplicación de importes como corrección de duplicación de cabeceras.
 
-Con totales 100 y 200 en condición A, y 50 en B, esperamos A=300 y B=50. La consulta es select f.condicionIva.denominacion,sum(f.importeTotal) ... group by id y denominación. Si antes unimos detalles y no compensamos duplicados, podemos sumar más de una vez cada cabecera.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Evaluar una consulta sin datos que distingan sus casos correctos de los incorrectos.
-
-El TP grupal organiza consultas en cinco niveles: selección y filtros, condiciones y agregados, relaciones y subconsultas, agrupamiento y consultas correlacionadas. Para estudiar por tu cuenta, hacé una consulta por vez y comprobala con datos cuyo resultado conozcas.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

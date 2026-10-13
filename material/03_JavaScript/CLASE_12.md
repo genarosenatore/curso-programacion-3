@@ -2,21 +2,27 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_11.md) · [Clase siguiente](../03_JavaScript/CLASE_13.md)
 
-## Qué vas a aprender
+## Pedir datos y recibir una respuesta
 
-Vamos a trabajar **async/await, fetch y manejo de errores**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una **petición HTTP** pide un recurso mediante una URL. La **respuesta** incluye un estado, cabeceras y normalmente un cuerpo. 200 indica éxito habitual; 404 recurso no encontrado; 500 un fallo del servidor. JSON puede ser el formato del cuerpo. Esa distinción permite entender fetch antes de estudiar la API de Spring.
 
-## Antes de empezar
+`fetch(url)` devuelve una promesa que resuelve con un objeto Response cuando llega la respuesta inicial. Un estado 404 es una respuesta recibida, no necesariamente un rechazo de red. `respuesta.ok` indica estado en el rango 200–299; `respuesta.status` expone el número. `respuesta.json()` devuelve otra promesa, que lee e interpreta el cuerpo. Puede fallar si está vacío o no es JSON.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Preparar un ejemplo local completo
 
-## Explicación desde cero
+En una carpeta de ejercicios creá productos.json con `[{"nombre":"Cuaderno","precio":2000}]` y un index.html basado en [03.08](CLASE_08.md). Copiá la función cargarProductos del ejemplo inferior dentro de su script. Desde esa carpeta podés servir con `python -m http.server 3001 --bind 127.0.0.1` si tenés Python y abrir http://127.0.0.1:3001. También podés usar el servidor de [Ejemplos](../EJEMPLOS.md) con sus archivos de JavaScript. No abras fetch local como file sin servidor.
 
-async declara una función cuyo resultado es una promesa. await espera un resultado dentro de esa función sin bloquear todo el navegador. try/catch permite manejar errores. fetch hace una petición y devuelve una promesa de respuesta; un 404 no rechaza automáticamente esa promesa, por eso verificamos response.ok.
+## Leer async y await paso a paso
 
-Después de recibir la respuesta, json interpreta su cuerpo. Puede fallar si el contenido no es JSON válido. La interfaz necesita estados de carga, éxito y error. Primero practicaremos con un JSON local para no depender de una API externa.
+`async` declara una función que siempre devuelve una promesa. `await` suspende esa llamada hasta obtener el resultado de una promesa, sin detener todo el navegador. Primero await fetch obtiene Response. Se revisa ok. Después await json obtiene los datos. Por último se muestran. La función debe llamarse; definirla no descarga nada.
 
-## Ejemplo
+El bloque try/catch de [03.10](CLASE_10.md) trata un error de red, el Error lanzado por un estado no aceptado o un JSON inválido. Si no existe error, catch se omite. `finally` es un bloque opcional que se ejecuta al salir del intento, tanto con éxito como con error; resulta útil para retirar una señal de carga.
+
+No escribas `const productos = respuesta.json();` y leas productos.length como si ya fuera el array: sigue siendo una promesa. Tampoco leas dos veces el mismo cuerpo: una respuesta normalmente se consume una vez. Después de parsear comprobá Array.isArray y los campos necesarios; una respuesta exitosa puede tener una forma inesperada.
+
+La interfaz necesita un estado inicial, carga, resultado, vacío o error. Vacío no significa fallo: un catálogo válido con cero elementos necesita su propio mensaje. Mantener estos estados impide dejar resultados antiguos como si pertenecieran a una petición nueva.
+
+## Ejemplo de la clase
 
 ```javascript
 async function cargarProductos() {
@@ -34,36 +40,20 @@ cargarProductos();
 
 [Abrir el fragmento como archivo](fragmentos/clase_12.js) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos de lógica pueden probarse en la consola. Los que usan document necesitan el HTML indicado y ejecutarse en el navegador, no en Node.js.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 productos.json debe estar junto a la página y servirse desde un servidor local. await de fetch obtiene Response y await de json obtiene los datos. Un error de red o uno lanzado al comprobar ok llega al catch. Todavía debemos validar que los datos tengan la forma que el programa espera.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Renombrá productos.json: se recibe 404 y la comprobación lanza el error. Dejá el archivo con una coma final inválida: HTTP puede ser 200, pero json falla. Escribí []: es éxito vacío. Son tres casos distintos que no deben producir el mismo diagnóstico.
 
-Mostrá un mensaje de carga antes de fetch y reemplazalo por éxito o error al terminar.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_12.md). Las [soluciones explicadas](SOLUCIONES_12.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Suponer que fetch lanza error automáticamente ante cualquier respuesta HTTP de error.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-async declara una función cuyo resultado es una promesa. await espera un resultado dentro de esa función sin bloquear todo el navegador.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **03.12** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_12.md). Las [soluciones razonadas](SOLUCIONES_12.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_11.md) · [Clase siguiente](../03_JavaScript/CLASE_13.md)

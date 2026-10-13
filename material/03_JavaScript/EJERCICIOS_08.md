@@ -1,23 +1,29 @@
 # Práctica 03.08 · DOM: seleccionar, crear y modificar elementos
 
-[Clase](CLASE_08.md) · [Soluciones](SOLUCIONES_08.md)
+[Clase](CLASE_08.md) · [Soluciones separadas](SOLUCIONES_08.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Mostrá los nombres de tres productos creando un li por cada uno.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá ul en el HTML antes del script.
+2. Recorré tres nombres creando un li para cada uno.
+3. Asigná texto y agregá; al repetir, limpiá primero.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Usando el documento completo, agregá tres nombres mediante un array y un bucle for...of.
 
-Analizá esta confusión: «Reemplazar datos de usuario con innerHTML como si fuera una simple asignación de texto.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá mostrarNombres(nombres) que limpie la lista y vuelva a representarla. Llamala dos veces y luego con []. ¿Cuántos li quedan? Probá un nombre que contenga < y explicá por qué conviene textContent.
 
-Recorré el array con for...of y creá un elemento dentro del bucle.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Seleccioná ul, no cada li todavía inexistente.
+2. replaceChildren se llama antes del bucle.
+3. El dato de texto no necesita interpretarse como marcado.

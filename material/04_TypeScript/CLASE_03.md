@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_02.md) · [Clase siguiente](../04_TypeScript/CLASE_04.md)
 
-## Qué vas a aprender
+## Nombrar la forma de un dato
 
-Vamos a trabajar **interfaces y tipos para objetos**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Repetir `{id:number; nombre:string; precio:number}` en cada función puede generar diferencias accidentales. Una **interfaz** da nombre a ese contrato de propiedades. `interface Producto` no construye una instancia: describe qué espera el código. Un objeto literal compatible puede usarse sin new ni una clase Producto.
 
-## Antes de empezar
+TypeScript compara estructuras: si un valor tiene las propiedades requeridas con tipos compatibles, puede cumplir la interfaz. Una variable con propiedades adicionales puede seguir siendo compatible; los literales nuevos reciben comprobaciones específicas de propiedades sobrantes para detectar errores. Esto no implica que la interfaz elimine campos del objeto al ejecutar.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Acceso y restricciones
 
-## Explicación desde cero
+En el ejemplo inferior id es readonly: a través de producto tipado como Producto, escribir producto.id=2 se rechaza al comprobar. precio puede cambiar porque no está marcado. readonly no congela el objeto en ejecución ni garantiza que otro alias no lo modifique. Igual que const, es importante identificar qué escritura restringe.
 
-Una interface describe la forma de un objeto: nombres de propiedades y sus tipos. type permite expresar alias, incluyendo uniones. TypeScript usa compatibilidad estructural: importa la forma del valor, no que haya sido creado por una clase con un nombre específico.
+`type` permite un alias: `type Identificador = number;` nombra un tipo sin crear una clase ni diferenciar por sí solo números con otras funciones. Para formas sencillas de objetos, type e interface pueden expresar contratos similares; type también permite uniones, que veremos en 04.04. Elegí consistencia, no una regla de «uno siempre mejor».
 
-Una interface no crea objetos ni existe como entidad del backend. Sirve para modelar el contrato que el código usa. Marcar una propiedad readonly evita reasignarla a través de ese tipo, pero no convierte todo el objeto en inmutable en ejecución.
+Compilá el fragmento como en [04.01](CLASE_01.md) y observá que la interfaz no aparece como código JavaScript. Si una API usa costo y tu interfaz espera precio, la anotación no renombra el campo. Necesitás un adaptador que lea costo y construya un objeto con precio, después de validar el dato recibido.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```typescript
 interface Producto {
@@ -30,36 +30,20 @@ console.log(producto.nombre);
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El objeto debe incluir id, nombre y precio con tipos compatibles. readonly impide escribir producto.id=2 desde esta referencia. Cambiar precio sigue permitido. Al conectar la API, los nombres deben coincidir con el JSON; llamar costo a precio en la interface no renombra automáticamente la respuesta.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Quitá nombre del literal asignado a Producto: falta una propiedad requerida. Agregá readonly a precio y probá su asignación: limita ese uso estático, pero no cambia los datos del JSON remoto ni crea una copia independiente.
 
-Modelá Cliente con id numérico, nombre y correo de texto.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Creer que una interface genera un constructor o valida automáticamente un JSON.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una interface describe la forma de un objeto: nombres de propiedades y sus tipos. type permite expresar alias, incluyendo uniones.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_02.md) · [Clase siguiente](../04_TypeScript/CLASE_04.md)

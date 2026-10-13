@@ -1,21 +1,15 @@
 # Soluciones 02.08 · Media queries y diseño adaptable
 
-[Clase](CLASE_08.md) · [Ejercicios](EJERCICIOS_08.md)
+[Clase](CLASE_08.md) · [Práctica](EJERCICIOS_08.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Una solución cambia a dos columnas desde 40rem cuando cada tarjeta sigue siendo legible. Comprobá 39rem y 41rem. La justificación debe referirse al espacio del contenido, no a la marca de un dispositivo.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+`.catalogo { display:grid; grid-template-columns:1fr; gap:1rem; } @media (min-width:40rem) { .catalogo { grid-template-columns:repeat(2,1fr); } }`. Añadí `img { max-width:100%; height:auto; }`. El umbral habilita la declaración de columnas; no borra display o gap. Si un título no puede partirse, revisá sus palabras y overflow-wrap. La evidencia debe indicar ancho, zoom y comportamiento observado, no solo «se ve bien».
 
-En pantallas pequeñas, la barra lateral y el contenido se apilan. Desde 48rem, se separan en dos columnas. La consulta agrega reglas; no borra automáticamente las previas. Revisá también la altura de contenido, el zoom y etiquetas largas.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Ocultar información necesaria en móvil para que el diseño parezca más limpio.
-
-Un diseño adaptable cambia su disposición según el espacio disponible. Una media query aplica reglas cuando se cumple una condición.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

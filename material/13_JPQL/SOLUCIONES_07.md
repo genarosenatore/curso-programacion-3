@@ -1,21 +1,15 @@
 # Soluciones 13.07 · CASE y consultas avanzadas
 
-[Clase](CLASE_07.md) · [Ejercicios](EJERCICIOS_07.md)
+[Clase](CLASE_07.md) · [Práctica](EJERCICIOS_07.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 9999: BAJO; 10000: MEDIO; 50000: MEDIO; 50001: ALTO. Si el negocio cambia los límites, modificá condiciones y casos de prueba juntos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Los resultados son BAJO,MEDIO,MEDIO,ALTO. Añadí `order by f.importeTotal desc,f.numero`. Si otro campo permite null, el primer WHEN puede ser `precio is null then 'SIN INFORMAR'` y luego rangos válidos; esa rama expresa ausencia sin confundirla con cero. El modelo de Producto del laboratorio no permite precio null, así que ese caso es un diseño alternativo ilustrativo, no un dato de prueba admitido allí.
 
-La salida añade una etiqueta calculada. No requiere un atributo categoria en FacturaVenta. El rango medio llega a 50000 porque el primer WHEN solo toma mayores. Los importes están en las unidades del atributo del campus; no conviertas a centavos sin cambiar el modelo y parámetros.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Creer que una columna calculada de consulta queda guardada como propiedad persistente.
-
-CASE calcula una expresión según condiciones. Debe conservar alternativas de tipos compatibles.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_01.md) · [Clase siguiente](../09_Genericos_Reflection/CLASE_03.md)
 
-## Qué vas a aprender
+## Leer subtipos sin permitir escrituras incompatibles
 
-Vamos a trabajar **límites de tipos y wildcards**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Integer es un Number, pero List<Integer> no es List<Number>. Si lo fuera, una función que acepta List<Number> podría insertar Double y romper la lista de enteros. Esa falta de sustitución automática se llama **invariancia** de esos argumentos genéricos.
 
-## Antes de empezar
+Una **wildcard** `?` expresa un tipo que no fijamos. `? extends Number` significa algún subtipo de Number; permite leer sus elementos como Number. No sabemos si concretamente son Integer o Double y no podemos agregar arbitrariamente ninguno. `? super Integer` significa algún supertipo de Integer; permite agregar Integer, pero al leer solo podemos asumir Object.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Usar límites que habilitan operaciones
 
-## Explicación desde cero
+`<T extends Number>` restringe el parámetro declarado y permite llamar métodos de Number como doubleValue. No es lo mismo que cualquier T: sin límite, el compilador no puede asumir ese método. La regla «productor extends, consumidor super» resume qué operaciones necesitamos, pero siempre comprobá quién produce y quién recibe valores.
 
-Un límite como T extends Number restringe tipos permitidos y habilita operaciones del contrato Number. Una wildcard ? expresa un tipo desconocido. ? extends T resulta útil cuando leemos valores como T; ? super T cuando agregamos valores de T. La regla se recuerda como productor extends, consumidor super, pero hay que entender cada operación.
+El método sumar inferior recibe una lista productora. Colocalo fuera de main y llamalo con java.util.List.of(1,2) y List.of(1.5,2.5). Se recorren Number y se convierten a double; vuelve 3.0 y 4.0. Es una suma didáctica, no precisión monetaria exacta. En [] devuelve 0.0; el contrato supone valores no nulos.
 
-List<Integer> no es subtipo de List<Number>: si lo fuera, podríamos insertar un Double en una lista de Integer. Con una vista ? extends Number podemos leer Number sin insertar cualquier número.
+Si una función solo imprime Object, puede no necesitar genéricos. Si copia desde un origen de subtipos a un destino compatible, los límites expresan esa relación. No uses casts para convertir una lista de Integer en lista de Number: el problema es qué escrituras permitiría, no su nombre de variable.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 static double sumar(java.util.List<? extends Number> valores) {
@@ -29,36 +29,20 @@ static double sumar(java.util.List<? extends Number> valores) {
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las clases y métodos se declaran fuera de main; los recorridos van dentro de main. Reflection puede requerir manejar excepciones.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Los dos arrays de lista se aceptan como productores de Number. Dentro no sabemos si la lista concreta admite Integer o Double, por eso no añadimos cualquiera de esos tipos. doubleValue expresa una conversión numérica para este cálculo didáctico, no una política de precisión monetaria.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+La vista ? extends Number puede leer un Integer como Number, pero agregar 2.5 no es seguro porque podría ser una List<Integer>. En ? super Integer podés agregar 2, pero no leer directamente como Integer: el destino podría contener otros Object.
 
-Explicá por qué no podés añadir 2.5 a List<? extends Number>.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Interpretar extends como permiso para agregar cualquier subclase del límite.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un límite como T extends Number restringe tipos permitidos y habilita operaciones del contrato Number. Una wildcard ? expresa un tipo desconocido.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **09.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_01.md) · [Clase siguiente](../09_Genericos_Reflection/CLASE_03.md)

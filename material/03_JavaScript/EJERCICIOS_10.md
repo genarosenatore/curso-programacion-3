@@ -1,23 +1,29 @@
 # Práctica 03.10 · JSON, localStorage y sessionStorage
 
-[Clase](CLASE_10.md) · [Soluciones](SOLUCIONES_10.md)
+[Clase](CLASE_10.md) · [Soluciones separadas](SOLUCIONES_10.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Guardá una preferencia de tema y recuperala usando claro cuando no exista.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Guardá curso-tema como texto simple.
+2. Recuperá con alternativa solo para clave ausente.
+3. Eliminá esa clave y repetí la lectura.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Guardá la preferencia tema="oscuro" bajo curso-tema; recuperala y usá "claro" si no existe. Eliminá solo esa clave.
 
-Analizá esta confusión: «Confiar en localStorage como prueba de permisos o como almacenamiento seguro de contraseñas.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Guardá un array de dos cantidades y recuperalo con try/catch. Probá clave ausente, JSON válido y texto roto. ¿Qué diferencia hay entre error de sintaxis JSON y datos válidos de forma incorrecta?
 
-Una cadena simple no necesita JSON; getItem devuelve texto o null.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Un texto simple no necesita stringify.
+2. El array sí debe convertirse a texto JSON.
+3. Tras parse comprobá Array.isArray.

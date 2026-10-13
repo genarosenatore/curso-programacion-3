@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_01.md) · [Clase siguiente](../06_Metodos_objetos/CLASE_03.md)
 
-## Qué vas a aprender
+## Convertir un objeto en una explicación legible
 
-Vamos a trabajar **tostring y representación legible**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Imprimir una referencia no revela necesariamente sus datos. Object.toString produce una representación predeterminada con nombre de clase y una forma del hash; no es una dirección de memoria que debas usar como identidad. Sobrescribir toString permite mostrar datos útiles para reconocer una instancia durante depuración.
 
-## Antes de empezar
+La firma debe ser `public String toString()` sin parámetros. @Override comprueba que coincida con la operación heredada. El método **retorna** texto: no debería imprimir dentro, guardar datos ni modificar estado. Cuando println recibe el objeto, utiliza su representación textual para la salida.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Construir el mensaje por partes
 
-## Explicación desde cero
+En el ejemplo inferior el literal "Producto{codigo='" inicia la etiqueta, + agrega el código y el último literal cierra el mensaje. Las comillas dobles delimitan texto Java; las simples dentro son caracteres de la representación. No son sintaxis JSON. Colocá Producto como clase de paquete fuera de main y en main imprimí new Producto("P01").
 
-toString devuelve una representación textual de un objeto. Sirve al imprimir, depurar o construir mensajes. No es necesariamente un formato estable de intercambio: para comunicar datos usaremos DTO y JSON. Una representación útil incluye los campos que ayudan a reconocer el objeto.
+Elegí campos relevantes: un código y nombre suelen ayudar; una contraseña no. Si un cliente tiene pedidos y cada pedido referencia al cliente, imprimir todos los relacionados desde ambos lados puede repetir llamadas indefinidamente. Representá una relación con un identificador o resumen limitado en lugar de todo su grafo.
 
-No incluyas por defecto secretos ni relaciones completas recursivas. Si A imprime B y B imprime A, puede haber recursión infinita. @Override asegura la firma correcta: public String toString() sin parámetros.
+toString es útil para personas que investigan un programa, pero su formato puede cambiar. No lo uses como archivo persistente ni como contrato de API: para transportar datos enseñaremos DTO y JSON. Cambiar su representación tampoco cambia equals ni hashCode, que tienen otro propósito.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 class Producto {
@@ -31,36 +31,20 @@ class Producto {
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Usá las clases definidas en esta lección o en la anterior. El programa completo de igualdad permite verificar los contratos.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 println utiliza toString y muestra Producto{codigo='P01'}. El nombre de la clase y código hacen reconocible el objeto. Si agregamos precio, podemos decidir incluirlo; esa decisión no cambia su regla de igualdad.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Agregá precio al mensaje: mejora cierto diagnóstico pero no cambia la igualdad por código. Una representación recursiva cliente→pedido→cliente puede desbordar la pila de llamadas. No soluciona ese ciclo imprimir más campos.
 
-Definí toString para Cliente con código y nombre; justificá qué datos excluirías.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Esperar que toString produzca JSON correcto o sirva como base de datos.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-toString devuelve una representación textual de un objeto. Sirve al imprimir, depurar o construir mensajes.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **06.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_01.md) · [Clase siguiente](../06_Metodos_objetos/CLASE_03.md)

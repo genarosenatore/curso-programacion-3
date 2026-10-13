@@ -1,21 +1,29 @@
 # Soluciones 01.01 · Documento HTML: doctype, html, head y body
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 title: Biblioteca; h1: Mi biblioteca; p: Un lugar para organizar mis lecturas. Conservá lang="es", charset y viewport. El título de pestaña y el visible pueden ser distintos porque cumplen funciones distintas.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+El documento ejecutable puede ser:
 
-Guardá el ejemplo como index.html y abrilo con el navegador. El texto de title aparece en la pestaña; h1 es el título dentro de la página. La sangría facilita leer la estructura, aunque no crea la relación: esa relación la establecen las etiquetas. Editá un texto, guardá y recargá para comprobar la diferencia entre archivo y página mostrada.
+```html
+<!doctype html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Recetas de casa</title></head>
+<body>
+  <h1>Mi recetario</h1>
+  <p>Voy a guardar mis comidas favoritas.</p>
+  <p>La próxima receta será una tarta.</p>
+</body>
+</html>
+```
 
-## 3. Qué conviene corregir
+El título de pestaña identifica el documento entre pestañas; h1 introduce su contenido. La ausencia de viewport no impide este ejemplo de escritorio, pero añadilo desde la plantilla para móviles. `<body><p>Hola</body></p>` cierra el contenedor antes del hijo; debe ser `<body><p>Hola</p></body>`. La sangría no arregla ese orden.
 
-La confusión a evitar es: Colocar todo dentro de head: el contenido visible debe estar en body.
+## Cómo comparar tu respuesta
 
-Un documento HTML contiene elementos. Una etiqueta de apertura, contenido y etiqueta de cierre forman muchos elementos: <p>Hola</p>.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

@@ -1,23 +1,29 @@
 # Práctica 00.03 · Algoritmos: entradas, pasos, decisiones y resultados
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Diseñá un algoritmo que cobre 500 de envío si la compra es menor a 5.000 y envío cero en caso contrario. Probalo con 4.000, 5.000 y 6.000.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Escribí la condición importe<5000 para envío pago.
+2. Asigná 500 o 0 al envío según el camino.
+3. Sumá envío al importe y probá 4000,5000,6000.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Aplicá un 20 % de descuento desde 2000 inclusive. Seguí el algoritmo con 1999, 2000 y 3000.
 
-Analizá esta confusión: «Confundir >= con >: cambia el tratamiento del valor exacto del límite.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Combiná el descuento anterior con 300 pesos de envío cuando el total descontado sea menor a 2500. Aclarar el orden forma parte de la solución. ¿Daría lo mismo comprobar envío sobre el importe original?
 
-Calculá primero el envío y después sumalo al importe.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Conservar el 80 % es multiplicar por 0,80.
+2. Asigná total también cuando no hay descuento.
+3. Evaluá el envío después de obtener ese total.

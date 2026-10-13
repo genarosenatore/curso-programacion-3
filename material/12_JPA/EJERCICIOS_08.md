@@ -1,23 +1,29 @@
 # Práctica 12.08 · Transacciones y consistencia
 
-[Clase](CLASE_08.md) · [Soluciones](SOLUCIONES_08.md)
+[Clase](CLASE_08.md) · [Soluciones separadas](SOLUCIONES_08.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Describí una creación de factura con cabecera y detalles bajo un único límite transaccional.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Resuelve referencias y valida todos los detalles.
+2. Guarda bajo un único límite transaccional.
+3. Falla un detalle y comprueba ausencia de estado parcial.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Describí creación de factura con cliente y detalles bajo una única transacción.
 
-Analizá esta confusión: «Capturar todo error y retornar éxito aunque faltó guardar una parte.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Compará el límite explícito del laboratorio y el gestionado de Spring. Explicá qué verificarías al probar un detalle inválido y qué no garantiza la anotación por sí sola.
 
-Validá referencias y cálculo; persistí la estructura solo si la operación completa puede aceptarse.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Resolver referencias y validar pertenece a la operación completa.
+2. El fallo debe llegar a la política que decide rollback.
+3. Verificá desde un contexto posterior.

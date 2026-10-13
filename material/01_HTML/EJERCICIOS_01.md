@@ -1,23 +1,29 @@
 # Práctica 01.01 · Documento HTML: doctype, html, head y body
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá una página Biblioteca con un título de pestaña, un encabezado principal y un párrafo de presentación.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Copiá la estructura completa y cambiá title a Biblioteca.
+2. Poné Mi biblioteca en h 1 y una presentación en p.
+3. Guardá, abrí y compará pestaña con título visible.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá index.html para un recetario: pestaña «Recetas de casa», h1 «Mi recetario» y un párrafo de presentación. Explicá por qué hay dos títulos.
 
-Analizá esta confusión: «Colocar todo dentro de head: el contenido visible debe estar en body.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá un segundo párrafo con una palabra acentuada. Cerrá y abrí el archivo para comprobar que quedó guardado. ¿La sangría o las etiquetas determina qué está dentro de body? Mostrá un anidamiento incorrecto y corregilo.
 
-Reutilizá la estructura completa y cambiá title, h1 y p.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Conservá la estructura completa y editá su contenido.
+2. Lo visible va entre body y /body.
+3. Cerrá primero el elemento que abriste último.

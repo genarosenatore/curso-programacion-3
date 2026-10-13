@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../07_Colecciones/CLASE_01.md) · [Clase siguiente](../07_Colecciones/CLASE_03.md)
 
-## Qué vas a aprender
+## Una secuencia que puede crecer
 
-Vamos a trabajar **arraylist y recorrido de listas**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+ArrayList permite agregar y quitar valores sin fijar el tamaño inicial. `add` agrega, `get` consulta una posición, `set` reemplaza y `size()` cuenta. No confundas size() de colección con length del array. El índice sigue empezando en cero y una posición igual a size queda fuera.
 
-## Antes de empezar
+En el ejemplo, new ArrayList<>(List.of("Ana","Luis")) crea una lista editable a partir de una lista no modificable. List.of admite datos iniciales, pero no add ni valores null. Copiarla en ArrayList permite editar la nueva estructura; si sus elementos fueran objetos mutables, seguirían siendo referencias a esos objetos, no copias profundas.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir cambios de orden y tamaño
 
-## Explicación desde cero
+Después de add("Eva") la lista tiene tres. set(0,"Anita") cambia el primer valor sin aumentar size. El for mejorado lee Anita, Luis y Eva, y get(2) retorna Eva. Colocá operaciones dentro de main de [05.01](../05_Java/CLASE_01.md), con imports java.util.List y ArrayList si querés abreviar nombres.
 
-ArrayList crece a medida que agregamos elementos y permite acceso por índice. add añade, get consulta, set reemplaza y size cuenta. El índice debe estar entre cero y size-1. Un for mejorado sirve para leer todos los elementos sin usar índices.
+`remove("Luis")` elimina la primera coincidencia por igualdad. Con una lista de Integer hay sobrecargas: remove(1) elimina índice uno; remove(Integer.valueOf(1)) elimina el valor uno. La **sobrecarga** selecciona operaciones con el mismo nombre según sus argumentos; el tipo determina qué se invoca.
 
-List.of crea una lista no modificable. Para editarla podés construir new ArrayList<>(List.of(...)). Con Integer, remove(1) elimina por índice y remove(Integer.valueOf(1)) por valor: la sobrecarga importa.
+ArrayList resulta cómodo para consultas por posición y recorridos. Insertar o quitar en el medio puede desplazar muchos elementos; no elijas estructura únicamente por «es rápida» sin saber la operación. Para un catálogo pequeño conviene primero claridad y reglas comprobables.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 java.util.List<String> nombres = new java.util.ArrayList<>(java.util.List.of("Ana", "Luis"));
@@ -28,36 +28,20 @@ System.out.println(nombres.get(2));
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los fragmentos de operaciones van dentro de main. Usá imports java.util o los nombres completos que se muestran.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La lista queda Anita, Luis, Eva y get(2) devuelve Eva. set no agrega al final: necesita una posición existente. size es un método en List, distinto de length de un array. El orden de la lista corresponde a la secuencia de inserción y cambios.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+set(3,"Omar") sobre una lista de tres falla porque reemplazar requiere posición existente; add agrega una nueva. add sobre List.of falla por modificación no admitida. Son dos causas diferentes, aunque ambas ocurran al intentar cambiar datos.
 
-Quitá Luis y agregá Omar. Predecí tamaño y orden.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Intentar agregar a List.of y no comprender UnsupportedOperationException.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-ArrayList crece a medida que agregamos elementos y permite acceso por índice. add añade, get consulta, set reemplaza y size cuenta.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **07.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../07_Colecciones/CLASE_01.md) · [Clase siguiente](../07_Colecciones/CLASE_03.md)

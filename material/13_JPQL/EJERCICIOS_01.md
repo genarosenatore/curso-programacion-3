@@ -1,23 +1,29 @@
 # Práctica 13.01 · JPQL frente a SQL y parámetros nombrados
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Consultá todas las facturas de un cliente por su id usando parámetro.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Navega f.cliente.id en el modelo Java.
+2. Vincula clienteId mediante setParameter.
+3. Usa lista como salida para admitir cero coincidencias.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Consultá facturas emitidas con parámetro y luego un estado sin coincidencias.
 
-Analizá esta confusión: «Escribir factura_venta o cliente_id porque son nombres de la tabla y columna.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Consultá facturas por cliente.id con parámetro compatible. Explicá por qué cliente_id es un nombre SQL y por qué una lista vacía no equivale a fallo de consulta.
 
-Navegá f.cliente.id y compará con :clienteId.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Navegá atributos persistentes.
+2. El nombre del parámetro se vincula sin :.
+3. getResultList admite cero resultados.

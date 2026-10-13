@@ -1,0 +1,1 @@
+{"name":"sincronizacion-curso","private":true,"type":"module","scripts":{"build":"node sincronizar.mjs","verify":"node verificar.mjs"},"dependencies":{"marked":"17.0.5"}}

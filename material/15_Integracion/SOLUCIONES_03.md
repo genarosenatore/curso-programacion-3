@@ -1,21 +1,15 @@
 # Soluciones 15.03 · Estados de carga, error, resultado y CORS
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 boton.disabled=true antes de la petición y en finally boton.disabled=false. Mostrá error si falla y solo limpiá el formulario después de éxito. Conservá los datos ingresados para que la persona pueda corregirlos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Deshabilita antes de try y restaura en finally; solo limpia formulario después de éxito.200[] indica carga válida vacía;404 pide revisar ruta/recurso; CORS se identifica por política de origen y mensajes específicos de navegador/preflight. no-cors no habilita lectura JSON; puede ocultar estado y cuerpo. La corrección requiere coherencia de orígenes/proxy y permisos del servidor según el caso.
 
-estado y render se definen en la página completa. La URL relativa apunta al mismo origen. Si movés el frontend a Vite, definí un proxy o configuración de CORS coherente y restringida al origen de práctica. Un 404 por ruta mal escrita no se corrige concediendo todos los orígenes.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Desactivar permanentemente un botón al olvidar manejar el caso de error.
-
-La pantalla necesita estados reconocibles: cargando, resultado, vacío y error. Un botón puede quedar deshabilitado durante una escritura para evitar dobles clics accidentales; al terminar debe volver a su estado mediante finally.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

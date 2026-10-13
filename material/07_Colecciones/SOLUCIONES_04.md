@@ -1,21 +1,15 @@
 # Soluciones 07.04 · HashMap: claves y valores
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 for(String codigo:List.of("A","B","A")){conteos.put(codigo,conteos.getOrDefault(codigo,0)+1);}. Resultado A=2 y B=1. Una solución alternativa usa merge(codigo,1,Integer::sum).
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Los conteos finales son A=2,B=2,C=1. El algoritmo es `conteos.put(codigo,conteos.getOrDefault(codigo,0)+1);`. En el índice, put(P01,nuevoNombre) conserva size si P01 ya estaba. Para detectar no registrado, consultá containsKey; imponer valores no nulos simplifica el contrato. Un nombre "" puede ser un dato inválido que debe rechazarse, no sinónimo universal de ausencia.
 
-El valor de P01 queda 3. P02 no existe y obtiene cero mediante getOrDefault. var permite inferir el tipo de una variable local; no vuelve dinámico el lenguaje. entrySet evita buscar el valor nuevamente para cada clave.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Reemplazar siempre por 1 y perder el conteo acumulado.
-
-HashMap relaciona claves únicas con valores. put asocia y puede reemplazar; get consulta; containsKey diferencia una clave ausente de una cuyo valor es null.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

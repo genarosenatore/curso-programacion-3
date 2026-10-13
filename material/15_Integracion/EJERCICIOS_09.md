@@ -1,23 +1,29 @@
 # Práctica 15.09 · Verificación de requisitos y explicación del proyecto
 
-[Clase](CLASE_09.md) · [Soluciones](SOLUCIONES_09.md)
+[Clase](CLASE_09.md) · [Soluciones separadas](SOLUCIONES_09.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Escribí cinco requisitos de un proyecto, con caso normal, caso de error y evidencia de resultado para cada uno.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Escribe cinco requisitos concretos.
+2. Relaciona implementación con normal y límite.
+3. Anota evidencia y pendiente sin afirmar capacidades no probadas.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Escribe cinco requisitos de tu proyecto con caso normal, límite y evidencia, usando las categorías enseñadas.
 
-Analizá esta confusión: «Declarar completado un requisito solo porque existe un archivo o un botón con ese nombre.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Prepara un informe de error mínimo para un total correcto en pantalla pero incorrecto al recargar. Indica las etapas que revisarías y define cuándo la corrección está verificada. ¿Qué límites quedan fuera de los ejemplos locales?
 
-Elegí operaciones distintas: catálogo, detalle, carrito, pedido y administración.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Reproduce con pocos productos conocidos.
+2. Compara estado antes de serializar y después de recuperar.
+3. Recalcula desde datos validados, no desde una salida vieja.

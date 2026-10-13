@@ -1,23 +1,29 @@
 # Práctica 02.01 · Conectar CSS y usar selectores
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Aplicá una clase aviso a dos párrafos con fondo amarillo y texto oscuro.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Conectá estilos.css desde head con link.
+2. Usá class="aviso" en dos párrafos y .aviso en CSS.
+3. Compará con un tercer párrafo sin esa clase.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Aplicá .nota a un párrafo con texto azul y fondo claro. Dejá otro párrafo sin clase para comparar.
 
-Analizá esta confusión: «Escribir class=".aviso": el punto solo va en el selector CSS.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá dos article con clase tarjeta y seleccioná solo sus párrafos usando un descendiente. Agregá foco visible a enlaces. ¿Por qué una clase sirve mejor que duplicar un id para ambas tarjetas?
 
-background-color y color controlan fondo y texto respectivamente.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. En HTML se escribe class="nota".
+2. .tarjeta p relaciona contenedor y descendiente.
+3. Un id debe aparecer una vez en el documento.

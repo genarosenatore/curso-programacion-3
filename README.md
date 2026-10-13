@@ -2,6 +2,28 @@
 
 Curso de apoyo con 134 clases, 16 unidades y 64 preguntas autocorregibles. Incluye teoría, prácticas, soluciones y ejemplos propios. No es un sitio oficial de la UTN. Las notas corresponden a cuestionarios de práctica, no a evaluaciones oficiales.
 
+## Revisar esta copia local
+
+Esta versión incorpora la revisión de las 134 clases solicitada el 13 de octubre de 2026. La publicación en GitHub fue autorizada posteriormente por el estudiante. La versión anterior se conserva en el historial del repositorio.
+
+Pendientes pedagógicos: profundizar el recorrido de ejecución en clases avanzadas, especialmente relaciones JPA e inyección de dependencias en Spring, y ampliar la evaluación de comprensión (actualmente cuatro preguntas por unidad). La cobertura de todas las clases y las pruebas técnicas no implican que el material ya sea suficiente para aprender cada tema desde cero sin ayuda.
+
+Abrí `INICIAR_REVISION.cmd` y entrá a http://127.0.0.1:8766, o desde esta carpeta ejecutá `node tools/servidor.mjs`. El menú **Revisión y límites** muestra el registro por unidad. [REVISION_POR_UNIDAD.md](material/REVISION_POR_UNIDAD.md) documenta mejoras y alcance; [VERIFICACION.md](material/VERIFICACION.md) distingue pruebas realizadas y pendientes.
+
+Se conservan los identificadores y el formato de progreso. Si estudiabas desde otro puerto, dominio o navegador, exportá tu avance desde allí e importalo en esta copia; la compatibilidad del archivo no comparte automáticamente almacenamiento entre orígenes.
+
+## Mantener Markdown y web sincronizados
+
+La página sigue cargando `course.json`; los Markdown son su fuente. Para regenerar después de editar, desde `tools` instalá la dependencia declarada y ejecutá:
+
+```text
+npm install --ignore-scripts
+npm run build
+npm run verify
+```
+
+Build incorpora teoría, prácticas, soluciones y documentos auxiliares. Verify compara el JSON con una construcción nueva y revisa clases, banco, enlaces y lógica del progreso. Estas herramientas no son necesarias para abrir el sitio ya generado ni ejecutan las prácticas del estudiante.
+
 ## Publicar con GitHub Pages
 
 1. Creá un repositorio público, por ejemplo `curso-programacion-3`.

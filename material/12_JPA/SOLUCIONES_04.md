@@ -1,21 +1,15 @@
 # Soluciones 12.04 · Herencia y clases base persistentes
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Una MappedSuperclass puede declarar fechaCreacion. El valor se establece mediante constructor, servicio o callback @PrePersist según el diseño. Documentá el mecanismo y probá que el campo no quede vacío al guardar.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Cliente hereda un id persistente y su estrategia; la base no crea una tabla consultable independiente. Para auditoría podés asignar fecha con @PrePersist usando un tipo temporal compatible y probarla tras recuperación. Una jerarquía real de medios de pago podría requerir @Inheritance según consultas; compartir id con Cliente no implica que sean subtipos de la misma capacidad del negocio.
 
-Cliente hereda el mapeo del id. EntityId no se consulta como una entidad independiente en JPQL solo por ser MappedSuperclass. Las restricciones de constructor se cumplen en la subclase. Si dos clases comparten auditoría, esa base puede resultar útil sin forzar que todo el dominio sea una única jerarquía consultable.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Creer que heredar una propiedad de auditoría activa automáticamente todo el seguimiento.
-
-La herencia persistente puede modelarse con estrategias como SINGLE_TABLE, JOINED o TABLE_PER_CLASS, cada una con efectos en esquema y consultas. @MappedSuperclass comparte mapeos con subclases, pero no representa por sí sola una entidad consultable.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

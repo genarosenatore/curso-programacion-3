@@ -1,23 +1,29 @@
 # Práctica 01.06 · Formularios, labels, tipos de campos y validación nativa
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá un formulario local de nombre, correo y aceptación de condiciones, con etiquetas asociadas.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Asociá nombre,correo y casilla de aceptación mediante for e id.
+2. Usá checkbox required para exigir aceptación y probá sin marcar.
+3. Completá los campos y distinguí envío de creación real de cuenta.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá un formulario con nombre obligatorio y correo obligatorio, ambos con label asociado. Aclarar que es una demostración forma parte de la página.
 
-Analizá esta confusión: «Usar placeholder como único nombre del campo: desaparece al escribir y no sustituye a label.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá cantidad entera de libros entre 1 y 5 y un select con dos preferencias. Probá vacío, correo sin @, cantidad 0 y cantidad 2. ¿Qué envía name y por qué no reemplaza id?
 
-Para el checkbox, required significa que debe estar marcado.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. for coincide con id, no con el texto del label.
+2. number puede combinar min, max y step.
+3. name es la clave del dato enviado.

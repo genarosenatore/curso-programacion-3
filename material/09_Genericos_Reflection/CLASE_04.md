@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_03.md) · [Clase siguiente](../09_Genericos_Reflection/CLASE_05.md)
 
-## Qué vas a aprender
+## Observar la estructura de un tipo en ejecución
 
-Vamos a trabajar **class y metadatos de una clase**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+**Metadatos** describen el programa: nombre de clase, campos, métodos y tipos. El objeto Class representa esa información. `String.class` obtiene el descriptor conocido por nombre; `objeto.getClass()` obtiene el tipo concreto de la instancia. No es una instancia de String ni su valor textual.
 
-## Antes de empezar
+Reflection es el conjunto de herramientas que permite inspeccionar y, bajo condiciones, utilizar esa estructura dinámicamente. Sirve para herramientas y frameworks que no conocen todos los tipos al compilar. Para una llamada conocida, el código directo sigue siendo más claro y verificable.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Leer el descriptor
 
-## Explicación desde cero
+`Class<?>` indica un descriptor cuyo tipo específico no necesitamos fijar. getSimpleName entrega el nombre breve; getName incluye el paquete. getDeclaredMethods enumera los métodos declarados en ese tipo, incluso no públicos; getMethods enumera públicos, incluidos heredados. **Enumerar** no invoca: ver un método length no mide ninguna cadena.
 
-Class representa información sobre una clase en ejecución. Producto.class obtiene su descriptor; objeto.getClass() el de su clase real. Reflection permite inspeccionar campos, métodos y constructores. getMethods incluye métodos públicos heredados; getDeclaredMethods se limita a los declarados, incluyendo no públicos.
+El ejemplo inferior va dentro de main. La variable metodo es un descriptor java.lang.reflect.Method y getName consulta su nombre. El orden de enumeración no está garantizado; filtrar por nombre evita depender de una posición accidental. El mismo nombre puede tener varias sobrecargas y la firma incluye parámetros, no solo nombre.
 
-No inspeccionamos datos de negocio con la misma facilidad que accedemos normalmente: Reflection tiene costos, restricciones y puede saltarse garantías si se usa mal. Primero lo usaremos para observar metadatos, sin modificar el estado de objetos.
+Para campos, getDeclaredFields retorna descriptores Field. getType consulta su clase de dato. Eso informa que Cliente.nombre es String, no cuál es el nombre de un cliente particular. Leer valores requiere una instancia y acceso permitido, que no necesitamos en este primer ejercicio.
 
-## Ejemplo
+Reflection puede encontrar restricciones de acceso y módulos y añade errores que una llamada directa detectaría antes. Usala para una necesidad real de inspección, no para evitar definir un contrato tipado.
+
+## Ejemplo de la clase
 
 ```java
 Class<?> tipo = String.class;
@@ -28,36 +30,20 @@ for (java.lang.reflect.Method metodo : tipo.getDeclaredMethods()) {
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las clases y métodos se declaran fuera de main; los recorridos van dentro de main. Reflection puede requerir manejar excepciones.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Muestra String y el método length. El orden de métodos no es un contrato estable. Class<?> indica que tenemos información de una clase cuyo tipo concreto no necesitamos fijar. No se ejecuta length por enumerarlo.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+String.class y "Ana".getClass() describen el mismo tipo, pero ninguno es la cadena Ana. Una clase hija hereda métodos que pueden aparecer en getMethods y no en getDeclaredMethods. No afirmes que enumerar implica ejecutar.
 
-Inspeccioná una clase propia Cliente y mostrale su nombre y sus campos declarados.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Confundir nombre de atributo con su valor en un objeto particular.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Class representa información sobre una clase en ejecución. Producto.class obtiene su descriptor; objeto.getClass() el de su clase real.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **09.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_03.md) · [Clase siguiente](../09_Genericos_Reflection/CLASE_05.md)

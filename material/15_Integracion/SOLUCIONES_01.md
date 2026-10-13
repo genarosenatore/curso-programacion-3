@@ -1,21 +1,15 @@
 # Soluciones 15.01 · Seguir una petición del frontend al backend
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Revisá si se parseó el cuerpo, si se validó o adaptó su forma y si el render recibió el nuevo producto. Verificá selectors del DOM y errores de consola. No cambies el repositorio primero si la respuesta ya contiene lo esperado.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Tras201 revisa lectura del cuerpo, contrato validado/adaptado y render con selectores existentes. Sin petición: evento o validación local;400: formato y reglas de entrada;200 con error de consola al presentar: cliente/DOM. GET por el id devuelve el recurso almacenado durante ese arranque y evita confiar solo en un mensaje que la UI podría mostrar sin verificar la respuesta.
 
-No todas las operaciones consultan la base, pero este recorrido representa un CRUD persistente típico. Una respuesta útil incluye el id creado. Volver a consultar por ese id comprueba la persistencia mejor que solo mostrar un mensaje de éxito.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Resolver todo error cambiando CORS sin observar la respuesta o el evento.
-
-Una operación completa empieza en la interfaz y atraviesa varias responsabilidades. Seguir ese recorrido ayuda a localizar fallos: si el botón no dispara evento, el problema está antes de HTTP; si llega 400, hay que revisar la petición; si llega 200 pero no se muestra, hay que revisar interpretación o render.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

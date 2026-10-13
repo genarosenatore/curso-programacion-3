@@ -1,21 +1,15 @@
 # Soluciones 09.01 · Clases y métodos genéricos
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Caja<String> texto=new Caja<>("Hola"); Caja<Integer> numero=new Caja<>(7);. Caja<int> no compila. El tipo de obtener conserva String o Integer según cada variable.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Las cajas entregan Hola y 7 con tipos String e Integer. `static <T> T elegirPrimero(T a,T b){return a;}` retorna el primer valor y conserva un tipo común deducido. No verifica existencia: si a es null lo devuelve. Si el contrato requiere no null, usa validación explícita y documentala. Un genérico conserva relaciones estáticas, no crea contenido inexistente.
 
-obtener devuelve String cuando la variable es Caja<String>, sin una conversión manual. <> permite inferir el tipo de la construcción. El método identidad relaciona el tipo recibido con el devuelto. No usar Caja sin parámetro ayuda a evitar tipos crudos y errores ocultos.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Usar Object y conversiones por todas partes cuando un genérico expresa la relación.
-
-Un parámetro de tipo permite escribir una clase sin fijar un único tipo de contenido. T es un nombre convencional, no una palabra especial.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

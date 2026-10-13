@@ -1,23 +1,29 @@
 # Práctica 14.02 · API, recursos y operaciones CRUD
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Proponé rutas para listar pedidos, crear uno y obtener uno por id.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Diseña rutas de colección y recurso de pedidos.
+2. Asigna método para listar,crear y consultar.
+3. Documenta entrada,código y cuerpo de respuesta.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Proponé rutas para listar, crear y consultar pedidos por id con códigos de éxito.
 
-Analizá esta confusión: «Suponer que un método se comporta correctamente solo por tener una ruta con nombre REST.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Definí la diferencia entre PUT completo y una modificación parcial de stock. ¿Qué falla si el frontend omite precio en un PUT que lo exige y por qué un botón deshabilitado no garantiza evitar duplicados?
 
-Usá un nombre de colección y el id para el recurso.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Colección y recurso tienen rutas distintas.
+2. El contrato define campos obligatorios.
+3. Una petición puede repetirse por fuera de la pantalla.

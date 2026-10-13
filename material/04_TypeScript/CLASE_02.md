@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_01.md) · [Clase siguiente](../04_TypeScript/CLASE_03.md)
 
-## Qué vas a aprender
+## Expresar un contrato de entradas y salida
 
-Vamos a trabajar **tipos básicos, inferencia, arrays y funciones**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un tipo restringe valores; la **inferencia** permite deducirlo cuando el contexto alcanza. En `let cantidad = 2`, TypeScript infiere number. No hace falta escribir number después de cada literal. En los parámetros de una función independiente conviene declarar el contrato: `precio:number` evita que el llamador envíe texto por error.
 
-## Antes de empezar
+`number[]` es un array cuyos elementos son números; los corchetes pertenecen al tipo, mientras `[100,200]` es un valor. Un array numérico puede estar vacío: el tipo de sus elementos no prueba que exista la posición cero. `noUncheckedIndexedAccess` en tsconfig agrega undefined a ciertos accesos por índice; strict por sí solo no habilita esa opción.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Leer una función tipada
 
-## Explicación desde cero
+En la función subtotal inferior, las anotaciones antes del cierre de parámetros describen entradas y `):number` la salida. El cuerpo debe devolver un número. `void` describe una función cuyo resultado no se usa como un valor útil, por ejemplo una que solo muestra un mensaje. Es diferente de devolver un saludo string para que otro código lo coloque en pantalla.
 
-TypeScript puede inferir tipos a partir de un valor. No siempre hace falta anotarlo. number, string y boolean cubren valores básicos; un array puede expresarse como number[]; los parámetros y el retorno de una función también tienen tipos.
+Seguí el ejemplo con precios[0]=100 y cantidad=3: devuelve 300. Si querés hacerlo seguro ante vacío, obtené primero la posición y comprobá que no sea undefined; luego llamá subtotal. Esa condición también reduce las posibilidades del tipo. No uses una afirmación de existencia para ocultar un array vacío.
 
-Definir un retorno permite comprobar que la función cumple su contrato. void expresa que no entrega un resultado útil. No confundas number con Number: para datos ordinarios usamos el tipo primitivo. El tipado no reemplaza reglas del negocio, como que una cantidad sea positiva.
+Guardá el fragmento en un .ts y compilalo con el procedimiento de [04.01](CLASE_01.md). El cálculo no necesita DOM. number incluye fracciones y NaN, por lo que una cantidad tipada todavía necesita reglas como entero y positivo. Los tipos primitivos usan minúscula; Number con mayúscula es el objeto constructor y no el tipo habitual para estos datos.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```typescript
 function subtotal(precio: number, cantidad: number): number {
@@ -28,36 +28,20 @@ console.log(subtotal(precios[0], 3));
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El código TypeScript necesita compilación. Los fragmentos de DOM requieren una página. El proyecto local enlazado incluye configuración y datos para practicar.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La función recibe dos números y devuelve otro. precios solo admite números. En configuraciones que comprueban acceso por índice, podría requerirse comprobar que precios[0] existe. Un array vacío demuestra por qué una suposición sobre sus elementos puede fallar aunque sus elementos sean numéricos.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiá el retorno de una función number por "300": el compilador detecta el incumplimiento. Cambiá los datos a []: el problema es existencia, no tipo de elemento. Comprobar la posición antes de calcular produce un camino definido para ambos casos.
 
-Escribí una función que reciba nombre:string y devuelva un saludo:string.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Agregar tipos a todo mecánicamente y no comprender lo que se está garantizando.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-TypeScript puede inferir tipos a partir de un valor. No siempre hace falta anotarlo.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **04.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../04_TypeScript/CLASE_01.md) · [Clase siguiente](../04_TypeScript/CLASE_03.md)

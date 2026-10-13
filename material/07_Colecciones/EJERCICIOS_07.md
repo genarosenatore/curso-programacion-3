@@ -1,23 +1,29 @@
 # Práctica 07.07 · Práctica: catálogo e índice de productos
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Diseñá un catálogo que rechace alta de un código repetido y permita consultar un código inexistente sin fallar.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Comprobá containsKey antes de alta.
+2. Inserta solo si no existe código.
+3. Consultá un id ausente sin unboxing de null.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Construí List<String> con P01,P02 y un mapa código→nombre para los dos productos; consultá un código existente y otro ausente.
 
-Analizá esta confusión: «Usar getOrDefault con cero y después confundir producto inexistente con producto gratuito.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá una operación de alta que rechace código repetido antes de modificar las estructuras. Probá duplicado y verificá tamaño anterior y posterior. ¿Qué riesgo aparece al mantener lista e índice por separado?
 
-containsKey permite decidir si se acepta el alta; la consulta necesita una respuesta de ausencia.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La validación ocurre antes de ambas inserciones.
+2. containsKey permite comprobar duplicados.
+3. Todas las modificaciones deben conservar la relación entre estructuras.

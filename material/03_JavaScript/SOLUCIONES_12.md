@@ -1,21 +1,17 @@
 # Soluciones 03.12 · async/await, fetch y manejo de errores
 
-[Clase](CLASE_12.md) · [Ejercicios](EJERCICIOS_12.md)
+[Clase](CLASE_12.md) · [Práctica](EJERCICIOS_12.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Antes: estado.textContent="Cargando...". Tras json: estado.textContent=`${productos.length} productos`. En catch: estado.textContent="No se pudo cargar". Cambiá la ruta por una inexistente y comprobá que aparezca el mensaje de error.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Seleccioná estado antes de llamar. Antes del try o al comienzo asigná «Cargando». Tras json, si no es array lanzá new Error("Formato inesperado"); si length === 0 asigná «Sin productos», en otro caso `${productos.length} productos`. En catch asigná «No se pudo cargar» y registrá el error en consola para depurar.
 
-productos.json debe estar junto a la página y servirse desde un servidor local. await de fetch obtiene Response y await de json obtiene los datos. Un error de red o uno lanzado al comprobar ok llega al catch. Todavía debemos validar que los datos tengan la forma que el programa espera.
+Los dos await atienden momentos diferentes: cabeceras de respuesta y lectura del cuerpo. 404 demuestra que el servidor respondió; fetch no decide si ese estado sirve a tu operación. Tu comprobación lo convierte en una falla del flujo esperado. La interfaz informa al usuario y la consola conserva detalles para investigar.
 
-## 3. Qué conviene corregir
+## Cómo comparar tu respuesta
 
-La confusión a evitar es: Suponer que fetch lanza error automáticamente ante cualquier respuesta HTTP de error.
-
-async declara una función cuyo resultado es una promesa. await espera un resultado dentro de esa función sin bloquear todo el navegador.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

@@ -1,21 +1,15 @@
 # Soluciones 14.09 · POST, PUT y DELETE
 
-[Clase](CLASE_09.md) · [Ejercicios](EJERCICIOS_09.md)
+[Clase](CLASE_09.md) · [Práctica](EJERCICIOS_09.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 @DeleteMapping("/{id}") ResponseEntity<Void> eliminar(@PathVariable Long id){servicio.eliminar(id);return ResponseEntity.noContent().build();}. El servicio lanza el error de inexistencia si corresponde. El advice lo traduce a 404.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+El método llama servicio.eliminar(id) y retorna ResponseEntity.noContent().build(); Void expresa ausencia de cuerpo. El recorrido esperado es201,200,200 según la actualización del proyecto,204 y404. Dos POST pueden crear dos objetos; dos PUT idénticos dejan los mismos campos. Anulación o borrado se decide por reglas del modelo y contrato, no únicamente por un verbo HTTP.
 
-El DTO recibido no fija el id. La respuesta señala el nuevo recurso con Location. El ejemplo completo también implementa PUT y DELETE. El frontend debe tratar 204 antes de intentar json. Repetir POST crea otro producto salvo que exista una política de unicidad.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Borrar sin comprobar relaciones o políticas de historial del modelo real.
-
-POST del ejemplo crea y devuelve 201. PUT actualiza los campos editables definidos y devuelve la representación o un éxito sin cuerpo según contrato.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

@@ -1,23 +1,29 @@
 # Práctica 08.01 · Anotaciones y código repetitivo
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Identificá qué partes son repetitivas y cuál podría necesitar una regla adicional.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Identificá constructor y getter manuales.
+2. Separá asignación repetitiva de validación del nombre.
+3. Explicá qué automatización no debe borrar la regla.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Ejecutá ProductoManual y señalá qué línea inicializa y qué línea consulta el nombre.
 
-Analizá esta confusión: «Agregar una anotación esperando que el IDE descargue y configure cualquier dependencia.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Añadí rechazo de nombre null o vacío al constructor manual. Explicá cuál parte es repetitiva y cuál expresa la regla. ¿Todas las anotaciones se consultan en ejecución?
 
-La asignación y getter pueden generarse; validar un nombre vacío es una decisión del modelo.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El getter solo entrega estado.
+2. Validá antes de asignar.
+3. La retención y la herramienta determinan cuándo se interpreta una anotación.

@@ -1,23 +1,29 @@
 # Práctica 12.06 · Persistencia, consulta, modificación y eliminación
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Diseñá una actualización de nombre usando find y explicá qué validás antes de asignar.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Valida nombre antes de actualizar.
+2. Find por id y rechaza ausencia.
+3. Asigna solo nombre en la entidad gestionada y confirma.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Diseñá una actualización de nombre con find, comprobación y asignación.
 
-Analizá esta confusión: «Ignorar el objeto devuelto por merge y seguir modificando el objeto separado.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Dibujá referencias antes y después de merge y señalá cuál debe modificarse. Explicá qué pasa si el DTO de actualización omite precio y se copia como null.
 
-Buscá la entidad y comprobá existencia y contenido del nuevo nombre.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Recuperá o rechazá ausencia antes de acceder.
+2. merge retorna el destino gestionado.
+3. Solo asigná los campos que el contrato permite.

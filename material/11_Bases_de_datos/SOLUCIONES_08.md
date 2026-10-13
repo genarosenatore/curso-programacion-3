@@ -1,21 +1,15 @@
 # Soluciones 11.08 · Práctica: productos, clientes, facturas y detalles
 
-[Clase](CLASE_08.md) · [Ejercicios](EJERCICIOS_08.md)
+[Clase](CLASE_08.md) · [Práctica](EJERCICIOS_08.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 factura_id relaciona el detalle con su cabecera. precio_centavos en detalle conserva el precio de venta. Modificar producto.precio_centavos no cambia ese dato histórico. El subtotal se calcula con la cantidad de cada detalle.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+200000×2+80000×1=480000. La consulta variante usa `FROM factura f LEFT JOIN detalle d ON d.factura_id=f.id`, selecciona f.id y `COALESCE(SUM(d.cantidad*d.precio_centavos),0)` y agrupa por f.id. La factura nueva da0 bajo esa política. El precio guardado en detalle conserva el hecho histórico; referencia al producto por sí sola solo permite ver su estado actual.
 
-La suma calcula sobre el precio guardado en cada detalle, no sobre el precio actual de producto. El esquema ejecutable de tienda.sql define esa columna y datos de prueba. Una factura sin renglones no aparece con INNER JOIN; decidí si debe rechazarse al crearla o representarse con otro resultado.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Calcular una factura antigua con los precios actuales del catálogo.
-
-El modelo de facturación reúne clientes, productos, facturas y detalles. Un cliente puede tener varias facturas; una factura varios renglones.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

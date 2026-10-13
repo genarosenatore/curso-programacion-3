@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_01.md) · [Clase siguiente](../00_Fundamentos/CLASE_03.md)
 
-## Qué vas a aprender
+## Del dato al archivo
 
-Vamos a trabajar **archivos, carpetas, extensiones y editor de código**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+En [00.01](CLASE_01.md) distinguimos instrucciones de resultados. Para conservar instrucciones necesitamos un archivo: una secuencia de datos guardada con un nombre. Un archivo de código suele ser texto plano, sin formato de Word. Un editor de código permite escribir ese texto, guardarlo y mostrar errores de escritura; guardar no ejecuta el programa.
 
-## Antes de empezar
+La carpeta es un contenedor para organizar archivos. La **raíz del proyecto** es la carpeta que elegimos como punto de partida, no necesariamente la raíz del disco. `index.html` es una convención frecuente para la página de entrada; el nombre no crea contenido automáticamente. Las extensiones `.html`, `.css`, `.js` indican a las herramientas cómo tratar el archivo. Renombrar `foto.png` a `foto.html` no convierte una imagen en HTML.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Resolver una ruta paso a paso
 
-## Explicación desde cero
+Una ruta es una indicación de ubicación. En `paginas/contacto.html`, primero entramos en `paginas` y luego buscamos el archivo. En `../index.html`, `..` significa subir a la carpeta que contiene la actual. `.` significa la carpeta actual. Los `/` separan pasos en las rutas web. La ruta relativa necesita un punto de referencia: en un enlace HTML es la ubicación del documento; en una referencia CSS externa suele ser la del archivo CSS.
 
-Un archivo guarda contenido y tiene un nombre. La extensión es la terminación del nombre: .html, .css o .js. Ayuda a reconocer su función; cambiar la extensión de una imagen no transforma sus datos. Una carpeta agrupa archivos. Una ruta indica dónde está algo: una ruta absoluta parte de una ubicación completa y una relativa se interpreta desde un punto de referencia.
+Creá una carpeta `biblioteca`, un archivo `index.html` y la subcarpeta `paginas` con `contacto.html`. Desde el primero entrás a `paginas`; desde el segundo tenés que subir. Una ruta absoluta del disco identifica una ubicación completa, pero no sirve para compartir un sitio con otra persona. Una URL como `https://ejemplo.org/contacto` identifica un recurso de la web y tiene otro contexto.
 
-El editor sirve para escribir archivos de texto; el navegador interpreta la página. Guardar un cambio en el editor y recargar la página son acciones distintas. En Windows activá la visualización de extensiones desde el Explorador si aparecen ocultas. Podés usar el editor que ya tengas; el campus menciona Visual Studio Code.
+En Windows activá las extensiones en el Explorador, abrí la carpeta con tu editor y guardá en UTF-8, una codificación capaz de representar tildes. Para comprobar cambios: editá, guardá, abrí el archivo apropiado en el navegador y recargá. Si no cambia, comprobá nombre completo, carpeta y pestaña antes de modificar el contenido.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```text
 mi-tienda/
@@ -29,36 +29,20 @@ mi-tienda/
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Este ejemplo describe pasos o uso de herramientas. Seguí las instrucciones de la explicación; los bloques de pseudocódigo no se ejecutan como programas.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 index.html está en la raíz de mi-tienda. Para referirse a la imagen desde ese archivo, la ruta relativa es imagenes/producto.png. Desde css/estilos.css, la misma imagen está un nivel arriba: ../imagenes/producto.png. Los dos puntos indican subir una carpeta. Para practicar, creá una carpeta nueva para tus ejercicios y archivos vacíos con esos nombres; todavía no hace falta completar su contenido.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Mové contacto.html a paginas/ayuda/contacto.html: el enlace desde la raíz pasa a paginas/ayuda/contacto.html y el regreso a ../../index.html. En un servidor, mayúsculas y minúsculas pueden distinguir archivos aunque Windows tolere la diferencia. Usá nombres consistentes y evitá rutas de tu usuario.
 
-Dibujá una carpeta biblioteca con index.html y una subcarpeta paginas que contenga contacto.html. Indicá la ruta desde index.html a contacto.html y la ruta de vuelta.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Guardar index.html.txt por tener ocultas las extensiones: el navegador puede tratarlo como texto. Verificá el nombre completo.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un archivo guarda contenido y tiene un nombre. La extensión es la terminación del nombre: .html, .css o .js.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **00.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_01.md) · [Clase siguiente](../00_Fundamentos/CLASE_03.md)

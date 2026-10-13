@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_09.md) · [Clase siguiente](../05_Java/CLASE_11.md)
 
-## Qué vas a aprender
+## Organizar nombres y código reutilizado
 
-Vamos a trabajar **paquetes, dependencias y estructura de proyecto**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un paquete da un nombre compuesto a clases relacionadas. `package tienda.modelo;` declara el espacio al que pertenece Producto; las carpetas habituales lo reflejan bajo la raíz de código. `import tienda.modelo.Producto;` permite usar su nombre corto. No descarga bibliotecas ni ejecuta la clase importada.
 
-## Antes de empezar
+La **ruta de clases** o classpath indica dónde encontrar clases al compilar y ejecutar. En un proyecto simple, src contiene fuente y out puede guardar bytecode. En Maven, src/main/java es la raíz de fuente; tienda/modelo comienza después de ella. No escribas package src.main.java.tienda.modelo.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Un proyecto de dos archivos
 
-## Explicación desde cero
+Creá src/tienda/Producto.java con el ejemplo inferior y src/Inicio.java sin package, con main que importe tienda.Producto, cree new Producto y muestre nombre(). Desde la raíz ejecutá `javac -encoding UTF-8 -d out src/tienda/Producto.java src/Inicio.java`, después `java -cp out Inicio`. -d fija salida; -cp señala dónde buscar el bytecode.
 
-Un paquete organiza clases y evita conflictos de nombres. La declaración package corresponde a su ubicación de código dentro del proyecto. import permite usar un tipo por su nombre corto. Una dependencia es código externo que el proyecto necesita.
+Si Inicio también declara package tienda, va en src/tienda/Inicio.java y se ejecuta `java -cp out tienda.Inicio`. public permite acceder a tipos y métodos desde otro paquete. Un acceso de paquete funciona dentro del mismo paquete pero no fuera: no todos los fallos de import son una dependencia ausente.
 
-Maven y Gradle describen dependencias y tareas de construcción. El archivo de configuración y el wrapper del proyecto ayudan a usar un entorno reproducible. Un IDE reconoce esa estructura; copiar solo una clase no copia sus dependencias. Para los ejemplos iniciales usamos Java sin librerías externas.
+Una **dependencia** es código externo requerido. Maven usa pom.xml para describirlo y resolver versiones, compile para compilar y package para generar distribución. Gradle tiene otra configuración. Un wrapper provee una forma de ejecutar la herramienta del proyecto; no aporta automáticamente Java. Compartir solo un .java que importa Lombok o Spring no incluye esas bibliotecas. Usá siempre la configuración del proyecto completo al avanzar.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 // Archivo: src/tienda/Producto.java
@@ -29,36 +29,20 @@ public class Producto {
 
 [Abrir el fragmento como archivo](fragmentos/clase_10.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las declaraciones de clases y métodos van dentro o fuera de main según indica la explicación. Los fragmentos no son todos archivos autónomos; el ejemplo completo de la unidad muestra la estructura ejecutable.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La clase pública coincide con Producto.java. Si otra clase está en otro paquete, debe poder acceder al tipo y métodos necesarios. En proyectos Maven, la raíz de código suele ser src/main/java; dentro se ubica tienda/Producto.java. El prefijo de carpeta no forma parte del nombre del paquete.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Compilar a out y ejecutar sin -cp puede hacer que la clase no se encuentre aunque el archivo exista. Cambiar el paquete sin cambiar cómo llamás su nombre produce otro desacuerdo. No edites un .class: regeneralo desde su .java.
 
-Separá modelos Producto y Cliente en un paquete tienda.modelo y una clase de inicio en tienda.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_10.md). Las [soluciones explicadas](SOLUCIONES_10.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Editar .class en lugar de .java o confundir una carpeta de compilados con código fuente.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un paquete organiza clases y evita conflictos de nombres. La declaración package corresponde a su ubicación de código dentro del proyecto.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **05.10** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_10.md). Las [soluciones razonadas](SOLUCIONES_10.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_09.md) · [Clase siguiente](../05_Java/CLASE_11.md)

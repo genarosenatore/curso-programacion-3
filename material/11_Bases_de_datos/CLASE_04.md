@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_03.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_05.md)
 
-## Qué vas a aprender
+## Preguntar qué filas y qué columnas queremos
 
-Vamos a trabajar **select, where y order by**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+SELECT elige los datos de salida; FROM indica tabla; WHERE decide qué filas pasan; ORDER BY define orden. Aunque SELECT aparece primero en la escritura, para razonar podés empezar por el origen, filtrar y después proyectar columnas. `*` selecciona todas, pero nombrar columnas hace explícito el contrato.
 
-## Antes de empezar
+El ejemplo selecciona precio>=100000 centavos y ordena descendente por precio; id ascendente desempata. Sin ORDER BY no hay un orden prometido. En los datos de tienda devuelve Libro, Cuaderno y Producto sin categoría; Lapicera de 80000 queda fuera.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Operadores sobre datos presentes y ausentes
 
-## Explicación desde cero
+BETWEEN incluye ambos extremos. IN(1,2) comprueba pertenencia a una lista de valores. AND exige ambas condiciones y OR al menos una; usá paréntesis para dejar claro agrupar OR dentro de otras reglas. LIKE admite `%` como secuencia y `_` como un carácter, según las reglas de comparación del motor.
 
-SELECT elige columnas, FROM el origen, WHERE filtra filas y ORDER BY ordena. No existe orden garantizado sin ORDER BY. Los parámetros se pasan por el mecanismo de la librería y no concatenando texto del usuario a la consulta.
+NULL representa ausencia. `categoria_id = NULL` no responde true para ausentes: la comparación produce **desconocido**, un tercer estado de la lógica SQL. WHERE conserva solo true. Usá IS NULL o IS NOT NULL. Esto explica por qué una comparación común puede eliminar filas opcionales en un JOIN.
 
-NULL representa ausencia y se comprueba con IS NULL o IS NOT NULL, no con = NULL. Las condiciones usan lógica SQL con un tercer estado desconocido. Para intervalos de fechas y nombres, necesitamos conocer cómo almacena esos datos el motor.
+Ejecutá el fragmento con `python ejecutar.py ../../11_Bases_de_datos/fragmentos/clase_04.sql --tienda` desde la carpeta SQL. Para datos externos se usan parámetros de la biblioteca, por ejemplo `?` en SQLite Python y una secuencia de valores por separado; no se concatena texto al SQL. Es un mecanismo de ejecución, no una comilla que vuelva seguro cualquier texto construido.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 SELECT id, nombre, precio_centavos
@@ -27,36 +27,20 @@ ORDER BY precio_centavos DESC, id ASC;
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El archivo tienda.sql contiene un esquema con datos de prueba. Las sentencias CREATE ilustrativas se prueban en bases separadas para no redefinir tablas ya existentes.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El filtro conserva productos cuyo precio sea al menos 1000 unidades, porque almacenamos centavos. El orden principal es precio descendente y el id desempata. El resultado no incluye productos por debajo del límite, aunque estén disponibles.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiá >= por >: un precio exactamente 100000 queda excluido. Cambiá ORDER BY a nombre,id: cambia presentación, no qué filas cumplen. Para productos sin categoría, IS NULL encuentra el cuarto producto; = NULL no expresa esa ausencia.
 
-Consultá productos entre 80000 y 200000 centavos, ordenados por nombre.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Esperar que WHERE columna=NULL encuentre filas sin valor.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-SELECT elige columnas, FROM el origen, WHERE filtra filas y ORDER BY ordena. No existe orden garantizado sin ORDER BY.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **11.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_03.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_05.md)

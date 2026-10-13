@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_05.md) · [Clase siguiente](../15_Integracion/CLASE_07.md)
 
-## Qué vas a aprender
+## Actualizar cantidades como una transición de estado
 
-Vamos a trabajar **carrito, cantidades y localstorage**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+El carrito representa productoId y cantidad, con una fila por producto en este ejercicio. Agregar el mismo id suma a su cantidad existente. La regla se evalúa sobre la cantidad combinada, no solo la recién pedida. Antes de mutar, comprueba entero positivo y que no supere stock vigente local.
 
-## Antes de empezar
+La transición tiene estado anterior, solicitud y estado posterior. Con stock3 y cantidad actual2, agregar2 pide4 y se rechaza conservando2. Quitar1 deja1. Si quitar llega a0, la política puede retirar el ítem; aquí cantidad0 no se conserva como una compra. Un total se recalcula a partir de los datos válidos después de cambiar.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Guardar mínimo y recuperar con comprobación
 
-## Explicación desde cero
+localStorage guarda texto JSON por origen, como vimos en [03.10](../03_JavaScript/CLASE_10.md). Serializa ids/cantidades y al recuperar comprueba array, elementos, ids conocidos y cantidades válidas. El catálogo puede cambiar entre sesiones: un id ausente o stock reducido necesita un mensaje y política de corrección, no uso ciego de los datos viejos.
 
-El carrito debe decidir cómo combinar repetidas selecciones del mismo producto. Una estructura por productoId evita renglones duplicados. La cantidad debe ser entera positiva y su suma no superar stock. El subtotal se calcula desde precio y cantidad; el total puede agregar envío según regla.
+Usa [el ejemplo JavaScript](../Ejemplos/javascript/index.html) servido por el [servidor local](../EJEMPLOS.md). Cuaderno tiene3 unidades; Mochila empieza agotada. Haz altas repetidas, elimina y recarga. No edites su stock suponiendo que modificaste una base real: es un catálogo local de práctica.
 
-Guardamos en localStorage datos mínimos y los validamos al recuperar. Los datos del navegador son editables y pueden quedar desactualizados. Antes de crear pedido, el backend vuelve a comprobar stock y precios y devuelve el total aceptado.
+El backend debe volver a consultar precios y disponibilidad antes de aceptar pedido, porque storage es editable y el estado puede quedar antiguo. El total mostrado ayuda a la experiencia; el aceptado debe surgir de reglas del servidor. Los centavos enteros reducen errores de cálculos simples dentro de un rango seguro.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```typescript
 interface Item { productoId:number; cantidad:number; }
@@ -28,36 +28,20 @@ function cantidadValida(cantidad:number,stock:number) {
 
 [Abrir el fragmento como archivo](fragmentos/clase_06.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos muestran piezas de integración. La guía de ejecución enlaza la tienda local y la API de productos de apoyo; las clases distinguen esos proyectos del sistema completo del campus.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Si hay 2 unidades en carrito y se agregan 2 sobre stock 3, la cantidad combinada 4 se rechaza. Validar solo la nueva cantidad 2 sería insuficiente. Quitar el último ítem deja un carrito vacío con total cero y un mensaje visible.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Corromper JSON debe producir recuperación o mensaje controlado, no romper toda la página. Una cantidad1.5 no se vuelve válida por tener typeof number. Si desaparece un producto, conserva explicación de la corrección en lugar de mostrar undefined.
 
-Diseñá prueba con stock 3: agregar 2, agregar otras 2, quitar 1 y recargar.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_06.md). Las [soluciones explicadas](SOLUCIONES_06.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Validar stock solo al abrir la pantalla y no al modificar la cantidad.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-El carrito debe decidir cómo combinar repetidas selecciones del mismo producto. Una estructura por productoId evita renglones duplicados.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **15.06** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_06.md). Las [soluciones razonadas](SOLUCIONES_06.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_05.md) · [Clase siguiente](../15_Integracion/CLASE_07.md)

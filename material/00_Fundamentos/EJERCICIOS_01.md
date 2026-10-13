@@ -1,62 +1,29 @@
-# Clase 1 · Ejercicios
+# Práctica 00.01 · Qué es programar y cómo funciona una web
 
-[Volver a la clase](CLASE_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-No necesitás código. Respondé con tus palabras. Podés comenzar solo con 1 y 2.
+## 1. Actividad guiada
 
-## 1. Una compra
+Para cuatro lapiceras de 800 pesos, separá los datos conocidos de la operación y del resultado. Después describí quién muestra y quién calcula el total en una página.
 
-Una persona compra cuatro lapiceras a 800 pesos cada una.
+1. Anotá precio 800 y cantidad 4 como entradas.
+2. Sumá 800 cuatro veces y compará con multiplicar.
+3. Distribuí campos, cálculo y presentación entre HTML, JavaScript y CSS.
 
-1. ¿Cuáles son los datos de entrada?
-2. ¿Qué operación necesitás realizar?
-3. ¿Cuál es la salida?
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-## 2. Explicar una idea
+## 2. Para resolver por tu cuenta
 
-Explicale a una persona que nunca programó qué es un algoritmo. Usá un ejemplo propio de tres a seis pasos. Aclarale qué resultado busca ese ejemplo.
+Un cuaderno cuesta 1200 pesos. Calculá la entrada, el proceso y la salida para tres cuadernos. ¿Por qué 1200 + 3 no resuelve la tarea?
 
-## 3. Repartir responsabilidades
+## 3. Combinar lo aprendido
 
-Elegí HTML, CSS o JavaScript para cada tarea y explicá tu elección:
+Diseñá una pantalla que muestre una lista de libros guardada por una biblioteca. Ordená la solicitud, consulta, respuesta y presentación. Indicá qué tarea corresponde a HTML, CSS y JavaScript y cuál requiere backend. ¿Qué parte podría funcionar sin conexión si los datos ya estuvieran guardados?
 
-- Crear el título «Mis productos».
-- Darle fondo azul a un botón.
-- Calcular el total de una compra al pulsar un botón.
-- Crear un campo donde escribir el nombre.
-- Ocultar un mensaje cuando la persona lo cierra.
+## Pistas graduales
 
-## 4. Encontrar el error
+Usá una pista por vez, después de intentar el ejercicio.
 
-```text
-LEER precio
-LEER cantidad
-CALCULAR total COMO precio MAS cantidad
-MOSTRAR total
-```
-
-Si precio = 500 y cantidad = 3, ¿qué muestra? ¿Qué debería mostrar? ¿Qué paso corregirías y por qué?
-
-## 5. Seguir una petición
-
-Una tienda guarda sus productos en una base de datos. Ordená estas acciones:
-
-- El frontend muestra la lista recibida.
-- El backend consulta los productos guardados.
-- La persona pulsa «Ver productos».
-- El backend responde con la lista.
-- El frontend envía una solicitud al backend.
-
-## 6. Pensar un caso límite
-
-En el algoritmo que multiplica precio por cantidad, ¿qué resultado esperás si la cantidad es cero? ¿Tiene sentido aceptar una cantidad negativa en una compra? Explicá tus respuestas. Todavía no hace falta implementar una validación.
-
-## Pistas
-
-- Ejercicio 1: separá lo que ya conocés de lo que necesitás calcular.
-- Ejercicio 2: elegí una tarea cotidiana y evitá pasos vagos como «hacer todo».
-- Ejercicio 3: preguntate si estás creando contenido, definiendo su aspecto o respondiendo a una acción.
-- Ejercicio 4: compará sumar con repetir el precio tres veces.
-- Ejercicio 5: alguien solicita los datos antes de que otro pueda responder.
-
-Cuando termines, podés consultar [las soluciones explicadas](SOLUCIONES_01.md). Si preferís, pasame primero tus respuestas y las revisamos juntos.
+1. Separá el valor por unidad del número de unidades.
+2. Pensá cuántas veces aparece el mismo precio.
+3. Para la biblioteca, primero tiene que llegar la solicitud al lugar que tiene los datos.

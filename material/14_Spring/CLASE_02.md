@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_01.md) · [Clase siguiente](../14_Spring/CLASE_03.md)
 
-## Qué vas a aprender
+## Un contrato para otros programas
 
-Vamos a trabajar **api, recursos y operaciones crud**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una API define operaciones, entradas y salidas para que otro programa interactúe. REST es un estilo arquitectónico que, aplicado a HTTP, modela recursos y utiliza la semántica del protocolo, con otras restricciones como mensajes comprensibles sin estado de conversación implícito. Una lista de rutas CRUD es una práctica de API HTTP; no demuestra por sí sola todas las propiedades de REST.
 
-## Antes de empezar
+CRUD abrevia crear, leer, actualizar y eliminar. `/api/productos` identifica colección y `/api/productos/1` un recurso. GET consulta sin solicitar un cambio del negocio; POST del ejemplo crea; PUT reemplaza los campos editables definidos de un recurso; DELETE solicita retirarlo según política. PATCH puede definir actualización parcial con un contrato adicional.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Repetir una petición
 
-## Explicación desde cero
+**Idempotencia** significa conservar el mismo efecto pretendido al repetir la misma petición. PUT con el mismo contenido deja el mismo estado final; DELETE repetido deja el recurso ausente, aunque el segundo devuelva404. POST de creación puede generar dos productos al repetirse si no hay otra política de deduplicación.
 
-Una API define cómo otros programas interactúan. Una API REST organiza recursos identificados por URLs y operaciones con semántica HTTP. CRUD significa crear, leer, actualizar y eliminar. Los nombres de rutas deben ser coherentes y el contrato explicar qué devuelve cada operación.
+GET se considera seguro porque no solicita mutar estado del negocio, aunque el servidor registre logs. No uses GET para cambiar stock: navegadores, caches o previsualizaciones pueden recuperarlo suponiendo lectura. El nombre de ruta no corrige un método con efectos indebidos.
 
-Idempotencia significa que repetir la misma petición produce el mismo efecto pretendido sobre el estado; no exige la misma respuesta. DELETE repetido puede dar 204 primero y 404 después sin dejar de buscar un mismo efecto. POST de creación puede duplicar si no hay otra regla.
+Para estudiar, armá una tabla con método, ruta, entrada, éxito y ausencia para cada operación. Después ejecutá [peticiones.http](../Ejemplos/spring/peticiones.http) tras iniciar la API como en14.03. Los bloques inferiores son un mapa de endpoints, no solicitudes completas con host o cuerpos.
 
-## Ejemplo
+Una eliminación contable puede significar anular conservando histórico en vez de borrar físicamente. El CRUD de productos usa datos de práctica; no determina las reglas de las facturas. Documentá esa elección sin inventar obligaciones del campus.
+
+## Ejemplo de la clase
 
 ```http
 GET    /api/productos
@@ -28,36 +30,20 @@ DELETE /api/productos/1
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.http) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La colección y un recurso concreto se distinguen por el id. PUT del ejemplo recibe todos los campos editables requeridos; si querés modificaciones parciales, definí un contrato apropiado como PATCH. No uses GET para cambiar stock o borrar productos.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Repetir POST con idéntico JSON puede crear ids distintos. Repetir DELETE puede devolver204 y luego404 con el mismo efecto final de ausencia. Idempotencia no exige idéntico texto ni número de respuesta.
 
-Proponé rutas para listar pedidos, crear uno y obtener uno por id.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Suponer que un método se comporta correctamente solo por tener una ruta con nombre REST.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una API define cómo otros programas interactúan. Una API REST organiza recursos identificados por URLs y operaciones con semántica HTTP.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_01.md) · [Clase siguiente](../14_Spring/CLASE_03.md)

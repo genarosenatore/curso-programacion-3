@@ -1,23 +1,29 @@
 # Práctica 11.08 · Práctica: productos, clientes, facturas y detalles
 
-[Clase](CLASE_08.md) · [Soluciones](SOLUCIONES_08.md)
+[Clase](CLASE_08.md) · [Soluciones separadas](SOLUCIONES_08.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué relación y qué dato permiten conservar el total histórico al cambiar precios.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Identifica precio guardado en detalle.
+2. Calcula cada subtotal de factura 1.
+3. Cambia precio de catálogo y verifica histórico 480000.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Calculá a mano factura1 y comprobá480000 con SQL.
 
-Analizá esta confusión: «Calcular una factura antigua con los precios actuales del catálogo.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá una factura sin detalles y consultá todas con total cero para la vacía. Cambiá precio del catálogo y comprobá que la anterior conserva su total. ¿Qué dato asegura el histórico?
 
-El detalle pertenece a factura y conserva su precio unitario.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El subtotal usa precio del detalle.
+2. LEFT conserva cabeceras sin renglones.
+3. SUM vacío puede necesitar COALESCE.

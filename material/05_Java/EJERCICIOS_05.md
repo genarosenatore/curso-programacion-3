@@ -1,23 +1,29 @@
 # Práctica 05.05 · Encapsulamiento, getters y setters
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Añadí descontarStock(cantidad) que rechace cero, negativos y cantidades superiores al disponible.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Comprobá cantidad positiva y no mayor al stock.
+2. Restá solo después de validar.
+3. Probá exacto, exceso y cero sin aceptar estado negativo.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Agregá descontarStock(int cantidad) con comprobaciones de cantidad positiva y disponible.
 
-Analizá esta confusión: «Cambiar el atributo primero y comprobar la regla después, dejando un estado inválido al fallar.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Definí Libro con ejemplares private, getter y prestarUno que rechace si está agotado. Probá dos préstamos sobre un ejemplar, en ejecuciones o con el manejo de la clase 05.09. ¿Hace falta exponer setEjemplares para prestar?
 
-Validá antes de modificar stock.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Validá antes de asignar.
+2. La operación de negocio reduce una unidad.
+3. Un setter general no es obligatorio.

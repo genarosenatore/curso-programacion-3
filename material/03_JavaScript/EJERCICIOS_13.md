@@ -1,23 +1,29 @@
 # Práctica 03.13 · Módulos y práctica integradora
 
-[Clase](CLASE_13.md) · [Soluciones](SOLUCIONES_13.md)
+[Clase](CLASE_13.md) · [Soluciones separadas](SOLUCIONES_13.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Organizá un catálogo con datos, filtro por texto y render en módulos. Probá lista vacía y búsqueda sin coincidencias.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Separá datos, filtro y app en archivos reales.
+2. Exportá e importá nombres mediante rutas relativas.
+3. Probá lógica antes de conectar input y render.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá un módulo operaciones.js con export function doble y un app.js que la importe y muestre doble(5).
 
-Analizá esta confusión: «Acoplar el cálculo a un id de pantalla cuando puede ser una función pura.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Exportá un array de nombres y una función filtrarNombres(nombres,texto) desde dos módulos distintos. En app combiná ambos sin DOM y probá "la", "" y una búsqueda sin coincidencias. ¿Qué cambiaría al conectar una pantalla?
 
-El filtro debe devolver datos; el render decide cómo mostrarlos.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Separá realmente los archivos.
+2. La función de filtro recibe datos, no importa app.
+3. El render puede consumir el resultado sin cambiar la regla de filtro.

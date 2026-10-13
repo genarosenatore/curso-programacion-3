@@ -1,23 +1,29 @@
 # Práctica 04.03 · Interfaces y tipos para objetos
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Modelá Cliente con id numérico, nombre y correo de texto.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Definí propiedades requeridas de Cliente.
+2. Construí un literal compatible.
+3. Separá forma de correo y validación de su significado.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Definí Libro con id number, titulo string y ejemplares number. Creá un literal compatible y mostrá su título.
 
-Analizá esta confusión: «Creer que una interface genera un constructor o valida automáticamente un JSON.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Definí una función disponible(libro:Libro):boolean que revise ejemplares > 0. Probá agotado y disponible. ¿La interfaz comprueba que ejemplares nunca sea negativo?
 
-Definí una interface y construí un objeto que la cumpla.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La interfaz declara forma, el literal crea valor.
+2. El retorno es una comparación booleana.
+3. number no impone por sí solo un mínimo.

@@ -1,23 +1,29 @@
 # Práctica 09.05 · Inspección de campos, métodos y anotaciones
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Definí una anotación Marca visible en ejecución y comprobá si una clase la tiene.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Declará Marca con Retention.RUNTIME y Target.TYPE.
+2. Aplicá la anotación a Cliente.
+3. Consultá isAnnotationPresent y compará sin retención.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Ejecutá la invocación de texto y comparala con saludo.texto().
 
-Analizá esta confusión: «Suponer que todas las anotaciones están disponibles mediante Reflection.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Definí Marca con retención runtime y objetivo de tipo, anotá Cliente y consultá presencia. Explicá por qué una llamada conocida suele preferir la forma directa.
 
-Necesitás @Retention(RUNTIME) y @Target(TYPE).
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. main necesita declarar o capturar la excepción comprobada.
+2. Retention y Target están en java.lang.annotation.
+3. La llamada directa permite comprobar nombre y argumentos al compilar.

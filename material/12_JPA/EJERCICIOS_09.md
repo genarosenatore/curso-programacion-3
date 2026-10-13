@@ -1,23 +1,29 @@
 # Práctica 12.09 · Prácticas de JPA y modelo FacturaArca
 
-[Clase](CLASE_09.md) · [Soluciones](SOLUCIONES_09.md)
+[Clase](CLASE_09.md) · [Soluciones separadas](SOLUCIONES_09.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Armá una tabla de relaciones de FacturaArca con cardinalidad, propietario, columna y regla de borrado.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Arma tabla de cardinalidad y propietario.
+2. Incluye columna y regla de borrado por relación.
+3. Guarda y lee desde otro contexto antes de afirmar mapeo correcto.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Construí la tabla de relaciones de factura, cliente y detalles con propietario y regla de borrado.
 
-Analizá esta confusión: «Dar por terminado el mapeo sin guardar, recuperar y comparar las relaciones.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Ejecutá el laboratorio y compará objetos recuperados con los datos iniciales. Elegí una relación de FacturaArca que no esté en el laboratorio y describí qué necesitarías para agregarla. ¿Qué límites no cubre el ejemplo?
 
-Separá objetos compartidos de hijos pertenecientes a una factura.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. ManyToOne de factura a cliente posee normalmente su clave.
+2. Detalle.factura posee la referencia de cada renglón.
+3. Lo ausente del modelo requiere datos, reglas y mapeos explícitos.

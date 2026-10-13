@@ -1,23 +1,29 @@
 # Práctica 15.03 · Estados de carga, error, resultado y CORS
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá cómo restaurar un botón después de POST tanto si funciona como si falla.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Deshabilita botón al empezar POST.
+2. Maneja éxito y error sin borrar entrada fallida.
+3. Restaura botón en finally de ambos caminos.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Envuelve un POST con boton.disabled=true y finally para restaurarlo en cualquier resultado.
 
-Analizá esta confusión: «Desactivar permanentemente un botón al olvidar manejar el caso de error.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Distingue200 [],404 de ruta y bloqueo CORS. Describe qué evidencia usarías antes de cambiar configuración. ¿no-cors vuelve legible una respuesta JSON?
 
-finally se ejecuta al salir de try/catch.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. finally no depende del camino de éxito.
+2. HTTP y políticas del navegador son capas distintas.
+3. Respuesta opaca no deja leer cuerpo.

@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_03.md) · [Clase siguiente](../13_JPQL/CLASE_05.md)
 
-## Qué vas a aprender
+## Recorrer relaciones que realmente están mapeadas
 
-Vamos a trabajar **navegación de relaciones, inner join y left join**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una expresión como f.cliente.id navega una relación persistente. JPQL no deduce un vínculo por nombres parecidos; el atributo debe existir y estar mapeado. Para una colección, `join f.detalles d` crea un alias por detalle. El camino del modelo inspeccionado hacia artículo es d.listaPrecioArticulo.articulo, no d.articulo.
 
-## Antes de empezar
+INNER JOIN conserva coincidencias. LEFT JOIN conserva el origen aunque el vínculo falte y proyecta null en los valores derechos. En el ejemplo, un Articulo sin marca se incluye junto a marca nula. Si luego WHERE exige m.denominacion='X', la fila nula no cumple y se pierde; el filtro puede contradecir la intención de incluir ausencia.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir la multiplicación de filas
 
-## Explicación desde cero
+Una factura con dos detalles de la marca buscada puede generar dos filas con la misma f. `select distinct f` expresa que la salida necesita facturas únicas. No es una solución universal para toda suma: SUM de importeTotal tras duplicar cabeceras seguirá necesitando pensar el origen correcto. SUM(DISTINCT importeTotal) tampoco sirve si dos facturas diferentes tienen el mismo total.
 
-JPQL navega relaciones de entidades y permite joins explícitos. INNER JOIN exige coincidencia; LEFT JOIN conserva el lado izquierdo aunque falte el derecho. Al unir colecciones, la entidad del lado uno puede aparecer repetida y select distinct puede ser necesario según el resultado pedido.
+Las consultas se ejecutan en [el laboratorio](../Ejemplos/persistencia/README.md), que incluye Articulo.marca y el camino de detalle. El resultado de entidad completa se tipa con FacturaVenta.class; una selección de denominaciones tiene otra forma. Primero anticipá filas intermedias y después proyección.
 
-Un filtro en WHERE sobre el lado opcional de un LEFT JOIN puede volver a descartar las filas que pretendíamos conservar. Pensá si la condición pertenece a la unión o al resultado final. El camino debe existir en el modelo de objetos, no solo en la base.
+`join fetch` es una variante para obtener asociaciones junto al origen y reducir cargas pendientes cuando corresponde. No es igual a un JOIN usado solo para filtrar: afecta cómo se obtiene el grafo. Cargar colecciones con paginación requiere cuidados adicionales; no agregaremos esa complejidad para estas consultas pequeñas.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 select a.denominacion, m.denominacion
@@ -26,36 +26,20 @@ order by a.denominacion
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las consultas se ejecutan mediante JPA sobre entidades mapeadas. No son SQL directo. El nombre y tipo de cada atributo deben coincidir con tu modelo.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Incluye artículos sin marca y devuelve null como denominación de marca en esas filas. join a.marca usa una relación mapeada. Para facturas con un artículo de cierta marca, el camino del campus es factura.detalles → listaPrecioArticulo → articulo → marca.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiá LEFT a INNER en artículos/marca: desaparece el artículo sin marca. En factura por marca, quitá distinct y revisá si varios detalles pueden repetir el origen. No inventes una relación directa solo para abreviar.
 
-Escribí una consulta de facturas que contengan un artículo de una marca por id sin duplicar facturas.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Inventar d.articulo cuando la relación real pasa por listaPrecioArticulo.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-JPQL navega relaciones de entidades y permite joins explícitos. INNER JOIN exige coincidencia; LEFT JOIN conserva el lado izquierdo aunque falte el derecho.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **13.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_03.md) · [Clase siguiente](../13_JPQL/CLASE_05.md)

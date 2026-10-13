@@ -1,23 +1,29 @@
 # Práctica 02.04 · Modelo de caja: contenido, padding, border y margin
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Calculá el ancho exterior con content-box para width 200px, padding 10px por lado y border 1px por lado. Luego explicá border-box.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Sumá 200 de contenido,20 de padding y 2 de borde.
+2. Cambiá a border-box manteniendo width 200.
+3. Restá relleno y borde para explicar el contenido 178.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Una caja content-box tiene width:180px, padding:12px y border:2px. Calculá el ancho hasta el borde y con margin horizontal de 10px.
 
-Analizá esta confusión: «Cambiar margin cuando lo que se necesita es separar el texto del borde interior.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Repetí con border-box. Agregá el texto «Este texto ocupa varias líneas» y observá su ajuste. ¿Qué dimensión conserva border-box y qué espacio se reduce?
 
-Sumá contenido, dos paddings y dos bordes; el margen es otra separación.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Contá lado izquierdo y derecho.
+2. El margen se suma después del borde.
+3. Con border-box, restá relleno y borde para obtener contenido.

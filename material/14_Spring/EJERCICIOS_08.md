@@ -1,23 +1,29 @@
 # Práctica 14.08 · DTO de entrada y salida; validación
 
-[Clase](CLASE_08.md) · [Soluciones](SOLUCIONES_08.md)
+[Clase](CLASE_08.md) · [Soluciones separadas](SOLUCIONES_08.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué reglas del request no cubren que un producto exista o tenga stock suficiente al vender.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Separa presencia/rango de forma del request.
+2. Identifica existencia y stock como reglas adicionales.
+3. Explica cuándo el servicio consulta datos vigentes.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Explicá qué casos rechazan NotBlank, NotNull y PositiveOrZero con ejemplos pequeños.
 
-Analizá esta confusión: «Creer que @Valid convierte toda operación de negocio en segura sin implementar sus reglas.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseñá PedidoRequest con productoId Long requerido y cantidad Integer requerida positiva. ¿Qué verificaciones quedan para el servicio y por qué no basta @Valid?
 
-Validación de forma y validación de negocio consultan información diferente.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Presencia y rango son restricciones diferentes.
+2. @Positive exige mayor a cero, no cero.
+3. El servidor necesita consultar existencia y disponibilidad.

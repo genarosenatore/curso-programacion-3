@@ -1,21 +1,15 @@
 # Soluciones 10.04 · Streams: origen, operaciones intermedias y terminales
 
-[Clase](CLASE_04.md) · [Ejercicios](EJERCICIOS_04.md)
+[Clase](CLASE_04.md) · [Práctica](EJERCICIOS_04.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 numeros.stream().filter(n->n>0).count(). Origen: numeros; intermedia: filter; terminal: count. Para [-1,2,3] devuelve 2L, porque count retorna long.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Fuente numeros, intermedia filter, terminal count. El conteo es 2L y la lista [2,3]. Para ambas salidas, iniciá dos veces numeros.stream(). Vacía da 0L y []. La fuente conserva [-1,2,3] porque no se llama una operación que la modifique. No es equivalente a removeIf, que sí elimina de la colección.
 
-stream crea el origen; filter es intermedia; toList es terminal y obtiene [Ana,Eva]. La lista original conserva los tres nombres. toList de Stream produce una lista no modificable; si necesitás editarla, elegí otra construcción explícita.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Guardar un Stream consumido y llamar a otra terminal sobre la misma instancia.
-
-Un stream representa un recorrido de datos para procesarlos. Se construye desde una fuente, encadena operaciones intermedias y termina con una operación terminal.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

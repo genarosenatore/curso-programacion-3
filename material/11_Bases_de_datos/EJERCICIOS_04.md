@@ -1,23 +1,29 @@
 # Práctica 11.04 · SELECT, WHERE y ORDER BY
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Consultá productos entre 80000 y 200000 centavos, ordenados por nombre.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Usa BETWEEN80000 y 200000 para límites incluidos.
+2. Ordena por nombre y luego id.
+3. Comprueba las tres filas previstas de tienda.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Seleccioná productos entre 80000 y 200000 centavos inclusive, ordenados por nombre e id.
 
-Analizá esta confusión: «Esperar que WHERE columna=NULL encuentre filas sin valor.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Consultá productos sin categoría y explicá el efecto de NULL en WHERE. Después agregá un filtro de precio. ¿ORDER BY modifica los registros guardados?
 
-BETWEEN incluye los dos extremos.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. BETWEEN incluye límites.
+2. IS NULL comprueba ausencia.
+3. El orden afecta el resultado de consulta, no los datos persistidos.

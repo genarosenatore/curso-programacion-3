@@ -1,23 +1,29 @@
 # Práctica 03.07 · Objetos y nociones de clases
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá un array de dos productos y encontrá por nombre uno de ellos.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá dos objetos producto dentro de un array.
+2. Buscá por nombre con find.
+3. Comprobá undefined antes de leer el precio.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá un objeto libro con título y ejemplares. Asignalo a otra variable y modificá ejemplares desde ella. Anticipá lo que leerá la primera.
 
-Analizá esta confusión: «Confundir una variable que referencia al mismo objeto con una copia independiente.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá un array de dos libros y una función buscarDisponible(libros,titulo) que devuelva el encontrado solo si tiene ejemplares positivos; en otro caso, devolvé null. Probá existente disponible, agotado y ausente. ¿Por qué comparar dos objetos nuevos con === no compara su contenido?
 
-find recibe una condición para cada objeto.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Una asignación puede compartir la misma referencia.
+2. find entrega undefined cuando no encuentra.
+3. Verificá existencia antes de leer ejemplares.

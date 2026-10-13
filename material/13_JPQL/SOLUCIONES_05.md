@@ -1,21 +1,15 @@
 # Soluciones 13.05 · COUNT, SUM, AVG, GROUP BY y HAVING
 
-[Clase](CLASE_05.md) · [Ejercicios](EJERCICIOS_05.md)
+[Clase](CLASE_05.md) · [Práctica](EJERCICIOS_05.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 select f.estado,count(f),avg(f.importeTotal) from FacturaVenta f group by f.estado. En el DTO, el conteo es Long y promedio Double. Probá más de una factura por estado para detectar una agrupación incorrecta.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+`select f.estado,count(f),avg(f.importeTotal) from FacturaVenta f group by f.estado`. Para puntos, el ejemplo con :minimo=1 conserva el de dos facturas. Agrupá id y descripcion para separar aunque el texto coincida. Unir detalles puede multiplicar cabeceras; si la pregunta es importe total por factura, consulta ese origen sin expandir sus hijos o diseña otra agregación que no cuente de más.
 
-Produce una fila por punto de venta con más facturas que minimo. No pregunta si una factura individual tiene gran importe. Agrupar también por id evita mezclar puntos distintos con misma descripción. El tipo del total debe coincidir con el atributo de entidad.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Usar WHERE count(f)>5 en lugar de HAVING para filtrar un agregado.
-
-COUNT, SUM y AVG resumen resultados. GROUP BY agrupa y HAVING filtra grupos después del resumen.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

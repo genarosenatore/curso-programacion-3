@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_02.md) · [Clase siguiente](../01_HTML/CLASE_04.md)
 
-## Qué vas a aprender
+## Conectar documentos y recursos
 
-Vamos a trabajar **enlaces, rutas e imágenes con texto alternativo**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un enlace convierte una parte del contenido en un camino hacia otro recurso. El elemento `a` contiene el texto que se activa y el atributo `href` indica el destino. La imagen `img` incorpora un recurso visual; `src` señala de dónde obtenerlo. Esas rutas se resuelven como aprendimos en [00.02](../00_Fundamentos/CLASE_02.md), desde el documento actual.
 
-## Antes de empezar
+Hay tres casos. Una ruta como `paginas/contacto.html` entra en una carpeta del proyecto. Una URL con `https://` apunta a un sitio completo. Un fragmento `#catalogo` apunta al elemento de esta página cuyo `id` sea catalogo. El `id` es un identificador único dentro del documento; no es el texto visible del encabezado.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Preparar archivos que realmente existan
 
-## Explicación desde cero
+Creá index.html y paginas/contacto.html con la plantilla de 01.01. En el body del primero insertá el enlace del ejemplo. En el segundo insertá el regreso `../index.html`. Copiá la imagen local cuaderno.svg desde [el ejemplo web](../Ejemplos/web-basica/index.html) a imagenes, o elegí tu propia imagen y ajustá nombre y extensión. Escribí src exactamente igual al nombre guardado. No crees un archivo vacío esperando que se vea como una imagen.
 
-Un enlace a utiliza href para indicar su destino. Puede apuntar a otra página, una dirección externa o una parte del mismo documento. Una ruta relativa se interpreta desde la ubicación de la página. Una imagen usa src para su archivo y alt para una alternativa textual significativa.
+Al activar el enlace, el navegador resuelve la ruta, carga el documento y cambia la página. Al encontrar img, solicita su archivo y reserva la presentación. `width="240"` indica un ancho de 240 píxeles CSS. El **texto alternativo** de alt comunica la información o función de la imagen cuando no se puede ver, incluyendo herramientas de asistencia; no es simplemente su nombre de archivo.
 
-El texto del enlace debería explicar adónde lleva. El alt describe la información que aporta una imagen; una imagen puramente decorativa puede usar alt="". No todas las imágenes necesitan repetir su nombre de archivo ni todo su aspecto visual.
+Una imagen informativa necesita una alternativa útil para su contexto. Si el enlace solo contiene una imagen, su alternativa debe explicar el destino o acción. Una decoración que no comunica información puede llevar `alt=""`. `target="_blank"` pide otra pestaña o ventana; `rel="noopener"` evita que la página abierta acceda al contexto original. Elegí abrir otra pestaña solo cuando ayude a navegar.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```html
 <a href="paginas/contacto.html">Contactar con la tienda</a>
@@ -28,36 +28,20 @@ El texto del enlace debería explicar adónde lleva. El alt describe la informac
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.html) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los fragmentos HTML van dentro del documento base de la primera clase, salvo que se muestre un documento completo. Tenés una página local de ejemplo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El primer enlace busca la subcarpeta paginas; el segundo busca el elemento con id catalogo en esta página. target="_blank" solicita otro contexto, normalmente una pestaña. Para que la imagen funcione debe existir ese archivo: en los ejemplos ejecutables del curso se incluye una imagen local. El id debe ser único en la página.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Renombrá la imagen sin cambiar src: deja de encontrarse y puede mostrarse la alternativa. Cambiá el id del encabezado sin actualizar #catalogo: el enlace ya no ubica el destino. Estos fallos no se arreglan dando color al enlace; son inconsistencias entre referencia y recurso.
 
-Creá un enlace a ../index.html desde paginas/contacto.html y explicá qué significa ../. Elegí un alt para una foto informativa de un producto.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Escribir una ruta que solo funciona en tu computadora, como C:/Users/... en un sitio compartido.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un enlace a utiliza href para indicar su destino. Puede apuntar a otra página, una dirección externa o una parte del mismo documento.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **01.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_02.md) · [Clase siguiente](../01_HTML/CLASE_04.md)

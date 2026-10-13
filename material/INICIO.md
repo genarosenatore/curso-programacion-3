@@ -1,6 +1,6 @@
 # Programación 3 desde cero
 
-**Curso completo preparado: 134 clases en 16 unidades.** Podés estudiar a tu ritmo y consultarme cuando necesites ayuda.
+**Material revisado: 134 clases en 16 unidades.** Podés estudiar a tu ritmo y consultarme cuando necesites ayuda. El [registro por unidad](REVISION_POR_UNIDAD.md) explica mejoras y límites; la [verificación](VERIFICACION.md) documenta comprobaciones realizadas.
 
 ## Por dónde empezar
 
@@ -33,6 +33,7 @@
 ## Material de apoyo
 
 - [Cómo ejecutar los ejemplos](EJEMPLOS.md): HTML/CSS, JavaScript, TypeScript, Java, SQL y Spring.
+- [Preparar herramientas](ENTORNO.md): terminal, carpeta, Node, JDK, Maven y lanzadores.
 - [Registro de avance](PROGRESO.md): última clase y dudas, para retomar cuando quieras.
 - [Glosario](GLOSARIO.md): vocabulario del curso.
 - [Fuentes y alcance](FUENTES_Y_ALCANCE.md): relación con campus, compatibilidad y verificación.
@@ -40,7 +41,7 @@
 
 ## Cómo estudiar sin depender del chat
 
-Cada clase tiene explicación, ejemplo, lectura guiada, práctica, pista, solución y resumen. Primero leé; después intentá la práctica en una copia de los archivos. Consultá la solución para comprender una diferencia. Si algo cuesta, volvé a la clase anterior o preguntame por su código, por ejemplo «03.05, funciones».
+Cada clase tiene explicación, ejemplo, seguimiento, cambio y límite, actividad guiada, dos ejercicios progresivos, pistas y soluciones separadas. Primero leé; después intentá la práctica en una copia de los archivos. Consultá la solución para comprender una diferencia. Si algo cuesta, volvé a la clase anterior o preguntame por su código, por ejemplo «03.05, funciones».
 
 No hace falta completar todos los ejercicios el mismo día. Conservá una nota de dónde quedaste. El curso está disponible en archivos locales; algunos videos, documentos externos y descargas de herramientas requieren conexión.
 

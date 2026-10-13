@@ -1,21 +1,17 @@
 # Soluciones 03.11 · Timers, callbacks y promesas
 
-[Clase](CLASE_11.md) · [Ejercicios](EJERCICIOS_11.md)
+[Clase](CLASE_11.md) · [Práctica](EJERCICIOS_11.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Promise.resolve("Listo").then(mensaje=>console.log(mensaje));. La función se ejecuta al procesar el resultado, no al escribir el argumento de then. Un rechazo se maneja con .catch(error=>console.error(error)).
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+`Promise.resolve(4).then(n => n * 2).then(n => console.log(n));` muestra 8 porque el primer callback devuelve ese valor. esperarMensaje puede retornar `new Promise(resolver => { setTimeout(() => resolver("Listo"),1000); });`.
 
-El bloque síncrono muestra A y B; la promesa muestra 10 antes del callback del temporizador que muestra C. Un plazo cero no significa ejecutar dentro de la línea actual. Si usás interval para un contador, conservá su id y llamá clearInterval cuando termine o deje de ser necesario.
+Al llamar, `esperarMensaje().then(m => console.log(m)).catch(e => console.error(e)); console.log("Inicio");` muestra Inicio antes de Listo. Para probar rechazo, usá Promise.reject(new Error("Falló")) como resultado en otra llamada. Un plazo no sabe si llegó la red ni si su respuesta es válida; la promesa de esa operación expresa su resultado y debe observarse directamente.
 
-## 3. Qué conviene corregir
+## Cómo comparar tu respuesta
 
-La confusión a evitar es: Pensar que setTimeout pausa el programa o usar una espera fija para suponer que una descarga terminó.
-
-Un callback es una función que pasamos para que otra operación la invoque. setTimeout programa un callback tras un tiempo mínimo aproximado; no detiene el resto del programa.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

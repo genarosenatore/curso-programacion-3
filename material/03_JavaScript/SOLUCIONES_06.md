@@ -1,21 +1,29 @@
 # Soluciones 03.06 · Strings, arrays y métodos de recorrido
 
-[Clase](CLASE_06.md) · [Ejercicios](EJERCICIOS_06.md)
+[Clase](CLASE_06.md) · [Práctica](EJERCICIOS_06.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 const seleccion=precios.filter(p=>p>150); const dobles=seleccion.map(p=>p*2);. Resultados [200,300] y [400,600]. Comprobá que precios todavía sea [100,200,300].
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+`const dobles = numeros.map(n => n * 2);` da [6,16,2] y `const grandes = numeros.filter(n => n > 3);` da [8]. Un programa completo del combinado:
 
-map transforma cada nombre y construye otro array. filter conserva los que contienen "la": lapicera y mochila. nombres permanece con su texto original. La flecha recibe cada elemento y devuelve el valor usado por el método. Con un array vacío, map y filter producen arrays vacíos.
+```javascript
+function sumarMayores(precios, minimo) {
+  let total = 0;
+  for (const precio of precios) {
+    if (precio > minimo) total = total + precio;
+  }
+  return total;
+}
+console.log(sumarMayores([100,200,300],150)); // 500
+console.log(sumarMayores([],150)); // 0
+```
 
-## 3. Qué conviene corregir
+filter conviene cuando necesitás conservar una lista de seleccionados; un acumulador basta para obtener solo una suma. Crear una lista intermedia puede ser legible, pero no es un requisito del cálculo. El caso vacío confirma que hay resultado aun sin vueltas.
 
-La confusión a evitar es: Acceder a array[length] para obtener el último elemento: el último índice es length-1.
+## Cómo comparar tu respuesta
 
-Un array guarda una secuencia de valores. Sus posiciones comienzan en cero y length cuenta elementos.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

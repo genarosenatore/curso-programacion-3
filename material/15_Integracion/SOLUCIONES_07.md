@@ -1,21 +1,15 @@
 # Soluciones 15.07 · Pedidos y administración
 
-[Clase](CLASE_07.md) · [Ejercicios](EJERCICIOS_07.md)
+[Clase](CLASE_07.md) · [Práctica](EJERCICIOS_07.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Las dos primeras se aceptan; la última se rechaza. Para validar: permitidos[actual].includes(nuevo). Conservá el estado anterior si falla y mostrá un mensaje. Contrastá con las reglas concretas que decidas aplicar al proyecto de la consigna.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Los resultados son true,true,false. `function puedeCambiar(actual:EstadoPedido,nuevo:EstadoPedido):boolean { return permitidos[actual].includes(nuevo); }`. Una entrada "reabierto" no pertenece a la unión y se rechaza al validarla. Servidor consulta el estado real y verifica permisos antes de modificar; el botón solo organiza experiencia y no impide una petición manual.
 
-La tabla es una política didáctica explícita, no un dato automáticamente deducido de la consigna. El backend debe confirmar la política acordada y los permisos. La pantalla puede usarla para presentar opciones, pero un usuario puede enviar una petición manual y debe rechazarse si viola la regla.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Confundir quitar un botón en la interfaz con impedir la operación en el backend.
-
-Un pedido registra una operación aceptada con cabecera, detalles y estado. Administración puede listar y actualizar recursos de acuerdo con reglas.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

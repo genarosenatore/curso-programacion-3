@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_02.md) · [Clase siguiente](../00_Fundamentos/CLASE_04.md)
 
-## Qué vas a aprender
+## Traducir una regla a pasos
 
-Vamos a trabajar **algoritmos: entradas, pasos, decisiones y resultados**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+La [entrada, el proceso y la salida](CLASE_01.md) describen un problema; el algoritmo indica cómo pasar de uno a otro. Una **secuencia** realiza los pasos en orden. Una **condición** es una pregunta con resultado verdadero o falso. Una **decisión** utiliza ese resultado para elegir un camino. Una **repetición** vuelve a realizar pasos mientras corresponde: por ejemplo sumar el precio de cada producto de una lista.
 
-## Antes de empezar
+Un nombre como `importe` permite referirse al dato sin repetir su número. Por ahora es una etiqueta en una prueba de escritorio; aprenderemos su escritura en un lenguaje al estudiar variables. `>=` se lee «mayor o igual». `>` excluye la igualdad; `<` significa menor; `=` en nuestras anotaciones de pseudocódigo indica el valor que guardamos, no una pregunta.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Desarrollar el descuento
 
-## Explicación desde cero
+La regla es «si el importe llega a 10000, descontar el 10 %». Diez por ciento significa diez de cada cien: 10 / 100 = 0,10. Conservar el 90 % equivale a multiplicar por 0,90. Primero leemos el importe. Después evaluamos la condición una sola vez. Si da verdadero calculamos el descuento; si da falso conservamos el importe. Ambos caminos deben dejar un total definido antes de mostrarlo.
 
-Un algoritmo necesita datos y pasos precisos. Una secuencia ejecuta instrucciones en orden. Una decisión elige un camino según una condición que puede ser verdadera o falsa. Una repetición ejecuta pasos varias veces. Estas tres ideas aparecerán en todos los lenguajes del curso.
+La tabla de seguimiento puede tener columnas entrada, condición, camino y salida. Con 10000, la condición es verdadera y la salida es 9000. Esa fila es decisiva: demuestra que incluiste la igualdad. Con 9999 el descuento no se aplica. No inventes una regla para entradas negativas: señalá que el algoritmo supone un importe válido y decidí su validación aparte.
 
-Antes de escribir, definí el resultado y las condiciones del problema. Si calculamos un descuento, debemos acordar cuándo se aplica y sobre qué importe. El pseudocódigo permite discutir esas reglas sin preocuparnos todavía por la sintaxis de JavaScript o Java.
+El pseudocódigo permite descubrir reglas ambiguas antes de aprender sintaxis. Es útil para conversar y simular, pero no se pega en JavaScript: cada lenguaje tiene sus propias palabras y símbolos. También hay varias soluciones equivalentes; importa que todas las entradas admitidas reciban un resultado coherente.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```text
 LEER importe
@@ -29,36 +29,20 @@ MOSTRAR total
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Este ejemplo describe pasos o uso de herramientas. Seguí las instrucciones de la explicación; los bloques de pseudocódigo no se ejecutan como programas.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Para 12.000 la condición se cumple y total es 10.800. Para 8.000 no se cumple y total sigue siendo 8.000. Multiplicar por 0,90 conserva el 90 % del precio, es decir, descuenta 10 %. La comparación incluye exactamente 10.000. Nuestro ejemplo asume un importe válido; validar el dato es una regla adicional.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Si la regla cambia a «más de 10000», usá > y el caso 10000 ya no recibe descuento. Si solo asignás total en el camino verdadero, el caso 8000 no tiene resultado definido. Completá ambos caminos antes de mostrar la salida.
 
-Diseñá un algoritmo que cobre 500 de envío si la compra es menor a 5.000 y envío cero en caso contrario. Probalo con 4.000, 5.000 y 6.000.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Confundir >= con >: cambia el tratamiento del valor exacto del límite.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Un algoritmo necesita datos y pasos precisos. Una secuencia ejecuta instrucciones en orden.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **00.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_02.md) · [Clase siguiente](../00_Fundamentos/CLASE_04.md)

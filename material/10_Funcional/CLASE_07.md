@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_06.md) · [Clase siguiente](../10_Funcional/CLASE_08.md)
 
-## Qué vas a aprender
+## Agrupar antes de resumir
 
-Vamos a trabajar **agrupaciones y optional**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+groupingBy calcula una clave por elemento y reúne los que la comparten. Con nombres de longitud 3 y 4, la clave es esa longitud. Un collector posterior como counting cuenta elementos de cada grupo; sin él se obtendría una lista por clave. `Map<Integer,Long>` describe las claves numéricas y los conteos long.
 
-## Antes de empezar
+En el ejemplo, Ana y Eva forman longitud 3 y Luis longitud 4. La salida tiene 3→2 y 4→1; el orden del mapa no es la pregunta. Los nombres originales no cambian. Colocá operaciones dentro de main con Collectors o sus nombres completos.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Representar una búsqueda que puede faltar
 
-## Explicación desde cero
+Optional<T> es un contenedor que expresa presente o ausente. findFirst de una búsqueda produce esa posibilidad; orElse ofrece un valor alternativo. Buscar inicial Z en esos nombres no encuentra y usa Sin coincidencia. No llames get sin comprobar, porque vacío lanza.
 
-groupingBy agrupa elementos según una clave. Puede devolver Map<Clave,List<Elemento>> o usar otro collector para resumir cada grupo. counting cuenta y summingInt suma. Optional representa explícitamente la posible ausencia de un resultado, como findFirst.
+map sobre Optional transforma solo cuando hay dato; orElseGet recibe un Supplier y calcula la alternativa cuando falta. orElse evalúa su argumento antes de la llamada, aunque luego no se necesite; si crear la alternativa es costoso o tiene efecto, esa diferencia importa. Optional no es una colección de muchos resultados ni una excusa para esconder todas las reglas de ausencia.
 
-Optional no debería usarse solo para terminar llamando get sin comprobar. map transforma si hay contenido, orElse aporta una alternativa y orElseGet calcula esa alternativa cuando hace falta. La ausencia de una coincidencia en una búsqueda puede ser normal.
+Para agrupar por primera letra, texto vacío no tiene posición cero ni substring(0,1). Decidí excluirlo, rechazarlo o asignarlo a una clave especial. La política de datos debe preceder a la agrupación. Un filtro !n.isEmpty() asume que n no es null; si null es posible, descartalo primero.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 var nombres = java.util.List.of("Ana", "Eva", "Luis");
@@ -29,36 +29,20 @@ System.out.println(elegido);
 
 [Abrir el fragmento como archivo](fragmentos/clase_07.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las interfaces y records se declaran a nivel de clase; las operaciones del stream se ejecutan dentro de main. Se entrega un programa completo de práctica.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El mapa contiene longitud 3 con conteo 2 y longitud 4 con conteo 1; su orden no está garantizado. elegido es Sin coincidencia. La clave length agrupa por longitud, no por inicial. Leé cada criterio antes de interpretar un mapa.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Agregá "" y agrupá por substring sin comprobar: falla. Por longitud, vacío sí tiene clave 0. La misma entrada puede ser válida para una consulta e inválida para otra. Un Optional vacío no es un error necesariamente: puede expresar una búsqueda sin coincidencias.
 
-Agrupá nombres por primera letra y contá. Decidí cómo tratar nombres vacíos.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_07.md). Las [soluciones explicadas](SOLUCIONES_07.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Hacer Optional.get() sobre una búsqueda que puede no tener resultado.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-groupingBy agrupa elementos según una clave. Puede devolver Map<Clave,List<Elemento>> o usar otro collector para resumir cada grupo.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **10.07** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_07.md). Las [soluciones razonadas](SOLUCIONES_07.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../10_Funcional/CLASE_06.md) · [Clase siguiente](../10_Funcional/CLASE_08.md)

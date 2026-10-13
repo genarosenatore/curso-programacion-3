@@ -1,23 +1,29 @@
 # Práctica 13.06 · Subconsultas, EXISTS y NOT EXISTS
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Buscá artículos que nunca aparecieron en un detalle de factura.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Parte de Articulo a como origen.
+2. Correlaciona detalles donde articulo=a.
+3. Usa NOT EXISTS para conservar solo ausentes.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Consultá facturas por encima del promedio global y anticipá qué sucede con totales100,200,300.
 
-Analizá esta confusión: «Olvidar la correlación y usar una subconsulta que responde lo mismo para todos los artículos.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Buscá artículos nunca incluidos en detalles. Probá uno con varias ventas y otro sin ninguna. ¿Qué cambia si el promedio buscado fuera por cliente y no global?
 
-NOT EXISTS puede correlacionar el artículo externo con el artículo del detalle.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Promedio global200, comparación estricta.
+2. La correlación vincula cada artículo con sus detalles.
+3. Promedio por cliente necesita vincular el alias exterior.

@@ -1,23 +1,29 @@
 # Práctica 02.07 · Grid
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Construí dos columnas iguales en una pantalla amplia y una columna en una estrecha.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Empezá con una sola columna grid.
+2. Probá dos columnas explícitas en ancho suficiente.
+3. Después de leer 02.08 agregá la media query para el cambio exacto.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá un catálogo de cuatro tarjetas con dos columnas iguales y gap:16px. Calculá el ancho de cada columna si el contenedor mide 640px.
 
-Analizá esta confusión: «Creer que definir filas o columnas cambia el orden semántico del HTML.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Compará dos columnas fijas con la regla auto-fit del ejemplo al estrechar la ventana. ¿Cuál cambia automáticamente su cantidad de columnas? Justificá qué papel cumple min(100%,14rem).
 
-Podés empezar con 1fr y cambiar a repeat(2,1fr) en una media query.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Restá primero los espacios entre columnas.
+2. Repartí el resto según fr.
+3. auto-fit prueba cuántas pistas mínimas caben.

@@ -1,23 +1,29 @@
 # Práctica 05.10 · Paquetes, dependencias y estructura de proyecto
 
-[Clase](CLASE_10.md) · [Soluciones](SOLUCIONES_10.md)
+[Clase](CLASE_10.md) · [Soluciones separadas](SOLUCIONES_10.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Separá modelos Producto y Cliente en un paquete tienda.modelo y una clase de inicio en tienda.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Ubicá modelos bajo tienda/modelo.
+2. Ajustá package e imports de Inicio.
+3. Compilá a out y ejecutá el nombre cualificado con classpath.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Construí el proyecto de dos archivos y explicá qué significa -d y -cp.
 
-Analizá esta confusión: «Editar .class en lugar de .java o confundir una carpeta de compilados con código fuente.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Mové Producto y Cliente a tienda.modelo e Inicio a tienda. Ajustá package e imports y escribí el comando de ejecución. ¿Un import instala una dependencia?
 
-El paquete se refleja debajo de la raíz de código.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El nombre cualificado incluye paquete y clase.
+2. out contiene las carpetas de clases generadas.
+3. import solo resuelve nombres de tipos disponibles.

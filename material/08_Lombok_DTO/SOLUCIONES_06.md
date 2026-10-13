@@ -1,21 +1,15 @@
 # Soluciones 08.06 · Práctica: DTO de producto y factura
 
-[Clase](CLASE_06.md) · [Ejercicios](EJERCICIOS_06.md)
+[Clase](CLASE_06.md) · [Práctica](EJERCICIOS_06.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 ProductoTarjetaDTO(String nombre,int precioCentavos,boolean disponible). Su constructor se llama con nombre, precio y stock>0. Los resultados deben ser true para 3 y false para 0. Revisá los TP Lombok/DTO y records del campus después de ejecutar este ejemplo.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+ProductoTarjetaDTO retorna false para agotado y true para stock tres, conservando precio en centavos. FacturaVista puede recibir clienteNombre y List<DetalleVista> con copia no modificable; cada detalle contiene cantidad y subtotal ya calculado por reglas del modelo. Evitar el cliente completo reduce exposición y ciclos. Un usuario todavía puede no tener permiso para ver esa factura, por lo que el servidor debe decidir acceso antes de devolver el DTO.
 
-La salida omite precio en este contrato de ejemplo y transforma stock en una condición. Otro DTO del catálogo podría requerir precio; no existe un único DTO obligatorio para cada entidad. Usar nombres distintos hace visible la diferencia de responsabilidad.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Afirmar que usar un DTO impide todo problema de permisos sin revisar qué datos expone.
-
-La práctica de DTO conecta el modelo con una vista sin añadir todavía una API. Vamos a transformar productos a objetos de salida y mostrar solo los campos definidos.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

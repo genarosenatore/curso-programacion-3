@@ -1,23 +1,29 @@
 # Práctica 02.06 · Flexbox
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá una fila de tres tarjetas que pueda envolver al reducir la ventana.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá un contenedor con tres hijos tarjeta.
+2. Aplicá flex, wrap y gap al padre.
+3. Estrechá la ventana y seguí cómo se forman nuevas líneas.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá tres tarjetas flexibles con base 12rem y gap:1rem. Permití que envuelvan.
 
-Analizá esta confusión: «Esperar que justify-content:center centre verticalmente en cualquier flex-direction.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá una barra con título y enlace, separados en el eje principal y centrados transversalmente. Pasá la barra a column y explicá cómo cambian los ejes. ¿Por qué aplicar flex a cada tarjeta no organiza el catálogo?
 
-Necesitás display:flex, flex-wrap y un tamaño base razonable.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Las tarjetas son hijos del contenedor flex.
+2. space-between separa extremos del eje principal.
+3. Un elemento organiza a sus hijos, no a sus hermanos.

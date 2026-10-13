@@ -1,21 +1,17 @@
 # Soluciones 03.10 · JSON, localStorage y sessionStorage
 
-[Clase](CLASE_10.md) · [Ejercicios](EJERCICIOS_10.md)
+[Clase](CLASE_10.md) · [Práctica](EJERCICIOS_10.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 localStorage.setItem("tema","oscuro"); const tema=localStorage.getItem("tema") ?? "claro";. removeItem("tema") elimina solo esa preferencia. ?? usa el valor alternativo si hay null o undefined.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Preferencia: `localStorage.setItem("curso-tema","oscuro"); const tema = localStorage.getItem("curso-tema") ?? "claro";` y `localStorage.removeItem("curso-tema");`. No uses clear.
 
-El texto almacenado representa el array. Al recuperarlo, parse reconstruye datos, no instancias ni métodos originales. Un texto alterado puede fallar al parsear: en una aplicación real se usa try/catch y se valida la forma de los datos. Estas APIs se usan desde una página del mismo origen; trabajar desde un servidor local evita limitaciones del protocolo file.
+Para cantidades, `localStorage.setItem("curso-cantidades", JSON.stringify([1,2]));` y adaptá el bloque de recuperación a esa clave. Ausente da []; JSON válido da [1,2]; texto roto lanza durante parse y catch usa []. `{"cantidad":2}` se interpreta sin error de sintaxis, pero no es un array y debe rechazarse por el contrato. Esa segunda comprobación evita confundir «se pudo leer» con «sirve para el programa».
 
-## 3. Qué conviene corregir
+## Cómo comparar tu respuesta
 
-La confusión a evitar es: Confiar en localStorage como prueba de permisos o como almacenamiento seguro de contraseñas.
-
-JSON es una representación textual de datos con objetos, arrays y valores simples. JSON.stringify convierte datos a texto y JSON.parse interpreta ese texto.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

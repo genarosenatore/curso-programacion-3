@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_01.md) · [Clase siguiente](../02_CSS/CLASE_03.md)
 
-## Qué vas a aprender
+## Resolver declaraciones que compiten
 
-Vamos a trabajar **cascada, herencia y especificidad**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Si el mismo párrafo coincide con p y .aviso y ambos asignan color, CSS necesita una regla para elegir. La **cascada** es ese procedimiento. La **herencia** es otra cosa: transmite ciertas propiedades del padre cuando el hijo no obtiene un valor propio. Primero averiguá si hay competencia sobre el mismo elemento o una propiedad que viene de su padre.
 
-## Antes de empezar
+Para estas prácticas usaremos un archivo de autor, sin capas, animaciones ni !important. En ese contexto compará la especificidad: cantidad de ids, luego clases/atributos/pseudoclases, luego etiquetas. Se compara por columnas, no sumando un puntaje ilimitado. `.tarjeta .aviso` tiene dos clases y vence a `.aviso`; `#mensaje` tiene un id y vence a ambas. Con empate, gana la declaración que aparece después.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir una propiedad desde el elemento
 
-## Explicación desde cero
+Con `<p class="aviso">Hola</p>`, buscá las reglas que realmente coinciden. En el ejemplo inferior coinciden p y las dos .aviso. Las de clase superan a p y la última .aviso gana el empate. El color de body no compite con ellas sobre ese párrafo: solo sería heredado si el párrafo no recibiera un color propio.
 
-La cascada decide qué declaración se aplica cuando varias compiten. Para reglas normales de la misma procedencia y capa, importa la especificidad y, si empatan, el orden. Un selector de id es más específico que uno de clase y este más que una etiqueta. También existen origen, importancia y capas; aquí trabajamos con un único archivo sin capas.
+Un hijo puede heredar color y familia de fuente, pero margin y padding no se heredan normalmente. Si una tarjeta tiene margen, su párrafo no obtiene automáticamente el mismo margen. Abrí el inspector del navegador, elegí el párrafo y observá reglas tachadas y valor calculado; eso permite explicar la selección en vez de ensayar colores.
 
-La herencia transmite algunas propiedades, como color, del padre al hijo cuando el hijo no tiene otra definición. Propiedades como margin no se heredan automáticamente. Las herramientas de desarrollo permiten ver qué reglas están activas o tachadas.
+Fuera de este escenario también importan origen de la regla, importancia, capas y otros mecanismos de cascada. Por eso «el id siempre gana» no es una ley universal. `!important` modifica prioridad; no aumenta la especificidad. Para aprender, mantené reglas comparables y corregí la organización antes de añadir excepciones.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```css
 body { color: #333; }
@@ -27,36 +27,20 @@ p { color: green; }
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.css) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las reglas CSS se aplican a los elementos y clases HTML indicados. Tenés un ejemplo completo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Un p con class="aviso" queda rojo: las dos reglas de clase superan a p y la última desempata. Un párrafo sin clase queda verde. Un elemento sin color definido puede heredar el del body. Cambiar el orden solo resuelve empates entre reglas comparables; no supera por sí solo una especificidad mayor.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Mové p después de .aviso: la clase sigue ganando. Invertí las dos .aviso: cambia el color porque empatan. Quitá todos los colores del párrafo: entonces puede heredar el de body. Cada cambio comprueba una parte distinta del procedimiento.
 
-Predecí el color de <p id="mensaje" class="aviso">Hola</p> si añadís #mensaje { color: purple; }.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar !important ante cualquier conflicto sin investigar qué regla está ganando.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-La cascada decide qué declaración se aplica cuando varias compiten. Para reglas normales de la misma procedencia y capa, importa la especificidad y, si empatan, el orden.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **02.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_01.md) · [Clase siguiente](../02_CSS/CLASE_03.md)

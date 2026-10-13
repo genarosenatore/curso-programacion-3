@@ -1,23 +1,29 @@
 # Práctica 08.03 · DTO: diferencia con entidad y modelo de pantalla
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Diseñá DTO de entrada y salida para registrar un cliente sin devolver una contraseña.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Elegí datos de entrada para crear cliente.
+2. Elegí una salida sin credenciales.
+3. Justificá cada campo por la operación que lo usa.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Diseñá una salida de Cliente con id, nombre y correo, sin credenciales.
 
-Analizá esta confusión: «Copiar todos los campos de entidad a cualquier DTO sin pensar el contrato.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseñá entrada para solicitar préstamo de un libro por id y cantidad y salida con id de préstamo y cantidad confirmada. ¿Por qué no enviás stock restante como autoridad desde el cliente?
 
-Separá datos que necesita recibir el servidor y datos que tiene sentido presentar.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Entrada describe lo solicitado.
+2. Salida describe lo confirmado.
+3. Disponibilidad pertenece al estado vigente del servidor.

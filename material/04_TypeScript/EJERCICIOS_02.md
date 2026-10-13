@@ -1,23 +1,29 @@
 # Práctica 04.02 · Tipos básicos, inferencia, arrays y funciones
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Escribí una función que reciba nombre:string y devuelva un saludo:string.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Tipá nombre de entrada y string de retorno.
+2. Retorná la cadena de plantilla de saludo.
+3. Mostrá la llamada y compará con una función void.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Escribí cuadrado(numero:number):number y probá 0 y 4. Escribí otra función que solo muestre ese resultado y explique su retorno void.
 
-Analizá esta confusión: «Agregar tipos a todo mecánicamente y no comprender lo que se está garantizando.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá sumar(valores:number[]):number con un acumulador y probá []. ¿Puede un array de números garantizar que todas las cantidades sean positivas?
 
-Anotá los parámetros y el retorno alrededor de los paréntesis.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. cuadrado retorna numero * numero.
+2. Una suma vacía comienza y termina en 0.
+3. El signo de un número es una regla adicional.

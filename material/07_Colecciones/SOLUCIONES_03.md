@@ -1,21 +1,15 @@
 # Soluciones 07.03 · HashSet y duplicados
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 if(!codigos.add(codigo)){System.out.println("Ya estaba inscripto");}. Probá dos entradas iguales. Si un correo admite diferencias de mayúsculas, normalizá con una política acordada antes de insertar, no después.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+A agrega, B agrega y el segundo A no: size 2. Para códigos del ejercicio, usá codigo.trim() antes de add y antes de contains. Así ambas entradas representan P01. Si guardás con espacios y consultás sin ellos, las cadenas siguen siendo distintas. La política pertenece al modelo y debe aplicarse uniformemente; HashSet solo utiliza la igualdad que recibe.
 
-Muestra true, false, true y 1. La segunda inserción no crea otro elemento igual. No hay get(0), porque Set no expresa acceso por índice. Si necesitás una lista ordenada para la pantalla, convertí o seleccioná una implementación apropiada.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Ordenar visualmente según el recorrido accidental de HashSet.
-
-HashSet permite consultar pertenencia sin mantener una secuencia de índices. add devuelve si el conjunto cambió.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

@@ -1,23 +1,29 @@
 # Práctica 15.08 · Sesión didáctica y permisos: alcance del ejemplo
 
-[Clase](CLASE_08.md) · [Soluciones](SOLUCIONES_08.md)
+[Clase](CLASE_08.md) · [Soluciones separadas](SOLUCIONES_08.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué pasa si alguien cambia role de cliente a admin en localStorage.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Cambia role local de cliente aadmin en una copia.
+2. Observa la decisión de vista.
+3. Explica por qué eso no acredita permiso de servidor.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Prueba muestraPanelAdmin con null, cliente y admin y explica cada booleano.
 
-Analizá esta confusión: «Llamar seguridad completa a una redirección basada solo en datos del navegador.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseña una tabla de operaciones públicas y protegidas para una biblioteca, distinguiendo rol y propiedad del recurso. Explica qué parte puede simularse y cuál requiere comprobación del servidor.
 
-Pensá en lo que la interfaz lee y en lo que el backend comprueba.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La función compara datos de vista.
+2. Identidad y permiso no son iguales.
+3. Un recurso puede pertenecer a una persona específica.

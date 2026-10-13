@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_03.md) · [Clase siguiente](../12_JPA/CLASE_05.md)
 
-## Qué vas a aprender
+## Compartir mapeos o crear una jerarquía consultable
 
-Vamos a trabajar **herencia y clases base persistentes**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+La herencia Java no decide automáticamente cómo guardar tablas. @MappedSuperclass comparte campos mapeados con entidades hijas sin ser una entidad independiente. Una consulta JPQL no selecciona EntityId solo por tener esa anotación; consulta las entidades concretas que heredaron id.
 
-## Antes de empezar
+Una jerarquía de entidades con @Inheritance es otra decisión. SINGLE_TABLE usa una tabla y un discriminador para diferenciar subtipos: simple para consultas, con columnas de subtipos que pueden no aplicar a todos. JOINED usa tabla base y tablas de subtipos relacionadas por clave: conserva separación pero necesita joins. TABLE_PER_CLASS almacena cada tipo concreto con columnas heredadas: ciertas consultas polimórficas requieren reunir varios orígenes. No hay una opción universalmente mejor.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Identidad y auditoría comunes
 
-## Explicación desde cero
+El ejemplo inferior declara EntityId como base de mapeo. Cliente extiende esa clase y hereda Id/GeneratedValue; su tabla conserva id y nombre. Las entidades ordinarias siguen necesitando constructor compatible. El [laboratorio](../Ejemplos/persistencia/README.md) utiliza una base identificada para evitar repetir ese campo en las entidades de facturas.
 
-La herencia persistente puede modelarse con estrategias como SINGLE_TABLE, JOINED o TABLE_PER_CLASS, cada una con efectos en esquema y consultas. @MappedSuperclass comparte mapeos con subclases, pero no representa por sí sola una entidad consultable.
+Una auditoría puede agregar fechaCreacion y usuario, pero declarar el atributo no asigna datos. Un constructor, servicio o callback @PrePersist puede establecerlos. Un **callback de ciclo de vida** es un método que el proveedor invoca en un momento, como antes de persistir. No todas las fuentes del campus traen ese mecanismo configurado.
 
-El material de facturación tiene bases como EntityId y AuditoriaApp. Antes de copiarlas, comprendé si se necesita una jerarquía de entidades o solamente atributos comunes. La auditoría no asigna automáticamente fecha o usuario si no existe código, callback o mecanismo configurado que lo haga.
+Elegí @MappedSuperclass si solo necesitás compartir mapeos. Elegí herencia de entidades cuando el dominio requiere consultar o tratar una jerarquía persistente de subtipos. No conviertas cliente, factura y producto en subtipos de una entidad universal solo por compartir id; compartir un campo no demuestra la relación de dominio.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 @jakarta.persistence.MappedSuperclass
@@ -34,36 +34,20 @@ class Cliente extends EntityId {
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Estos fragmentos requieren un proyecto JPA configurado y las entidades mencionadas. El proyecto de apoyo está enlazado en la guía de ejecución; para FacturaVenta usá el modelo del campus mapeado según su consigna.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Cliente hereda el mapeo del id. EntityId no se consulta como una entidad independiente en JPQL solo por ser MappedSuperclass. Las restricciones de constructor se cumplen en la subclase. Si dos clases comparten auditoría, esa base puede resultar útil sin forzar que todo el dominio sea una única jerarquía consultable.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Consultar una MappedSuperclass como entidad falla porque no tiene ese origen consultable. Declarar fechaCreacion sin asignarla puede conservar null. SINGLE_TABLE no elimina necesidad de distinguir qué subtipo representa una fila.
 
-Decidí dónde colocar fechaCreacion común a varias entidades y qué debe establecer su valor.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Creer que heredar una propiedad de auditoría activa automáticamente todo el seguimiento.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-La herencia persistente puede modelarse con estrategias como SINGLE_TABLE, JOINED o TABLE_PER_CLASS, cada una con efectos en esquema y consultas. @MappedSuperclass comparte mapeos con subclases, pero no representa por sí sola una entidad consultable.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **12.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_03.md) · [Clase siguiente](../12_JPA/CLASE_05.md)

@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_09.md) · [Clase siguiente](../03_JavaScript/CLASE_01.md)
 
-## Qué vas a aprender
+## Resolver una tarjeta por etapas
 
-Vamos a trabajar **práctica: tarjetas de productos y página adaptable**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una tarjeta de producto reúne datos y una acción. Primero escribí HTML semántico con título, descripción, precio y enlace. Después conectá una hoja y definí tipografía. Recién entonces ajustá caja y distribución. Este orden permite identificar si falta contenido, si una regla no coincide o si el ancho no alcanza.
 
-## Antes de empezar
+Partí de un catálogo de tres article. Usá clase tarjeta para el borde y padding de [02.04](CLASE_04.md); colocá Grid de [02.07](CLASE_07.md) en el padre. Dentro podés usar Flexbox para distribuir acciones. No asignes coordenadas a cada tarjeta: la cantidad de texto puede cambiar y el flujo debe adaptarse.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Estado visual y estado comprensible
 
-## Explicación desde cero
+Un enlace debe describir adónde lleva, por ejemplo «Ver detalle del cuaderno». Un botón requiere comportamiento que todavía no implementamos; no le atribuyas una compra real. `:hover` representa el puntero encima; `:focus-visible` permite mostrar el elemento activo con teclado. Una **línea de foco**, creada con outline, se dibuja sin ocupar espacio de caja; `outline-offset` la separa del borde.
 
-Para integrar CSS, partí del HTML de la unidad anterior y agregá diseño por capas: tipografía, caja, distribución y adaptación. La práctica de tarjetas de productos permite revisar todas esas decisiones. Una hoja corta y coherente se entiende mejor que reglas repetidas para arreglar cada pantalla.
+`border-radius:.5rem` redondea esquinas; no crea un componente nuevo. Elegí colores legibles y evitá reducir tanto la opacidad de agotados que su información desaparezca. Agregá texto «Agotado» además del color, para comunicar la regla a quien no distingue ese color.
 
-Prepará una revisión: tamaño de lectura, alineación, separación, enlaces reconocibles y foco visible al navegar con Tab. El efecto hover no debe ser la única señal de interacción porque existen teclado y pantallas táctiles.
+Probá la página en ancho estrecho, amplio y con zoom. Recorré todos los enlaces con Tab y activalos con Enter. Usá una tarjeta con una descripción mucho más larga para comprobar crecimiento. Revisá el inspector cuando falle una caja: una captura de un solo tamaño no verifica su comportamiento adaptable.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```css
 .catalogo { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap:1rem; }
@@ -26,36 +26,20 @@ a:focus-visible, button:focus-visible { outline:3px solid #075985; outline-offse
 
 [Abrir el fragmento como archivo](fragmentos/clase_10.css) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las reglas CSS se aplican a los elementos y clases HTML indicados. Tenés un ejemplo completo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El catálogo se adapta sin que cada tarjeta tenga coordenadas. El borde delimita los componentes y el foco muestra qué control está activo con teclado. Las reglas se aplican a elementos creados en HTML; CSS no reemplaza labels o encabezados.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Añadí una cuarta tarjeta: el contenedor debe distribuirla sin nuevas coordenadas. Quitá un estilo de foco y recorré con Tab: podés perder la señal de dónde estás. No uses outline:none sin ofrecer una indicación equivalente.
 
-Estilizá tres tarjetas con título, precio y enlace. Probá pantalla estrecha, zoom y navegación con Tab.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_10.md). Las [soluciones explicadas](SOLUCIONES_10.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Evaluar solo una captura de pantalla y no comprobar la adaptación o navegación.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Para integrar CSS, partí del HTML de la unidad anterior y agregá diseño por capas: tipografía, caja, distribución y adaptación. La práctica de tarjetas de productos permite revisar todas esas decisiones.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **02.10** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_10.md). Las [soluciones razonadas](SOLUCIONES_10.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_09.md) · [Clase siguiente](../03_JavaScript/CLASE_01.md)

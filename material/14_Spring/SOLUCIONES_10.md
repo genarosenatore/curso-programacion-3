@@ -1,21 +1,15 @@
 # Soluciones 14.10 · Errores, excepciones y ControllerAdvice
 
-[Clase](CLASE_10.md) · [Ejercicios](EJERCICIOS_10.md)
+[Clase](CLASE_10.md) · [Práctica](EJERCICIOS_10.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Nombre inválido: 400 con explicación de campo. Id inexistente: 404. Fallo inesperado: 500 con mensaje genérico y registro interno para diagnóstico. La clase del error debe guiar la traducción, no solo la palabra presente en su texto.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+JSON roto falla al leer cuerpo; nombre vacío al validar request; recurso ausente al consultar. Los dos primeros producen400 y el último404 con el contrato de error definido. El cliente verifica estado y mensaje en vez de asumir éxito por recibir datos. La traza ayuda al desarrollador en registros del servidor, pero exponerla revela información y no ayuda al usuario a corregir su entrada.
 
-NoEncontrado es una excepción definida por la aplicación. El advice convierte el fallo en una respuesta específica. Debe existir un manejador de validación adecuado y una política para errores inesperados; el proyecto de práctica incluye los casos comunes.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Exponer la traza completa de Java como mensaje visible de la API.
-
-@RestControllerAdvice centraliza manejo de excepciones de controllers. @ExceptionHandler traduce un tipo de error a código y cuerpo.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

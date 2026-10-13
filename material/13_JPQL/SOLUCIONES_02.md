@@ -1,21 +1,15 @@
 # Soluciones 13.02 · Selección, proyecciones y filtros
 
-[Clase](CLASE_02.md) · [Ejercicios](EJERCICIOS_02.md)
+[Clase](CLASE_02.md) · [Práctica](EJERCICIOS_02.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
-Si numeroFactura es Long e importeTotal double, un constructor FacturaResumen(Long numero,double total) es compatible. JPQL: select new curso.FacturaResumen(f.numeroFactura,f.importeTotal) from FacturaVenta f. Verificá el tipo del atributo en tu entidad antes de copiarlo.
+Si numero es Long e importeTotal double, un constructor FacturaResumen(Long numero,double total) es compatible. JPQL: select new curso.FacturaResumen(f.numero,f.importeTotal) from FacturaVenta f. Verificá el tipo del atributo en tu entidad antes de copiarlo.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+La proyección es `select f.numero,f.importeTotal from FacturaVenta f order by f.numero`; posición0 Long y1 Double al envolver double. La variante `select new curso.FacturaResumen(f.numero,f.importeTotal) from FacturaVenta f where f.estado=:estado` construye DTO. Cambiar sus valores no actualiza la entidad. Con BigDecimal en origen el constructor debe admitirlo y conservar su política de precisión; no se convierte por un nombre semejante.
 
-Cada fila contiene tres valores en ese orden, no una FacturaVenta completa. Para Object[], documentá índices o preferí un DTO. Una variante sería select new curso.FacturaResumen(f.numeroFactura,f.importeTotal), con ese tipo definido y constructor compatible.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Usar FacturaVenta.class como resultado cuando se seleccionan tres valores escalares.
-
-Una proyección selecciona datos concretos en lugar de toda la entidad. Varias expresiones pueden producir Object[]; una expresión de constructor permite crear un DTO si existe un constructor compatible.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

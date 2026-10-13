@@ -1,23 +1,29 @@
 # Práctica 08.02 · Lombok: getters, setters, constructores y builder
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué diferencia hay entre @Getter y @Data para una entidad bidireccional.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Enumera miembros generados por Getter y Data.
+2. Relacioná equals y toString con campos de entidad.
+3. Justificá evitar generación indiscriminada en relaciones.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Construí ProductoVista con builder y leé nombre y precio con getters, o implementá el equivalente manual si no tenés Lombok.
 
-Analizá esta confusión: «Confiar en defaults de un builder como si fueran validaciones de datos obligatorios.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Compará @Getter con @Data para un modelo con código estable y precio cambiante. Explicá qué contratos revisarías y qué pasa al omitir un campo obligatorio en builder.
 
-Preguntate qué métodos adicionales incorpora @Data.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Diferenciá construcción y consulta.
+2. Data incluye más que accesores.
+3. El builder no valida toda regla del dominio.

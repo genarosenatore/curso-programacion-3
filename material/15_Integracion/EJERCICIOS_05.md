@@ -1,23 +1,29 @@
 # Práctica 15.05 · Food Store: catálogo, filtros y detalle
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Agregá orden por precio ascendente conservando la lista original.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Filtra desde lista original.
+2. Ordena la selección por precio.
+3. Prueba búsqueda vacía y categoría sin coincidencias.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Agrega orden por precio a seleccionar y comprueba que el original conserva su orden.
 
-Analizá esta confusión: «Aplicar filtros a una lista ya filtrada y no poder recuperar resultados al borrar búsqueda.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Con tres productos de dos categorías, combina texto y categoría y luego borra solo texto. Diseña detalle inexistente y agotado. ¿Por qué cero no debe reemplazar null sin definir la política?
 
-sort modifica la lista donde se aplica; seleccion ya devuelve una lista nueva.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Siempre parte de productos originales.
+2. Mantén la categoría activa al borrar texto.
+3. null representa alternativa, no una identidad.

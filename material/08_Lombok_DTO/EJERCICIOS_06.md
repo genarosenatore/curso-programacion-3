@@ -1,23 +1,29 @@
 # Práctica 08.06 · Práctica: DTO de producto y factura
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá un DTO para una tarjeta de producto con nombre, precio y disponibilidad. Probá dos stocks distintos.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Define la vista de tarjeta con nombre,precio y disponibilidad.
+2. Construí salida desde producto.
+3. Probá stocks 0 y 3 y explicá campos omitidos.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá ProductoTarjetaDTO con nombre, precioCentavos y disponible y mapeá dos productos con stock 0 y 3.
 
-Analizá esta confusión: «Afirmar que usar un DTO impide todo problema de permisos sin revisar qué datos expone.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseñá FacturaVista con clienteNombre y una lista de detalles resumidos. Justificá por qué no incluyes el cliente completo con sus facturas. ¿Usar DTO garantiza permisos?
 
-Reutilizá el mapeo y agregá solo los datos que la tarjeta necesita.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Disponibilidad deriva del stock.
+2. El reporte puede resumir relaciones.
+3. Selección de campos y autorización son responsabilidades distintas.

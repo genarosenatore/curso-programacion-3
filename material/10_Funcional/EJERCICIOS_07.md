@@ -1,23 +1,29 @@
 # Práctica 10.07 · Agrupaciones y Optional
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Agrupá nombres por primera letra y contá. Decidí cómo tratar nombres vacíos.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Define excluir nombres vacíos antes de substring.
+2. Agrupá por primera letra y contá.
+3. Comprobá A2,E1 sin depender del orden de mapa.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Agrupá Ana,Abel,Eva por primera letra y contá, excluyendo textos vacíos de forma explícita.
 
-Analizá esta confusión: «Hacer Optional.get() sobre una búsqueda que puede no tener resultado.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Buscá primero un nombre con Z y obtené una alternativa sin usar get. Compará orElse y orElseGet si la alternativa se construye llamando una función. ¿Por qué agrupar por length no agrupa por inicial?
 
-Una primera letra no existe en la cadena vacía; filtrá o asigná una clave especial.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Cada clasificador define una clave diferente.
+2. Excluí vacío antes de substring.
+3. Supplier difiere el cálculo de alternativa.

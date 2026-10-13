@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_07.md) · [Clase siguiente](../15_Integracion/CLASE_09.md)
 
-## Qué vas a aprender
+## Distinguir una vista de sesión de una identidad comprobada
 
-Vamos a trabajar **sesión didáctica y permisos: alcance del ejemplo**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una sesión didáctica en localStorage permite recordar un nombre y role para practicar navegación. La persona puede modificarla. No demuestra quién llama al servidor ni que tenga permiso. **Autenticación** comprueba identidad mediante un mecanismo definido; **autorización** decide acciones o datos permitidos para esa identidad. Son preguntas distintas.
 
-## Antes de empezar
+El tipo SesionVista describe datos que la pantalla usa. muestraPanelAdmin compara sesion?.role con admin: el encadenamiento opcional produce undefined si no hay sesión y la comparación da false. La función solo decide mostrar una región, no realiza autenticación ni llama al servidor.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir un cambio de rol local
 
-## Explicación desde cero
+Con role cliente no aparece panel. Si alguien edita storage a admin, la pantalla podría mostrarlo. Esa prueba demuestra el alcance limitado, no que se haya conseguido permiso real. Un backend con autorización debe comprobar identidad y permisos en cada operación protegida y puede rechazar con401 o403 según contrato.
 
-La consigna de Food Store describe una sesión básica con localStorage y sin módulo de seguridad. Eso sirve para practicar pantallas y flujos, pero no acredita identidad ni permisos frente a un servidor real. Una persona puede editar localStorage o llamar directamente a la API.
+Un permiso sobre una factura también puede depender de propiedad del recurso, no solo del rol: un cliente podría consultar las suyas pero no otras. Cambiar id en URL es una petición que servidor debe evaluar. Ocultar enlaces no conserva esa regla por sí mismo.
 
-Separaremos el alcance: mostrar navegación según un rol es una decisión de interfaz; autorizar datos y operaciones corresponde al backend con un mecanismo de seguridad apropiado. No guardaremos contraseñas en el navegador ni presentaremos el ejemplo didáctico como autenticación de producción.
+La consigna describe una simulación básica sin módulo de seguridad; esta clase enseña sus límites sin inventar un requisito de implementar un sistema completo. No guarda contraseñas en storage ni promete protección que el ejemplo de apoyo no implementa. Si una aplicación con usuarios reales lo necesita, se diseña el mecanismo de seguridad por separado y se prueba sin depender de la UI.
 
-## Ejemplo
+Para practicar, compila función y tres valores locales: null, cliente y admin. No necesitas credenciales reales ni publicar nada. La prueba de representación es suficiente para esta función; una prueba de seguridad tendría que verificar respuestas del servidor con identidades diferentes.
+
+## Ejemplo de la clase
 
 ```typescript
 interface SesionVista { id:number; nombre:string; role:"admin"|"cliente"; }
@@ -27,36 +29,20 @@ function muestraPanelAdmin(sesion:SesionVista|null):boolean {
 
 [Abrir el fragmento como archivo](fragmentos/clase_08.ts) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos muestran piezas de integración. La guía de ejecución enlaza la tienda local y la API de productos de apoyo; las clases distinguen esos proyectos del sistema completo del campus.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La función decide si mostrar una región, no verifica permisos ante el servidor. El ejemplo integrado de apoyo trabaja sin cuentas y en datos locales. Al estudiar la consigna, anotaremos qué partes son simulación de flujo y qué haría falta para una aplicación con usuarios reales.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiar role a admin altera el dato de vista y puede mostrar un panel. El efecto no acredita acceso real. Un usuario que no ve botón puede igualmente intentar la URL; si el servidor no controla, la interfaz no lo protege.
 
-Explicá qué pasa si alguien cambia role de cliente a admin en localStorage.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_08.md). Las [soluciones explicadas](SOLUCIONES_08.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Llamar seguridad completa a una redirección basada solo en datos del navegador.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-La consigna de Food Store describe una sesión básica con localStorage y sin módulo de seguridad. Eso sirve para practicar pantallas y flujos, pero no acredita identidad ni permisos frente a un servidor real.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **15.08** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_08.md). Las [soluciones razonadas](SOLUCIONES_08.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_07.md) · [Clase siguiente](../15_Integracion/CLASE_09.md)

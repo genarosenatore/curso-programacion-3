@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_03.md) · [Clase siguiente](../00_Fundamentos/CLASE_05.md)
 
-## Qué vas a aprender
+## Investigar sin adivinar
 
-Vamos a trabajar **leer errores y comprobar una solución**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una prueba compara un resultado observado con uno esperado. Necesitamos una regla independiente del programa: si confiamos en el cálculo escrito para definir el esperado, podemos repetir el mismo error. Con precio 200 y tres unidades, calculá a mano 600 antes de mirar la salida del ejemplo.
 
-## Antes de empezar
+Un error de **sintaxis** impide interpretar una instrucción por su forma, como unas comillas que no cierran. Un error de **ejecución** ocurre al realizarla, como intentar usar un dato inexistente. Un error de **lógica** deja ejecutar, pero el resultado incumple la regla. Estas categorías orientan la búsqueda; una misma causa puede producir varios síntomas.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Un procedimiento de depuración
 
-## Explicación desde cero
+Primero reproducí el problema con una entrada pequeña. Anotá archivo y acción, resultado esperado, resultado obtenido y mensaje completo. Segundo, verificá los datos de entrada: si el precio ya llega incorrecto, el cálculo no es el primer fallo. Tercero, seguí las operaciones en orden hasta la primera diferencia. Cuarto, cambiá solo esa causa y repetí el caso. Quinto, probá otro caso para comprobar que corregiste la regla.
 
-Podemos cometer errores al escribir la forma de una instrucción, al ejecutar una operación o al elegir una solución. Un error de sintaxis incumple las reglas del lenguaje. Un error de ejecución ocurre mientras el programa corre. Un error de lógica puede producir un resultado sin fallar, pero resolver mal el problema.
+Una línea señalada por un mensaje es donde la herramienta detectó el problema, no siempre donde empezó. Una comilla abierta en la línea anterior puede cambiar cómo interpreta la siguiente. Leer los alrededores es más útil que borrar la línea señalada. Un **ejemplo mínimo reproducible** conserva la parte necesaria para provocar el fallo y elimina distracciones; no elimina precisamente los datos que lo desencadenan.
 
-Depurar significa investigar y corregir un comportamiento. Empezá con una entrada pequeña, anticipá su salida y seguí cada paso. Cuando un mensaje señale una línea, revisá también las líneas anteriores. Anotá qué esperabas, qué ocurrió y qué cambio hiciste; cambiar muchas cosas a la vez dificulta localizar la causa.
+Probá casos normales, extremos y límites: cantidad 1, cantidad 0 y cantidad negativa si debe rechazarse. Cada caso tiene un motivo. Un único ejemplo que funciona no demuestra todos los comportamientos; muchos ejemplos sin una regla tampoco prueban que la solución sea correcta.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```text
 Caso A: precio = 200; cantidad = 3
@@ -27,36 +27,20 @@ Resultado esperado: 600
 
 [Abrir el fragmento como archivo](fragmentos/clase_04.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Este ejemplo describe pasos o uso de herramientas. Seguí las instrucciones de la explicación; los bloques de pseudocódigo no se ejecutan como programas.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Los datos se recibieron correctamente y la suma es correcta, pero elegimos la operación equivocada. Corregir la lógica significa multiplicar. Luego probamos otra compra y una cantidad cero para comprobar la regla, no solo el ejemplo que falló.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiar la suma por multiplicación corrige la compra, pero comprobá precio 50 y cantidad 2: debe dar 100. Si arreglás el ejemplo escribiendo directamente 600, el siguiente caso vuelve a fallar. Eso reemplaza una salida, no corrige el algoritmo.
 
-Una tienda calcula un promedio de dos precios sumándolos y dividiendo por 3. Registrá entrada, observado, esperado y corrección con precios 100 y 200.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_04.md). Las [soluciones explicadas](SOLUCIONES_04.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Aceptar cualquier resultado solo porque el programa no mostró un error.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Podemos cometer errores al escribir la forma de una instrucción, al ejecutar una operación o al elegir una solución. Un error de sintaxis incumple las reglas del lenguaje.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **00.04** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_04.md). Las [soluciones razonadas](SOLUCIONES_04.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../00_Fundamentos/CLASE_03.md) · [Clase siguiente](../00_Fundamentos/CLASE_05.md)

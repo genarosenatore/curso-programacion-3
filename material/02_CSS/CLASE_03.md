@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_02.md) · [Clase siguiente](../02_CSS/CLASE_04.md)
 
-## Qué vas a aprender
+## Elegir medidas que expresen la intención
 
-Vamos a trabajar **colores, texto, unidades y medidas**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una medida CSS combina número y unidad. `16px` usa píxeles CSS de referencia, que no siempre equivalen a un punto físico de pantalla. `2rem` depende de la fuente del elemento raíz html: si vale 16px, son 32px. `em` en font-size depende de la fuente del padre y en muchas otras propiedades de la fuente del propio elemento. Los porcentajes necesitan una referencia que cambia según la propiedad.
 
-## Antes de empezar
+Un ancho `90%` normalmente se calcula sobre el bloque contenedor, no sobre toda la pantalla. Para un contenedor de 800px produce 720px. `max-width:60rem` agrega un techo: se usa el ancho porcentual mientras no lo supere. Esto permite una lectura ancha en escritorio y ajustada en pantallas pequeñas.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Color y legibilidad
 
-## Explicación desde cero
+`color` pinta el texto y `background-color` su fondo. Un nombre como blue y una notación hexadecimal como #075985 son maneras de indicar color. El hexadecimal combina rojo, verde y azul con pares de dígitos en base 16; no necesitás calcularlos a mano para practicar. Elegí contraste que deje leer el texto y no comuniques agotado solamente con un color.
 
-CSS admite distintas formas de expresar colores y tamaños. px es una unidad de referencia CSS; rem depende del tamaño de fuente raíz; em puede depender del tamaño de fuente del elemento o su contexto según la propiedad; % depende de la dimensión de referencia de cada propiedad. No significan lo mismo en todos los usos.
+`font-family: Arial, sans-serif` pide Arial y ofrece una familia alternativa si falta. `font-weight` controla el grosor y `text-align` la alineación. `line-height:1.5` hace que la distancia de línea corresponda a 1,5 veces el tamaño de fuente. No lleva unidad para que cada elemento adapte esa proporción a su fuente. Evitá fijar altura de párrafos: si el texto crece, puede quedar recortado.
 
-Una familia de fuentes incluye alternativas por si una no está disponible. line-height separa líneas y mejora lectura. Un valor sin unidad, como 1.5, se adapta al tamaño del texto. Probá el zoom del navegador para comprobar que el contenido siga siendo legible.
+Prepará body, h1 y un main class="contenido" en el [documento base](../01_HTML/CLASE_01.md), conectá la hoja como en [02.01](CLASE_01.md) y aplicá el ejemplo. Cambiá la ventana y el zoom: la prueba debe incluir un párrafo largo, no solo una palabra. La comodidad de lectura determina las medidas elegidas.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```css
 body { font-family: Arial, sans-serif; font-size: 1rem; line-height: 1.5; }
@@ -26,36 +26,20 @@ h1 { font-size: 2rem; color: #075985; }
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.css) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las reglas CSS se aplican a los elementos y clases HTML indicados. Tenés un ejemplo completo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El título tiene el doble del tamaño raíz. contenido ocupa 90 % del espacio de referencia, pero no supera 60rem. max-width permite poner un límite sin fijar siempre el ancho. El navegador suele partir de 16px, aunque la persona puede cambiarlo; por eso conviene pensar en proporciones.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Con raíz 20px, 2rem son 40px. Si contenido está dentro de un padre de 500px, width:90% da 450px aunque la pantalla sea mayor. Una altura fija de 50px puede recortar un párrafo al aumentar el zoom; dejar que crezca con su contenido evita ese límite artificial.
 
-Elegí un tamaño para título, texto y ancho de lectura que sigan funcionando con zoom al 200 %.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Suponer que 100 % equivale siempre al ancho de toda la pantalla.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-CSS admite distintas formas de expresar colores y tamaños. px es una unidad de referencia CSS; rem depende del tamaño de fuente raíz; em puede depender del tamaño de fuente del elemento o su contexto según la propiedad; % depende de la dimensión de referencia de cada propiedad.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **02.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../02_CSS/CLASE_02.md) · [Clase siguiente](../02_CSS/CLASE_04.md)

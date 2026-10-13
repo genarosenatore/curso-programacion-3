@@ -1,23 +1,29 @@
 # Práctica 13.04 · Navegación de relaciones, INNER JOIN y LEFT JOIN
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Escribí una consulta de facturas que contengan un artículo de una marca por id sin duplicar facturas.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Sigue detalle→listaPrecioArticulo→articulo→marca.
+2. Filtra por id de marca parametrizado.
+3. Selecciona distinct factura para evitar repetidos.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Consultá denominación de artículo y marca incluyendo artículos sin marca.
 
-Analizá esta confusión: «Inventar d.articulo cuando la relación real pasa por listaPrecioArticulo.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Consultá facturas con al menos un detalle de marca por id, sin duplicarlas. Diseñá una factura con dos detalles de esa marca y justificá cada JOIN o navegación.
 
-Uní detalles y navegá a artículo; seleccioná distinct f.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La relación a.marca existe en el modelo.
+2. El detalle pasa por listaPrecioArticulo.
+3. distinct se aplica a la factura seleccionada.

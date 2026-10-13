@@ -1,23 +1,29 @@
 # Práctica 03.05 · Funciones, parámetros, retorno y alcance
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá calcularDescuento(importe, porcentaje) que devuelva el importe después del descuento.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Escribí la firma con importe y porcentaje.
+2. Calculá la fracción de descuento y retorná el restante.
+3. Usá la llamada en otro cálculo para comprobar el retorno.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Escribí doble(numero) que devuelva el doble. Llamala con 0 y 5 y usá el resultado en una suma.
 
-Analizá esta confusión: «Escribir console.log(total) dentro y creer que la función devuelve ese número.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá sumarPares(limite) usando el bucle de 03.04 dentro de una función. Devolvé el acumulador después del bucle. Probá 6 y 0. ¿Qué sucedería si return estuviera dentro de la primera vuelta?
 
-Restá del importe el producto importe*porcentaje/100.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. return entrega el cálculo, log lo muestra.
+2. El acumulador se declara dentro de la función, antes del bucle.
+3. Un return dentro del bucle termina la llamada, no solo una vuelta.

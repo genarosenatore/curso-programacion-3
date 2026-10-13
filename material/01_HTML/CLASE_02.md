@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_01.md) · [Clase siguiente](../01_HTML/CLASE_03.md)
 
-## Qué vas a aprender
+## Elegir una estructura por su significado
 
-Vamos a trabajar **encabezados, párrafos, listas y caracteres especiales**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Ya sabemos crear [elementos HTML](CLASE_01.md). Ahora necesitamos distinguir una idea principal, un párrafo y una enumeración. Un encabezado anuncia el tema de lo que sigue. `h1` es el nivel principal; `h2` introduce sus secciones; `h3` una sección dentro de una de ellas. Los números representan jerarquía, no una escala de tamaño que convenga usar como decoración.
 
-## Antes de empezar
+Un párrafo `p` reúne una idea de texto. Un salto de línea en el archivo no crea un párrafo nuevo: el navegador normalmente reúne los espacios consecutivos. Creá otro p cuando empieza otra idea. `br` marca un salto dentro de un texto, por ejemplo una dirección postal; repetirlo para separar secciones no describe su estructura.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Listas y énfasis paso a paso
 
-## Explicación desde cero
+Si los elementos forman un conjunto sin orden, creá `ul`. Si el orden expresa pasos o una clasificación, creá `ol`. En ambos, cada elemento pertenece a un `li`; ul u ol contiene esos li. Escribir números manualmente en párrafos pierde la relación de lista. `strong` indica importancia y `em` énfasis; su presentación predeterminada puede cambiarse con CSS, pero su significado permanece.
 
-Los encabezados h1 a h6 expresan una jerarquía. No los elijas por el tamaño visual: más adelante lo cambiaremos con CSS. Un párrafo usa p. Una lista sin orden usa ul y una lista numerada usa ol; cada ítem usa li. strong señala importancia y em énfasis.
+Para mostrar un símbolo reservado tenemos **referencias de caracteres**. El texto `&lt;` representa `<` y `&amp;` representa `&`. Empiezan con `&`, incluyen un nombre reconocido y terminan con `;`. Si escribimos `<p>` como ejemplo sin escapar, el navegador puede interpretarlo como un elemento real. Esto explica por qué el código visible de la clase usa referencias al renderizar.
 
-El navegador normalmente colapsa espacios y saltos de línea del código fuente. Para separar párrafos creá elementos p. Una entidad representa un carácter que podría confundirse con el marcado: &lt; muestra < y &amp; muestra &.
+El bloque de abajo es un fragmento: reemplazá el contenido de body en el documento de 01.01. Abrí ese documento, compará encabezados y lista y mirá también el código fuente. La diferencia entre estructura y aspecto será la base para CSS.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```html
 <h1>Catálogo</h1>
@@ -32,36 +32,20 @@ El navegador normalmente colapsa espacios y saltos de línea del código fuente.
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.html) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los fragmentos HTML van dentro del documento base de la primera clase, salvo que se muestre un documento completo. Tenés una página local de ejemplo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Catálogo es el tema principal y Útiles escolares una sección. La lista agrupa elementos del mismo tipo. El texto con strong destaca una advertencia semánticamente. Las entidades hacen que la etiqueta de ejemplo aparezca como texto, sin crear un nuevo párrafo. Para una receta con pasos, ol expresa que el orden importa.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Reemplazá ul por ol manteniendo li: cambia la indicación de orden. Si «elegir producto» debe ocurrir antes de «confirmar», ol expresa la regla. Cambiar h2 a h5 para reducir el tamaño introduce una jerarquía falsa. Mostrá literalmente <h1> con &lt;h1&gt; para evitar que se interprete.
 
-Escribí una página con un h1, dos secciones h2 y una lista ordenada de tres pasos para hacer una compra.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Saltar de h1 a h5 solo para obtener letra pequeña.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Los encabezados h1 a h6 expresan una jerarquía. No los elijas por el tamaño visual: más adelante lo cambiaremos con CSS.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **01.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_01.md) · [Clase siguiente](../01_HTML/CLASE_03.md)

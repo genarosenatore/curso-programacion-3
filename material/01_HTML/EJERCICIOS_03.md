@@ -1,23 +1,29 @@
 # Práctica 01.03 · Enlaces, rutas e imágenes con texto alternativo
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá un enlace a ../index.html desde paginas/contacto.html y explicá qué significa ../. Elegí un alt para una foto informativa de un producto.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Ubicá contacto dentro de paginas y la portada arriba.
+2. Escribí el regreso con ../index.html y activalo.
+3. Elegí la información de la imagen antes de escribir su alt.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Desde paginas/contacto.html, enlazá a ../index.html. En la portada creá un enlace interno a un h2 con id lecturas.
 
-Analizá esta confusión: «Escribir una ruta que solo funciona en tu computadora, como C:/Users/... en un sitio compartido.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá una foto informativa de un libro y un adorno sin información. Elegí los alt y justificá por qué son distintos. Probá los enlaces y luego rompé una ruta de forma deliberada: ¿cómo identificás qué referencia corregir?
 
-Partí de la carpeta que contiene contacto.html, no de la carpeta general del proyecto.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Para regresar, salí de paginas.
+2. Un enlace interno lleva # más el id exacto.
+3. Describí la información de la foto, no todos sus píxeles.

@@ -1,21 +1,30 @@
 # Soluciones 01.02 · Encabezados, párrafos, listas y caracteres especiales
 
-[Clase](CLASE_02.md) · [Ejercicios](EJERCICIOS_02.md)
+[Clase](CLASE_02.md) · [Práctica](EJERCICIOS_02.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Usá h1 para Tienda; h2 para Productos y Cómo comprar. Dentro de ol agregá li: Elegir producto, Indicar cantidad, Confirmar pedido. No uses varios br para simular la separación entre párrafos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Dentro del body del documento base:
 
-Catálogo es el tema principal y Útiles escolares una sección. La lista agrupa elementos del mismo tipo. El texto con strong destaca una advertencia semánticamente. Las entidades hacen que la etiqueta de ejemplo aparezca como texto, sin crear un nuevo párrafo. Para una receta con pasos, ol expresa que el orden importa.
+```html
+<h1>Recetas</h1>
+<h2>Ingredientes</h2>
+<ul><li>Harina</li><li>Agua</li></ul>
+<h2>Preparación</h2>
+<ol>
+  <li>Mezclar los ingredientes.</li>
+  <li>Hornear. <strong>Usar protección para el calor.</strong></li>
+  <li>Dejar enfriar.</li>
+</ol>
+<p>Una etiqueta de párrafo se escribe &lt;p&gt;.</p>
+```
 
-## 3. Qué conviene corregir
+El conjunto de ingredientes no establece una secuencia; los pasos sí. strong transmite la importancia de la precaución y las referencias muestran los símbolos sin crear otra etiqueta. Cada h2 pertenece al tema de h1; no hay necesidad de saltar niveles para conseguir un tamaño.
 
-La confusión a evitar es: Saltar de h1 a h5 solo para obtener letra pequeña.
+## Cómo comparar tu respuesta
 
-Los encabezados h1 a h6 expresan una jerarquía. No los elijas por el tamaño visual: más adelante lo cambiaremos con CSS.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

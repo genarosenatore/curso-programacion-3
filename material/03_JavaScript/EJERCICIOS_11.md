@@ -1,23 +1,29 @@
 # Práctica 03.11 · Timers, callbacks y promesas
 
-[Clase](CLASE_11.md) · [Soluciones](SOLUCIONES_11.md)
+[Clase](CLASE_11.md) · [Soluciones separadas](SOLUCIONES_11.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá una promesa que se cumpla con "Listo" y mostrala con then. Explicá por qué then recibe una función.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá Promise.resolve("Listo").
+2. Pasá una función a then para mostrar el resultado.
+3. Compará el momento de esa salida con un log inmediato.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Usá Promise.resolve(4), transformá con then al doble y mostrá el valor en un segundo then.
 
-Analizá esta confusión: «Pensar que setTimeout pausa el programa o usar una espera fija para suponer que una descarga terminó.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá una función esperarMensaje que devuelva la promesa del ejemplo. Llamala y mostrá un mensaje inmediato y otro al recibir el resultado. Añadí una variante rechazada. ¿Por qué una espera fija no confirma el éxito de una petición?
 
-Promise.resolve crea una promesa ya cumplida; el callback procesa su valor.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Retorná el doble dentro del primer then.
+2. La función debe devolver la promesa para que el llamador pueda seguirla.
+3. catch trata el rechazo, no el transcurso de un plazo.

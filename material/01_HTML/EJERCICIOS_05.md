@@ -1,23 +1,29 @@
 # Práctica 01.05 · Tablas para datos
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Construí una tabla con tres libros y columnas Título, Autor y Año.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá caption y una fila de encabezados Título/Autor/Año.
+2. Agregá tres filas conservando el orden de celdas.
+3. Asociá encabezados con scope y comprobá la lectura.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá una tabla de dos libros con encabezados Libro y Autor y un caption «Lecturas recomendadas».
 
-Analizá esta confusión: «Usar espacios para simular columnas: su alineación cambia al variar la pantalla.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá Año como tercera columna; un libro no tiene año informado. Representá ese caso sin mover columnas. ¿Por qué una lista de tres pasos de compra no necesita una tabla?
 
-Cada fila de tbody necesita las tres celdas en el mismo orden.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Cada tr conserva el orden de columnas.
+2. El dato desconocido tiene su propia celda.
+3. Una secuencia de pasos se describe con ol.

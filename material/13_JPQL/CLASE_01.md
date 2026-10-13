@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_09.md) · [Clase siguiente](../13_JPQL/CLASE_02.md)
 
-## Qué vas a aprender
+## Consultar el modelo de objetos persistentes
 
-Vamos a trabajar **jpql frente a sql y parámetros nombrados**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+SQL conoce tablas y columnas; JPQL conoce **entidades mapeadas y atributos Java**. El proveedor traduce la consulta al motor. Si FacturaVenta tiene atributo numero y tabla factura_venta, JPQL usa FacturaVenta y numero; la columna física puede tener otro nombre. El parámetro HTTP numeroFactura o un DTO del mismo nombre no cambia el atributo de entidad.
 
-## Antes de empezar
+Un **alias** como f es un nombre corto para cada origen de la consulta. `select f from FacturaVenta f` selecciona entidades completas. `where f.estado=:estado` compara su atributo con un valor pasado por separado. Los dos puntos señalan un parámetro nombrado, no una columna ni una variable Java insertada automáticamente.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Preparar y ejecutar
 
-## Explicación desde cero
+Necesitás lo aprendido en [JPA 12.05](../12_JPA/CLASE_05.md): entorno, entidades y EntityManager. En [el laboratorio](../Ejemplos/persistencia/README.md) todo está definido y su demostración contiene las consultas de esta unidad con datos pequeños. Los fragmentos de facturas del campus requieren completar sus mapeos; no se ejecutan en SQLite ni como un .sql directo.
 
-JPQL usa nombres de entidades y atributos Java, no tablas y columnas SQL. Un alias identifica cada origen. createQuery puede tipar el resultado cuando seleccionamos una entidad. Los parámetros nombrados separan consulta y datos, evitando concatenaciones que cambien su significado.
+createQuery(texto,FacturaVenta.class) construye una consulta tipada. setParameter("estado","EMITIDA") da el valor sin el : en su nombre. getResultList realiza la consulta y devuelve lista; si no hay coincidencias, []. getSingleResult, en cambio, exige un único resultado y puede fallar por cero o varios. Elegí la API según cardinalidad esperada.
 
-En esta unidad el modelo de referencia es FacturaVenta del campus. Las consultas necesitan que sus relaciones estén mapeadas, como exige el TP JPA. Los fragmentos no ejecutan sobre SQLite ni sobre una clase sin anotaciones. Adaptá nombres si trabajás con otro modelo.
+La parametrización evita tratar datos externos como parte de la sintaxis de consulta. Concatenar una denominación con comillas puede romper el texto o alterar su significado; pasala siempre como dato. Los parámetros no permiten sustituir libremente nombres de entidades o atributos: para un orden elegido, utilizá una lista controlada de criterios permitidos.
 
-## Ejemplo
+Seleccionar f permite resultado FacturaVenta.class. Seleccionar f.numero retorna otro tipo y debe declararse en consecuencia. La forma de salida es parte del contrato, que se desarrolla en la siguiente clase.
+
+## Ejemplo de la clase
 
 ```java
 var consulta = em.createQuery(
@@ -27,36 +29,20 @@ var facturas = consulta.getResultList();
 
 [Abrir el fragmento como archivo](fragmentos/clase_01.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las consultas se ejecutan mediante JPA sobre entidades mapeadas. No son SQL directo. El nombre y tipo de cada atributo deben coincidir con tu modelo.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 f representa una FacturaVenta. :estado es un valor proporcionado aparte; no es una columna. getResultList devuelve una lista, vacía si no hay coincidencias. El tipo FacturaVenta.class coincide con la selección completa f.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Estado SIN_ESTADO produce [] en el laboratorio. Omitir setParameter deja un dato requerido sin vincular. Escribir f.numeroFactura falla porque el atributo inspeccionado es numero; corregir solo el DTO no corrige esa consulta.
 
-Consultá todas las facturas de un cliente por su id usando parámetro.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_01.md). Las [soluciones explicadas](SOLUCIONES_01.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Escribir factura_venta o cliente_id porque son nombres de la tabla y columna.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-JPQL usa nombres de entidades y atributos Java, no tablas y columnas SQL. Un alias identifica cada origen.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **13.01** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_01.md). Las [soluciones razonadas](SOLUCIONES_01.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_09.md) · [Clase siguiente](../13_JPQL/CLASE_02.md)

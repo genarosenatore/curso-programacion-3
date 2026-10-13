@@ -1,23 +1,29 @@
 # Práctica 02.10 · Práctica: tarjetas de productos y página adaptable
 
-[Clase](CLASE_10.md) · [Soluciones](SOLUCIONES_10.md)
+[Clase](CLASE_10.md) · [Soluciones separadas](SOLUCIONES_10.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Estilizá tres tarjetas con título, precio y enlace. Probá pantalla estrecha, zoom y navegación con Tab.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Creá tres article con títulos, precios y enlaces.
+2. Aplicá caja de tarjeta y distribución al catálogo.
+3. Verificá 320px, zoom y foco de teclado.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Estilizá dos tarjetas de libros con borde, padding y título, dentro de un catálogo adaptable.
 
-Analizá esta confusión: «Evaluar solo una captura de pantalla y no comprobar la adaptación o navegación.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá un libro agotado, una descripción larga y enlaces de detalle. Verificá teclado y 320px. Registrá cómo se comunica el agotado además de color. ¿Por qué BEM ayuda pero no reemplaza estas pruebas?
 
-Construí una tarjeta primero y luego repetí el componente.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El padre distribuye; cada tarjeta conserva su caja.
+2. Agregá texto de disponibilidad.
+3. El foco debe poder localizarse al usar Tab.

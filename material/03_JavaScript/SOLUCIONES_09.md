@@ -1,21 +1,17 @@
 # Soluciones 03.09 · Eventos y formularios
 
-[Clase](CLASE_09.md) · [Ejercicios](EJERCICIOS_09.md)
+[Clase](CLASE_09.md) · [Práctica](EJERCICIOS_09.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Antes de calcular: if(!Number.isInteger(cantidad)||cantidad<1){resultado.textContent="Ingresá una cantidad entera mayor a cero";return;}. Si es válida, mostrás el total. Probá 2, 0 y 1.5.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Dentro del listener enseñado: `if (!Number.isInteger(cantidad) || cantidad < 1) { resultado.textContent="Cantidad entera positiva requerida"; return; }`, luego asigná el total. Para precio, agregá un input id="precio", name="precio", type="number", min="0", step="0.01" y required.
 
-El ejemplo asume que el HTML indicado contiene campo y resultado. El navegador realiza su validación nativa antes de submit normal. Aun así, añadiremos validación propia para cantidades enteras y finitas. El signo ?. evita agregar un listener si no existe formulario. Los textos entre backticks permiten insertar valores con ${...}.
+Leé su value, comprobá trim() !== "", convertí y comprobá Number.isFinite(precio) && precio >= 0 antes de multiplicar. Una muestra gratuita puede tener precio cero; una compra de cero unidades no cumple este contrato. El Enter produce submit y usa el mismo procedimiento. No uses Number del vacío como si la persona hubiera elegido cero.
 
-## 3. Qué conviene corregir
+## Cómo comparar tu respuesta
 
-La confusión a evitar es: Agregar un listener dentro de otro render y duplicar la respuesta al mismo evento.
-
-Un evento indica que ocurrió una acción, como click, input o submit. addEventListener asocia una función que se ejecutará cuando ocurra.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

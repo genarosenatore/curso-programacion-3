@@ -1,23 +1,29 @@
 # Práctica 04.05 · Genéricos básicos y diferencias entre any y unknown
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá ultimo<T> que devuelva el último elemento o undefined.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Declará el parámetro T y el array T[].
+2. Comprobá longitud antes del último índice.
+3. Incluí undefined en retorno y probá vacío.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Implementá ultimo<T>(valores:T[]):T|undefined y usalo con nombres y números.
 
-Analizá esta confusión: «Cambiar todos los tipos problemáticos a any y perder las comprobaciones que queríamos obtener.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Recibí un unknown y devolvé su texto en minúsculas si es string, o «No es texto» si no. Probá "ANA", 3 y null. ¿Qué información conserva el genérico que any pierde?
 
-El índice final es length-1; primero pensá en el array vacío.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El último índice es length - 1 cuando existe.
+2. typeof comprueba antes de usar un método.
+3. T mantiene el tipo concreto entre entrada y salida.

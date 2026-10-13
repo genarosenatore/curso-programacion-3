@@ -1,23 +1,29 @@
 # Práctica 11.05 · INSERT, UPDATE y DELETE
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Actualizá el nombre de producto 1 en una copia de la base y comprobá que el 2 no cambió.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Consulta producto 1 y 2 antes de cambio.
+2. Actualiza nombre solo WHERE id=1.
+3. Repite SELECT y confirma que 2 se conserva.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Cambiá nombre de producto1 a Cuaderno grande y comprobá que producto2 conserve su nombre.
 
-Analizá esta confusión: «Olvidar WHERE al editar un registro individual.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá un producto de práctica con id10, actualizalo y elimínalo, consultando antes y después. Explicá la diferencia entre cero filas afectadas y error de restricción.
 
-Usá WHERE id=1 y consultá los dos después.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. SELECT con el mismo WHERE confirma objetivo.
+2. La nueva clave debe estar libre.
+3. Un id ausente puede dar cero cambios sin fallar.

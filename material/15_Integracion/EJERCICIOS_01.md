@@ -1,23 +1,29 @@
 # Práctica 15.01 · Seguir una petición del frontend al backend
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Una petición devuelve 201 con JSON correcto pero no aparece la tarjeta. ¿Qué revisarías primero?
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Mira cuerpo correcto de 201 recibido.
+2. Sigue parseo y adaptación del cliente.
+3. Revisa selector y render que deben mostrar la tarjeta.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+POST devuelve201 con producto correcto, pero no aparece. Identifica las primeras tres comprobaciones del cliente.
 
-Analizá esta confusión: «Resolver todo error cambiando CORS sin observar la respuesta o el evento.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Compara «no salió petición», «respuesta400» y «respuesta200 pero render falla». Escribe evidencia que diferencia cada caso. ¿Qué aporta consultar después por el id creado?
 
-La recepción HTTP ya tuvo éxito: seguí el resultado hasta la pantalla.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Mira Red antes de investigar base.
+2. El estado distingue etapas.
+3. GET posterior comprueba el recurso concreto.

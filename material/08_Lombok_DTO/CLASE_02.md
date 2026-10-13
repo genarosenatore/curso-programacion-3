@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../08_Lombok_DTO/CLASE_01.md) · [Clase siguiente](../08_Lombok_DTO/CLASE_03.md)
 
-## Qué vas a aprender
+## Saber qué miembros aparecerán
 
-Vamos a trabajar **lombok: getters, setters, constructores y builder**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+@Getter genera consultas de campos; @Setter escrituras. @NoArgsConstructor genera construcción sin argumentos, @AllArgsConstructor con campos y @RequiredArgsConstructor para campos requeridos según final y la política de @NonNull. No son intercambiables: un constructor vacío puede dejar sin datos un objeto que tu modelo necesita completo.
 
-## Antes de empezar
+@Builder genera una construcción paso a paso. `ProductoVista.builder()` inicia el ayudante, `.nombre(...)` registra un valor, `.precioCentavos(...)` otro y `.build()` crea el resultado. Esas llamadas no son setters del objeto final ya creado. No completar un campo puede conservar null o el valor inicial del tipo; builder no equivale a «todos los campos obligatorios comprobados».
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Ejecutar con una dependencia real
 
-## Explicación desde cero
+El fragmento necesita Lombok. Podés poner una clase de práctica en el paquete curso del [proyecto Maven de apoyo](../Ejemplos/spring/README.md), que declara dependencia y procesador. Agregá un main dentro de ProductoVista que construya con builder y muestre getNombre. Desde la raíz del proyecto, `mvn compile` genera clases; el main de esa clase puede ejecutarse con `java -cp target/classes curso.ProductoVista`. El fragmento debe declarar package curso si lo ubicás allí.
 
-@Getter y @Setter generan accesores; @NoArgsConstructor un constructor sin argumentos; @AllArgsConstructor uno con campos; @RequiredArgsConstructor los requeridos según su definición. @Builder ofrece una forma de construcción mediante métodos encadenados.
+Para comprender sin instalar Lombok, primero escribí constructor y getters manuales como en [08.01](CLASE_01.md); son una alternativa completa. El proyecto Maven necesita Java y descarga de dependencias. No afirmes que javac aislado reconocerá Lombok sin classpath y procesador.
 
-@Data combina varias operaciones, entre ellas equals, hashCode y toString. En entidades con relaciones, esa combinación puede producir reglas de igualdad inadecuadas, recursión o cargas no buscadas. Preferiremos anotaciones explícitas y revisaremos qué código se genera. Un builder no obliga a llenar todos los campos por sí solo.
+@Data agrupa getters, setters de campos elegibles, constructor requerido, toString, equals y hashCode. Eso puede elegir igualdad por campos o imprimir relaciones que no convienen. En JPA una relación circular puede provocar recursión o carga inesperada; preferí generar explícitamente lo necesario y revisar los contratos. Menos líneas no garantiza reglas correctas.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 import lombok.Builder;
@@ -33,36 +33,20 @@ class ProductoVista {
 
 [Abrir el fragmento como archivo](fragmentos/clase_02.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los records y clases son declaraciones; las llamadas se hacen dentro de main. Los fragmentos con Lombok requieren su dependencia y procesamiento de anotaciones.
+## Qué ocurre al seguirlo
 
-## Leamos el ejemplo paso a paso
+El builder encadena métodos del ayudante de construcción generado y build crea el objeto. @Getter permite leer después. Esto requiere Lombok configurado; no es Java estándar sin librerías. Si se omite nombre, el builder no garantiza un nombre válido. El diseño debe decidir cómo validar.
 
-El builder encadena setters del constructor generado y build crea el objeto. @Getter permite leer después. Esto requiere Lombok configurado; no es Java estándar sin librerías. Si se omite nombre, el builder no garantiza un nombre válido. El diseño debe decidir cómo validar.
+## Cambiar una decisión y explorar un límite
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+Construí sin nombre: el builder puede producir un objeto con nombre null. Agregar @Getter no lo valida. Usar @Data en un producto con precio mutable puede involucrar ese campo en igualdad si no definís otra política, afectando estructuras hash.
 
-## Práctica
-
-Explicá qué diferencia hay entre @Getter y @Data para una entidad bidireccional.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_02.md). Las [soluciones explicadas](SOLUCIONES_02.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Confiar en defaults de un builder como si fueran validaciones de datos obligatorios.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-@Getter y @Setter generan accesores; @NoArgsConstructor un constructor sin argumentos; @AllArgsConstructor uno con campos; @RequiredArgsConstructor los requeridos según su definición. @Builder ofrece una forma de construcción mediante métodos encadenados.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **08.02** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_02.md). Las [soluciones razonadas](SOLUCIONES_02.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../08_Lombok_DTO/CLASE_01.md) · [Clase siguiente](../08_Lombok_DTO/CLASE_03.md)

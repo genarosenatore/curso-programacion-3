@@ -1,23 +1,29 @@
 # Práctica 01.07 · Práctica: página personal, registro y blog
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Armá tres páginas: personal, registro y blog. Incluí navegación entre ellas y comprobá los requisitos de las consignas locales del campus.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Prepará personal,registro y blog como documentos completos.
+2. Agregá enlaces para poder ir y volver entre las tres.
+3. Probá navegación,artículos y validación desde la portada abierta.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Construí una portada de biblioteca con presentación, tres lecturas en lista y enlace a registro.html.
 
-Analizá esta confusión: «Copiar una solución entera sin poder explicar dónde se define cada requisito.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá registro.html con nombre y correo, y una tabla de horarios en la portada. Prepará una lista de cuatro verificaciones y justificá por qué cada una comprueba un requisito distinto. ¿Qué requeriría un registro real?
 
-Construí primero una página; después copiá solo la estructura común y completá cada contenido.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Creá ambos documentos completos antes de enlazarlos.
+2. Una tabla de horarios relaciona día y franja horaria.
+3. Un registro real necesita receptor, validación y almacenamiento.

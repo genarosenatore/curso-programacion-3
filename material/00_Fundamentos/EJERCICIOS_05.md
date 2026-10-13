@@ -1,23 +1,29 @@
 # Práctica 00.05 · Git y GitHub: guardar versiones y comprender un repositorio
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué pasa si editás un archivo después del commit. ¿Cómo guardás esa nueva versión? ¿Qué ventaja tiene registrar cambios pequeños?
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Editá index.html después del primer commit y mirá status.
+2. Prepará ese archivo y verificá diff --staged.
+3. Registrá la nueva versión con un mensaje sobre el cambio.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Describí el estado de un archivo después de editarlo, después de add y después de commit. ¿En qué momento quedó en una versión?
 
-Analizá esta confusión: «Pensar que guardar un archivo en el editor crea un commit o publica el proyecto.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Registrá dos cambios pequeños de una página en una carpeta de práctica. Antes del segundo commit modificá dos archivos y prepará solo uno. Explicá qué incluye la versión y por qué guardar en el editor no reemplaza ese paso.
 
-El archivo editado queda como cambio local hasta que se prepara y registra.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Guardar cambia el archivo.
+2. add elige una versión para el próximo registro.
+3. commit solo incluye lo preparado.

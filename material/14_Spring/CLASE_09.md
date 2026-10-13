@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_08.md) · [Clase siguiente](../14_Spring/CLASE_10.md)
 
-## Qué vas a aprender
+## Escribir con una respuesta verificable
 
-Vamos a trabajar **post, put y delete**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+POST del CRUD recibe DTO válido, crea una entidad nueva y devuelve201. ResponseEntity permite controlar estado, cabeceras y cuerpo: created(URI) prepara201 con Location y body añade el DTO creado. El cliente puede consultar esa dirección para comprobar el resultado.
 
-## Antes de empezar
+PUT /{id} recibe todos los campos editables del contrato, busca la entidad existente y los aplica. El id de ruta decide qué recurso; no aceptamos cambiarlo mediante un campo generado en el cuerpo. DELETE /{id} busca y elimina según la política definida y retorna204 sin cuerpo. Para un recurso inexistente el proyecto utiliza404.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir el código del ejemplo
 
-## Explicación desde cero
+crear recibe entrada por RequestBody con Valid. servicio.crear valida sus reglas, construye Producto y guarda. creado.id() consulta el componente del DTO de salida; URI.create forma la referencia de recurso. El retorno describe la creación, no un mensaje genérico200 que obligue a adivinar qué pasó.
 
-POST del ejemplo crea y devuelve 201. PUT actualiza los campos editables definidos y devuelve la representación o un éxito sin cuerpo según contrato. DELETE devuelve 204 sin JSON. Cada método resuelve id y valida antes de escribir.
+Probá en [la API](../Ejemplos/spring/README.md): creá Mochila, anotá el id devuelto, obtenelo, actualizá, volvé a obtener, eliminá y obtenelo una vez más. Conservá cuerpo y estado de cada paso. Un formulario que muestra «éxito» sin consultar ni revisar HTTP no demuestra persistencia correcta.
 
-Para facturación, la consigna contempla eliminación o anulación según reglas. El historial contable puede requerir conservar registros y marcar estado, no borrarlos indiscriminadamente. En nuestro CRUD pequeño de productos usamos borrado físico de datos de práctica para mostrar el protocolo.
+Una respuesta204 exige que el cliente termine sin json(). Los precios siguen su precisión declarada. Las relaciones pueden impedir eliminar objetos vinculados; el ejemplo pequeño controla alcance y no impone borrado físico a facturas reales. Anular conservando histórico sería otro contrato.
 
-## Ejemplo
+Repetir POST puede crear otro id; un botón deshabilitado no reemplaza política de deduplicación. PUT tiene intención idempotente de estado final, mientras actualizar sumando cantidad en cada repetición ya no representa ese reemplazo simple. Nombra y documenta lo que tu operación realiza.
+
+## Ejemplo de la clase
 
 ```java
 @org.springframework.web.bind.annotation.PostMapping
@@ -30,36 +32,20 @@ org.springframework.http.ResponseEntity<ProductoDTO> crear(
 
 [Abrir el fragmento como archivo](fragmentos/clase_09.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El DTO recibido no fija el id. La respuesta señala el nuevo recurso con Location. El ejemplo completo también implementa PUT y DELETE. El frontend debe tratar 204 antes de intentar json. Repetir POST crea otro producto salvo que exista una política de unicidad.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Tras DELETE exitoso, GET del mismo id devuelve404 en este contrato. Intentar json sobre204 produce error del cliente posterior al éxito del servidor. Omitir un campo obligatorio de PUT no es una actualización parcial automáticamente.
 
-Diseñá DELETE por id y describí qué hace si el recurso no existe.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_09.md). Las [soluciones explicadas](SOLUCIONES_09.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Borrar sin comprobar relaciones o políticas de historial del modelo real.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-POST del ejemplo crea y devuelve 201. PUT actualiza los campos editables definidos y devuelve la representación o un éxito sin cuerpo según contrato.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.09** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_09.md). Las [soluciones razonadas](SOLUCIONES_09.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_08.md) · [Clase siguiente](../14_Spring/CLASE_10.md)

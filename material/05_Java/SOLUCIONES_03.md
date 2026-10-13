@@ -1,21 +1,15 @@
 # Soluciones 05.03 · Condiciones, bucles, arrays y métodos
 
-[Clase](CLASE_03.md) · [Ejercicios](EJERCICIOS_03.md)
+[Clase](CLASE_03.md) · [Práctica](EJERCICIOS_03.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 static int contarPositivos(int[] valores){int cantidad=0;for(int valor:valores){if(valor>0)cantidad++;}return cantidad;}. Con [-1,0,2,3] devuelve 2 y con [] cero.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+contarPositivos inicializa cantidad=0 y aumenta si valor>0: devuelve 2 y 0. sumarMayores usa total=0, for(int valor:valores), if(valor>minimo) total+=valor, y return total después del bucle: devuelve 500. Ambos van fuera de main, dentro de la clase, y sus llamadas dentro de main. El código supone que valores no es null; documentar esa entrada evita confundirla con [].
 
-El método se escribe dentro de la clase, fuera de main. Recibe un array y devuelve 600 para los datos indicados. En un array vacío, el bucle no entra y devuelve cero. El ejemplo asume que valores no es null; más adelante decidiremos cómo representar o rechazar esa ausencia.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Poner un método dentro de otro método: en esta estructura Java no lo permite.
-
-Java reutiliza condiciones y bucles, pero exige tipos y sintaxis propia. Un array tiene tamaño fijo y usa length sin paréntesis.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

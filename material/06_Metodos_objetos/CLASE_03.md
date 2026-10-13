@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_02.md) · [Clase siguiente](../06_Metodos_objetos/CLASE_04.md)
 
-## Qué vas a aprender
+## Una igualdad que se pueda usar con confianza
 
-Vamos a trabajar **equals y su contrato**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+equals debe cumplir **reflexividad** (a es igual a a), **simetría** (a igual a b implica b igual a a), **transitividad** (si a=b y b=c, a=c) y **consistencia** mientras no cambien los datos relevantes. Un objeto no nulo no es igual a null. Estas reglas permiten que búsquedas y deduplicación no cambien según el sentido de la llamada.
 
-## Antes de empezar
+Usaremos una clase final: no puede extenderse y agregar otra definición de igualdad incompatible. El atributo codigo final mantiene su referencia; requireNonNull rechaza null al construir. Para String, su contenido es inmutable, así que esa clave es estable. Una clase que hereda estado necesita evaluar otra política, no copiar ciegamente este patrón.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Leer cada salida anticipada
 
-## Explicación desde cero
+La firma debe recibir Object, el contrato heredado, para sobrescribirlo. `if(this == otro)` reconoce identidad y retorna true sin más trabajo. `instanceof Producto producto` verifica el tipo y crea una variable del tipo comprobado; null no cumple, así que vuelve false. Solo después compara los códigos con String.equals.
 
-El contrato de equals exige reflexividad, simetría, transitividad y consistencia mientras los datos relevantes no cambien. Un objeto no nulo debe devolver false al compararse con null. Una implementación por código estable necesita comprobar tipo y manejar su propia regla de nulos.
+Poné la clase del ejemplo fuera de main. Dentro creá a, b y c con P01, P01 y P02 y mostrá las comparaciones. Usá @Override para detectar escribir equals(Producto) por accidente: eso sobrecarga otro método y no redefine la operación utilizada por el contrato de Object.
 
-Usaremos una clase final para que no existan subclases con otra regla que rompan simetría. El código se valida no nulo en el constructor. Para clases con herencia, la decisión de tipos requiere más cuidado que copiar una receta.
+hashCode aparece implementado junto a equals porque igualdad y distribución de búsquedas tienen un contrato conjunto; lo explicaremos en 06.04. No hace falta entender una tabla hash para comprobar hoy cada comparación. Comparar precio además de código cambiaría qué significa «mismo producto»: decidilo antes de escribir.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 final class Producto {
@@ -33,36 +33,20 @@ final class Producto {
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Usá las clases definidas en esta lección o en la anterior. El programa completo de igualdad permite verificar los contratos.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La primera condición reconoce la misma referencia. instanceof descarta null y otros tipos, y da una variable del tipo comprobado. La última línea aplica la regla del código. hashCode se implementa junto a equals porque deberán trabajar juntos en colecciones.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Compará con un String "P01": debe dar false aunque el texto coincida con código, porque no es un Producto. Implementar igualdad por rangos «precios a distancia menor de diez» puede romper transitividad: 0 cercano a 8, 8 cercano a 16, pero 0 no cercano a 16.
 
-Probá reflexividad, simetría y diferencia con tres productos de códigos P01, P01 y P02.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Sobrecargar equals(Producto) en lugar de sobrescribir equals(Object).
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-El contrato de equals exige reflexividad, simetría, transitividad y consistencia mientras los datos relevantes no cambien. Un objeto no nulo debe devolver false al compararse con null.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **06.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../06_Metodos_objetos/CLASE_02.md) · [Clase siguiente](../06_Metodos_objetos/CLASE_04.md)

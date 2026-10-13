@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_05.md) · [Clase siguiente](../05_Java/CLASE_07.md)
 
-## Qué vas a aprender
+## Compartir una referencia no duplica un estado
 
-Vamos a trabajar **static, referencias y null**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una variable de objeto contiene una referencia. `Contador b = a;` copia esa referencia, así a y b permiten acceder al mismo objeto. Un segundo `new Contador()` crea otra instancia y ejecuta otra vez su constructor. Un cambio de atributo mediante b se observa mediante a solo si comparten la instancia.
 
-## Antes de empezar
+`null` significa que no hay objeto referenciado. No representa una instancia con campos vacíos. Llamar un método sobre null produce NullPointerException. Una comprobación `if (a != null)` permite decidir qué hacer antes del acceso; también podés definir un contrato que rechace null al construir en lugar de arrastrar esa ausencia.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Un dato de clase y uno de cada objeto
 
-## Explicación desde cero
+static significa que el miembro pertenece a la clase, compartido por sus instancias. En el ejemplo, creados cuenta construcciones; valor es de cada contador. Tras new, creados pasa a 1. Asignar b=a no construye y permanece 1. Al cambiar b.valor a 7, a.valor muestra 7. Con otro new, creados pasa a 2 y el nuevo valor empieza en cero.
 
-Una referencia permite acceder a un objeto. Asignarla a otra variable no copia el objeto. null indica ausencia de referencia y acceder a un método o atributo sobre null produce NullPointerException. Antes de usar un resultado que puede faltar, hay que decidir cómo manejarlo.
+Para ejecutar, ubicá la definición de Contador fuera de main y las operaciones dentro de main de [05.01](CLASE_01.md). Consultá `Contador.creados` por el nombre de clase para comunicar que no pertenece a un contador particular. Un método static no recibe automáticamente this y no puede acceder a un campo de instancia sin indicar qué objeto utiliza.
 
-Un miembro static pertenece a la clase y es compartido por sus instancias. No usamos static para solucionar todos los problemas de acceso desde main: las operaciones que trabajan sobre el estado de un objeto suelen ser de instancia.
+final sobre una referencia impide sustituirla pero permite mutar el objeto si sus operaciones lo permiten, como const sobre objetos JavaScript. No hagas todos los atributos static para que sean accesibles desde main: convertirías estados individuales en un dato compartido por todos los productos.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 class Contador {
@@ -34,36 +34,20 @@ System.out.println(Contador.creados);
 
 [Abrir el fragmento como archivo](fragmentos/clase_06.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las declaraciones de clases y métodos van dentro o fuera de main según indica la explicación. Los fragmentos no son todos archivos autónomos; el ejemplo completo de la unidad muestra la estructura ejecutable.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Muestra 7 y 1. b apunta al mismo objeto que a; no hubo un segundo constructor. creados se consulta por el nombre de la clase porque es compartido. Si creamos otro new Contador, hay otro valor de instancia y creados aumenta a 2.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Creá a y b con dos new: cambiar b.valor no afecta a.valor y creados vale 2. Luego asigná b=null: el objeto de a no se borra por eso. Leer b.valor falla porque esa referencia ya no lo alcanza.
 
-Explicá la diferencia entre Contador b=a y Contador b=new Contador().
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_06.md). Las [soluciones explicadas](SOLUCIONES_06.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar null como si fuera un objeto vacío con valores por defecto.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una referencia permite acceder a un objeto. Asignarla a otra variable no copia el objeto.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **05.06** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_06.md). Las [soluciones razonadas](SOLUCIONES_06.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_05.md) · [Clase siguiente](../05_Java/CLASE_07.md)

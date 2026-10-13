@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_02.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_04.md)
 
-## Qué vas a aprender
+## Cuántas filas pueden relacionarse
 
-Vamos a trabajar **relaciones uno a uno, uno a muchos y muchos a muchos**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+La **cardinalidad** describe cuántas asociaciones se permiten. Uno a muchos: una categoría puede tener varios productos y cada producto una categoría. La clave foránea queda en producto porque cada fila de ese lado necesita una referencia. No se crea una columna por cada posible producto.
 
-## Antes de empezar
+Uno a uno utiliza una clave foránea con UNIQUE para evitar que varias filas apunten al mismo registro. La **opcionalidad** pregunta si se permite cero asociaciones: NOT NULL exige una para esa columna. «Uno a muchos» por sí solo no declara si una categoría vacía se admite.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Resolver muchos a muchos con otra tabla
 
-## Explicación desde cero
+Si un libro tiene varios autores y un autor varios libros, una única clave en libro no alcanza. autor_libro tiene una fila por asociación y dos claves foráneas. PRIMARY KEY(autor_id,libro_id) es una clave compuesta: el par no se repite, aunque cada id por separado sí aparezca muchas veces. Si la asociación tiene un dato propio, como orden de autoría, esa tabla también puede conservarlo.
 
-Una relación uno a muchos permite que una fila tenga varias relacionadas: categoría y productos. Se representa normalmente con la clave foránea en el lado muchos. Uno a uno necesita además unicidad de la referencia. Muchos a muchos usa una tabla intermedia con dos claves foráneas.
+Factura y detalle siguen otro patrón: cada detalle pertenece a una factura y una factura tiene varios. La fila del detalle conserva cantidad y precio de esa operación; repetir factura_id en renglones distintos no duplica la factura, describe hijos diferentes.
 
-El diagrama debe expresar cardinalidad y opcionalidad. Una factura tiene detalles; cada detalle pertenece a una factura y puede referirse a un producto. Guardar todos los detalles como texto dentro de factura dificulta consultar y validar individualmente.
+El fragmento inferior es ilustrativo y presupone factura y producto creadas. Para ejecutarlo aisladamente, prepará ambas tablas en un archivo nuevo antes del CREATE detalle. Para consultas sobre el modelo completo, cargá [tienda.sql](../Ejemplos/sql/tienda.sql) con --tienda y no repitas CREATE detalle, porque ya existe. Un diagrama de cajas y enlaces es una práctica válida antes del SQL.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 CREATE TABLE detalle (
@@ -29,36 +29,20 @@ CREATE TABLE detalle (
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El archivo tienda.sql contiene un esquema con datos de prueba. Las sentencias CREATE ilustrativas se prueban en bases separadas para no redefinir tablas ya existentes.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Cada detalle referencia una factura y un producto. Varias filas pueden compartir factura_id, representando varios renglones de una factura. Las tablas factura y producto deben existir; este fragmento complementa el esquema de la unidad. No hay una columna lista_de_detalles en factura.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Agregar UNIQUE a detalle.factura_id convertiría el vínculo en máximo un detalle por factura y rompería el modelo esperado. Agregar una fila autor_libro idéntica falla por el par primario; otra con el mismo autor y distinto libro es válida.
 
-Dibujá relación entre autor y libro cuando un libro puede tener varios autores.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Poner una clave foránea de libro en autor y perder la posibilidad de varios libros.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una relación uno a muchos permite que una fila tenga varias relacionadas: categoría y productos. Se representa normalmente con la clave foránea en el lado muchos.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **11.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_02.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_04.md)

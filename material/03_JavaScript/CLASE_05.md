@@ -2,21 +2,49 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_04.md) · [Clase siguiente](../03_JavaScript/CLASE_06.md)
 
-## Qué vas a aprender
+## Nombrar un procedimiento reutilizable
 
-Vamos a trabajar **funciones, parámetros, retorno y alcance**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una función agrupa instrucciones que resuelven una tarea. Evita copiar un cálculo y permite describir qué datos necesita y qué resultado entrega. **Definir** una función prepara su cuerpo; **llamarla** ejecuta ese cuerpo. Usaremos variables, decisiones y operaciones de las clases anteriores.
 
-## Antes de empezar
+```javascript
+function subtotal(precio, cantidad) {
+  const resultado = precio * cantidad;
+  return resultado;
+}
+const compraA = subtotal(800, 2);
+const compraB = subtotal(1200, 3);
+console.log(compraA, compraB); // 1600 3600
+```
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+`function` declara; subtotal es el nombre; precio y cantidad son **parámetros**, nombres locales para las entradas. En la llamada, 800 y 2 son **argumentos**, valores concretos que ocupan esas posiciones. Las comas separan entradas y los paréntesis marcan la llamada. Cada llamada tiene sus propios datos y ejecuta desde el principio. `return` entrega el valor al lugar de llamada y termina esa ejecución.
 
-## Explicación desde cero
+## Retornar no es mostrar
 
-Una función reúne pasos que podemos reutilizar. Los parámetros son los nombres de entradas en su definición; los argumentos son los valores de una llamada. return entrega un resultado y termina esa ejecución. Mostrar con console.log no equivale a retornar.
+```javascript
+function mostrarDoble(numero) {
+  console.log(numero * 2);
+}
+const recibido = mostrarDoble(4);
+console.log(recibido); // undefined
+```
 
-El alcance determina dónde existe una variable. Las variables creadas dentro de una función suelen ser locales. Una función que recibe datos y devuelve un cálculo es fácil de probar porque no depende de modificar variables externas. También existen expresiones de función y funciones flecha; empezamos por una declaración explícita.
+Programa independiente: muestra primero 8 y luego undefined. El log dentro tiene un efecto en la consola, pero la función no entrega ese resultado. Para usarlo en otro cálculo, necesitás `return numero * 2;`. Las funciones sin return de valor devuelven undefined. Un return anticipado permite terminar antes cuando un dato no sirve; también puede indicar explícitamente un resultado como null si ese es el contrato.
 
-## Ejemplo
+## Alcance y duración de nombres
+
+El **alcance** determina desde dónde se puede consultar un nombre. Un parámetro y un const declarado dentro de la función son locales. Fuera, `console.log(resultado)` no puede leer el resultado del primer ejemplo: para compartirlo, devolvelo. let y const dentro de llaves también tienen alcance de bloque. Una variable exterior puede ser visible dentro; si dependés de ella, la función deja de tener todas sus entradas explícitas.
+
+Un nombre local puede ocultar uno exterior del mismo nombre: se llama sombreado. Evitalo cuando confunda. No necesitás usar variables globales para comunicar llamadas. Una **función pura**, para estos ejercicios, produce el mismo resultado con las mismas entradas y no cambia datos externos; facilita seguir y probar los cálculos.
+
+## Otras formas de escribir funciones
+
+Una expresión de función se guarda en una variable: `const doble = function(numero) { return numero * 2; };`. Una **flecha** puede abreviar: `const doble = numero => numero * 2;`. Antes de => van los parámetros y después el resultado. Con dos parámetros usás paréntesis. Con cuerpo de bloque necesitás return: `const doble = numero => { return numero * 2; };`. Sin ese return, un bloque no entrega automáticamente su última expresión.
+
+Un parámetro por defecto como `cantidad = 1` se usa si ese argumento falta o es undefined, no si llega cero o null. Las declaraciones function pueden llamarse antes de su línea de definición; las expresiones const requieren que se haya ejecutado su inicialización. Para empezar, definí antes de llamar. Las flechas también difieren en el manejo de this; lo explicaremos al introducir objetos en 03.07.
+
+Las funciones pueden recibirse como argumentos, porque son valores. Eso será la base de map, eventos y callbacks. Por ahora una función `aplicar(numero, operacion)` puede hacer `return operacion(numero);`: el segundo argumento es una función que será llamada con numero, no una operación ejecutada al pasarla.
+
+## Ejemplo de la clase
 
 ```javascript
 function calcularTotal(precio, cantidad) {
@@ -29,36 +57,20 @@ console.log(resultado);
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.js) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos de lógica pueden probarse en la consola. Los que usan document necesitan el HTML indicado y ejecutarse en el navegador, no en Node.js.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 precio y cantidad son parámetros; 800 y 3 argumentos. El cálculo local produce 2400 y return lo entrega a resultado. Otra llamada tiene sus propios parámetros y variables locales. El cuerpo no se ejecuta al definirlo, sino al llamar la función.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+En subtotal, intercambiar los argumentos no cambia esta multiplicación, pero sí cambiaría una función que divida precio por cantidad. El orden forma parte del contrato. Eliminá return y guardá la llamada: obtenés undefined. Añadir más console.log no corrige la falta de retorno.
 
-Creá calcularDescuento(importe, porcentaje) que devuelva el importe después del descuento.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Escribir console.log(total) dentro y creer que la función devuelve ese número.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una función reúne pasos que podemos reutilizar. Los parámetros son los nombres de entradas en su definición; los argumentos son los valores de una llamada.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **03.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_04.md) · [Clase siguiente](../03_JavaScript/CLASE_06.md)

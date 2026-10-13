@@ -1,21 +1,15 @@
 # Soluciones 05.01 · JDK, JVM, código fuente y ejecución
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Si solo ejecutás java Hola después de cambiar .java, podrías ver el mensaje anterior. Recompilá antes de ejecutar. Para versiones recientes también existe ejecución directa java Hola.java, pero aquí distinguimos los dos pasos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Dentro de main escribí `System.out.println("Ana"); System.out.println("Aprender Java");`. javac comprueba sintaxis y genera Hola.class; java Hola ejecuta las dos líneas. La comilla abierta produce error de compilación. Editar el mensaje sin recompilar no cambia el bytecode ya generado. Repará la fuente y compilá con éxito antes de evaluar una nueva salida.
 
-Guardá Hola.java con ese nombre porque contiene la clase pública Hola. Desde su carpeta ejecutá javac Hola.java y luego java Hola. Debe mostrar Hola, Java. Compilar comprueba reglas y genera bytecode; ejecutar realiza las instrucciones. También podés usar un IDE después de configurar el JDK.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Ejecutar java Hola.class: se usa el nombre de la clase sin esa extensión.
-
-El JDK contiene herramientas para compilar y ejecutar Java; la JVM ejecuta bytecode. javac transforma .java en .class y java ejecuta una clase o aplicación.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

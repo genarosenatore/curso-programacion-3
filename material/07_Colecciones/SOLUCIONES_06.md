@@ -1,21 +1,15 @@
 # Soluciones 07.06 · Comparable y Comparator
 
-[Clase](CLASE_06.md) · [Ejercicios](EJERCICIOS_06.md)
+[Clase](CLASE_06.md) · [Práctica](EJERCICIOS_06.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Comparator.comparingInt(String::length).reversed().thenComparing(Comparator.naturalOrder()). Con Ana, Eva y Luis queda Luis, Ana, Eva. Si aplicás reversed después de todos los criterios, también invertís el desempate.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Ascendente: `Comparator.comparingInt(String::length).thenComparing(Comparator.naturalOrder())`. Descendente con desempate ascendente: `Comparator.comparingInt(String::length).reversed().thenComparing(Comparator.naturalOrder())`. Usá ese criterio en la copia editable. La fuente conserva inserción. La resta puede desbordar y cambiar el signo, contradiciendo el orden; comparar con Integer.compare expresa la comparación sin ese cálculo inseguro.
 
-El primer orden es Ana, Eva, Luis. El segundo ordena por longitud y desempata alfabéticamente. String::length es una referencia a método que se desarrolla en programación funcional. No hace falta cambiar la clase String para tener un criterio distinto.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Asumir que orden natural significa siempre orden de inserción.
-
-Comparable define un orden natural desde la propia clase. Comparator define un criterio externo y permite varios órdenes.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

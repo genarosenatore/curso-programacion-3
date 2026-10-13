@@ -1,23 +1,29 @@
 # Práctica 14.04 · Beans, ApplicationContext e inyección de dependencias
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá por qué un Controller puede recibir ProductoService por constructor en lugar de crearlo con new.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Lee constructor de Controller con Service.
+2. Sigue constructor de Service con Repository.
+3. Explica cómo el contenedor entrega colaboradores.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Seguí la inyección Controller→Service→Repository en los constructores del proyecto.
 
-Analizá esta confusión: «Usar variables de instancia para datos de cada pedido en un singleton compartido.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Explicá qué ocurre si un servicio guarda pedidoActual en un campo y recibe dos peticiones distintas. Proponé una alternativa con datos locales. ¿Por qué inyectar facilita probar colaboraciones?
 
-El contenedor ya conoce y configura el servicio y sus dependencias.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El constructor declara lo necesario.
+2. El singleton puede recibir varias peticiones.
+3. Una variable local pertenece a esa llamada.

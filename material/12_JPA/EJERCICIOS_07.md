@@ -1,23 +1,29 @@
 # Práctica 12.07 · Cascadas, orphanRemoval y carga de relaciones
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá por qué no aplicarías REMOVE de factura hacia cliente automáticamente.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Distingue detalle exclusivo de cliente compartido.
+2. Elige propagación según ciclo de vida.
+3. Explica qué se perdería si remove llegara al cliente.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Explicá la política de cascada entre factura y detalles frente a factura y cliente.
 
-Analizá esta confusión: «Aplicar CascadeType.ALL a todas las relaciones para resolver errores sin analizar sus efectos.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseñá una pantalla que muestre cliente y total de facturas. Indicá qué datos cargarías y dónde mapearías DTO. ¿Por qué EAGER no equivale a una sola consulta?
 
-El cliente puede tener otras facturas y vida independiente.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Preguntá si el hijo existe fuera del padre.
+2. La salida solo necesita parte del grafo.
+3. Momento de disponibilidad y forma de SQL son decisiones diferentes.

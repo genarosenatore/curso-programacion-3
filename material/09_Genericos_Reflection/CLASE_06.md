@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_05.md) · [Clase siguiente](../10_Funcional/CLASE_01.md)
 
-## Qué vas a aprender
+## Dos momentos distintos del sistema de tipos
 
-Vamos a trabajar **práctica de reflection y relación con frameworks**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Los genéricos expresan relaciones comprobadas principalmente al compilar. Reflection inspecciona estructura durante ejecución. Combinarlos no recupera automáticamente toda información genérica borrada ni hace que cualquier acceso dinámico sea seguro.
 
-## Antes de empezar
+Un ejercicio pequeño ayuda a distinguirlos: Caja<Cliente> admite y devuelve un Cliente. Luego cliente.getClass() obtiene sus metadatos. La caja garantiza qué tipo recupera el código; el descriptor permite enumerar qué miembros declara esa clase. Un nombre de componente no es el dato almacenado en ese cliente.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Observar un record
 
-## Explicación desde cero
+El ejemplo define Cliente como record con nombre y correo, como aprendimos en [08.05](../08_Lombok_DTO/CLASE_05.md). getRecordComponents entrega descriptores de sus componentes y el recorrido muestra nombre:String y correo:String. Estos componentes sí corresponden al orden declarado del record, pero no generalices ese orden a getDeclaredFields o métodos.
 
-Vamos a conectar los dos temas sin confundirlos: los genéricos comprueban relaciones de tipos principalmente durante compilación y Reflection observa estructura en ejecución. Un listado de atributos puede servir como ejercicio de exploración; un contenedor genérico sirve para conservar seguridad de tipos.
+Poné el record y Caja de 09.01 fuera de main o como tipos anidados y el recorrido dentro. También podés ejecutar [U09Genericos.java](../Ejemplos/java/U09Genericos.java), que reúne las piezas. Si usás getRecordComponents sobre una clase ordinaria, puede devolver null; comprobá isRecord antes de asumir ese contexto.
 
-La práctica del campus usa clases y casos de reflexión. Hacé primero una clase pequeña cuyos campos conocés, anticipá la salida y comparala. Evitá comenzar con una aplicación grande donde no sepas qué está recorriendo.
+Los frameworks pueden utilizar reflexión, procesadores, proxies y generación de código. Este ejercicio explica una herramienta posible, no todo el mecanismo de Spring o JPA. Una inspección que lista campos no implementa validación, persistencia ni autorización. Conservá esa frontera para interpretar las próximas unidades.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 record Cliente(String nombre, String correo) {}
@@ -27,36 +27,20 @@ for (var componente : Cliente.class.getRecordComponents()) {
 
 [Abrir el fragmento como archivo](fragmentos/clase_06.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las clases y métodos se declaran fuera de main; los recorridos van dentro de main. Reflection puede requerir manejar excepciones.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Muestra nombre:String y correo:String. Para records, getRecordComponents expresa sus componentes directamente. Para una clase común usaríamos campos o métodos según el objetivo. El código observa nombres y tipos; no conoce valores de un cliente concreto.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Usá una clase ordinaria en vez de record: getRecordComponents no representa sus campos comunes. Dos Caja con argumentos distintos pueden tener el mismo getClass por borrado. Ese resultado no anula las comprobaciones que el compilador sí realizó.
 
-Guardá un Cliente en Caja<Cliente> e inspeccioná su clase. Explicá qué comprueba cada mecanismo.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_06.md). Las [soluciones explicadas](SOLUCIONES_06.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Pretender usar Reflection para reemplazar toda comprobación de tipos en código ordinario.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Vamos a conectar los dos temas sin confundirlos: los genéricos comprueban relaciones de tipos principalmente durante compilación y Reflection observa estructura en ejecución. Un listado de atributos puede servir como ejercicio de exploración; un contenedor genérico sirve para conservar seguridad de tipos.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **09.06** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_06.md). Las [soluciones razonadas](SOLUCIONES_06.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_05.md) · [Clase siguiente](../10_Funcional/CLASE_01.md)

@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_06.md) · [Clase siguiente](../14_Spring/CLASE_08.md)
 
-## Qué vas a aprender
+## Distinguir identidad de filtro
 
-Vamos a trabajar **endpoints get y parámetros**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un **endpoint** es una combinación de método y ruta atendida por el servidor. @GetMapping("/{id}") dentro de ruta base /api/productos atiende GET /api/productos/1. @PathVariable vincula ese segmento con el parámetro Long id; no consulta el producto por sí misma. Después el servicio decide existencia.
 
-## Antes de empezar
+@RequestParam vincula consulta como ?nombre=cuaderno; puede ser opcional. Un id de recurso identifica uno; un filtro puede devolver muchos o ninguno. Esos resultados tienen contratos distintos:200 [] para lista sin coincidencias,404 para recurso pedido que no existe.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Comprobar ruta, conversión y búsqueda
 
-## Explicación desde cero
+Para /1, Spring convierte "1" a Long y llama obtener. Para /abc, no puede convertir y el manejo preparado devuelve400. Para /999, convierte bien pero el servicio no encuentra y devuelve404. No atribuyas ambos a SQL o a CORS: fallan en etapas diferentes.
 
-@GetMapping expone recuperación. @PathVariable lee parte de ruta y @RequestParam un parámetro de consulta. Un filtro opcional no es lo mismo que un id obligatorio. Si el recurso no existe, una excepción de dominio o una respuesta controlada se traduce a 404.
+Ejecutá esas solicitudes en [la API local](../Ejemplos/spring/README.md) usando navegador o curl.exe -i. Una ruta escrita incorrectamente puede devolver404 sin haber llamado al método esperado. Mira la URL completa y el log antes de cambiar la búsqueda. El fragmento inferior presupone controller y servicio del proyecto.
 
-Para listas, una búsqueda sin coincidencias suele devolver 200 con array vacío. Para un recurso por id, devolver null con 200 confunde ausencia y éxito. El contrato debe diferenciar ambos casos. Un listado grande necesitará paginación, aunque nuestro ejercicio tenga pocos productos.
+Para construir filtros con datos que incluyan espacios, usa URLSearchParams en cliente en lugar de concatenar sin codificación: una URL debe representar el texto correctamente. Los parámetros de consulta HTTP no son los parámetros JPQL, aunque el servicio luego pase valores a una consulta segura.
 
-## Ejemplo
+Un listado grande necesita límites o paginación, pero los pocos datos locales permiten concentrarse en ruta y respuesta. No pongas un sistema completo de paginado como prerrequisito para entender un GET inicial.
+
+## Ejemplo de la clase
 
 ```java
 @org.springframework.web.bind.annotation.GetMapping("/{id}")
@@ -28,36 +30,20 @@ ProductoDTO obtener(@org.springframework.web.bind.annotation.PathVariable Long i
 
 [Abrir el fragmento como archivo](fragmentos/clase_07.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El método pertenece al controller con ruta base /api/productos. Spring convierte el segmento a Long y puede rechazar una forma inválida. El servicio busca y devuelve DTO o lanza el error de inexistencia manejado por la aplicación.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+?nombre=xyz devuelve200 y [] si no coincide. /api/producto/1 puede no coincidir con la ruta plural y devolver404 antes de repository. Código numérico válido no garantiza recurso existente.
 
-Definí respuesta para listado vacío, id ausente e id con texto no numérico.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_07.md). Las [soluciones explicadas](SOLUCIONES_07.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Devolver el mismo 200 con un mensaje de error para todos los fallos.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-@GetMapping expone recuperación. @PathVariable lee parte de ruta y @RequestParam un parámetro de consulta.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.07** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_07.md). Las [soluciones razonadas](SOLUCIONES_07.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_06.md) · [Clase siguiente](../14_Spring/CLASE_08.md)

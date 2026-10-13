@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_05.md) · [Clase siguiente](../13_JPQL/CLASE_07.md)
 
-## Qué vas a aprender
+## Preguntar algo dentro de otra consulta
 
-Vamos a trabajar **subconsultas, exists y not exists**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una subconsulta calcula un dato o existencia que la consulta exterior usa. La del ejemplo obtiene el promedio global y la exterior compara cada factura con él. No referencia f dentro, así que es independiente: el promedio es el mismo criterio para todas las filas.
 
-## Antes de empezar
+Una subconsulta **correlacionada** utiliza un alias exterior. Para artículo a, consulta detalles donde d.listaPrecioArticulo.articulo=a. Su respuesta depende del artículo actual. EXISTS pregunta si hay al menos una coincidencia; NOT EXISTS si ninguna. El valor seleccionado dentro no es una suma: importa la existencia de filas.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir una ausencia
 
-## Explicación desde cero
+Si el artículo Cuaderno tiene uno o muchos detalles, EXISTS es true y NOT EXISTS false. Si Regla no aparece, EXISTS false y NOT EXISTS true. Sin correlación, preguntar si existe cualquier detalle en toda la base produce el mismo resultado para todos los artículos y no responde «este artículo nunca se vendió».
 
-Una subconsulta en WHERE o HAVING calcula o comprueba algo usado por la consulta externa. Puede ser independiente o correlacionada, cuando referencia un alias externo. EXISTS responde si hay al menos una fila y NOT EXISTS si no la hay.
+JPQL estándar admite subconsultas en WHERE y HAVING con sus reglas. Algunas extensiones de proveedores permiten otras posiciones; no enseñaremos esa extensión como portable. NOT IN con valores nulos puede producir resultados inesperados por lógica desconocida; NOT EXISTS con correlación expresa mejor esta pregunta de ausencia.
 
-En JPQL estándar trabajamos con las ubicaciones admitidas para subconsultas; no trasladamos cualquier SQL específico del motor. Una correlación debe usar la relación real entre los objetos. Probar un caso sin coincidencias es tan importante como uno con varias.
+Ejecutá ambas consultas en [el laboratorio](../Ejemplos/persistencia/README.md), que incluye artículo vendido y no vendido. El promedio de la cabecera usa importeTotal del modelo; vacío no tiene facturas externas y AVG puede ser null. Como en las otras clases, parametrizá valores externos y tipá la selección según origen.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 select f from FacturaVenta f
@@ -25,36 +25,20 @@ where f.importeTotal > (select avg(otra.importeTotal) from FacturaVenta otra)
 
 [Abrir el fragmento como archivo](fragmentos/clase_06.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las consultas se ejecutan mediante JPA sobre entidades mapeadas. No son SQL directo. El nombre y tipo de cada atributo deben coincidir con tu modelo.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La subconsulta calcula el promedio global y la externa selecciona facturas que lo superan. No calcula un promedio separado por cliente. Si no hay facturas, no hay resultado externo y el promedio puede ser null.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Quitá `...articulo=a` de NOT EXISTS y conservá un detalle en la base: todos quedan excluidos. La sintaxis puede ser válida, pero la correlación desapareció. Un artículo con tres ventas debe seguir excluyéndose una sola vez de la consulta de nunca vendidos.
 
-Buscá artículos que nunca aparecieron en un detalle de factura.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_06.md). Las [soluciones explicadas](SOLUCIONES_06.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Olvidar la correlación y usar una subconsulta que responde lo mismo para todos los artículos.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una subconsulta en WHERE o HAVING calcula o comprueba algo usado por la consulta externa. Puede ser independiente o correlacionada, cuando referencia un alias externo.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **13.06** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_06.md). Las [soluciones razonadas](SOLUCIONES_06.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../13_JPQL/CLASE_05.md) · [Clase siguiente](../13_JPQL/CLASE_07.md)

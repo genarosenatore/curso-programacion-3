@@ -2,61 +2,45 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_04.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_06.md)
 
-## Qué vas a aprender
+## Cambiar un conjunto definido de filas
 
-Vamos a trabajar **insert, update y delete**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+INSERT crea; UPDATE cambia datos existentes; DELETE elimina filas. El filtro de una modificación determina su alcance. Antes de escribir UPDATE o DELETE, ejecutá SELECT con la misma condición para verificar qué conjunto representa. Usa una base de práctica reconstruible.
 
-## Antes de empezar
+En INSERT conviene nombrar columnas: mantiene la correspondencia aunque el esquema agregue otra. VALUES aporta valores en ese orden. UPDATE usa SET para declarar cambios y WHERE para seleccionar. DELETE no elimina columnas ni borra la definición de tabla, sino las filas seleccionadas.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir una creación y su eliminación
 
-## Explicación desde cero
+El ejemplo corregido utiliza id 10 porque tienda ya tiene id 3 para Libro. Primero inserta Mochila con categoría 1 existente, luego cambia solo su precio, consulta el valor 480000 y finalmente elimina esa fila. Repetir el primer INSERT sin reconstruir o borrar puede fallar por id duplicado; eso no significa que la sentencia de creación sea inválida.
 
-INSERT añade registros; UPDATE modifica los que cumplen una condición; DELETE elimina. Antes de una modificación, escribí un SELECT con el mismo filtro para comprobar el conjunto objetivo. En una práctica usa una base de prueba que puedas reconstruir.
+Ejecutá con `python ejecutar.py ../../11_Bases_de_datos/fragmentos/clase_05.sql --tienda`. Las restricciones siguen activas durante cambios. Si el producto está referenciado en detalles, borrar puede rechazarse por integridad: una factura histórica necesita conservar el significado de su artículo. Anular o marcar inactivo es una política diferente de eliminar físicamente.
 
-UPDATE y DELETE sin WHERE afectan todas las filas. Eso puede ser correcto en alguna operación explícita, pero no sirve para cambiar un solo producto. Las restricciones siguen activas en estas operaciones. Mantener historial o anular lógicamente requiere un modelo distinto a borrar físicamente.
+UPDATE sin WHERE cambia todas las filas y DELETE sin WHERE elimina todas. Son operaciones posibles, pero no cumplen «modificar producto 1». Un filtro id único permite un objetivo; uno por nombre podría afectar varios. Para operaciones relacionadas que deben confirmarse juntas necesitaremos transacciones en 11.07.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
-INSERT INTO producto (id,nombre,precio_centavos,categoria_id) VALUES (3,'Mochila',500000,1);
-UPDATE producto SET precio_centavos=480000 WHERE id=3;
-SELECT * FROM producto WHERE id=3;
-DELETE FROM producto WHERE id=3;
+INSERT INTO producto (id,nombre,precio_centavos,categoria_id) VALUES (10,'Mochila',500000,1);
+UPDATE producto SET precio_centavos=480000 WHERE id=10;
+SELECT * FROM producto WHERE id=10;
+DELETE FROM producto WHERE id=10;
 ```
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El archivo tienda.sql contiene un esquema con datos de prueba. Las sentencias CREATE ilustrativas se prueban en bases separadas para no redefinir tablas ya existentes.
+## Qué ocurre al seguirlo
 
-## Leamos el ejemplo paso a paso
+La categoría 1 debe existir. El UPDATE cambia solo el producto 10 y el SELECT permite observarlo antes del DELETE. Si el producto ya está referenciado por detalles, la política de claves foráneas puede rechazar su borrado. Ese rechazo indica una relación que hay que respetar.
 
-La categoría 1 debe existir. El UPDATE cambia solo el producto 3 y el SELECT permite observarlo antes del DELETE. Si el producto ya está referenciado por detalles, la política de claves foráneas puede rechazar su borrado. Ese rechazo indica una relación que hay que respetar.
+## Cambiar una decisión y explorar un límite
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+Quitá WHERE solo en una copia descartable y observá que todos los precios cambian. Conservá id10 para no colisionar con Libro. Borrar el producto1 de tienda falla si sus detalles lo referencian: la relación protege el histórico.
 
-## Práctica
-
-Actualizá el nombre de producto 1 en una copia de la base y comprobá que el 2 no cambió.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Olvidar WHERE al editar un registro individual.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-INSERT añade registros; UPDATE modifica los que cumplen una condición; DELETE elimina. Antes de una modificación, escribí un SELECT con el mismo filtro para comprobar el conjunto objetivo.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **11.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_04.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_06.md)

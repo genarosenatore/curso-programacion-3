@@ -1,23 +1,29 @@
 # Práctica 03.03 · Condiciones y decisiones
 
-[Clase](CLASE_03.md) · [Soluciones](SOLUCIONES_03.md)
+[Clase](CLASE_03.md) · [Soluciones separadas](SOLUCIONES_03.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Clasificá stock en agotado si es 0, bajo si está entre 1 y 3, y disponible si es mayor.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Comprobá stock igual a cero antes del rango bajo.
+2. Usá else if para elegir un único mensaje.
+3. Probá cero, uno y un stock mayor para seguir cada camino.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Mostrá «Gratis» para envío si el total es mayor o igual a 5000 y «Cuesta 500» en otro caso. Probá 4999, 5000 y 5001.
 
-Analizá esta confusión: «Usar = dentro de la condición cuando querías comparar con ===.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Recibí cantidad como texto, validá entero positivo y calculá precio 800 por cantidad. Después decidí el envío sobre ese subtotal. ¿Qué sucede si usás if independientes para agotado y últimas unidades?
 
-Probá primero cero y después el rango bajo.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. El límite de gratuidad está incluido.
+2. El envío solo se decide después de un subtotal válido.
+3. if separados no excluyen que ambos sean verdaderos.

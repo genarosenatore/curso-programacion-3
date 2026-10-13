@@ -1,21 +1,15 @@
 # Soluciones 11.07 · Transacciones: confirmar o revertir cambios
 
-[Clase](CLASE_07.md) · [Ejercicios](EJERCICIOS_07.md)
+[Clase](CLASE_07.md) · [Práctica](EJERCICIOS_07.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 Se revierte el conjunto si no se cumple la operación completa. El código debe manejar el error y solicitar rollback o usar un gestor transaccional configurado. No confirmar la cabecera antes de comenzar los detalles.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Los valores son200000,210000,200000. Si el segundo detalle falla, se descartan cabecera y primer detalle de esa transacción para no guardar una factura parcial. La aplicación debe ejecutar rollback o utilizar un gestor con esa política. Capturar e informar éxito puede confirmar lo anterior; eso contradice la atomicidad requerida y engaña al usuario.
 
-Dentro de la transacción se observa el valor nuevo en esa conexión. Después de ROLLBACK vuelve al valor anterior. Para conservarlo usaríamos COMMIT. La guía de ejecución SQL entrega un ejemplo con base en memoria para experimentar sin afectar datos externos.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Confundir una operación de múltiples sentencias con una transacción aunque no esté configurada.
-
-Una transacción agrupa operaciones que deben confirmarse juntas. COMMIT conserva cambios; ROLLBACK los revierte.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

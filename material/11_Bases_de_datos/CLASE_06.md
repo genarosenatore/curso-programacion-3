@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_05.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_07.md)
 
-## Qué vas a aprender
+## Relacionar filas antes de resumir
 
-Vamos a trabajar **join, agregaciones y agrupamiento**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+JOIN construye filas de resultado que combinan datos relacionados. `ON p.categoria_id=c.id` especifica cómo corresponden. INNER JOIN conserva solo coincidencias; LEFT JOIN conserva cada fila izquierda, aunque ninguna derecha coincida, usando NULL en los datos derechos.
 
-## Antes de empezar
+Una categoría con dos productos genera dos filas intermedias: sus datos aparecen repetidos junto a cada producto. No se duplicó la tabla categoria; es la forma del resultado. Contar filas o sumar un dato de cabecera en ese punto puede contar varias veces lo mismo.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## De filas relacionadas a grupos
 
-## Explicación desde cero
+GROUP BY reúne filas con las mismas claves elegidas. COUNT(p.id) cuenta ids no nulos; COUNT(*) cuenta filas incluso la que LEFT JOIN conserva para categoría sin productos. En el ejemplo, Útiles tiene2, Libros1 y Sin productos0. Con COUNT(*) esa última daría1 y respondería otra pregunta.
 
-JOIN combina filas relacionadas. INNER JOIN conserva coincidencias; LEFT JOIN conserva las filas del lado izquierdo aunque no haya relación y devuelve null para columnas del lado derecho. COUNT cuenta, SUM suma y AVG promedia; GROUP BY crea grupos antes de agregarlos.
+SUM acumula valores no nulos y AVG promedia. Sin valores, SUM o AVG pueden ser NULL; COUNT devuelve cero. COALESCE(valor,0) elige el primer argumento no nulo y permite presentar cero si el contrato lo requiere. HAVING filtra grupos después de agregarlos; WHERE filtra filas antes de agrupar, una diferencia similar a la de [streams 10.08](../10_Funcional/CLASE_08.md).
 
-Una unión uno a muchos puede repetir la fila del lado uno. Si contás facturas tras unir detalles, podrías contar renglones en vez de facturas. Elegí DISTINCT o el agrupamiento según la pregunta y explicá qué representa cada fila intermedia.
+Ejecutá la consulta con --tienda. Para productos con su categoría, poné producto a la izquierda y LEFT JOIN categoria; el producto sin categoría debe aparecer. Un WHERE sobre c.nombre después puede descartar su NULL y volver a perderlo. Decidí qué resultado querés antes de cambiar el tipo de unión.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 SELECT c.nombre, COUNT(p.id) AS productos
@@ -28,36 +28,20 @@ ORDER BY c.nombre;
 
 [Abrir el fragmento como archivo](fragmentos/clase_06.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El archivo tienda.sql contiene un esquema con datos de prueba. Las sentencias CREATE ilustrativas se prueban en bases separadas para no redefinir tablas ya existentes.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La consulta incluye categorías sin productos. COUNT(p.id) ignora null y da cero en esos casos. COUNT(*) contaría la fila conservada por el LEFT JOIN y podría dar uno; no expresa la misma pregunta. Agrupamos por id y nombre para identificar claramente la categoría.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiar LEFT por INNER en el conteo pierde Sin productos. Usar WHERE p.precio_centavos>100000 también elimina su fila nula. Si querés contar solo ciertos productos conservando todas las categorías, poné ese criterio en ON de la unión y luego contá p.id.
 
-Obtené productos y nombres de categoría, incluyendo productos sin categoría.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_06.md). Las [soluciones explicadas](SOLUCIONES_06.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Cambiar LEFT JOIN por INNER JOIN sin reconocer qué filas se pierden.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-JOIN combina filas relacionadas. INNER JOIN conserva coincidencias; LEFT JOIN conserva las filas del lado izquierdo aunque no haya relación y devuelve null para columnas del lado derecho.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **11.06** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_06.md). Las [soluciones razonadas](SOLUCIONES_06.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_05.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_07.md)

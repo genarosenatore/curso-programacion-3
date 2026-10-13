@@ -1,23 +1,29 @@
 # Práctica 06.02 · toString y representación legible
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Definí toString para Cliente con código y nombre; justificá qué datos excluirías.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Elegí código y nombre útiles para el mensaje.
+2. Retorná texto desde toString sin imprimir dentro.
+3. Excluí credenciales y recorridos circulares.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Definí Cliente con código y nombre y un toString que los muestre sin datos privados innecesarios.
 
-Analizá esta confusión: «Esperar que toString produzca JSON correcto o sirva como base de datos.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Explicá cómo representarías un Pedido que referencia Cliente sin imprimir toda su lista de pedidos. ¿Qué falla si otra aplicación interpreta toString como JSON estable?
 
-Elegí información útil para identificarlo y evitá datos sensibles innecesarios.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Retorná un String, no llames println dentro.
+2. Mostrá una referencia breve de la relación.
+3. Presentación de depuración y contrato de datos tienen fines distintos.

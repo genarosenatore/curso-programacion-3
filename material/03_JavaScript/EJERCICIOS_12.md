@@ -1,23 +1,29 @@
 # Práctica 03.12 · async/await, fetch y manejo de errores
 
-[Clase](CLASE_12.md) · [Soluciones](SOLUCIONES_12.md)
+[Clase](CLASE_12.md) · [Soluciones separadas](SOLUCIONES_12.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Mostrá un mensaje de carga antes de fetch y reemplazalo por éxito o error al terminar.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Prepará estado y archivo JSON en el servidor local.
+2. Mostrá carga, revisá ok y leé el cuerpo con await.
+3. Diferenciá resultado, vacío y catch.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Agregá un p id="estado" y actualizalo con «Cargando», cantidad recibida o error al ejecutar la función.
 
-Analizá esta confusión: «Suponer que fetch lanza error automáticamente ante cualquier respuesta HTTP de error.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Comprobá que la respuesta parseada sea un array. Distinguí array vacío de error y probá los tres casos de la variación. ¿Por qué se necesitan dos await y por qué un 404 puede resolver fetch?
 
-Actualizá el texto de un párrafo existente dentro de try y catch.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La primera espera recibe la respuesta, la segunda sus datos.
+2. Comprobá ok antes de leer el cuerpo esperado.
+3. Array.isArray distingue forma, length distingue vacío.

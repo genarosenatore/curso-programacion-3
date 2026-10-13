@@ -1,23 +1,29 @@
 # Práctica 04.07 · Vite, módulos y estructura de proyecto
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Identificá index.html, src y package.json. Explicá dónde se escribe el código y dónde se define dev.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Seguí el script de index.html hacia src.
+2. Ubicá scripts.dev en package.json.
+3. Compará ejecutar dev, check y build según el archivo real.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Identificá la cadena index.html → módulo de src en un proyecto Vite y ubicá scripts.dev.
 
-Analizá esta confusión: «Tratar la carpeta dist como el lugar principal para editar código.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Agregá una función tipada sencilla, ejecutá check y build y explicá qué carpetas se leen y cuáles se generan. ¿La presencia de document en los tipos demuestra que puede ejecutarse en Node?
 
-El punto de entrada referencia un módulo de src; los scripts están en package.json.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Seguí src del script HTML.
+2. Fuente y salida tienen responsabilidades distintas.
+3. Los tipos describen APIs, no las instalan.

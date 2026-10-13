@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_04.md) · [Clase siguiente](../05_Java/CLASE_06.md)
 
-## Qué vas a aprender
+## Preservar una regla a través de todas las entradas
 
-Vamos a trabajar **encapsulamiento, getters y setters**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+**Encapsular** es controlar cómo se consulta y modifica el estado. private evita escribir directamente el campo desde otras clases. Un getter lo consulta; un setter puede validar, pero dar un setter a todo no asegura un buen modelo. Una operación como descontarStock expresa qué cambio se permite y por qué.
 
-## Antes de empezar
+Una **invariante** es una regla que debe mantenerse en cada estado válido: stock nunca negativo. Se verifica al construir y en cada cambio. Si validás solo en la pantalla, otra clase puede crear o modificar un producto inválido. Si validás después de asignar, un fallo puede dejar el campo corrupto.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Rechazar antes de cambiar
 
-## Explicación desde cero
+El fragmento usa `throw new IllegalArgumentException("Stock negativo")`. Una **excepción** interrumpe el camino normal para indicar un fallo; throw la lanza, new construye el objeto y el mensaje explica su causa. En [05.09](CLASE_09.md) aprenderemos a manejarla con try/catch. Aquí importa que el lanzamiento ocurra antes de `this.stock = stock`, así el valor anterior se conserva.
 
-Encapsular significa controlar cómo se accede al estado y preservar sus reglas. private limita acceso directo. Un getter consulta y un método o setter puede modificar tras validar. No todo atributo necesita un setter; dar acceso a todo puede permitir estados inválidos.
+El constructor llama setStock para reutilizar la regla. `getStock()` devuelve el estado y no lo modifica; `setStock(...)` tiene retorno void porque la operación no entrega un valor. El acceso sin modificador es de paquete; public se decide cuando otras partes requieren usarlo.
 
-Para un stock no negativo, la regla debe mantenerse al construir y al modificar. Una operación con nombre del negocio, como descontarStock, puede expresar mejor la intención que permitir cualquier número por setStock.
+Para ejecutar el caso válido, colocá Producto después de Hola como en [05.04](CLASE_04.md), creá uno con stock 5 y mostrá getStock después de setStock(3). Para observar el error, probá setStock(-1) como última operación en una ejecución separada: sin manejo, termina con el mensaje. No necesitás adelantar un bloque try/catch para comprobar la validación.
 
-## Ejemplo
+Descontar requiere reglas adicionales: cantidad entera por su tipo int, positiva y no mayor al stock. Un getter que entregara una colección mutable interna necesitaría cuidado distinto; private de una referencia no impide cambios por alias.
+
+## Ejemplo de la clase
 
 ```java
 class Producto {
@@ -32,36 +34,20 @@ class Producto {
 
 [Abrir el fragmento como archivo](fragmentos/clase_05.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las declaraciones de clases y métodos van dentro o fuera de main según indica la explicación. Los fragmentos no son todos archivos autónomos; el ejemplo completo de la unidad muestra la estructura ejecutable.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El constructor reutiliza la validación. Intentar un valor negativo lanza una excepción y no actualiza el atributo. La firma permite saber qué se puede consultar o cambiar. El nivel de acceso de los métodos de este ejemplo es de paquete; si se usan desde otro paquete, se decide si deben ser public.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Descontá 2 sobre 5: queda 3. Pedí 6 sobre 5: debe fallar antes de la resta. Asignar stock-=cantidad y recién comprobar permite observar un estado negativo si el error se maneja más afuera. La regla debe proteger la operación completa.
 
-Añadí descontarStock(cantidad) que rechace cero, negativos y cantidades superiores al disponible.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_05.md). Las [soluciones explicadas](SOLUCIONES_05.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Cambiar el atributo primero y comprobar la regla después, dejando un estado inválido al fallar.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Encapsular significa controlar cómo se accede al estado y preservar sus reglas. private limita acceso directo.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **05.05** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_05.md). Las [soluciones razonadas](SOLUCIONES_05.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_04.md) · [Clase siguiente](../05_Java/CLASE_06.md)

@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_09.md) · [Clase siguiente](../14_Spring/CLASE_11.md)
 
-## Qué vas a aprender
+## Traducir una causa a una respuesta uniforme
 
-Vamos a trabajar **errores, excepciones y controlleradvice**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una excepción Java no es todavía una respuesta HTTP. @RestControllerAdvice declara un componente para tratar excepciones que llegan desde controllers. @ExceptionHandler selecciona un tipo de causa y el método construye estado/cuerpo. Esto evita repetir try/catch de traducción en cada endpoint.
 
-## Antes de empezar
+NoEncontrado es una clase de la aplicación que extiende RuntimeException. El servicio la lanza si una búsqueda requerida falla. error.getMessage conserva su explicación y el handler devuelve404 con ErrorDTO. No traduce cualquier NullPointerException a recurso ausente: un fallo de programación necesita otra política y diagnóstico.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Distinguir caminos de error
 
-## Explicación desde cero
+Petición inválida puede surgir al leer JSON, convertir id o validar DTO y merece400 en los casos del ejemplo. Ausencia requerida404. Conflicto con estado actual podría requerir409 si la API lo define. Fallo inesperado500 con mensaje público apropiado y causa registrada en servidor. No inventes una falla de stock como404 si el producto sí existe.
 
-@RestControllerAdvice centraliza manejo de excepciones de controllers. @ExceptionHandler traduce un tipo de error a código y cuerpo. El mensaje debería ayudar a quien llama sin exponer trazas internas, configuración o datos sensibles.
+En [el proyecto](../Ejemplos/spring/README.md), Errores.java incluye manejadores de entrada y ausencia; lee su forma real antes de escribir el cliente. El fragmento inferior concentra NoEncontrado y requiere su definición existente. Un ErrorDTO tiene datos de salida, no una traza completa para publicar.
 
-Distinguí una petición inválida, un recurso ausente y un fallo inesperado. Devolver 404 para cualquier excepción oculta problemas del programa. Una API coherente tiene una forma de error que el frontend pueda interpretar y mostrar; los detalles de validación pueden enumerar campos incorrectos.
+La interfaz comprueba ok y, cuando hay error, interpreta el cuerpo según su formato. No todos los fallos tienen JSON: un intermediario o servidor puede devolver otro contenido; leer text primero o comprobar Content-Type evita perder la causa por un segundo error de parseo. Registrar mensaje técnico en la consola de desarrollo ayuda, mientras el usuario recibe una acción comprensible.
 
-## Ejemplo
+No capturar todo en service para devolver null: puede esconder rollback y hacer que controller responda éxito. Manejo de transacción y traducción HTTP deben conservar la causa y el significado.
+
+## Ejemplo de la clase
 
 ```java
 record ErrorDTO(String mensaje) {}
@@ -31,36 +33,20 @@ class Errores {
 
 [Abrir el fragmento como archivo](fragmentos/clase_10.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los métodos y clases forman parte del proyecto Spring de apoyo, salvo que se indique el modelo FacturaVenta del campus. Los fragmentos no reemplazan pom.xml ni configuración.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 NoEncontrado es una excepción definida por la aplicación. El advice convierte el fallo en una respuesta específica. Debe existir un manejador de validación adecuado y una política para errores inesperados; el proyecto de práctica incluye los casos comunes.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Un producto ausente provoca NoEncontrado y404. Un id mal formado produce otro error y400. Retornar404 para todo escondería un servidor defectuoso y dificultaría corregirlo. Un JSON de error con HTTP200 hace que ok no detecte el fallo.
 
-Relacioná nombre vacío, id inexistente y error interno de acceso a base con códigos y mensajes.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_10.md). Las [soluciones explicadas](SOLUCIONES_10.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Exponer la traza completa de Java como mensaje visible de la API.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-@RestControllerAdvice centraliza manejo de excepciones de controllers. @ExceptionHandler traduce un tipo de error a código y cuerpo.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **14.10** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_10.md). Las [soluciones razonadas](SOLUCIONES_10.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../14_Spring/CLASE_09.md) · [Clase siguiente](../14_Spring/CLASE_11.md)

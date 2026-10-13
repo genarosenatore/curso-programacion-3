@@ -1,23 +1,29 @@
 # Práctica 05.11 · Práctica: productos y clientes
 
-[Clase](CLASE_11.md) · [Soluciones](SOLUCIONES_11.md)
+[Clase](CLASE_11.md) · [Soluciones separadas](SOLUCIONES_11.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Implementá el modelo y probá compra válida, stock insuficiente y cantidad cero.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Ejecutá U05Java y anotá stock inicial.
+2. Seguí compra de 2 y el intento inválido posterior.
+3. Comprobá que rechazo conserva el estado de esa misma instancia.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Ejecutá U05Java y anotá cada estado de stock y subtotal con sus unidades.
 
-Analizá esta confusión: «Confundir un objeto de dominio con una fila de base de datos antes de estudiar persistencia.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá un libro con tres ejemplares, prestá tres y rechazá el cuarto. Representá cliente por separado. ¿Qué método consulta y cuál cambia estado? ¿Qué cambia si el rechazo se prueba sobre una instancia nueva?
 
-Reutilizá validaciones de las clases anteriores; no necesitás leer teclado todavía.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Seguí el mismo objeto entre operaciones.
+2. Validá la cantidad antes de modificar.
+3. Consulta y mutación tienen efectos diferentes.

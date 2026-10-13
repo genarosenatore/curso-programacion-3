@@ -1,23 +1,29 @@
 # Práctica 02.02 · Cascada, herencia y especificidad
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Predecí el color de <p id="mensaje" class="aviso">Hola</p> si añadís #mensaje { color: purple; }.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Listá los selectores que coinciden con mensaje.
+2. Compará id, clase y etiqueta en el escenario normal.
+3. Explicá por qué mover la regla de etiqueta no supera al id.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Para p con class="nota", predecí el color con p {color:green}, .nota {color:blue}, .nota {color:red}, en ese orden.
 
-Analizá esta confusión: «Usar !important ante cualquier conflicto sin investigar qué regla está ganando.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Poné color morado en body y margin:20px. Quitá las tres reglas del párrafo. ¿Qué propiedad recibe el párrafo por herencia? Luego restaurá p verde: ¿por qué el padre no impone morado?
 
-Compará selector id, clase y etiqueta.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Filtrá las reglas que coinciden con el elemento.
+2. Las dos clases empatan.
+3. Un valor propio se utiliza antes que uno heredado.

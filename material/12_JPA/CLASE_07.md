@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_06.md) · [Clase siguiente](../12_JPA/CLASE_08.md)
 
-## Qué vas a aprender
+## Propagar operaciones según propiedad y ciclo de vida
 
-Vamos a trabajar **cascadas, orphanremoval y carga de relaciones**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una **cascada JPA** indica que una operación sobre una entidad se propaga a relacionadas: PERSIST, MERGE, REMOVE y otras; ALL reúne todas. No es idéntica a ON DELETE CASCADE de SQL, que el motor aplica sobre filas. Pueden coexistir, pero responden a mecanismos distintos.
 
-## Antes de empezar
+Un detalle pertenece a una factura y puede tener vida exclusiva con ella. Un cliente se comparte entre muchas facturas. Borrar factura podría borrar detalles bajo una política deliberada; borrar también cliente rompería datos ajenos. La relación existente no demuestra propiedad exclusiva.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Separar borrado de carga
 
-## Explicación desde cero
+orphanRemoval puede eliminar un hijo que sale de una asociación de propiedad exclusiva adecuada. Quitar un detalle de la colección gestionada y mantener ambos lados puede programar su borrado, aun sin borrar la factura. No lo uses para catálogos compartidos donde «quitar de una factura» no debe eliminar el producto del sistema.
 
-Una cascada propaga operaciones como persist o remove a objetos relacionados. No equivale a todas las reglas de clave foránea del motor. orphanRemoval puede eliminar un hijo que deja una asociación de propiedad adecuada. Elegimos según ciclo de vida: un detalle puede pertenecer exclusivamente a una factura; un cliente puede compartirse entre muchas.
+LAZY intenta diferir la carga hasta que se necesita y en ciertos contratos es una indicación al proveedor; EAGER requiere disponibilidad anticipada. Ninguno promete un único JOIN: el proveedor puede ejecutar consultas adicionales. Obtener una lista de facturas y luego un vínculo por cada una puede producir **N+1 consultas**, una inicial y varias repetidas. Un fetch join o una proyección puede resolver una necesidad de carga concreta, no todo el modelo.
 
-LAZY difiere carga y EAGER pide disponibilidad anticipada, pero no define por sí solo una única consulta SQL. Acceder fuera del contexto a una relación no cargada puede fallar. Los ciclos bidireccionales tampoco deberían serializarse directamente sin una política.
+Al cerrar el contexto, una colección pendiente puede no poder cargarse y Hibernate puede lanzar LazyInitializationException. Prepará DTO dentro del contexto adecuado o consulta lo necesario deliberadamente. Convertir todo a EAGER puede cargar más datos y tampoco asegura eficiencia.
 
-## Ejemplo
+El ejemplo inferior es un fragmento de mapeo para Factura/Detalle. El [laboratorio](../Ejemplos/persistencia/README.md) usa FacturaVenta/FacturaVentaDetalle con una política explícita de hijos y mantiene ambas referencias. La clase Producto/Categoria tiene otro ciclo de vida: no copies ALL simplemente para evitar un mensaje.
+
+## Ejemplo de la clase
 
 ```java
 // En Factura, si los detalles son de su propiedad:
@@ -30,36 +32,20 @@ private Factura factura;
 
 [Abrir el fragmento como archivo](fragmentos/clase_07.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Estos fragmentos requieren un proyecto JPA configurado y las entidades mencionadas. El proyecto de apoyo está enlazado en la guía de ejecución; para FacturaVenta usá el modelo del campus mapeado según su consigna.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 ALL puede tener sentido en detalles con vida ligada a factura, pero no se copia a cliente compartido. Para quitar un detalle, actualizá coherentemente ambos lados y su política. El mapeo del JoinColumn se define en el propietario. Comprender qué se borra evita perder datos compartidos.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Quitar un detalle con orphanRemoval puede borrarlo; quitar una relación con un cliente compartido no debería borrar al cliente. Serializar entidades bidireccionales puede recorrer factura→detalle→factura: preparar un DTO limitado evita ese ciclo de salida.
 
-Explicá por qué no aplicarías REMOVE de factura hacia cliente automáticamente.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_07.md). Las [soluciones explicadas](SOLUCIONES_07.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Aplicar CascadeType.ALL a todas las relaciones para resolver errores sin analizar sus efectos.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una cascada propaga operaciones como persist o remove a objetos relacionados. No equivale a todas las reglas de clave foránea del motor.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **12.07** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_07.md). Las [soluciones razonadas](SOLUCIONES_07.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_06.md) · [Clase siguiente](../12_JPA/CLASE_08.md)

@@ -1,23 +1,29 @@
 # Práctica 10.01 · Interfaces funcionales y lambdas
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Creá una operación de multiplicación y otra que devuelva el mayor.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Usa la interfaz Operacion como contrato.
+2. Implementá multiplicación y máximo con lambdas.
+3. Invocá aplicar(2,3) y compará 6 con 3.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Creá Operacion multiplicar y mayor y probalas con 2 y 3.
 
-Analizá esta confusión: «Cambiar estado compartido dentro de una lambda sin reconocer sus efectos secundarios.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá una operación que reste y compará invertir argumentos. Explicá por qué no conviene modificar un total exterior para devolver el resultado.
 
-El contrato sigue recibiendo dos int y devolviendo int.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La interfaz determina parámetros y retorno.
+2. La resta depende del orden.
+3. Retornar el cálculo evita estado compartido.

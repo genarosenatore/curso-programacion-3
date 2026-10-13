@@ -1,23 +1,29 @@
 # Práctica 09.04 · Class y metadatos de una clase
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Inspeccioná una clase propia Cliente y mostrale su nombre y sus campos declarados.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Obtén Cliente.class y sus campos declarados.
+2. Mostrá nombre y tipo de cada descriptor.
+3. Diferenciá metadatos de datos de una instancia.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Definí Cliente con nombre y correo e imprimí nombres y tipos de sus campos declarados.
 
-Analizá esta confusión: «Confundir nombre de atributo con su valor en un objeto particular.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Compará getSimpleName y getName e investigá qué diferencia hay entre métodos declarados y públicos heredados. ¿Qué dato faltaría para leer el valor del campo de una instancia?
 
-getDeclaredFields devuelve Field con métodos como getName y getType.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Field describe campo; no contiene un valor universal.
+2. getName de Class puede incluir paquete.
+3. Los valores de instancia requieren el objeto concreto.

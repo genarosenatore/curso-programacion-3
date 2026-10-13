@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_06.md) · [Clase siguiente](../10_Funcional/CLASE_02.md)
 
-## Qué vas a aprender
+## Pasar una operación como comportamiento
 
-Vamos a trabajar **interfaces funcionales y lambdas**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una interfaz funcional tiene un único método abstracto que define la operación a implementar. Puede tener métodos default o static sin dejar de ser funcional. @FunctionalInterface permite pedir al compilador que compruebe esa condición. Es la base para proporcionar una lambda como implementación breve.
 
-## Antes de empezar
+Si Operacion declara int aplicar(int a,int b), `(a,b) -> a+b` recibe dos enteros y retorna su suma. El contexto indica tipos y retorno. La lambda no es una cadena ni un método que ejecutamos al escribirla: es un comportamiento que invocamos después con sumar.aplicar(2,3).
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seguir definición y ejecución
 
-## Explicación desde cero
+Poné Operacion fuera de main y la variable sumar dentro. El compilador conecta el método abstracto con los parámetros. Al llamar, a toma 2, b toma 3 y vuelve 5. Con varias instrucciones se usan llaves y return si hay resultado: `(a,b) -> { int total=a+b; return total; }`.
 
-Una interface funcional tiene un único método abstracto relevante para su contrato y puede ser implementada con una lambda. @FunctionalInterface pide al compilador verificarlo. Una lambda expresa parámetros, flecha y resultado o bloque.
+Una lambda puede capturar variables locales exteriores que sean final o **efectivamente finales**, no reasignadas después de inicializar. Eso no significa que objetos referenciados sean inmutables: una lista capturada podría cambiar. No uses esa posibilidad para acumular efectos externos sin reconocerlos.
 
-El estilo funcional favorece transformar datos y limitar cambios externos. Una función pura produce el mismo resultado para las mismas entradas y no modifica estado externo. Java permite ese estilo, pero no obliga a que toda lambda sea pura.
+La programación funcional en estos ejemplos busca expresar transformaciones y decisiones mediante operaciones, favoreciendo resultados comprensibles con las mismas entradas. Java sigue permitiendo objetos y estado; no necesitas reemplazar todo bucle por una cadena. Empezá con una operación simple que se pueda verificar a mano.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 @FunctionalInterface
@@ -27,36 +27,20 @@ System.out.println(sumar.aplicar(2, 3));
 
 [Abrir el fragmento como archivo](fragmentos/clase_01.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las interfaces y records se declaran a nivel de clase; las operaciones del stream se ejecutan dentro de main. Se entrega un programa completo de práctica.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La variable sumar contiene una implementación de Operacion y devuelve 5. El compilador infiere tipos desde el contrato. Para varias instrucciones, usá llaves y return si corresponde. Capturar una variable local exige que sea final o efectivamente final.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiá suma por multiplicación: la misma interfaz produce 6 con 2 y 3. Agregar un segundo método abstracto diferente a Operacion impide usar esa lambda porque ya no hay una única operación objetivo. Cambiar una variable local capturada puede generar error de compilación.
 
-Creá una operación de multiplicación y otra que devuelva el mayor.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_01.md). Las [soluciones explicadas](SOLUCIONES_01.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Cambiar estado compartido dentro de una lambda sin reconocer sus efectos secundarios.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una interface funcional tiene un único método abstracto relevante para su contrato y puede ser implementada con una lambda. @FunctionalInterface pide al compilador verificarlo.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **10.01** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_01.md). Las [soluciones razonadas](SOLUCIONES_01.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../09_Genericos_Reflection/CLASE_06.md) · [Clase siguiente](../10_Funcional/CLASE_02.md)

@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_07.md) · [Clase siguiente](../02_CSS/CLASE_02.md)
 
-## Qué vas a aprender
+## Separar contenido y presentación
 
-Vamos a trabajar **conectar css y usar selectores**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+HTML describe un párrafo; CSS decide cómo se muestra. Separarlos permite cambiar la apariencia de muchos elementos sin reescribir su contenido. Una **regla** tiene un selector, que elige elementos, y un bloque de declaraciones entre `{` y `}`. En `p { color: blue; }`, p selecciona párrafos; color es la propiedad; blue el valor; `:` los separa y `;` termina la declaración.
 
-## Antes de empezar
+Creá un documento como en [HTML 01.01](../01_HTML/CLASE_01.md) y un archivo estilos.css en la misma carpeta. En head escribí `<link rel="stylesheet" href="estilos.css">`. rel informa que es una hoja de estilos y href indica su ubicación. No pegues link en el CSS: es HTML. Guardá ambos y recargá el documento en el navegador.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Seleccionar por etiqueta, clase e identificador
 
-## Explicación desde cero
+`p` alcanza todos los párrafos. `.aviso` alcanza los elementos cuyo atributo HTML class incluye aviso, sin importar su etiqueta. `#mensaje` alcanza el elemento con id mensaje. Una clase agrupa usos repetidos; un id identifica un elemento único. En `class="aviso importante"` hay dos clases, separadas por espacio: no una clase que se llama «aviso importante».
 
-Una regla CSS tiene un selector y declaraciones. El selector elige elementos; cada declaración asigna un valor a una propiedad. El archivo externo se conecta desde head mediante link. Un selector de etiqueta afecta todas sus coincidencias; una clase permite agrupar elementos sin depender de su etiqueta.
+Podés seleccionar descendientes con `.tarjeta p`: los párrafos dentro de una tarjeta. La coma en `h1, h2` comparte declaraciones entre dos selecciones independientes. Una **pseudoclase** expresa un estado o condición: `a:hover` selecciona un enlace bajo el puntero y `a:focus-visible` cuando el navegador indica foco visible, por ejemplo al usar teclado. No requieren agregar una clase literal con esos nombres.
 
-Una misma página puede usar varias clases en un elemento. El punto pertenece al selector CSS, no al valor del atributo class. Los comentarios de CSS usan /* ... */. Es más fácil mantener reglas agrupadas por componente que repetir estilos dentro de cada etiqueta.
+El navegador carga el HTML, obtiene la hoja y busca coincidencias. Si no se aplica un color, distinguí si la hoja no llegó o si el selector no coincide. En las herramientas de desarrollo, inspeccionar un elemento muestra las reglas; una regla ausente puede indicar una ruta o selector incorrectos. Un error en una declaración puede hacer que esa declaración se ignore sin inutilizar toda la hoja.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```css
 /* estilos.css */
@@ -29,36 +29,20 @@ p { color: #333; }
 
 [Abrir el fragmento como archivo](fragmentos/clase_01.css) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las reglas CSS se aplican a los elementos y clases HTML indicados. Tenés un ejemplo completo en la guía de ejecución.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La regla p selecciona párrafos. .destacado selecciona la clase destacado. El link busca estilos.css junto al HTML. Al recargar, Oferta aparece con color azul y texto en negrita. Si no cambia, revisá primero la ruta del archivo y después el selector con las herramientas del navegador.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Cambiá class="aviso" por class=".aviso": deja de coincidir con .aviso. El punto es sintaxis del selector, no parte del nombre. Cambiá color por background-color: cambia la superficie detrás del texto. Si quitás link, conservás contenido y perdés esos estilos.
 
-Aplicá una clase aviso a dos párrafos con fondo amarillo y texto oscuro.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_01.md). Las [soluciones explicadas](SOLUCIONES_01.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Escribir class=".aviso": el punto solo va en el selector CSS.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una regla CSS tiene un selector y declaraciones. El selector elige elementos; cada declaración asigna un valor a una propiedad.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **02.01** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_01.md). Las [soluciones razonadas](SOLUCIONES_01.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../01_HTML/CLASE_07.md) · [Clase siguiente](../02_CSS/CLASE_02.md)

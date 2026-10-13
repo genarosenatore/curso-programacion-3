@@ -1,23 +1,29 @@
 # Práctica 15.02 · Alinear interfaces TypeScript y DTO Java
 
-[Clase](CLASE_02.md) · [Soluciones](SOLUCIONES_02.md)
+[Clase](CLASE_02.md) · [Soluciones separadas](SOLUCIONES_02.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Compará un JSON con denominacion y una interface que usa nombre. Proponé una adaptación explícita.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Valida id y denominacion del contrato externo.
+2. Construye modelo con propiedad nombre.
+3. Prueba que as por sí solo no renombra campos.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Adapta {id:1,denominacion:"Cuaderno"} a un modelo con nombre, conservando identidad.
 
-Analizá esta confusión: «Afirmar que Java y TypeScript tienen tipos idénticos para cualquier tamaño o formato.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Propone contratos para un id Long muy grande, una fecha sin hora y un precio en centavos. Explica las conversiones permitidas y lo que no debe interpretarse automáticamente.
 
-Construí un objeto nuevo con las claves del modelo de pantalla.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Construye un objeto nuevo con nombres explícitos.
+2. La política debe preservar precisión.
+3. Identidad, calendario y dinero tienen significados distintos.

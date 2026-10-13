@@ -1,23 +1,29 @@
 # Práctica 15.06 · Carrito, cantidades y localStorage
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Diseñá prueba con stock 3: agregar 2, agregar otras 2, quitar 1 y recargar.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Agrega 2 con stock 3.
+2. Intenta sumar otras 2 y conserva anterior al rechazar.
+3. Quita 1,guarda y recupera con validación.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Con stock3 prueba agregar2, agregar2, quitar1 y recargar, anotando cada estado.
 
-Analizá esta confusión: «Validar stock solo al abrir la pantalla y no al modificar la cantidad.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Diseña recuperación de carrito con id inexistente y cantidad fraccionaria. Explica qué datos validarías, cómo recalcularías total y qué debe confirmar el servidor.
 
-Anotá el estado después de cada operación válida o rechazada.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Valida la suma actual+nueva antes de cambiar.
+2. Parsear no prueba la forma de cada elemento.
+3. El catálogo vigente decide existencia y precio.

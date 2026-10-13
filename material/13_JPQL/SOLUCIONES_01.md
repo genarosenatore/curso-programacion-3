@@ -1,21 +1,15 @@
 # Soluciones 13.01 · JPQL frente a SQL y parámetros nombrados
 
-[Clase](CLASE_01.md) · [Ejercicios](EJERCICIOS_01.md)
+[Clase](CLASE_01.md) · [Práctica](EJERCICIOS_01.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 select f from FacturaVenta f where f.cliente.id = :clienteId. createQuery(...,FacturaVenta.class).setParameter("clienteId",id).getResultList(). El parámetro debe tener tipo compatible con el id. Una asociación ausente no coincide en esta navegación.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+`select f from FacturaVenta f where f.estado=:estado` con EMITIDA devuelve las correspondientes y con SIN_ESTADO ninguna. Por cliente: `where f.cliente.id=:clienteId`, usando Long de la identidad y createQuery de FacturaVenta. cliente_id es una columna del mapeo y no una propiedad Java. [] representa una ejecución válida sin coincidencias; un nombre de atributo incorrecto produce un error que no debe tratarse como ausencia normal.
 
-f representa una FacturaVenta. :estado es un valor proporcionado aparte; no es una columna. getResultList devuelve una lista, vacía si no hay coincidencias. El tipo FacturaVenta.class coincide con la selección completa f.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Escribir factura_venta o cliente_id porque son nombres de la tabla y columna.
-
-JPQL usa nombres de entidades y atributos Java, no tablas y columnas SQL. Un alias identifica cada origen.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

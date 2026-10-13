@@ -1,23 +1,29 @@
 # Práctica 12.05 · EntityManager y ciclo de vida
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué cambia si modificás el objeto después de cerrar el contexto.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Localiza find dentro del contexto.
+2. Cambia un dato gestionado y sincroniza.
+3. Cierra contexto y distingue modificación separada posterior.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Explicá nueva, gestionada y separada siguiendo persist, commit y cierre en el laboratorio.
 
-Analizá esta confusión: «Confundir id presente con entidad actualmente gestionada.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Modificá nombre en transacción, flush y rollback; verificá desde otro contexto. ¿Por qué un objeto con id puede no guardar una modificación posterior?
 
-Ya no se sigue automáticamente su estado.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. flush envía cambios pendientes, no los confirma.
+2. El contexto sigue solo sus instancias gestionadas.
+3. La verificación necesita una recuperación nueva.

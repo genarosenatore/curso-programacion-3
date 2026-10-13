@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_06.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_08.md)
 
-## Qué vas a aprender
+## Confirmar una operación completa
 
-Vamos a trabajar **transacciones: confirmar o revertir cambios**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una transacción agrupa cambios que deben aceptarse o descartarse juntos. BEGIN inicia en SQLite; COMMIT confirma; ROLLBACK descarta los cambios no confirmados de ese grupo. **Atomicidad** significa que no debe quedar solo una parte de la operación definida, como cabecera de factura sin sus detalles requeridos.
 
-## Antes de empezar
+Durante el ejemplo, la conexión observa su actualización a210000; después de rollback vuelve a200000. Ejecutá el fragmento con --tienda: el lanzador carga y confirma primero los datos base para que BEGIN pueda empezar la práctica. Iniciar otra transacción dentro de una ya activa puede requerir mecanismos distintos, como savepoints; no es necesario para esta prueba.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Error no equivale a rollback solicitado
 
-## Explicación desde cero
+Una restricción puede rechazar una sentencia sin descartar automáticamente todas las anteriores de la transacción. El comportamiento depende del motor y la política de errores. La aplicación debe manejar el fallo y decidir rollback del conjunto cuando el negocio lo exige. Confirmar cabecera antes de detalles impide revertir ambos como una sola operación.
 
-Una transacción agrupa operaciones que deben confirmarse juntas. COMMIT conserva cambios; ROLLBACK los revierte. Atomicidad significa que no queda aplicada solo una parte de ese grupo. Por ejemplo, registrar cabecera y detalles de una factura debe conservar coherencia.
+**Consistencia** significa conservar reglas declaradas y de negocio; **aislamiento**, cómo interactúan transacciones simultáneas; **durabilidad**, conservar lo confirmado según el almacenamiento. Nuestra base en memoria practica confirmación y reversión, pero desaparece al cerrar: no sirve para verificar conservación después de apagar. Una base en archivo puede hacerlo.
 
-La transacción no convierte automáticamente una regla incorrecta en correcta. Hay que validar operaciones, restricciones y manejo de errores. El aislamiento y la concurrencia importan cuando otras operaciones actúan al mismo tiempo; empezaremos con una única conexión de prueba.
+Cuando dos personas compran el último producto, leer stock suficiente en cada una no basta por sí solo. Se necesitan restricciones y una estrategia de concurrencia además de transacción. No agregaremos un sistema de reservas a esta práctica, pero evitamos presentar @Transactional futuro como solución automática de todas las carreras.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```sql
 BEGIN;
@@ -28,36 +28,20 @@ SELECT precio_centavos FROM producto WHERE id=1;
 
 [Abrir el fragmento como archivo](fragmentos/clase_07.sql) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-El archivo tienda.sql contiene un esquema con datos de prueba. Las sentencias CREATE ilustrativas se prueban en bases separadas para no redefinir tablas ya existentes.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Dentro de la transacción se observa el valor nuevo en esa conexión. Después de ROLLBACK vuelve al valor anterior. Para conservarlo usaríamos COMMIT. La guía de ejecución SQL entrega un ejemplo con base en memoria para experimentar sin afectar datos externos.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Reemplazá ROLLBACK por COMMIT: el último SELECT sigue mostrando210000 dentro de la ejecución. Lanzar un error después de commit no deshace ese cambio confirmado. Elegir el límite de la operación es parte del diseño.
 
-Explicá qué debería pasar si se guarda una factura pero falla uno de sus detalles.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_07.md). Las [soluciones explicadas](SOLUCIONES_07.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Confundir una operación de múltiples sentencias con una transacción aunque no esté configurada.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una transacción agrupa operaciones que deben confirmarse juntas. COMMIT conserva cambios; ROLLBACK los revierte.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **11.07** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_07.md). Las [soluciones razonadas](SOLUCIONES_07.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../11_Bases_de_datos/CLASE_06.md) · [Clase siguiente](../11_Bases_de_datos/CLASE_08.md)

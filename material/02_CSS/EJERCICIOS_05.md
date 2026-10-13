@@ -1,23 +1,29 @@
 # Práctica 02.05 · Display, visibilidad y posicionamiento
 
-[Clase](CLASE_05.md) · [Soluciones](SOLUCIONES_05.md)
+[Clase](CLASE_05.md) · [Soluciones separadas](SOLUCIONES_05.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué diferencia visual hay entre ocultar una tarjeta con display:none y con visibility:hidden.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Colocá dos tarjetas y ocultá una con display:none.
+2. Repetí usando visibility:hidden.
+3. Compará el espacio del vecino y explicá la diferencia.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Poné dos párrafos y ocultá el primero, alternativamente con display:none y visibility:hidden. Describí la posición del segundo.
 
-Analizá esta confusión: «Usar position:absolute para todo y perder el flujo adaptable de la página.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Creá una tarjeta con un distintivo «Nuevo» en su esquina. Explicá por qué hace falta una referencia y espacio para que no tape el título. ¿Serviría opacity:0 para retirar un botón de la navegación?
 
-Observá si las tarjetas vecinas pueden ocupar su lugar.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Preguntá si la caja sigue existiendo.
+2. El padre relative referencia al hijo absolute.
+3. Transparencia no equivale a quitar interacciones.

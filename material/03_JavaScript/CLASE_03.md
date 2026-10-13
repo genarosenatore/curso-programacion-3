@@ -2,21 +2,45 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_02.md) · [Clase siguiente](../03_JavaScript/CLASE_04.md)
 
-## Qué vas a aprender
+## Elegir un camino con una condición
 
-Vamos a trabajar **condiciones y decisiones**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Un programa de compra no debería calcular sin comprobar una cantidad. La condición de [03.02](CLASE_02.md) produce true o false; `if` usa ese resultado para decidir si ejecuta un bloque. `else` proporciona el camino alternativo. Las llaves delimitan las instrucciones del bloque, no un objeto en este contexto.
 
-## Antes de empezar
+```javascript
+const cantidad = 3;
+if (cantidad >= 1) {
+  console.log("Podés continuar");
+} else {
+  console.log("Cantidad inválida");
+}
+console.log("Comprobación terminada");
+```
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+Programa completo para consola o Node. Primero se consulta cantidad y se compara con 1. Como 3 >= 1 da true, se ejecuta el primer log; el else se salta. Después continúa fuera del bloque y muestra el último mensaje. Una condición no repite la comprobación cada vez que cambia un dato: se evalúa cuando la ejecución llega a ella.
 
-## Explicación desde cero
+## Más de dos posibilidades
 
-Una condición elige un bloque de instrucciones. if ejecuta cuando la condición es verdadera; else cubre el otro caso; else if prueba otra posibilidad. Los bloques se delimitan con llaves y su orden importa: si una condición amplia aparece primero, puede impedir llegar a una más específica.
+Podés encadenar `else if` para alternativas excluyentes. Se prueban en orden y se ejecuta el primer camino verdadero. Si stock = 0 significa agotado y stock < 3 significa últimas unidades, comprobá primero el cero: de otro modo cero cumple < 3 y nunca llega al caso de agotado. Varios if independientes son diferentes: más de uno puede ejecutarse.
 
-Un booleano tiene valores true o false. Para practicar condiciones es útil una tabla de casos: por debajo, exactamente en el límite y por encima. Así comprobamos las comparaciones antes de conectar el código a una interfaz.
+Un `switch` compara una expresión con casos de igualdad; `break` evita continuar al siguiente caso y `default` trata lo no previsto. Para rangos numéricos, if suele expresar mejor la condición. El operador ternario `condicion ? valorA : valorB` es una expresión que elige un valor; no conviene anidar muchos ternarios para esconder un procedimiento.
 
-## Ejemplo
+## Validar antes de calcular
+
+```javascript
+const texto = "2";
+const cantidad = Number(texto);
+if (texto.trim() === "" || !Number.isInteger(cantidad) || cantidad < 1) {
+  console.log("Ingresá una cantidad entera positiva");
+} else {
+  console.log(800 * cantidad);
+}
+```
+
+Se rechaza si al menos una regla falla: vacío, no entero o menor a uno. `!` niega la comprobación de entero. Con "2", las tres son falsas y el else muestra 1600. La validación no modifica la entrada; decide si cumple las reglas antes de usarla. Un precio válido necesita su propia regla; este programa supone 800 como precio conocido.
+
+if convierte su condición a un significado lógico si no es booleano: 0, "", null, undefined y NaN se consideran falsos; un texto no vacío, incluido "false", verdadero. Para empezar, escribí comparaciones explícitas. `if (cantidad = 1)` asigna uno y luego lo interpreta como verdadero: no pregunta igualdad y cambia el dato.
+
+## Ejemplo de la clase
 
 ```javascript
 const importe = 10000;
@@ -31,36 +55,20 @@ console.log(importe + envio);
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.js) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos de lógica pueden probarse en la consola. Los que usan document necesitan el HTML indicado y ejecutarse en el navegador, no en Node.js.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La condición es verdadera exactamente en 10000, por eso el envío es cero. Con 9999 el envío sería 500. let envio permite asignar en cualquiera de los bloques y usar después el resultado. Cada ejecución elige solo un bloque de este if/else.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Probá el segundo programa con "0", "1.5", "dos" y "": ninguno debe calcular el total. Cambiá || por && en el rechazo: exigirías que todas las fallas ocurran juntas y dejarías pasar entradas inválidas. Ese cambio muestra que la lógica representa una regla, no una decoración.
 
-Clasificá stock en agotado si es 0, bajo si está entre 1 y 3, y disponible si es mayor.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Usar = dentro de la condición cuando querías comparar con ===.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Una condición elige un bloque de instrucciones. if ejecuta cuando la condición es verdadera; else cubre el otro caso; else if prueba otra posibilidad.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **03.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../03_JavaScript/CLASE_02.md) · [Clase siguiente](../03_JavaScript/CLASE_04.md)

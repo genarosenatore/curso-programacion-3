@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_02.md) · [Clase siguiente](../05_Java/CLASE_04.md)
 
-## Qué vas a aprender
+## Controlar el recorrido con tipos explícitos
 
-Vamos a trabajar **condiciones, bucles, arrays y métodos**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+if y else eligen con una condición boolean como en [JavaScript 03.03](../03_JavaScript/CLASE_03.md). for tiene inicio, condición y actualización; while comprueba antes de repetir. Java conserva estas ideas, pero no admite un número como condición booleana y comprueba el tipo de las operaciones antes de ejecutar.
 
-## Antes de empezar
+Un array `int[]` reúne enteros con tamaño fijo. `new int[]{100,200,300}` crea tres posiciones; `new int[3]` crea tres enteros inicializados en cero. length es una propiedad y no lleva paréntesis; sus índices admitidos van de cero a length − 1. Acceder al índice length lanza un error; no retorna undefined.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Ubicar y llamar un método
 
-## Explicación desde cero
+Un método declara tipo de retorno, nombre y parámetros. El método sumar inferior se coloca dentro de la clase Hola, pero **fuera** de main: no anides la definición dentro de otro método. `static` permite llamar sumar desde main sin crear todavía un objeto. `return total` entrega un int; println solo lo mostraría.
 
-Java reutiliza condiciones y bucles, pero exige tipos y sintaxis propia. Un array tiene tamaño fijo y usa length sin paréntesis. Un método define retorno, nombre y parámetros. Un método static puede llamarse desde main sin instanciar la clase.
+Para un programa ejecutable, conservá main de 05.01 y dentro escribí `System.out.println(sumar(new int[]{100,200,300}));`. Luego agrega el método inferior como hermano de main. Compilá el archivo y ejecutá su clase. El `for (int valor : valores)` lee un valor por vuelta: los dos puntos se interpretan aquí como recorrido, no una anotación TypeScript.
 
-Un for mejorado recorre cada elemento. Un acumulador fuera del recorrido conserva el resultado. Separar el cálculo en un método facilita probarlo con un array vacío y con distintos valores. En esta etapa aprendemos la estructura antes de pasar a colecciones de tamaño variable.
+La suma inicia en cero, recibe 100 y queda 100; luego 300; luego 600. En [] tiene cero vueltas. Un array null representa ausencia y no es vacío: necesitará una comprobación antes de recorrer. El ejemplo supone array presente. Cuando necesitemos crecer y eliminar elementos usaremos colecciones, sin cambiar el significado básico de acumular.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 static int sumar(int[] valores) {
@@ -31,36 +31,20 @@ static int sumar(int[] valores) {
 
 [Abrir el fragmento como archivo](fragmentos/clase_03.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las declaraciones de clases y métodos van dentro o fuera de main según indica la explicación. Los fragmentos no son todos archivos autónomos; el ejemplo completo de la unidad muestra la estructura ejecutable.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 El método se escribe dentro de la clase, fuera de main. Recibe un array y devuelve 600 para los datos indicados. En un array vacío, el bucle no entra y devuelve cero. El ejemplo asume que valores no es null; más adelante decidiremos cómo representar o rechazar esa ausencia.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Con new int[3] la suma es cero porque las tres posiciones comienzan en cero. Cambiar <= valores.length por < valores.length en un bucle de índices evita acceder fuera. Poner return dentro de la primera vuelta entregaría solo el primer acumulado.
 
-Escribí contarPositivos(int[] valores), que devuelva cuántos elementos superan cero.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_03.md). Las [soluciones explicadas](SOLUCIONES_03.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Poner un método dentro de otro método: en esta estructura Java no lo permite.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Java reutiliza condiciones y bucles, pero exige tipos y sintaxis propia. Un array tiene tamaño fijo y usa length sin paréntesis.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **05.03** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_03.md). Las [soluciones razonadas](SOLUCIONES_03.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_02.md) · [Clase siguiente](../05_Java/CLASE_04.md)

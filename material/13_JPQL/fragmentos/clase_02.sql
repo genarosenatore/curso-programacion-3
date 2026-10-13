@@ -1,3 +1,3 @@
-select f.numeroFactura, f.fechaEmision, f.importeTotal
+select f.numero, f.fechaEmision, f.importeTotal
 from FacturaVenta f
-order by f.numeroFactura
+order by f.numero

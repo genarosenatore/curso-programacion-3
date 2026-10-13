@@ -1,23 +1,29 @@
 # Práctica 03.06 · Strings, arrays y métodos de recorrido
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 A partir de [100,200,300], creá un array con precios que superen 150 y otro con sus precios duplicados.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Filtrá los precios mayores a 150.
+2. Transformá esa selección duplicando cada precio.
+3. Mostrá fuente y salidas para comprobar que se conserva.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Desde [3, 8, 1], obtené otro array con el doble y otro que conserve solo los mayores que 3. Verificá que el original no cambió.
 
-Analizá esta confusión: «Acceder a array[length] para obtener el último elemento: el último índice es length-1.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Escribí sumarMayores(precios,minimo) con función, condición y recorrido. Sumá solo valores mayores que el mínimo y probá [100,200,300] con 150, y [] con 150. Explicá cuándo elegirías filter y cuándo un acumulador.
 
-Primero filter y luego map sobre su resultado.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. map transforma y filter selecciona.
+2. La suma empieza en 0 antes del recorrido.
+3. El array vacío conserva la identidad de la suma.

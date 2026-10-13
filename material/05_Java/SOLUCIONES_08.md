@@ -1,21 +1,15 @@
 # Soluciones 05.08 · Interfaces y polimorfismo
 
-[Clase](CLASE_08.md) · [Ejercicios](EJERCICIOS_08.md)
+[Clase](CLASE_08.md) · [Práctica](EJERCICIOS_08.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 class Express implements Envio { public int costoCentavos(){return 100000;} }. Un array de Envio puede contener Retiro, Domicilio y Express y recorrerlos invocando costoCentavos.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+`class Express implements Envio { public int costoCentavos(){return 100000;} }`. El array Envio[] admite las tres implementaciones y el recorrido obtiene 0, 50000 y 100000. Envio es el tipo que permite conocer las operaciones disponibles al compilar; Retiro, Domicilio y Express determinan qué cuerpo se ejecuta. Un if por nombre exige actualizar el consumidor cada vez que aparece una implementación, aunque la interfaz ya expresa esa variación.
 
-La variable envio se usa mediante el contrato y devuelve 50000. Si se construye Retiro, devuelve cero sin cambiar la llamada. Los métodos de implementación deben ser public porque los de la interface lo son en este caso. No se puede hacer new Envio() directamente con esta definición.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Escribir muchos if por nombre de clase cuando el contrato puede resolver la variación.
-
-Una interface define un contrato de operaciones. Una clase puede implementarlo; una variable del tipo de la interface puede referenciar distintas implementaciones.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.

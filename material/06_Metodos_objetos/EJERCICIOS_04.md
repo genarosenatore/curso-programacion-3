@@ -1,23 +1,29 @@
 # Práctica 06.04 · hashCode y relación con equals
 
-[Clase](CLASE_04.md) · [Soluciones](SOLUCIONES_04.md)
+[Clase](CLASE_04.md) · [Soluciones separadas](SOLUCIONES_04.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué ocurre si equals usa código y hashCode usa precio.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Aplicá equals por código al par de P01.
+2. Calculá hashes con el mismo dato estable.
+3. Analizá el contraejemplo que usa precio en hash.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Explicá si mismo hash demuestra igualdad y si hashes distintos pueden corresponder a objetos iguales bajo un contrato correcto.
 
-Analizá esta confusión: «Creer que hashes distintos son el único caso importante y que no pueden existir colisiones.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Con igualdad por código, analizá hash por precio y hash constante. Proponé una corrección y justificá por qué conviene una clave inmutable.
 
-Dos productos de igual código pueden tener precios diferentes.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La obligación tiene una sola dirección.
+2. Separá colisión de violación del contrato.
+3. Calculá con los datos usados en equals.

@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_06.md) · [Clase siguiente](../05_Java/CLASE_08.md)
 
-## Qué vas a aprender
+## Modelar relaciones, no solo ahorrar código
 
-Vamos a trabajar **herencia, composición y clases abstractas**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+**Herencia** permite que una clase sea una especialización de otra mediante extends. **Composición** permite que una clase contenga o use otra mediante un atributo. Efectivo es un MedioPago; Pedido tiene un MedioPago. Si Pedido extendiera MedioPago, estaríamos diciendo que un pedido es un medio de pago, algo distinto del problema.
 
-## Antes de empezar
+Una clase abstract no puede instanciarse directamente. Puede conservar estado común, tener métodos implementados y declarar métodos abstractos sin cuerpo. Una subclase concreta debe implementar los pendientes. `super(...)` invoca el constructor de la base y `super.metodo()` puede utilizar una implementación heredada. Java permite extender una sola clase directamente.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Sobrescribir y sustituir
 
-## Explicación desde cero
+**Sobrescribir** proporciona una implementación de un método heredado con una firma compatible. @Override pide al compilador comprobar esa intención: si escribís mal el nombre, detecta que no hay tal método. Sobrecargar es diferente: declarar otro método con parámetros distintos. Una subclase debe respetar el significado del contrato, no solo compilar.
 
-La herencia expresa una relación de tipo: una clase especializada extiende otra. La composición expresa que un objeto contiene o utiliza otro. Conviene elegir por el modelo y no solo para reutilizar líneas. Una clase abstracta no se instancia directamente y puede definir operaciones que las subclases deben implementar.
+En el ejemplo inferior, Efectivo devuelve su descripción. Pedido guarda un MedioPago con composición, permitiendo otro medio sin crear otra clase Pedido. El campo final mantiene esa referencia; no demuestra que el objeto MedioPago sea inmutable.
 
-Un método sobrescrito ofrece una implementación especializada. @Override pide al compilador comprobar que realmente se está sobrescribiendo. Una relación "tiene un" suele ser composición; "es un" puede sugerir herencia, siempre que la sustitución conserve el contrato.
+Para ejecutar, colocá las tres clases fuera de main, como clases no públicas junto a Hola. Dentro escribí `MedioPago medio = new Efectivo(); System.out.println(medio.descripcion());`. Muestra Pago en efectivo. `new MedioPago()` es incorrecto porque el tipo abstracto no tiene una implementación completa concreta.
 
-## Ejemplo
+Conviene herencia cuando un objeto especializado puede utilizarse donde se espera la base sin romper su contrato. Si solo comparten nombre o algunas líneas, composición o un auxiliar puede ser mejor. Una jerarquía profunda agrega dependencia; no es requisito de un buen modelo.
+
+## Ejemplo de la clase
 
 ```java
 abstract class MedioPago {
@@ -33,36 +35,20 @@ class Pedido {
 
 [Abrir el fragmento como archivo](fragmentos/clase_07.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Las declaraciones de clases y métodos van dentro o fuera de main según indica la explicación. Los fragmentos no son todos archivos autónomos; el ejemplo completo de la unidad muestra la estructura ejecutable.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Efectivo es un MedioPago. Pedido tiene un MedioPago mediante composición. Podemos agregar otro medio sin convertir Pedido en una subclase de cada opción. El campo final fija su referencia después del constructor, no garantiza que el objeto referenciado sea inmutable.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Agregá Transferencia con otra descripción: la variable MedioPago puede utilizarla con la misma llamada. Hacer Cliente extends Domicilio no expresa que tenga una dirección; confunde las funciones. Usá un atributo Domicilio cuando esa es la relación real.
 
-Decidí si Cliente y Domicilio deberían relacionarse por herencia o composición y justificá.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_07.md). Las [soluciones explicadas](SOLUCIONES_07.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Construir jerarquías solo porque dos clases comparten algunos atributos.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-La herencia expresa una relación de tipo: una clase especializada extiende otra. La composición expresa que un objeto contiene o utiliza otro.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **05.07** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_07.md). Las [soluciones razonadas](SOLUCIONES_07.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../05_Java/CLASE_06.md) · [Clase siguiente](../05_Java/CLASE_08.md)

@@ -1,23 +1,29 @@
 # Práctica 10.08 · Práctica: consultas sobre productos y facturas
 
-[Clase](CLASE_08.md) · [Soluciones](SOLUCIONES_08.md)
+[Clase](CLASE_08.md) · [Soluciones separadas](SOLUCIONES_08.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Agregá una venta y obtené solo categorías con total superior a 40000.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Agrupá ventas antes de aplicar umbral.
+2. Añadí Útiles 20000 al grupo previo 30000.
+3. Filtrá entradas de mapa y obtené claves superiores a 40000.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Agregá una venta de Útiles de 20000 y anticipá los totales y la selección >40000.
 
-Analizá esta confusión: «Filtrar ventas individuales por importe cuando la pregunta pide filtrar el total por categoría.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Compará el algoritmo correcto con filtrar ventas individuales antes de agrupar. Probá vacío y categoría exactamente 40000. ¿Qué cambia al usar summingLong?
 
-Primero agrupá; después recorré entrySet del mapa y filtrá su valor.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La condición se aplica a lo que la pregunta nombra.
+2. El total del grupo existe después de sumar.
+3. long amplía rango, no cambia qué agrupás.

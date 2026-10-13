@@ -1,23 +1,29 @@
 # Práctica 06.01 · Identidad de referencias y significado de igualdad
 
-[Clase](CLASE_01.md) · [Soluciones](SOLUCIONES_01.md)
+[Clase](CLASE_01.md) · [Soluciones separadas](SOLUCIONES_01.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá si dos productos con el mismo código y distinto precio deberían ser iguales en un catálogo.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Elegí código estable como criterio del catálogo.
+2. Compará dos instancias con ese código y precios distintos.
+3. Explicá identidad de referencia frente a identidad de dominio.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Compará dos new String("Ana") y luego dos variables que referencien el mismo String. Anticipá los cuatro booleanos.
 
-Analizá esta confusión: «Usar == para comparar el contenido de objetos o strings.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Proponé igualdad para Libro por código de catálogo y explicá si dos ejemplares físicos deben usar el mismo criterio. ¿Un nombre compartido prueba identidad?
 
-La regla debe responder qué identifica al producto, no si todos sus datos coinciden.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. Contá objetos creados con new.
+2. La igualdad depende de qué representa el modelo.
+3. Un ejemplar físico puede necesitar una identidad adicional.

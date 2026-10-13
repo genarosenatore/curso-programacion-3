@@ -1,23 +1,29 @@
 # Práctica 04.06 · Node.js, npm, package.json y scripts
 
-[Clase](CLASE_06.md) · [Soluciones](SOLUCIONES_06.md)
+[Clase](CLASE_06.md) · [Soluciones separadas](SOLUCIONES_06.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué archivos del proyecto compartirías y por qué node_modules puede reconstruirse.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Leé scripts y dependencias de package.json.
+2. Ubicá el bloqueo y la carpeta generada de paquetes.
+3. Explicá cómo recrear dependencias sin perder fuente.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Leé package.json del ejemplo local e identificá qué comando ejecuta check y cuál build. Explicá cuándo se genera dist/main.js.
 
-Analizá esta confusión: «Esperar que document.querySelector funcione en Node como si hubiera una página abierta.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Prepará un proyecto mínimo con TypeScript y un script check. Enumerá los archivos que conservarías para reproducirlo y el papel de cada uno. ¿Por qué copiar node_modules no explica el programa?
 
-Relacioná descripción de dependencias con los archivos descargados al instalarlas.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. scripts vincula un nombre con un comando.
+2. check no emite salida.
+3. El bloqueo conserva versiones; src conserva tus instrucciones.

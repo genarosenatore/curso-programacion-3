@@ -1,0 +1,1342 @@
+[
+  {
+    "id": "00.01",
+    "titulo": "Qué es programar y cómo funciona una web",
+    "archivos": [
+      "material/00_Fundamentos/CLASE_01.md",
+      "material/00_Fundamentos/EJERCICIOS_01.md",
+      "material/00_Fundamentos/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "00.02",
+    "titulo": "Archivos, carpetas, extensiones y editor de código",
+    "archivos": [
+      "material/00_Fundamentos/CLASE_02.md",
+      "material/00_Fundamentos/EJERCICIOS_02.md",
+      "material/00_Fundamentos/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "00.03",
+    "titulo": "Algoritmos: entradas, pasos, decisiones y resultados",
+    "archivos": [
+      "material/00_Fundamentos/CLASE_03.md",
+      "material/00_Fundamentos/EJERCICIOS_03.md",
+      "material/00_Fundamentos/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "00.04",
+    "titulo": "Leer errores y comprobar una solución",
+    "archivos": [
+      "material/00_Fundamentos/CLASE_04.md",
+      "material/00_Fundamentos/EJERCICIOS_04.md",
+      "material/00_Fundamentos/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "00.05",
+    "titulo": "Git y GitHub: guardar versiones y comprender un repositorio",
+    "archivos": [
+      "material/00_Fundamentos/CLASE_05.md",
+      "material/00_Fundamentos/EJERCICIOS_05.md",
+      "material/00_Fundamentos/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "01.01",
+    "titulo": "Documento HTML: doctype, html, head y body",
+    "archivos": [
+      "material/01_HTML/CLASE_01.md",
+      "material/01_HTML/EJERCICIOS_01.md",
+      "material/01_HTML/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "01.02",
+    "titulo": "Encabezados, párrafos, listas y caracteres especiales",
+    "archivos": [
+      "material/01_HTML/CLASE_02.md",
+      "material/01_HTML/EJERCICIOS_02.md",
+      "material/01_HTML/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "01.03",
+    "titulo": "Enlaces, rutas e imágenes con texto alternativo",
+    "archivos": [
+      "material/01_HTML/CLASE_03.md",
+      "material/01_HTML/EJERCICIOS_03.md",
+      "material/01_HTML/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "01.04",
+    "titulo": "Estructura semántica: header, nav, main, section y footer",
+    "archivos": [
+      "material/01_HTML/CLASE_04.md",
+      "material/01_HTML/EJERCICIOS_04.md",
+      "material/01_HTML/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "01.05",
+    "titulo": "Tablas para datos",
+    "archivos": [
+      "material/01_HTML/CLASE_05.md",
+      "material/01_HTML/EJERCICIOS_05.md",
+      "material/01_HTML/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "01.06",
+    "titulo": "Formularios, labels, tipos de campos y validación nativa",
+    "archivos": [
+      "material/01_HTML/CLASE_06.md",
+      "material/01_HTML/EJERCICIOS_06.md",
+      "material/01_HTML/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "01.07",
+    "titulo": "Práctica: página personal, registro y blog",
+    "archivos": [
+      "material/01_HTML/CLASE_07.md",
+      "material/01_HTML/EJERCICIOS_07.md",
+      "material/01_HTML/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.01",
+    "titulo": "Conectar CSS y usar selectores",
+    "archivos": [
+      "material/02_CSS/CLASE_01.md",
+      "material/02_CSS/EJERCICIOS_01.md",
+      "material/02_CSS/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.02",
+    "titulo": "Cascada, herencia y especificidad",
+    "archivos": [
+      "material/02_CSS/CLASE_02.md",
+      "material/02_CSS/EJERCICIOS_02.md",
+      "material/02_CSS/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.03",
+    "titulo": "Colores, texto, unidades y medidas",
+    "archivos": [
+      "material/02_CSS/CLASE_03.md",
+      "material/02_CSS/EJERCICIOS_03.md",
+      "material/02_CSS/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.04",
+    "titulo": "Modelo de caja: contenido, padding, border y margin",
+    "archivos": [
+      "material/02_CSS/CLASE_04.md",
+      "material/02_CSS/EJERCICIOS_04.md",
+      "material/02_CSS/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.05",
+    "titulo": "Display, visibilidad y posicionamiento",
+    "archivos": [
+      "material/02_CSS/CLASE_05.md",
+      "material/02_CSS/EJERCICIOS_05.md",
+      "material/02_CSS/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.06",
+    "titulo": "Flexbox",
+    "archivos": [
+      "material/02_CSS/CLASE_06.md",
+      "material/02_CSS/EJERCICIOS_06.md",
+      "material/02_CSS/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.07",
+    "titulo": "Grid",
+    "archivos": [
+      "material/02_CSS/CLASE_07.md",
+      "material/02_CSS/EJERCICIOS_07.md",
+      "material/02_CSS/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.08",
+    "titulo": "Media queries y diseño adaptable",
+    "archivos": [
+      "material/02_CSS/CLASE_08.md",
+      "material/02_CSS/EJERCICIOS_08.md",
+      "material/02_CSS/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.09",
+    "titulo": "BEM y organización de estilos",
+    "archivos": [
+      "material/02_CSS/CLASE_09.md",
+      "material/02_CSS/EJERCICIOS_09.md",
+      "material/02_CSS/SOLUCIONES_09.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "02.10",
+    "titulo": "Práctica: tarjetas de productos y página adaptable",
+    "archivos": [
+      "material/02_CSS/CLASE_10.md",
+      "material/02_CSS/EJERCICIOS_10.md",
+      "material/02_CSS/SOLUCIONES_10.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.01",
+    "titulo": "Consola, valores, variables y tipos",
+    "archivos": [
+      "material/03_JavaScript/CLASE_01.md",
+      "material/03_JavaScript/EJERCICIOS_01.md",
+      "material/03_JavaScript/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.02",
+    "titulo": "Operadores, conversiones y comparaciones",
+    "archivos": [
+      "material/03_JavaScript/CLASE_02.md",
+      "material/03_JavaScript/EJERCICIOS_02.md",
+      "material/03_JavaScript/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.03",
+    "titulo": "Condiciones y decisiones",
+    "archivos": [
+      "material/03_JavaScript/CLASE_03.md",
+      "material/03_JavaScript/EJERCICIOS_03.md",
+      "material/03_JavaScript/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.04",
+    "titulo": "Bucles y seguimiento paso a paso",
+    "archivos": [
+      "material/03_JavaScript/CLASE_04.md",
+      "material/03_JavaScript/EJERCICIOS_04.md",
+      "material/03_JavaScript/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.05",
+    "titulo": "Funciones, parámetros, retorno y alcance",
+    "archivos": [
+      "material/03_JavaScript/CLASE_05.md",
+      "material/03_JavaScript/EJERCICIOS_05.md",
+      "material/03_JavaScript/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.06",
+    "titulo": "Strings, arrays y métodos de recorrido",
+    "archivos": [
+      "material/03_JavaScript/CLASE_06.md",
+      "material/03_JavaScript/EJERCICIOS_06.md",
+      "material/03_JavaScript/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.07",
+    "titulo": "Objetos y nociones de clases",
+    "archivos": [
+      "material/03_JavaScript/CLASE_07.md",
+      "material/03_JavaScript/EJERCICIOS_07.md",
+      "material/03_JavaScript/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.08",
+    "titulo": "DOM: seleccionar, crear y modificar elementos",
+    "archivos": [
+      "material/03_JavaScript/CLASE_08.md",
+      "material/03_JavaScript/EJERCICIOS_08.md",
+      "material/03_JavaScript/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.09",
+    "titulo": "Eventos y formularios",
+    "archivos": [
+      "material/03_JavaScript/CLASE_09.md",
+      "material/03_JavaScript/EJERCICIOS_09.md",
+      "material/03_JavaScript/SOLUCIONES_09.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.10",
+    "titulo": "JSON, localStorage y sessionStorage",
+    "archivos": [
+      "material/03_JavaScript/CLASE_10.md",
+      "material/03_JavaScript/EJERCICIOS_10.md",
+      "material/03_JavaScript/SOLUCIONES_10.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.11",
+    "titulo": "Timers, callbacks y promesas",
+    "archivos": [
+      "material/03_JavaScript/CLASE_11.md",
+      "material/03_JavaScript/EJERCICIOS_11.md",
+      "material/03_JavaScript/SOLUCIONES_11.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.12",
+    "titulo": "async/await, fetch y manejo de errores",
+    "archivos": [
+      "material/03_JavaScript/CLASE_12.md",
+      "material/03_JavaScript/EJERCICIOS_12.md",
+      "material/03_JavaScript/SOLUCIONES_12.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "03.13",
+    "titulo": "Módulos y práctica integradora",
+    "archivos": [
+      "material/03_JavaScript/CLASE_13.md",
+      "material/03_JavaScript/EJERCICIOS_13.md",
+      "material/03_JavaScript/SOLUCIONES_13.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.01",
+    "titulo": "JavaScript y TypeScript: compilación y tipos",
+    "archivos": [
+      "material/04_TypeScript/CLASE_01.md",
+      "material/04_TypeScript/EJERCICIOS_01.md",
+      "material/04_TypeScript/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.02",
+    "titulo": "Tipos básicos, inferencia, arrays y funciones",
+    "archivos": [
+      "material/04_TypeScript/CLASE_02.md",
+      "material/04_TypeScript/EJERCICIOS_02.md",
+      "material/04_TypeScript/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.03",
+    "titulo": "Interfaces y tipos para objetos",
+    "archivos": [
+      "material/04_TypeScript/CLASE_03.md",
+      "material/04_TypeScript/EJERCICIOS_03.md",
+      "material/04_TypeScript/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.04",
+    "titulo": "Uniones, opcionales, null y narrowing",
+    "archivos": [
+      "material/04_TypeScript/CLASE_04.md",
+      "material/04_TypeScript/EJERCICIOS_04.md",
+      "material/04_TypeScript/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.05",
+    "titulo": "Genéricos básicos y diferencias entre any y unknown",
+    "archivos": [
+      "material/04_TypeScript/CLASE_05.md",
+      "material/04_TypeScript/EJERCICIOS_05.md",
+      "material/04_TypeScript/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.06",
+    "titulo": "Node.js, npm, package.json y scripts",
+    "archivos": [
+      "material/04_TypeScript/CLASE_06.md",
+      "material/04_TypeScript/EJERCICIOS_06.md",
+      "material/04_TypeScript/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.07",
+    "titulo": "Vite, módulos y estructura de proyecto",
+    "archivos": [
+      "material/04_TypeScript/CLASE_07.md",
+      "material/04_TypeScript/EJERCICIOS_07.md",
+      "material/04_TypeScript/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.08",
+    "titulo": "DOM tipado y consumo de APIs",
+    "archivos": [
+      "material/04_TypeScript/CLASE_08.md",
+      "material/04_TypeScript/EJERCICIOS_08.md",
+      "material/04_TypeScript/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.09",
+    "titulo": "Práctica: API de Los Simpsons",
+    "archivos": [
+      "material/04_TypeScript/CLASE_09.md",
+      "material/04_TypeScript/EJERCICIOS_09.md",
+      "material/04_TypeScript/SOLUCIONES_09.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "04.10",
+    "titulo": "Preparación del frontend de Food Store",
+    "archivos": [
+      "material/04_TypeScript/CLASE_10.md",
+      "material/04_TypeScript/EJERCICIOS_10.md",
+      "material/04_TypeScript/SOLUCIONES_10.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.01",
+    "titulo": "JDK, JVM, código fuente y ejecución",
+    "archivos": [
+      "material/05_Java/CLASE_01.md",
+      "material/05_Java/EJERCICIOS_01.md",
+      "material/05_Java/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.02",
+    "titulo": "Variables, tipos, operadores y consola",
+    "archivos": [
+      "material/05_Java/CLASE_02.md",
+      "material/05_Java/EJERCICIOS_02.md",
+      "material/05_Java/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.03",
+    "titulo": "Condiciones, bucles, arrays y métodos",
+    "archivos": [
+      "material/05_Java/CLASE_03.md",
+      "material/05_Java/EJERCICIOS_03.md",
+      "material/05_Java/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.04",
+    "titulo": "Clases, objetos, atributos y constructores",
+    "archivos": [
+      "material/05_Java/CLASE_04.md",
+      "material/05_Java/EJERCICIOS_04.md",
+      "material/05_Java/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.05",
+    "titulo": "Encapsulamiento, getters y setters",
+    "archivos": [
+      "material/05_Java/CLASE_05.md",
+      "material/05_Java/EJERCICIOS_05.md",
+      "material/05_Java/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.06",
+    "titulo": "static, referencias y null",
+    "archivos": [
+      "material/05_Java/CLASE_06.md",
+      "material/05_Java/EJERCICIOS_06.md",
+      "material/05_Java/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.07",
+    "titulo": "Herencia, composición y clases abstractas",
+    "archivos": [
+      "material/05_Java/CLASE_07.md",
+      "material/05_Java/EJERCICIOS_07.md",
+      "material/05_Java/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.08",
+    "titulo": "Interfaces y polimorfismo",
+    "archivos": [
+      "material/05_Java/CLASE_08.md",
+      "material/05_Java/EJERCICIOS_08.md",
+      "material/05_Java/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.09",
+    "titulo": "Excepciones y manejo de errores",
+    "archivos": [
+      "material/05_Java/CLASE_09.md",
+      "material/05_Java/EJERCICIOS_09.md",
+      "material/05_Java/SOLUCIONES_09.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.10",
+    "titulo": "Paquetes, dependencias y estructura de proyecto",
+    "archivos": [
+      "material/05_Java/CLASE_10.md",
+      "material/05_Java/EJERCICIOS_10.md",
+      "material/05_Java/SOLUCIONES_10.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "05.11",
+    "titulo": "Práctica: productos y clientes",
+    "archivos": [
+      "material/05_Java/CLASE_11.md",
+      "material/05_Java/EJERCICIOS_11.md",
+      "material/05_Java/SOLUCIONES_11.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "06.01",
+    "titulo": "Identidad de referencias y significado de igualdad",
+    "archivos": [
+      "material/06_Metodos_objetos/CLASE_01.md",
+      "material/06_Metodos_objetos/EJERCICIOS_01.md",
+      "material/06_Metodos_objetos/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "06.02",
+    "titulo": "toString y representación legible",
+    "archivos": [
+      "material/06_Metodos_objetos/CLASE_02.md",
+      "material/06_Metodos_objetos/EJERCICIOS_02.md",
+      "material/06_Metodos_objetos/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "06.03",
+    "titulo": "equals y su contrato",
+    "archivos": [
+      "material/06_Metodos_objetos/CLASE_03.md",
+      "material/06_Metodos_objetos/EJERCICIOS_03.md",
+      "material/06_Metodos_objetos/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "06.04",
+    "titulo": "hashCode y relación con equals",
+    "archivos": [
+      "material/06_Metodos_objetos/CLASE_04.md",
+      "material/06_Metodos_objetos/EJERCICIOS_04.md",
+      "material/06_Metodos_objetos/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "06.05",
+    "titulo": "Práctica: objetos repetidos y claves estables",
+    "archivos": [
+      "material/06_Metodos_objetos/CLASE_05.md",
+      "material/06_Metodos_objetos/EJERCICIOS_05.md",
+      "material/06_Metodos_objetos/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "07.01",
+    "titulo": "List, Set y Map: qué problema resuelve cada uno",
+    "archivos": [
+      "material/07_Colecciones/CLASE_01.md",
+      "material/07_Colecciones/EJERCICIOS_01.md",
+      "material/07_Colecciones/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "07.02",
+    "titulo": "ArrayList y recorrido de listas",
+    "archivos": [
+      "material/07_Colecciones/CLASE_02.md",
+      "material/07_Colecciones/EJERCICIOS_02.md",
+      "material/07_Colecciones/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "07.03",
+    "titulo": "HashSet y duplicados",
+    "archivos": [
+      "material/07_Colecciones/CLASE_03.md",
+      "material/07_Colecciones/EJERCICIOS_03.md",
+      "material/07_Colecciones/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "07.04",
+    "titulo": "HashMap: claves y valores",
+    "archivos": [
+      "material/07_Colecciones/CLASE_04.md",
+      "material/07_Colecciones/EJERCICIOS_04.md",
+      "material/07_Colecciones/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "07.05",
+    "titulo": "Iteradores, búsqueda y eliminación",
+    "archivos": [
+      "material/07_Colecciones/CLASE_05.md",
+      "material/07_Colecciones/EJERCICIOS_05.md",
+      "material/07_Colecciones/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "07.06",
+    "titulo": "Comparable y Comparator",
+    "archivos": [
+      "material/07_Colecciones/CLASE_06.md",
+      "material/07_Colecciones/EJERCICIOS_06.md",
+      "material/07_Colecciones/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "07.07",
+    "titulo": "Práctica: catálogo e índice de productos",
+    "archivos": [
+      "material/07_Colecciones/CLASE_07.md",
+      "material/07_Colecciones/EJERCICIOS_07.md",
+      "material/07_Colecciones/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "08.01",
+    "titulo": "Anotaciones y código repetitivo",
+    "archivos": [
+      "material/08_Lombok_DTO/CLASE_01.md",
+      "material/08_Lombok_DTO/EJERCICIOS_01.md",
+      "material/08_Lombok_DTO/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "08.02",
+    "titulo": "Lombok: getters, setters, constructores y builder",
+    "archivos": [
+      "material/08_Lombok_DTO/CLASE_02.md",
+      "material/08_Lombok_DTO/EJERCICIOS_02.md",
+      "material/08_Lombok_DTO/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "08.03",
+    "titulo": "DTO: diferencia con entidad y modelo de pantalla",
+    "archivos": [
+      "material/08_Lombok_DTO/CLASE_03.md",
+      "material/08_Lombok_DTO/EJERCICIOS_03.md",
+      "material/08_Lombok_DTO/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "08.04",
+    "titulo": "Mapeo entre entidad y DTO",
+    "archivos": [
+      "material/08_Lombok_DTO/CLASE_04.md",
+      "material/08_Lombok_DTO/EJERCICIOS_04.md",
+      "material/08_Lombok_DTO/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "08.05",
+    "titulo": "Records y datos de transporte",
+    "archivos": [
+      "material/08_Lombok_DTO/CLASE_05.md",
+      "material/08_Lombok_DTO/EJERCICIOS_05.md",
+      "material/08_Lombok_DTO/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "08.06",
+    "titulo": "Práctica: DTO de producto y factura",
+    "archivos": [
+      "material/08_Lombok_DTO/CLASE_06.md",
+      "material/08_Lombok_DTO/EJERCICIOS_06.md",
+      "material/08_Lombok_DTO/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "09.01",
+    "titulo": "Clases y métodos genéricos",
+    "archivos": [
+      "material/09_Genericos_Reflection/CLASE_01.md",
+      "material/09_Genericos_Reflection/EJERCICIOS_01.md",
+      "material/09_Genericos_Reflection/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "09.02",
+    "titulo": "Límites de tipos y wildcards",
+    "archivos": [
+      "material/09_Genericos_Reflection/CLASE_02.md",
+      "material/09_Genericos_Reflection/EJERCICIOS_02.md",
+      "material/09_Genericos_Reflection/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "09.03",
+    "titulo": "Prácticas de genéricos del campus",
+    "archivos": [
+      "material/09_Genericos_Reflection/CLASE_03.md",
+      "material/09_Genericos_Reflection/EJERCICIOS_03.md",
+      "material/09_Genericos_Reflection/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "09.04",
+    "titulo": "Class y metadatos de una clase",
+    "archivos": [
+      "material/09_Genericos_Reflection/CLASE_04.md",
+      "material/09_Genericos_Reflection/EJERCICIOS_04.md",
+      "material/09_Genericos_Reflection/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "09.05",
+    "titulo": "Inspección de campos, métodos y anotaciones",
+    "archivos": [
+      "material/09_Genericos_Reflection/CLASE_05.md",
+      "material/09_Genericos_Reflection/EJERCICIOS_05.md",
+      "material/09_Genericos_Reflection/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "09.06",
+    "titulo": "Práctica de Reflection y relación con frameworks",
+    "archivos": [
+      "material/09_Genericos_Reflection/CLASE_06.md",
+      "material/09_Genericos_Reflection/EJERCICIOS_06.md",
+      "material/09_Genericos_Reflection/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.01",
+    "titulo": "Interfaces funcionales y lambdas",
+    "archivos": [
+      "material/10_Funcional/CLASE_01.md",
+      "material/10_Funcional/EJERCICIOS_01.md",
+      "material/10_Funcional/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.02",
+    "titulo": "Predicate, Function, Consumer y Supplier",
+    "archivos": [
+      "material/10_Funcional/CLASE_02.md",
+      "material/10_Funcional/EJERCICIOS_02.md",
+      "material/10_Funcional/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.03",
+    "titulo": "Referencias a métodos",
+    "archivos": [
+      "material/10_Funcional/CLASE_03.md",
+      "material/10_Funcional/EJERCICIOS_03.md",
+      "material/10_Funcional/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.04",
+    "titulo": "Streams: origen, operaciones intermedias y terminales",
+    "archivos": [
+      "material/10_Funcional/CLASE_04.md",
+      "material/10_Funcional/EJERCICIOS_04.md",
+      "material/10_Funcional/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.05",
+    "titulo": "filter, map y sorted",
+    "archivos": [
+      "material/10_Funcional/CLASE_05.md",
+      "material/10_Funcional/EJERCICIOS_05.md",
+      "material/10_Funcional/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.06",
+    "titulo": "reduce y collect",
+    "archivos": [
+      "material/10_Funcional/CLASE_06.md",
+      "material/10_Funcional/EJERCICIOS_06.md",
+      "material/10_Funcional/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.07",
+    "titulo": "Agrupaciones y Optional",
+    "archivos": [
+      "material/10_Funcional/CLASE_07.md",
+      "material/10_Funcional/EJERCICIOS_07.md",
+      "material/10_Funcional/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "10.08",
+    "titulo": "Práctica: consultas sobre productos y facturas",
+    "archivos": [
+      "material/10_Funcional/CLASE_08.md",
+      "material/10_Funcional/EJERCICIOS_08.md",
+      "material/10_Funcional/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.01",
+    "titulo": "Persistencia, tablas, filas y columnas",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_01.md",
+      "material/11_Bases_de_datos/EJERCICIOS_01.md",
+      "material/11_Bases_de_datos/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.02",
+    "titulo": "Claves primarias, foráneas y restricciones",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_02.md",
+      "material/11_Bases_de_datos/EJERCICIOS_02.md",
+      "material/11_Bases_de_datos/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.03",
+    "titulo": "Relaciones uno a uno, uno a muchos y muchos a muchos",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_03.md",
+      "material/11_Bases_de_datos/EJERCICIOS_03.md",
+      "material/11_Bases_de_datos/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.04",
+    "titulo": "SELECT, WHERE y ORDER BY",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_04.md",
+      "material/11_Bases_de_datos/EJERCICIOS_04.md",
+      "material/11_Bases_de_datos/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.05",
+    "titulo": "INSERT, UPDATE y DELETE",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_05.md",
+      "material/11_Bases_de_datos/EJERCICIOS_05.md",
+      "material/11_Bases_de_datos/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.06",
+    "titulo": "JOIN, agregaciones y agrupamiento",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_06.md",
+      "material/11_Bases_de_datos/EJERCICIOS_06.md",
+      "material/11_Bases_de_datos/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.07",
+    "titulo": "Transacciones: confirmar o revertir cambios",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_07.md",
+      "material/11_Bases_de_datos/EJERCICIOS_07.md",
+      "material/11_Bases_de_datos/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "11.08",
+    "titulo": "Práctica: productos, clientes, facturas y detalles",
+    "archivos": [
+      "material/11_Bases_de_datos/CLASE_08.md",
+      "material/11_Bases_de_datos/EJERCICIOS_08.md",
+      "material/11_Bases_de_datos/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.01",
+    "titulo": "ORM, JPA y proveedor de persistencia",
+    "archivos": [
+      "material/12_JPA/CLASE_01.md",
+      "material/12_JPA/EJERCICIOS_01.md",
+      "material/12_JPA/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.02",
+    "titulo": "Entity, Table, Id, GeneratedValue y Column",
+    "archivos": [
+      "material/12_JPA/CLASE_02.md",
+      "material/12_JPA/EJERCICIOS_02.md",
+      "material/12_JPA/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.03",
+    "titulo": "Relaciones, JoinColumn y lado propietario",
+    "archivos": [
+      "material/12_JPA/CLASE_03.md",
+      "material/12_JPA/EJERCICIOS_03.md",
+      "material/12_JPA/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.04",
+    "titulo": "Herencia y clases base persistentes",
+    "archivos": [
+      "material/12_JPA/CLASE_04.md",
+      "material/12_JPA/EJERCICIOS_04.md",
+      "material/12_JPA/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.05",
+    "titulo": "EntityManager y ciclo de vida",
+    "archivos": [
+      "material/12_JPA/CLASE_05.md",
+      "material/12_JPA/EJERCICIOS_05.md",
+      "material/12_JPA/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.06",
+    "titulo": "Persistencia, consulta, modificación y eliminación",
+    "archivos": [
+      "material/12_JPA/CLASE_06.md",
+      "material/12_JPA/EJERCICIOS_06.md",
+      "material/12_JPA/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.07",
+    "titulo": "Cascadas, orphanRemoval y carga de relaciones",
+    "archivos": [
+      "material/12_JPA/CLASE_07.md",
+      "material/12_JPA/EJERCICIOS_07.md",
+      "material/12_JPA/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.08",
+    "titulo": "Transacciones y consistencia",
+    "archivos": [
+      "material/12_JPA/CLASE_08.md",
+      "material/12_JPA/EJERCICIOS_08.md",
+      "material/12_JPA/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "12.09",
+    "titulo": "Prácticas de JPA y modelo FacturaArca",
+    "archivos": [
+      "material/12_JPA/CLASE_09.md",
+      "material/12_JPA/EJERCICIOS_09.md",
+      "material/12_JPA/SOLUCIONES_09.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.01",
+    "titulo": "JPQL frente a SQL y parámetros nombrados",
+    "archivos": [
+      "material/13_JPQL/CLASE_01.md",
+      "material/13_JPQL/EJERCICIOS_01.md",
+      "material/13_JPQL/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.02",
+    "titulo": "Selección, proyecciones y filtros",
+    "archivos": [
+      "material/13_JPQL/CLASE_02.md",
+      "material/13_JPQL/EJERCICIOS_02.md",
+      "material/13_JPQL/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.03",
+    "titulo": "Fechas, texto, IN, DISTINCT y ordenamiento",
+    "archivos": [
+      "material/13_JPQL/CLASE_03.md",
+      "material/13_JPQL/EJERCICIOS_03.md",
+      "material/13_JPQL/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.04",
+    "titulo": "Navegación de relaciones, INNER JOIN y LEFT JOIN",
+    "archivos": [
+      "material/13_JPQL/CLASE_04.md",
+      "material/13_JPQL/EJERCICIOS_04.md",
+      "material/13_JPQL/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.05",
+    "titulo": "COUNT, SUM, AVG, GROUP BY y HAVING",
+    "archivos": [
+      "material/13_JPQL/CLASE_05.md",
+      "material/13_JPQL/EJERCICIOS_05.md",
+      "material/13_JPQL/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.06",
+    "titulo": "Subconsultas, EXISTS y NOT EXISTS",
+    "archivos": [
+      "material/13_JPQL/CLASE_06.md",
+      "material/13_JPQL/EJERCICIOS_06.md",
+      "material/13_JPQL/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.07",
+    "titulo": "CASE y consultas avanzadas",
+    "archivos": [
+      "material/13_JPQL/CLASE_07.md",
+      "material/13_JPQL/EJERCICIOS_07.md",
+      "material/13_JPQL/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "13.08",
+    "titulo": "Práctica escalonada: los cinco niveles del TP grupal",
+    "archivos": [
+      "material/13_JPQL/CLASE_08.md",
+      "material/13_JPQL/EJERCICIOS_08.md",
+      "material/13_JPQL/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.01",
+    "titulo": "HTTP: URL, petición, respuesta, JSON y códigos de estado",
+    "archivos": [
+      "material/14_Spring/CLASE_01.md",
+      "material/14_Spring/EJERCICIOS_01.md",
+      "material/14_Spring/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.02",
+    "titulo": "API, recursos y operaciones CRUD",
+    "archivos": [
+      "material/14_Spring/CLASE_02.md",
+      "material/14_Spring/EJERCICIOS_02.md",
+      "material/14_Spring/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.03",
+    "titulo": "Spring, Spring Boot y primer proyecto",
+    "archivos": [
+      "material/14_Spring/CLASE_03.md",
+      "material/14_Spring/EJERCICIOS_03.md",
+      "material/14_Spring/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.04",
+    "titulo": "Beans, ApplicationContext e inyección de dependencias",
+    "archivos": [
+      "material/14_Spring/CLASE_04.md",
+      "material/14_Spring/EJERCICIOS_04.md",
+      "material/14_Spring/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.05",
+    "titulo": "Configuración, starters y perfiles",
+    "archivos": [
+      "material/14_Spring/CLASE_05.md",
+      "material/14_Spring/EJERCICIOS_05.md",
+      "material/14_Spring/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.06",
+    "titulo": "Capas: Controller, Service y Repository",
+    "archivos": [
+      "material/14_Spring/CLASE_06.md",
+      "material/14_Spring/EJERCICIOS_06.md",
+      "material/14_Spring/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.07",
+    "titulo": "Endpoints GET y parámetros",
+    "archivos": [
+      "material/14_Spring/CLASE_07.md",
+      "material/14_Spring/EJERCICIOS_07.md",
+      "material/14_Spring/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.08",
+    "titulo": "DTO de entrada y salida; validación",
+    "archivos": [
+      "material/14_Spring/CLASE_08.md",
+      "material/14_Spring/EJERCICIOS_08.md",
+      "material/14_Spring/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.09",
+    "titulo": "POST, PUT y DELETE",
+    "archivos": [
+      "material/14_Spring/CLASE_09.md",
+      "material/14_Spring/EJERCICIOS_09.md",
+      "material/14_Spring/SOLUCIONES_09.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.10",
+    "titulo": "Errores, excepciones y ControllerAdvice",
+    "archivos": [
+      "material/14_Spring/CLASE_10.md",
+      "material/14_Spring/EJERCICIOS_10.md",
+      "material/14_Spring/SOLUCIONES_10.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.11",
+    "titulo": "Spring Data JPA, H2 y transacciones",
+    "archivos": [
+      "material/14_Spring/CLASE_11.md",
+      "material/14_Spring/EJERCICIOS_11.md",
+      "material/14_Spring/SOLUCIONES_11.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "14.12",
+    "titulo": "Práctica: CRUD de cursos y facturación",
+    "archivos": [
+      "material/14_Spring/CLASE_12.md",
+      "material/14_Spring/EJERCICIOS_12.md",
+      "material/14_Spring/SOLUCIONES_12.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.01",
+    "titulo": "Seguir una petición del frontend al backend",
+    "archivos": [
+      "material/15_Integracion/CLASE_01.md",
+      "material/15_Integracion/EJERCICIOS_01.md",
+      "material/15_Integracion/SOLUCIONES_01.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.02",
+    "titulo": "Alinear interfaces TypeScript y DTO Java",
+    "archivos": [
+      "material/15_Integracion/CLASE_02.md",
+      "material/15_Integracion/EJERCICIOS_02.md",
+      "material/15_Integracion/SOLUCIONES_02.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.03",
+    "titulo": "Estados de carga, error, resultado y CORS",
+    "archivos": [
+      "material/15_Integracion/CLASE_03.md",
+      "material/15_Integracion/EJERCICIOS_03.md",
+      "material/15_Integracion/SOLUCIONES_03.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.04",
+    "titulo": "Recorrido del proyecto de facturación descomprimido",
+    "archivos": [
+      "material/15_Integracion/CLASE_04.md",
+      "material/15_Integracion/EJERCICIOS_04.md",
+      "material/15_Integracion/SOLUCIONES_04.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.05",
+    "titulo": "Food Store: catálogo, filtros y detalle",
+    "archivos": [
+      "material/15_Integracion/CLASE_05.md",
+      "material/15_Integracion/EJERCICIOS_05.md",
+      "material/15_Integracion/SOLUCIONES_05.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.06",
+    "titulo": "Carrito, cantidades y localStorage",
+    "archivos": [
+      "material/15_Integracion/CLASE_06.md",
+      "material/15_Integracion/EJERCICIOS_06.md",
+      "material/15_Integracion/SOLUCIONES_06.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.07",
+    "titulo": "Pedidos y administración",
+    "archivos": [
+      "material/15_Integracion/CLASE_07.md",
+      "material/15_Integracion/EJERCICIOS_07.md",
+      "material/15_Integracion/SOLUCIONES_07.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.08",
+    "titulo": "Sesión didáctica y permisos: alcance del ejemplo",
+    "archivos": [
+      "material/15_Integracion/CLASE_08.md",
+      "material/15_Integracion/EJERCICIOS_08.md",
+      "material/15_Integracion/SOLUCIONES_08.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  },
+  {
+    "id": "15.09",
+    "titulo": "Verificación de requisitos y explicación del proyecto",
+    "archivos": [
+      "material/15_Integracion/CLASE_09.md",
+      "material/15_Integracion/EJERCICIOS_09.md",
+      "material/15_Integracion/SOLUCIONES_09.md"
+    ],
+    "revision": "explicación, ejemplo/contexto, variación y límite, práctica guiada, dos ejercicios, pistas y soluciones"
+  }
+]

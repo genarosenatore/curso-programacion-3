@@ -2,21 +2,21 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_05.md) · [Clase siguiente](../12_JPA/CLASE_07.md)
 
-## Qué vas a aprender
+## Dar a cada operación una intención
 
-Vamos a trabajar **persistencia, consulta, modificación y eliminación**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+persist incorpora una entidad nueva al contexto; remove marca una gestionada para eliminar. merge copia estado desde un objeto hacia una instancia gestionada y **devuelve esa instancia**. No vuelve necesariamente gestionado el objeto original recibido. Su parecido con «guardar cualquier cosa» puede esconder la diferencia.
 
-## Antes de empezar
+Si separado representa el dato leído en un contexto cerrado, `Producto gestionado=em.merge(separado)` permite trabajar con gestionado. Escribir más cambios solo en separado después no garantiza que se sigan. En ausencia de otra instancia gestionada, el proveedor puede obtenerla o crearla según identidad y estado; no uses merge como una verificación de existencia de una operación de actualización.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Actualizar lo permitido
 
-## Explicación desde cero
+Para actualizar nombre: validá texto presente y no vacío; inicia transacción; find por id; si falta, define rechazo; luego cambia el campo aceptado; commit confirma. No cambies id por el enviado en el cuerpo ni copies relaciones sin resolver sus referencias. Un DTO parcial con null en campos omitidos puede sobrescribir datos si se mezcla indiscriminadamente.
 
-persist se usa para una entidad nueva. merge copia el estado de un objeto en una instancia gestionada y devuelve esa instancia; no vuelve gestionada necesariamente la referencia que le pasamos. remove elimina una entidad gestionada. Las escrituras necesitan un límite transaccional adecuado.
+El fragmento inferior compara APIs y no es una operación que necesariamente cree, mezcle y borre seguida. `productoSeparado` debe existir y pertenecer al mismo modelo configurado. Usá [PersistenciaDemo.java](../Ejemplos/persistencia/src/main/java/curso/PersistenciaDemo.java), con secciones de creación, actualización, rollback y eliminación que enseñan estados completos.
 
-En la aplicación Spring usaremos servicios y repositorios para operaciones habituales, pero entender estas APIs explica muchos comportamientos. Actualizar solo campos permitidos reduce el riesgo de sobrescribir datos con null de un objeto incompleto.
+Las escrituras requieren transacción adecuada. Un id inexistente al borrar necesita una política: no encontrado o ausencia ya satisfecha, según contrato. Una clave foránea puede impedir remove si otros objetos lo referencian y no hay política válida. No arregles eso aplicando cascadas a todo: enseñaremos sus efectos en la próxima clase.
 
-## Ejemplo
+## Ejemplo de la clase
 
 ```java
 // En un contexto transaccional:
@@ -28,36 +28,20 @@ em.remove(gestionado);
 
 [Abrir el fragmento como archivo](fragmentos/clase_06.java) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Estos fragmentos requieren un proyecto JPA configurado y las entidades mencionadas. El proyecto de apoyo está enlazado en la guía de ejecución; para FacturaVenta usá el modelo del campus mapeado según su consigna.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 Los objetos del ejemplo deben pertenecer al modelo configurado. persist registra nuevo; merge devuelve la copia gestionada; remove marca la gestionada para borrado. No es una receta para crear y borrar en una misma operación, sino una comparación de APIs.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Ignorar el resultado de merge y continuar con la referencia separada deja cambios fuera del seguimiento. Actualizar un nombre vacío puede pasar hasta la base si no hay validación suficiente. find ausente y getNombre posterior produce otro error, que debe evitarse antes.
 
-Diseñá una actualización de nombre usando find y explicá qué validás antes de asignar.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_06.md). Las [soluciones explicadas](SOLUCIONES_06.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Ignorar el objeto devuelto por merge y seguir modificando el objeto separado.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-persist se usa para una entidad nueva. merge copia el estado de un objeto en una instancia gestionada y devuelve esa instancia; no vuelve gestionada necesariamente la referencia que le pasamos.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **12.06** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_06.md). Las [soluciones razonadas](SOLUCIONES_06.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../12_JPA/CLASE_05.md) · [Clase siguiente](../12_JPA/CLASE_07.md)

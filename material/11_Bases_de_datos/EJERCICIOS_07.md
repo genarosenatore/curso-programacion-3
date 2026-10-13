@@ -1,23 +1,29 @@
 # Práctica 11.07 · Transacciones: confirmar o revertir cambios
 
-[Clase](CLASE_07.md) · [Soluciones](SOLUCIONES_07.md)
+[Clase](CLASE_07.md) · [Soluciones separadas](SOLUCIONES_07.md)
 
-## 1. Aplicar lo aprendido
+## 1. Actividad guiada
 
 Explicá qué debería pasar si se guarda una factura pero falla uno de sus detalles.
 
-Escribí o describí tu solución y anotá el resultado esperado antes de compararlo. Para prácticas de código usá una copia de los ejemplos o tu propia carpeta de ejercicios.
+1. Define factura y todos sus detalles como conjunto.
+2. Simula fallo del segundo detalle antes de commit.
+3. Solicita rollback y consulta desde contexto nuevo.
 
-## 2. Explicar el ejemplo
+Anotá el resultado previsto antes de comprobarlo. La explicación del recorrido está en la clase y la solución de esta actividad está separada para consultar después del intento.
 
-Revisá el bloque de código de la clase. Explicá qué hace cada una de sus partes principales y por qué produce el resultado indicado. En ejemplos de configuración, describí qué prepara cada opción y dónde se utiliza.
+## 2. Para resolver por tu cuenta
 
-## 3. Detectar un problema
+Ejecutá la actualización seguida de rollback y anotá valor anterior, durante y posterior.
 
-Analizá esta confusión: «Confundir una operación de múltiples sentencias con una transacción aunque no esté configurada.». Explicá por qué es un problema y cómo lo evitarías en el ejemplo.
+## 3. Combinar lo aprendido
 
-## Pista para el ejercicio 1
+Describí crear factura y dos detalles en una transacción cuando el segundo es inválido. ¿Qué se revierte y por qué no alcanza con capturar el error e informar éxito?
 
-Ambas escrituras pertenecen a una operación que necesita ser coherente.
+## Pistas graduales
 
-Si todavía cuesta, volvé a la explicación y reducí la práctica al primer paso. No hace falta resolver toda una aplicación para comprobar este concepto.
+Usá una pista por vez, después de intentar el ejercicio.
+
+1. La operación incluye todas sus escrituras.
+2. Rollback solo afecta cambios no confirmados.
+3. Capturar puede ocultar el fallo sin revertirlo.

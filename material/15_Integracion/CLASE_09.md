@@ -2,21 +2,23 @@
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_08.md)
 
-## Qué vas a aprender
+## Demostrar comportamiento a partir de requisitos
 
-Vamos a trabajar **verificación de requisitos y explicación del proyecto**. Al terminar deberías poder explicar el ejemplo, modificarlo según la práctica y detectar el error común indicado al final.
+Una matriz de revisión conecta requisito, implementación, caso de prueba, esperado, observado y evidencia. Evita marcar «carrito» completo solo por tener carrito.ts. La pregunta es qué comportamiento pide y cómo se demuestra.
 
-## Antes de empezar
+Para agregar al carrito, el requisito incluye combinar repetidos y conservar estado al rechazar exceso. La prueba usa stock3: agregar2, intentar otras2, comprobar que conserva2. Recargar comprueba almacenamiento bajo su contrato, no stock del servidor. El resultado esperado proviene de la regla, no de lo que el código casualmente mostró.
 
-Leé las clases anteriores en orden. Si una palabra o una operación todavía cuesta, podés volver usando «Clase anterior». El ejemplo de esta clase se concentra en una idea; no necesitás entender las unidades posteriores para seguirla.
+## Revisar normal, vacío y fallo
 
-## Explicación desde cero
+Catálogo: carga normal, [], red fallida. Detalle: existente, ausente y agotado. Carrito: repetir, exceder, quitar último y JSON roto. Pedido: referencias válidas e inválidas, cálculo confirmado y error sin escritura parcial. HTTP:201 con identidad,204 sin JSON y400/404 con mensaje. Elige casos por riesgos reales y no una lista de cien pruebas que repiten lo mismo.
 
-Cerrar un proyecto significa demostrar los requisitos y explicar sus decisiones. Armá una matriz de requisito, implementación y prueba. Incluí el camino normal y errores: lista vacía, dato inválido, recurso ausente, red fallida, stock insuficiente y respuesta sin cuerpo.
+El README debe indicar herramientas, carpetas desde donde ejecutar, comandos, URLs, datos iniciales y límites. Una defensa del proyecto puede seguir una petición completa y justificar tipo, unidad, relación, validación y transacción. Preguntas de comprensión piden explicar un cambio o un caso límite; recordar el nombre de una anotación no demuestra ese recorrido.
 
-Un README útil explica cómo instalar, arrancar y probar, además de supuestos y límites. La defensa del proyecto consiste en seguir un flujo y justificar modelos y reglas. Podés consultar el chat con un archivo o fragmento concreto y lo revisamos; las clases ya quedan listas para estudiar a tu ritmo.
+Utiliza los ejemplos de [EJEMPLOS.md](../EJEMPLOS.md) y realiza prácticas en tus archivos; consulta en el chat con clase, código y esperado/obtenido. Los cuestionarios de unidad comprueban conceptos enseñados y su corrección explica alternativas, pero no califican tu programa automáticamente ni reemplazan evaluación oficial.
 
-## Ejemplo
+Compara la matriz final con la consigna completa del campus antes de una entrega. El laboratorio de apoyo enseña mecanismos y tiene límites explícitos; no afirma ser Food Store o FacturaArca completos. Si una clase o un proyecto todavía requiere adivinar un paso, regístralo como pendiente y vuelve al fundamento que lo explica.
+
+## Ejemplo de la clase
 
 ```text
 Requisito: agregar al carrito
@@ -27,36 +29,20 @@ Resultado esperado: cantidades coherentes y error visible sin perder el carrito
 
 [Abrir el fragmento como archivo](fragmentos/clase_09.txt) · [Cómo ejecutar los ejemplos completos](../EJEMPLOS.md)
 
-Los ejemplos muestran piezas de integración. La guía de ejecución enlaza la tienda local y la API de productos de apoyo; las clases distinguen esos proyectos del sistema completo del campus.
-
-## Leamos el ejemplo paso a paso
+## Qué ocurre al seguirlo
 
 La prueba se diseña a partir del requisito y no de lo que casualmente hizo el código. El inventario de clase y los ejercicios permiten completar un registro de avance. Los ejemplos de apoyo comprueban conceptos; la matriz final se compara con toda la consigna Food Store o facturación, no solo con sus capturas.
 
-Antes de continuar, explicá con tus palabras la función de las instrucciones principales. Compará la salida o comportamiento descrito con lo que observás al probarlo. Si no coincide, revisá entrada, contexto de ejecución y resultado antes de cambiar el código.
+## Cambiar una decisión y explorar un límite
 
-## Práctica
+Una captura de carrito con total correcto no prueba exceso ni recuperación. Un archivo de test que espera lo que el programa devuelve sin justificar la regla repite el error. Cada evidencia necesita un resultado previsto independiente.
 
-Escribí cinco requisitos de un proyecto, con caso normal, caso de error y evidencia de resultado para cada uno.
-
-Abrí [los ejercicios y las pistas](EJERCICIOS_09.md). Las [soluciones explicadas](SOLUCIONES_09.md) están preparadas para consultar después de intentarlo.
-
-## Error común
+## Confusión que conviene evitar
 
 Declarar completado un requisito solo porque existe un archivo o un botón con ese nombre.
 
-## Resumen para repasar
+## Practicar y comprobar comprensión
 
-Cerrar un proyecto significa demostrar los requisitos y explicar sus decisiones. Armá una matriz de requisito, implementación y prueba.
-
-Revisá qué parte del ejemplo realiza la tarea, qué entrada acepta y qué ocurre en el caso que pide la práctica. El error común sirve como comprobación de una distinción que conviene conservar al seguir.
-
-## Comprobación antes de seguir
-
-- Puedo explicar la idea y el ejemplo sin leerlos palabra por palabra.
-- Puedo resolver o describir la práctica y comparar con su solución.
-- Puedo explicar por qué el error común produce un problema.
-
-Podés seguir a tu ritmo y volver a repasar. Si me consultás, indicá el código **15.09** y la parte que te genera dudas.
+Seguí [la actividad guiada y los ejercicios](EJERCICIOS_09.md). Las [soluciones razonadas](SOLUCIONES_09.md) están en una pestaña separada. Antes de avanzar, intentá justificar el resultado del caso normal y del caso límite con los pasos de esta clase.
 
 [Inicio](../INICIO.md) · [Unidad](GUIA.md) · [Clase anterior](../15_Integracion/CLASE_08.md)

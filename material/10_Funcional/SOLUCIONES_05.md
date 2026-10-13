@@ -1,21 +1,15 @@
 # Soluciones 10.05 · filter, map y sorted
 
-[Clase](CLASE_05.md) · [Ejercicios](EJERCICIOS_05.md)
+[Clase](CLASE_05.md) · [Práctica](EJERCICIOS_05.md)
 
-## 1. Una solución explicada
+## 1. Razonamiento de la actividad guiada
 
 productos.stream().filter(p->p.stock()>0&&p.precio()<1500).map(p->p.nombre().toUpperCase(Locale.ROOT)).toList(). Con los datos indicados resulta vacío. Agregá un producto disponible de 1000 y comprobá que aparezca.
 
-Compará el significado y los resultados, no solo los nombres de variables. Una variante es válida si cumple las mismas reglas y explica sus decisiones. Cuando la práctica es de diseño, la respuesta propuesta señala un criterio; contrastalo con el requisito concreto.
+## 2 y 3. Resolver y justificar las decisiones
 
-## 2. Cómo leer el ejemplo
+Con los datos originales la selección es vacía: Cuaderno supera el precio y Lapicera está agotada. Tras agregar dos disponibles baratos, filter selecciona ambos; sorted ordena 800 antes de 1000; map obtiene sus nombres en mayúsculas. Usá `p->p.nombre().toUpperCase(java.util.Locale.ROOT)` si querés fijar la política. El tipo permanece Producto hasta map y pasa a String después.
 
-Hasta sorted, los elementos son Producto. Después de map son String. El resultado es [Cuaderno], porque Lapicera estaba agotada. La ordenación usa int del ejemplo didáctico; el criterio debe reflejar la unidad del precio.
+## Cómo comparar tu respuesta
 
-## 3. Qué conviene corregir
-
-La confusión a evitar es: Llamar precio() después de transformar cada producto a String.
-
-filter selecciona manteniendo el tipo de elementos; map transforma y puede cambiarlo; sorted ordena mediante un criterio. El orden de operaciones define lo que llega a cada paso.
-
-Usá esa distinción y las condiciones del ejemplo para explicar tu corrección. Si tu resultado difiere, pasame la práctica y tu razonamiento; podés consultar sin haber terminado la unidad.
+Una solución alternativa es válida si cumple las reglas de la consigna, explica su recorrido y conserva el resultado en los casos límite. Si falla, ubicá el primer paso donde tu resultado se separa del esperado; ese punto permite corregir la causa.
