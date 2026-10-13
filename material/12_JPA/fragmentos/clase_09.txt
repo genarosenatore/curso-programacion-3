@@ -1,0 +1,6 @@
+// Recorrido de creación:
+// 1. Buscar relaciones obligatorias por id.
+// 2. Construir Factura y sus Detalle.
+// 3. Asignar factura en cada detalle.
+// 4. Persistir y confirmar.
+// 5. Consultar desde un contexto posterior y comparar.

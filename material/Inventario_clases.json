@@ -1,0 +1,806 @@
+[
+  {
+    "unidad": "00_Fundamentos",
+    "clase": 1,
+    "titulo": "Qué es programar y cómo funciona una web",
+    "archivo": "00_Fundamentos/CLASE_01.md"
+  },
+  {
+    "unidad": "00_Fundamentos",
+    "clase": 2,
+    "titulo": "Archivos, carpetas, extensiones y editor de código",
+    "archivo": "00_Fundamentos/CLASE_02.md"
+  },
+  {
+    "unidad": "00_Fundamentos",
+    "clase": 3,
+    "titulo": "Algoritmos: entradas, pasos, decisiones y resultados",
+    "archivo": "00_Fundamentos/CLASE_03.md"
+  },
+  {
+    "unidad": "00_Fundamentos",
+    "clase": 4,
+    "titulo": "Leer errores y comprobar una solución",
+    "archivo": "00_Fundamentos/CLASE_04.md"
+  },
+  {
+    "unidad": "00_Fundamentos",
+    "clase": 5,
+    "titulo": "Git y GitHub: guardar versiones y comprender un repositorio",
+    "archivo": "00_Fundamentos/CLASE_05.md"
+  },
+  {
+    "unidad": "01_HTML",
+    "clase": 1,
+    "titulo": "Documento HTML: doctype, html, head y body",
+    "archivo": "01_HTML/CLASE_01.md"
+  },
+  {
+    "unidad": "01_HTML",
+    "clase": 2,
+    "titulo": "Encabezados, párrafos, listas y caracteres especiales",
+    "archivo": "01_HTML/CLASE_02.md"
+  },
+  {
+    "unidad": "01_HTML",
+    "clase": 3,
+    "titulo": "Enlaces, rutas e imágenes con texto alternativo",
+    "archivo": "01_HTML/CLASE_03.md"
+  },
+  {
+    "unidad": "01_HTML",
+    "clase": 4,
+    "titulo": "Estructura semántica: header, nav, main, section y footer",
+    "archivo": "01_HTML/CLASE_04.md"
+  },
+  {
+    "unidad": "01_HTML",
+    "clase": 5,
+    "titulo": "Tablas para datos",
+    "archivo": "01_HTML/CLASE_05.md"
+  },
+  {
+    "unidad": "01_HTML",
+    "clase": 6,
+    "titulo": "Formularios, labels, tipos de campos y validación nativa",
+    "archivo": "01_HTML/CLASE_06.md"
+  },
+  {
+    "unidad": "01_HTML",
+    "clase": 7,
+    "titulo": "Práctica: página personal, registro y blog",
+    "archivo": "01_HTML/CLASE_07.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 1,
+    "titulo": "Conectar CSS y usar selectores",
+    "archivo": "02_CSS/CLASE_01.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 2,
+    "titulo": "Cascada, herencia y especificidad",
+    "archivo": "02_CSS/CLASE_02.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 3,
+    "titulo": "Colores, texto, unidades y medidas",
+    "archivo": "02_CSS/CLASE_03.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 4,
+    "titulo": "Modelo de caja: contenido, padding, border y margin",
+    "archivo": "02_CSS/CLASE_04.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 5,
+    "titulo": "Display, visibilidad y posicionamiento",
+    "archivo": "02_CSS/CLASE_05.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 6,
+    "titulo": "Flexbox",
+    "archivo": "02_CSS/CLASE_06.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 7,
+    "titulo": "Grid",
+    "archivo": "02_CSS/CLASE_07.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 8,
+    "titulo": "Media queries y diseño adaptable",
+    "archivo": "02_CSS/CLASE_08.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 9,
+    "titulo": "BEM y organización de estilos",
+    "archivo": "02_CSS/CLASE_09.md"
+  },
+  {
+    "unidad": "02_CSS",
+    "clase": 10,
+    "titulo": "Práctica: tarjetas de productos y página adaptable",
+    "archivo": "02_CSS/CLASE_10.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 1,
+    "titulo": "Consola, valores, variables y tipos",
+    "archivo": "03_JavaScript/CLASE_01.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 2,
+    "titulo": "Operadores, conversiones y comparaciones",
+    "archivo": "03_JavaScript/CLASE_02.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 3,
+    "titulo": "Condiciones y decisiones",
+    "archivo": "03_JavaScript/CLASE_03.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 4,
+    "titulo": "Bucles y seguimiento paso a paso",
+    "archivo": "03_JavaScript/CLASE_04.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 5,
+    "titulo": "Funciones, parámetros, retorno y alcance",
+    "archivo": "03_JavaScript/CLASE_05.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 6,
+    "titulo": "Strings, arrays y métodos de recorrido",
+    "archivo": "03_JavaScript/CLASE_06.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 7,
+    "titulo": "Objetos y nociones de clases",
+    "archivo": "03_JavaScript/CLASE_07.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 8,
+    "titulo": "DOM: seleccionar, crear y modificar elementos",
+    "archivo": "03_JavaScript/CLASE_08.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 9,
+    "titulo": "Eventos y formularios",
+    "archivo": "03_JavaScript/CLASE_09.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 10,
+    "titulo": "JSON, localStorage y sessionStorage",
+    "archivo": "03_JavaScript/CLASE_10.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 11,
+    "titulo": "Timers, callbacks y promesas",
+    "archivo": "03_JavaScript/CLASE_11.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 12,
+    "titulo": "async/await, fetch y manejo de errores",
+    "archivo": "03_JavaScript/CLASE_12.md"
+  },
+  {
+    "unidad": "03_JavaScript",
+    "clase": 13,
+    "titulo": "Módulos y práctica integradora",
+    "archivo": "03_JavaScript/CLASE_13.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 1,
+    "titulo": "JavaScript y TypeScript: compilación y tipos",
+    "archivo": "04_TypeScript/CLASE_01.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 2,
+    "titulo": "Tipos básicos, inferencia, arrays y funciones",
+    "archivo": "04_TypeScript/CLASE_02.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 3,
+    "titulo": "Interfaces y tipos para objetos",
+    "archivo": "04_TypeScript/CLASE_03.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 4,
+    "titulo": "Uniones, opcionales, null y narrowing",
+    "archivo": "04_TypeScript/CLASE_04.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 5,
+    "titulo": "Genéricos básicos y diferencias entre any y unknown",
+    "archivo": "04_TypeScript/CLASE_05.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 6,
+    "titulo": "Node.js, npm, package.json y scripts",
+    "archivo": "04_TypeScript/CLASE_06.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 7,
+    "titulo": "Vite, módulos y estructura de proyecto",
+    "archivo": "04_TypeScript/CLASE_07.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 8,
+    "titulo": "DOM tipado y consumo de APIs",
+    "archivo": "04_TypeScript/CLASE_08.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 9,
+    "titulo": "Práctica: API de Los Simpsons",
+    "archivo": "04_TypeScript/CLASE_09.md"
+  },
+  {
+    "unidad": "04_TypeScript",
+    "clase": 10,
+    "titulo": "Preparación del frontend de Food Store",
+    "archivo": "04_TypeScript/CLASE_10.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 1,
+    "titulo": "JDK, JVM, código fuente y ejecución",
+    "archivo": "05_Java/CLASE_01.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 2,
+    "titulo": "Variables, tipos, operadores y consola",
+    "archivo": "05_Java/CLASE_02.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 3,
+    "titulo": "Condiciones, bucles, arrays y métodos",
+    "archivo": "05_Java/CLASE_03.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 4,
+    "titulo": "Clases, objetos, atributos y constructores",
+    "archivo": "05_Java/CLASE_04.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 5,
+    "titulo": "Encapsulamiento, getters y setters",
+    "archivo": "05_Java/CLASE_05.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 6,
+    "titulo": "static, referencias y null",
+    "archivo": "05_Java/CLASE_06.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 7,
+    "titulo": "Herencia, composición y clases abstractas",
+    "archivo": "05_Java/CLASE_07.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 8,
+    "titulo": "Interfaces y polimorfismo",
+    "archivo": "05_Java/CLASE_08.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 9,
+    "titulo": "Excepciones y manejo de errores",
+    "archivo": "05_Java/CLASE_09.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 10,
+    "titulo": "Paquetes, dependencias y estructura de proyecto",
+    "archivo": "05_Java/CLASE_10.md"
+  },
+  {
+    "unidad": "05_Java",
+    "clase": 11,
+    "titulo": "Práctica: productos y clientes",
+    "archivo": "05_Java/CLASE_11.md"
+  },
+  {
+    "unidad": "06_Metodos_objetos",
+    "clase": 1,
+    "titulo": "Identidad de referencias y significado de igualdad",
+    "archivo": "06_Metodos_objetos/CLASE_01.md"
+  },
+  {
+    "unidad": "06_Metodos_objetos",
+    "clase": 2,
+    "titulo": "toString y representación legible",
+    "archivo": "06_Metodos_objetos/CLASE_02.md"
+  },
+  {
+    "unidad": "06_Metodos_objetos",
+    "clase": 3,
+    "titulo": "equals y su contrato",
+    "archivo": "06_Metodos_objetos/CLASE_03.md"
+  },
+  {
+    "unidad": "06_Metodos_objetos",
+    "clase": 4,
+    "titulo": "hashCode y relación con equals",
+    "archivo": "06_Metodos_objetos/CLASE_04.md"
+  },
+  {
+    "unidad": "06_Metodos_objetos",
+    "clase": 5,
+    "titulo": "Práctica: objetos repetidos y claves estables",
+    "archivo": "06_Metodos_objetos/CLASE_05.md"
+  },
+  {
+    "unidad": "07_Colecciones",
+    "clase": 1,
+    "titulo": "List, Set y Map: qué problema resuelve cada uno",
+    "archivo": "07_Colecciones/CLASE_01.md"
+  },
+  {
+    "unidad": "07_Colecciones",
+    "clase": 2,
+    "titulo": "ArrayList y recorrido de listas",
+    "archivo": "07_Colecciones/CLASE_02.md"
+  },
+  {
+    "unidad": "07_Colecciones",
+    "clase": 3,
+    "titulo": "HashSet y duplicados",
+    "archivo": "07_Colecciones/CLASE_03.md"
+  },
+  {
+    "unidad": "07_Colecciones",
+    "clase": 4,
+    "titulo": "HashMap: claves y valores",
+    "archivo": "07_Colecciones/CLASE_04.md"
+  },
+  {
+    "unidad": "07_Colecciones",
+    "clase": 5,
+    "titulo": "Iteradores, búsqueda y eliminación",
+    "archivo": "07_Colecciones/CLASE_05.md"
+  },
+  {
+    "unidad": "07_Colecciones",
+    "clase": 6,
+    "titulo": "Comparable y Comparator",
+    "archivo": "07_Colecciones/CLASE_06.md"
+  },
+  {
+    "unidad": "07_Colecciones",
+    "clase": 7,
+    "titulo": "Práctica: catálogo e índice de productos",
+    "archivo": "07_Colecciones/CLASE_07.md"
+  },
+  {
+    "unidad": "08_Lombok_DTO",
+    "clase": 1,
+    "titulo": "Anotaciones y código repetitivo",
+    "archivo": "08_Lombok_DTO/CLASE_01.md"
+  },
+  {
+    "unidad": "08_Lombok_DTO",
+    "clase": 2,
+    "titulo": "Lombok: getters, setters, constructores y builder",
+    "archivo": "08_Lombok_DTO/CLASE_02.md"
+  },
+  {
+    "unidad": "08_Lombok_DTO",
+    "clase": 3,
+    "titulo": "DTO: diferencia con entidad y modelo de pantalla",
+    "archivo": "08_Lombok_DTO/CLASE_03.md"
+  },
+  {
+    "unidad": "08_Lombok_DTO",
+    "clase": 4,
+    "titulo": "Mapeo entre entidad y DTO",
+    "archivo": "08_Lombok_DTO/CLASE_04.md"
+  },
+  {
+    "unidad": "08_Lombok_DTO",
+    "clase": 5,
+    "titulo": "Records y datos de transporte",
+    "archivo": "08_Lombok_DTO/CLASE_05.md"
+  },
+  {
+    "unidad": "08_Lombok_DTO",
+    "clase": 6,
+    "titulo": "Práctica: DTO de producto y factura",
+    "archivo": "08_Lombok_DTO/CLASE_06.md"
+  },
+  {
+    "unidad": "09_Genericos_Reflection",
+    "clase": 1,
+    "titulo": "Clases y métodos genéricos",
+    "archivo": "09_Genericos_Reflection/CLASE_01.md"
+  },
+  {
+    "unidad": "09_Genericos_Reflection",
+    "clase": 2,
+    "titulo": "Límites de tipos y wildcards",
+    "archivo": "09_Genericos_Reflection/CLASE_02.md"
+  },
+  {
+    "unidad": "09_Genericos_Reflection",
+    "clase": 3,
+    "titulo": "Prácticas de genéricos del campus",
+    "archivo": "09_Genericos_Reflection/CLASE_03.md"
+  },
+  {
+    "unidad": "09_Genericos_Reflection",
+    "clase": 4,
+    "titulo": "Class y metadatos de una clase",
+    "archivo": "09_Genericos_Reflection/CLASE_04.md"
+  },
+  {
+    "unidad": "09_Genericos_Reflection",
+    "clase": 5,
+    "titulo": "Inspección de campos, métodos y anotaciones",
+    "archivo": "09_Genericos_Reflection/CLASE_05.md"
+  },
+  {
+    "unidad": "09_Genericos_Reflection",
+    "clase": 6,
+    "titulo": "Práctica de Reflection y relación con frameworks",
+    "archivo": "09_Genericos_Reflection/CLASE_06.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 1,
+    "titulo": "Interfaces funcionales y lambdas",
+    "archivo": "10_Funcional/CLASE_01.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 2,
+    "titulo": "Predicate, Function, Consumer y Supplier",
+    "archivo": "10_Funcional/CLASE_02.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 3,
+    "titulo": "Referencias a métodos",
+    "archivo": "10_Funcional/CLASE_03.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 4,
+    "titulo": "Streams: origen, operaciones intermedias y terminales",
+    "archivo": "10_Funcional/CLASE_04.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 5,
+    "titulo": "filter, map y sorted",
+    "archivo": "10_Funcional/CLASE_05.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 6,
+    "titulo": "reduce y collect",
+    "archivo": "10_Funcional/CLASE_06.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 7,
+    "titulo": "Agrupaciones y Optional",
+    "archivo": "10_Funcional/CLASE_07.md"
+  },
+  {
+    "unidad": "10_Funcional",
+    "clase": 8,
+    "titulo": "Práctica: consultas sobre productos y facturas",
+    "archivo": "10_Funcional/CLASE_08.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 1,
+    "titulo": "Persistencia, tablas, filas y columnas",
+    "archivo": "11_Bases_de_datos/CLASE_01.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 2,
+    "titulo": "Claves primarias, foráneas y restricciones",
+    "archivo": "11_Bases_de_datos/CLASE_02.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 3,
+    "titulo": "Relaciones uno a uno, uno a muchos y muchos a muchos",
+    "archivo": "11_Bases_de_datos/CLASE_03.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 4,
+    "titulo": "SELECT, WHERE y ORDER BY",
+    "archivo": "11_Bases_de_datos/CLASE_04.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 5,
+    "titulo": "INSERT, UPDATE y DELETE",
+    "archivo": "11_Bases_de_datos/CLASE_05.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 6,
+    "titulo": "JOIN, agregaciones y agrupamiento",
+    "archivo": "11_Bases_de_datos/CLASE_06.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 7,
+    "titulo": "Transacciones: confirmar o revertir cambios",
+    "archivo": "11_Bases_de_datos/CLASE_07.md"
+  },
+  {
+    "unidad": "11_Bases_de_datos",
+    "clase": 8,
+    "titulo": "Práctica: productos, clientes, facturas y detalles",
+    "archivo": "11_Bases_de_datos/CLASE_08.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 1,
+    "titulo": "ORM, JPA y proveedor de persistencia",
+    "archivo": "12_JPA/CLASE_01.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 2,
+    "titulo": "Entity, Table, Id, GeneratedValue y Column",
+    "archivo": "12_JPA/CLASE_02.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 3,
+    "titulo": "Relaciones, JoinColumn y lado propietario",
+    "archivo": "12_JPA/CLASE_03.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 4,
+    "titulo": "Herencia y clases base persistentes",
+    "archivo": "12_JPA/CLASE_04.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 5,
+    "titulo": "EntityManager y ciclo de vida",
+    "archivo": "12_JPA/CLASE_05.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 6,
+    "titulo": "Persistencia, consulta, modificación y eliminación",
+    "archivo": "12_JPA/CLASE_06.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 7,
+    "titulo": "Cascadas, orphanRemoval y carga de relaciones",
+    "archivo": "12_JPA/CLASE_07.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 8,
+    "titulo": "Transacciones y consistencia",
+    "archivo": "12_JPA/CLASE_08.md"
+  },
+  {
+    "unidad": "12_JPA",
+    "clase": 9,
+    "titulo": "Prácticas de JPA y modelo FacturaArca",
+    "archivo": "12_JPA/CLASE_09.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 1,
+    "titulo": "JPQL frente a SQL y parámetros nombrados",
+    "archivo": "13_JPQL/CLASE_01.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 2,
+    "titulo": "Selección, proyecciones y filtros",
+    "archivo": "13_JPQL/CLASE_02.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 3,
+    "titulo": "Fechas, texto, IN, DISTINCT y ordenamiento",
+    "archivo": "13_JPQL/CLASE_03.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 4,
+    "titulo": "Navegación de relaciones, INNER JOIN y LEFT JOIN",
+    "archivo": "13_JPQL/CLASE_04.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 5,
+    "titulo": "COUNT, SUM, AVG, GROUP BY y HAVING",
+    "archivo": "13_JPQL/CLASE_05.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 6,
+    "titulo": "Subconsultas, EXISTS y NOT EXISTS",
+    "archivo": "13_JPQL/CLASE_06.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 7,
+    "titulo": "CASE y consultas avanzadas",
+    "archivo": "13_JPQL/CLASE_07.md"
+  },
+  {
+    "unidad": "13_JPQL",
+    "clase": 8,
+    "titulo": "Práctica escalonada: los cinco niveles del TP grupal",
+    "archivo": "13_JPQL/CLASE_08.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 1,
+    "titulo": "HTTP: URL, petición, respuesta, JSON y códigos de estado",
+    "archivo": "14_Spring/CLASE_01.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 2,
+    "titulo": "API, recursos y operaciones CRUD",
+    "archivo": "14_Spring/CLASE_02.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 3,
+    "titulo": "Spring, Spring Boot y primer proyecto",
+    "archivo": "14_Spring/CLASE_03.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 4,
+    "titulo": "Beans, ApplicationContext e inyección de dependencias",
+    "archivo": "14_Spring/CLASE_04.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 5,
+    "titulo": "Configuración, starters y perfiles",
+    "archivo": "14_Spring/CLASE_05.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 6,
+    "titulo": "Capas: Controller, Service y Repository",
+    "archivo": "14_Spring/CLASE_06.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 7,
+    "titulo": "Endpoints GET y parámetros",
+    "archivo": "14_Spring/CLASE_07.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 8,
+    "titulo": "DTO de entrada y salida; validación",
+    "archivo": "14_Spring/CLASE_08.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 9,
+    "titulo": "POST, PUT y DELETE",
+    "archivo": "14_Spring/CLASE_09.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 10,
+    "titulo": "Errores, excepciones y ControllerAdvice",
+    "archivo": "14_Spring/CLASE_10.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 11,
+    "titulo": "Spring Data JPA, H2 y transacciones",
+    "archivo": "14_Spring/CLASE_11.md"
+  },
+  {
+    "unidad": "14_Spring",
+    "clase": 12,
+    "titulo": "Práctica: CRUD de cursos y facturación",
+    "archivo": "14_Spring/CLASE_12.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 1,
+    "titulo": "Seguir una petición del frontend al backend",
+    "archivo": "15_Integracion/CLASE_01.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 2,
+    "titulo": "Alinear interfaces TypeScript y DTO Java",
+    "archivo": "15_Integracion/CLASE_02.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 3,
+    "titulo": "Estados de carga, error, resultado y CORS",
+    "archivo": "15_Integracion/CLASE_03.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 4,
+    "titulo": "Recorrido del proyecto de facturación descomprimido",
+    "archivo": "15_Integracion/CLASE_04.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 5,
+    "titulo": "Food Store: catálogo, filtros y detalle",
+    "archivo": "15_Integracion/CLASE_05.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 6,
+    "titulo": "Carrito, cantidades y localStorage",
+    "archivo": "15_Integracion/CLASE_06.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 7,
+    "titulo": "Pedidos y administración",
+    "archivo": "15_Integracion/CLASE_07.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 8,
+    "titulo": "Sesión didáctica y permisos: alcance del ejemplo",
+    "archivo": "15_Integracion/CLASE_08.md"
+  },
+  {
+    "unidad": "15_Integracion",
+    "clase": 9,
+    "titulo": "Verificación de requisitos y explicación del proyecto",
+    "archivo": "15_Integracion/CLASE_09.md"
+  }
+]

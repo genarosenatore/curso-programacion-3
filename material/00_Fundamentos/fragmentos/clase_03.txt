@@ -1,0 +1,6 @@
+LEER importe
+SI importe >= 10000
+    CALCULAR total COMO importe POR 0.90
+SI NO
+    ASIGNAR importe A total
+MOSTRAR total

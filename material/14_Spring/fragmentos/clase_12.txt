@@ -1,0 +1,6 @@
+Caso 1: POST válido → 201 y producto con id
+Caso 2: GET del id → 200 y datos guardados
+Caso 3: PUT del id → 200 y datos cambiados
+Caso 4: DELETE del id → 204 sin cuerpo
+Caso 5: GET del id borrado → 404
+Caso 6: POST con nombre vacío → 400

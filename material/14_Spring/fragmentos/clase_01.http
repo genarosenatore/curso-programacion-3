@@ -1,0 +1,6 @@
+POST /api/productos
+Content-Type: application/json
+
+{"nombre":"Cuaderno","precio":2000.00,"stock":3}
+
+Respuesta esperada: 201 Created, Location y JSON del producto creado.

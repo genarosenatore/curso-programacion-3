@@ -1,0 +1,6 @@
+/* estilos.css */
+p { color: #333; }
+.destacado { color: #075985; font-weight: bold; }
+
+/* En HTML: <link rel="stylesheet" href="estilos.css"> */
+/* En HTML: <p class="destacado">Oferta</p> */

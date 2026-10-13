@@ -1,0 +1,4 @@
+.tarjeta { border: 1px solid #ccc; padding: 1rem; }
+.tarjeta__titulo { margin-top: 0; }
+.tarjeta--agotada { opacity: .6; }
+/* HTML: <article class="tarjeta tarjeta--agotada">...</article> */

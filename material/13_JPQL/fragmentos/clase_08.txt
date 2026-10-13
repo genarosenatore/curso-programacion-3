@@ -1,0 +1,6 @@
+Ficha de consulta
+Pregunta: total por condición de IVA
+Origen: FacturaVenta
+Agrupación: condicionIva.id y condicionIva.denominacion
+Salida: denominación y suma de importeTotal
+Caso de prueba: dos facturas de la misma condición y una de otra

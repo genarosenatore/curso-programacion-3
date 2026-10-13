@@ -1,0 +1,5 @@
+GET    /api/productos
+GET    /api/productos/1
+POST   /api/productos
+PUT    /api/productos/1
+DELETE /api/productos/1

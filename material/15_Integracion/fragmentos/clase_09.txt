@@ -1,0 +1,4 @@
+Requisito: agregar al carrito
+Implementación: función de carrito + evento del botón
+Prueba: mismo producto dos veces, stock insuficiente y persistencia tras recargar
+Resultado esperado: cantidades coherentes y error visible sin perder el carrito

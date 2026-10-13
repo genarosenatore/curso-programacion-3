@@ -1,0 +1,5 @@
+git init
+git status
+git add index.html
+git commit -m "Agregar primera pagina"
+git log --oneline

@@ -1,0 +1,9 @@
+public/index.html
+  ↓
+src/facturas.ts
+  ↓
+src/facturaVentaApi.ts: obtenerFacturas
+  ↓ GET /api/facturas
+FacturaVentaController.java
+  ↓
+FacturaVentaService.java

@@ -1,0 +1,26 @@
+### Lista
+GET http://127.0.0.1:8080/api/productos
+
+### Crear (copiar su id para operaciones posteriores)
+POST http://127.0.0.1:8080/api/productos
+Content-Type: application/json
+
+{"nombre":"Mochila","precio":5000.00,"stock":2}
+
+### Nombre vacío: 400
+POST http://127.0.0.1:8080/api/productos
+Content-Type: application/json
+
+{"nombre":"","precio":10,"stock":1}
+
+### Inexistente: 404
+GET http://127.0.0.1:8080/api/productos/999999
+
+### Actualizar el id creado (ejemplo 3; cambiar si hace falta)
+PUT http://127.0.0.1:8080/api/productos/3
+Content-Type: application/json
+
+{"nombre":"Mochila grande","precio":5500.00,"stock":3}
+
+### Eliminar el id creado: 204 sin cuerpo
+DELETE http://127.0.0.1:8080/api/productos/3

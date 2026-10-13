@@ -1,0 +1,11 @@
+PRAGMA foreign_keys=ON;
+CREATE TABLE categoria(id INTEGER PRIMARY KEY,nombre TEXT NOT NULL UNIQUE);
+CREATE TABLE producto(id INTEGER PRIMARY KEY,nombre TEXT NOT NULL,precio_centavos INTEGER NOT NULL CHECK(precio_centavos>=0),categoria_id INTEGER REFERENCES categoria(id));
+CREATE TABLE cliente(id INTEGER PRIMARY KEY,nombre TEXT NOT NULL);
+CREATE TABLE factura(id INTEGER PRIMARY KEY,cliente_id INTEGER NOT NULL REFERENCES cliente(id));
+CREATE TABLE detalle(id INTEGER PRIMARY KEY,factura_id INTEGER NOT NULL REFERENCES factura(id),producto_id INTEGER NOT NULL REFERENCES producto(id),cantidad INTEGER NOT NULL CHECK(cantidad>0),precio_centavos INTEGER NOT NULL CHECK(precio_centavos>=0));
+INSERT INTO categoria VALUES(1,'Útiles'),(2,'Libros'),(3,'Sin productos');
+INSERT INTO producto VALUES(1,'Cuaderno',200000,1),(2,'Lapicera',80000,1),(3,'Libro',350000,2),(4,'Producto sin categoría',100000,NULL);
+INSERT INTO cliente VALUES(1,'Ana');
+INSERT INTO factura VALUES(1,1);
+INSERT INTO detalle VALUES(1,1,1,2,200000),(2,1,2,1,80000);

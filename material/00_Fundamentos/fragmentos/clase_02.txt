@@ -1,0 +1,6 @@
+mi-tienda/
+  index.html
+  css/
+    estilos.css
+  imagenes/
+    producto.png

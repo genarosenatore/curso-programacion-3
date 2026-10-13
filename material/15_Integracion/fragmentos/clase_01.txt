@@ -1,0 +1,3 @@
+Botón → evento → función cliente HTTP → petición
+→ Controller → Service → Repository → base
+→ DTO → respuesta → cliente HTTP → render

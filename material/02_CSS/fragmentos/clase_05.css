@@ -1,0 +1,3 @@
+.tarjeta { position: relative; padding: 1rem; }
+.etiqueta { position: absolute; top: .5rem; right: .5rem; }
+.oculto { display: none; }

@@ -1,0 +1,4 @@
+Caso A: precio = 200; cantidad = 3
+Operación escrita: total = precio + cantidad
+Resultado observado: 203
+Resultado esperado: 600

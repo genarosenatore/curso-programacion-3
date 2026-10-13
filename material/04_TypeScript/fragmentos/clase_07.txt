@@ -1,0 +1,6 @@
+npm create vite@latest mi-tienda -- --template vanilla-ts
+cd mi-tienda
+npm install
+npm run dev
+# En otra terminal, dentro del proyecto:
+npx tsc --noEmit
